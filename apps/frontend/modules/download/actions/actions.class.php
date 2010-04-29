@@ -10,6 +10,11 @@
  */
 class downloadActions extends sfActions
 {
+  public function executeRedirect()
+  {
+    $this->redirect('@download?slug=orm');
+  }
+
   public function executeIndex(sfWebRequest $request)
   {
     $this->project = Project::getProject($request->getParameter('slug'));

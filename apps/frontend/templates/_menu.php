@@ -13,7 +13,6 @@
 
   $links['@blog'] = 'blog';
   $links['http://www.doctrine-project.org/jira'] = 'development';
-  $links['http://www.doctrine-project.org/wiki/index.php'] = 'wiki';
 
   $current = $sf_request->getParameter('current_menu_item');
 

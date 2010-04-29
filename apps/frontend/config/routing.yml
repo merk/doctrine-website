@@ -39,6 +39,10 @@ project_documentation_item_chapter:
   param: { module: documentation, action: item_chapter }
   options: { segment_separators: [/] }
 
+download_redirect:
+  url:   /download
+  param: { module: download, action: redirect }
+
 download:
   url:   /projects/:slug/download
   param: { module: download, action: index }
