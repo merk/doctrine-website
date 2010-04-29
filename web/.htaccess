@@ -8,31 +8,15 @@ Options +FollowSymLinks +ExecCGI
   #RewriteBase /
 
   # we skip all files with .something
-  RewriteCond %{REQUEST_URI} \..+$
-  RewriteCond %{REQUEST_URI} !\.html$
-  RewriteCond %{REQUEST_URI} !\.rss$
-  RewriteRule .* - [L]
+  #RewriteCond %{REQUEST_URI} \..+$
+  #RewriteCond %{REQUEST_URI} !\.html$
+  #RewriteRule .* - [L]
 
   # we check if the .html version is here (caching)
-  RewriteCond %{REQUEST_METHOD} GET
-  RewriteCond %{DOCUMENT_ROOT}/cache/%{REQUEST_URI}index.html.php -f
-  RewriteRule ^(.*) cache/$1index.html.php [L]
-
-  RewriteCond %{REQUEST_METHOD} GET
-  RewriteCond %{DOCUMENT_ROOT}/cache/%{REQUEST_URI}.html.php -f
-  RewriteRule ^(.*) cache/$1.html.php [L]
-
-  RewriteCond %{REQUEST_METHOD} GET
-  RewriteCond %{DOCUMENT_ROOT}/cache/%{REQUEST_URI}.php -f
-  RewriteRule ^(.*) cache/$1.php [L]
-
+  RewriteRule ^$ index.html [QSA]
+  RewriteRule ^([^.]+)$ $1.html [QSA]
   RewriteCond %{REQUEST_FILENAME} !-f
 
   # no, so we redirect to our front web controller
   RewriteRule ^(.*)$ index.php [QSA,L]
-
-  RewriteCond %{HTTP_HOST} www.doctrine-project.com
 </IfModule>
-
-# big crash from our front web controller
-ErrorDocument 500 "<h2>Application error</h2>symfony application failed to start properly"
