@@ -7,10 +7,29 @@
   border-bottom: 1px solid #ccc;
   padding: 10px;
   margin-right: 30px;
+  font-weight: bold;
 }
 
 #project_content ul li ul li {
   background: #fff;
+}
+
+#project_content .version {
+  float: left;
+  width: 250px;
+  padding: 20px;
+  margin-right: 10px;
+}
+
+#project_content .version ul li {
+  margin: 0;
+  padding: 8px;
+}
+
+#project_content .version h3 {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 10px;
 }
 
 #dbal {

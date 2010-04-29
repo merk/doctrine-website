@@ -14,24 +14,24 @@
     <p>The latest stable version for <strong><?php echo $project->getShortTitle() ?></strong> is <strong><?php echo $project->getLatestVersion() ?></strong> and is in <strong><?php echo $project->getLatestVersion()->getStability() ?></strong> condition.</p>
 
     <ul>
-      <li><strong><?php echo link_to(image_tag('/images/disk.gif') . ' Download Information', '@download?slug='.$project->getSlug()) ?></strong></li>
+      <li><?php echo link_to(image_tag('/images/disk.gif') . ' Download Information', '@download?slug='.$project->getSlug()) ?></li>
     </ul>
 
-    <h3>Versions</h3>
     <ul>
       <?php foreach ($project->getVersions() as $v): ?>
-        <li>
-          <strong><?php echo link_to($v->getSlug(), '@project_documentation?slug='.$project->getSlug().'&version='.$v->getSlug()) ?></strong>
+        <li class="version">
+          <h3>Version <?php echo $v->getSlug() ?></h3>
           <ul>
+            <li><?php echo link_to('View Project', '@project_documentation?slug='.$project->getSlug().'&version='.$v->getSlug()) ?></li>
             <?php if ($latestRelease = $v->getLatestRelease()): ?>
-              <li><strong><?php echo link_to('Download ' . $latestRelease->getSlug(), '@download_release?slug='.$project->getSlug().'&version='.$v->getSlug() . '&release=' . $latestRelease->getSlug()) ?></strong></li>
+              <li><?php echo link_to('Download ' . $latestRelease->getSlug(), '@download_release?slug='.$project->getSlug().'&version='.$v->getSlug() . '&release=' . $latestRelease->getSlug()) ?></li>
             <?php else: ?>
-              <li><strong><?php echo link_to('Download ' . $v->getSlug(), '@download?slug='.$project->getSlug().'#'.$v->getSlug()) ?></strong></li>
+              <li><?php echo link_to('Download ' . $v->getSlug(), '@download?slug='.$project->getSlug().'#'.$v->getSlug()) ?></li>
             <?php endif; ?>
           
-            <li><strong><?php echo link_to('Documentation', '@project_documentation?slug='.$project->getSlug().'&version='.$v->getSlug()) ?></strong></li>
-            <li><strong><?php echo link_to('Report a Bug', $v->getIssuesLink()) ?></strong></li>
-            <li><strong><?php echo link_to('Browse Source', $v->getBrowseSourceLink()) ?></strong></li>
+            <li><?php echo link_to('Documentation', '@project_documentation?slug='.$project->getSlug().'&version='.$v->getSlug()) ?></li>
+            <li><?php echo link_to('Report a Bug', $v->getIssuesLink()) ?></li>
+            <li><?php echo link_to('Browse Source', $v->getBrowseSourceLink()) ?></li>
           </ul>
         </li>
       <?php endforeach; ?>
