@@ -6,7 +6,7 @@
 
   <frameset rows="65, 100%">
     <frame src="<?php echo url_for('@project_api_documentation_navigation?slug='.$project->getSlug().'&version='.$version->getSlug()) ?>" name="navigation" scrolling="no" frameborder="0">
-    <frame src="<?php echo $sf_request->getRelativeUrlRoot() ?>/api/<?php echo $project->getSlug() ?>/<?php echo $version->getSlug() ?>" name="apidocs" frameborder="0">
+    <frame src="<?php echo $sf_request->getRelativeUrlRoot() ?>/api/<?php echo $project->getSlug() ?>/<?php echo $version->getSlug() ?>/index.html" name="apidocs" frameborder="0">
   </frameset>
 
   <noframes>
