@@ -217,9 +217,9 @@ mongodb_odm:
           update_command: "rm -rf source/mongodb_odm1.0 && git clone git://github.com/jwage/odm.git source/mongodb_odm1.0 && rm -rf ../web/api/mongodb_odm/1.0 && cd .. && php apidocs.php api-mongodb_odm-1.0.ini"
         reference:
           slug: reference
-          title: "REST Server & Client Documentation"
-          subtitle: Reference for using the Doctrine REST Server and Client
-          description: Learn how to use the Doctrine REST Server and Client to easily build web services.
+          title: "Doctrine MongoDB Object Document Mapper Reference Documentation"
+          subtitle: Reference for using the Doctrine MongoDB Object Document Mapper
+          description: Learn how to use the Doctrine MongoDB Object Document Mapper quickly and easily.
           toc_path: documentation/mongodb_odm1.0/reference
           markup_parser: markdown
           update_command: "rm -rf documentation/mongodb_odm1.0 && git clone git://github.com/doctrine/mongodb_odm_documentation.git documentation/mongodb_odm1.0"
