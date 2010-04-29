@@ -1,0 +1,26 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           RecordComment
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          comments
+    with_doctrine_route:     1
+
+    config:
+      actions: ~
+      fields:
+        record_type:
+          label: Type
+      list:
+        layout: stacked
+        display:  [=subject, body]
+      filter:
+        class:    RecordCommentFormFilter
+        display:  [record_type, poster, subject]
+      form:    ~
+      edit:    ~
+      new:     ~

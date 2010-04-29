@@ -1,0 +1,292 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+<head>
+
+<meta name="generator" content="PHPDoctor 2RC4 (http://phpdoctor.sourceforge.net/)">
+<meta name="when" content="Fri, 09 Apr 2010 11:50:26 -0400">
+
+<link rel="stylesheet" type="text/css" href="../stylesheet.css">
+<link rel="start" href="../overview-summary.html">
+
+<title>Doctrine_Search_Query (Doctrine 1.2 ORM)</title>
+
+</head>
+<body id="definition" onload="parent.document.title=document.title;">
+
+<div class="header">
+<h1>Doctrine</h1>
+<ul>
+<li><a href="../overview-summary.html">Overview</a></li>
+<li><a href="../doctrine/package-summary.html">Namespace</a></li>
+<li class="active">Class</li>
+<li><a href="../doctrine/package-tree.html">Tree</a></li>
+<li><a href="../deprecated-list.html">Deprecated</a></li>
+<li><a href="../index-all.html">Index</a></li>
+</ul>
+</div>
+
+<div class="small_links">
+<a href="../index.html" target="_top">Frames</a>
+<a href="../doctrine/doctrine_search_query.html" target="_top">No frames</a>
+</div>
+<div class="small_links">
+Summary: <a href="#summary_field">Field</a> | <a href="#summary_method">Method</a> | <a href="#summary_constr">Constr</a>
+Detail: <a href="#detail_field">Field</a> | <a href="#detail_method">Method</a> | <a href="#summary_constr">Constr</a>
+</div>
+<hr>
+
+<div class="qualifiedName">Doctrine\Doctrine_Search_Query</div>
+<div class="location">/Doctrine/Search/Query.php at line 33</div>
+
+<h1>Class Doctrine_Search_Query</h1>
+
+<pre class="tree"><strong>Doctrine_Search_Query</strong><br /></pre>
+
+<hr>
+
+<p class="signature">public  class <strong>Doctrine_Search_Query</strong></p>
+
+<div class="comment" id="overview_description"><p>Doctrine_Search_Query</p></div>
+
+<dl>
+<dt>Subpackage:</dt>
+<dd>Search</dd>
+<dt>Author:</dt>
+<dd>Konsta Vesterinen <kvesteri@cc.hut.fi></dd>
+<dt>License:</dt>
+<dd>http://www.opensource.org/licenses/lgpl-license.php LGPL</dd>
+<dt>Version:</dt>
+<dd>$Revision$</dd>
+<dt>See Also:</dt>
+<dd><code>www.doctrine-project.org</code></dd>
+<dt>Since:</dt>
+<dd>1.0</dd>
+</dl>
+<hr>
+
+<table id="summary_field">
+<tr><th colspan="2">Field Summary</th></tr>
+<tr>
+<td class="type">protected  mixed</td>
+<td class="description"><p class="name"><a href="#_condition">$_condition</a></p></td>
+</tr>
+<tr>
+<td class="type">protected  mixed</td>
+<td class="description"><p class="name"><a href="#_params">$_params</a></p></td>
+</tr>
+<tr>
+<td class="type">protected  mixed</td>
+<td class="description"><p class="name"><a href="#_sql">$_sql</a></p></td>
+</tr>
+<tr>
+<td class="type">protected  Doctrine_Table $_table          the index table</td>
+<td class="description"><p class="name"><a href="#_table">$_table</a></p><p class="description">.</p></td>
+</tr>
+<tr>
+<td class="type">protected  mixed</td>
+<td class="description"><p class="name"><a href="#_tokenizer">$_tokenizer</a></p></td>
+</tr>
+<tr>
+<td class="type">protected  mixed</td>
+<td class="description"><p class="name"><a href="#_words">$_words</a></p></td>
+</tr>
+</table>
+
+<table id="summary_constr">
+<tr><th colspan="2">Constructor Summary</th></tr>
+<tr>
+<td class="description"><p class="name"><a href="#Doctrine_Search_Query()">Doctrine_Search_Query</a>(mixed table, <a href="../doctrine/doctrine_table.html">Doctrine_Table</a> _table)</p><p class="description">.</p></td>
+</tr>
+</table>
+
+<table id="summary_method">
+<tr><th colspan="2">Method Summary</th></tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#getParams()">getParams</a>()</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#getSqlQuery()">getSqlQuery</a>()</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#getWords()">getWords</a>()</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#isExpression()">isExpression</a>(mixed term)</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#parseClause()">parseClause</a>(mixed originalClause, mixed recursive)</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#parseTerm()">parseTerm</a>(mixed term)</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#parseWord()">parseWord</a>(mixed word)</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#query()">query</a>(mixed text, mixed includeRelevance)</p></td>
+</tr>
+</table>
+
+<h2 id="detail_field">Field Detail</h2>
+<div class="location">/Doctrine/Search/Query.php at line 49</div>
+<h3 id="_condition">_condition</h3>
+<code class="signature">protected  mixed <strong>$_condition</strong></code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Search/Query.php at line 43</div>
+<h3 id="_params">_params</h3>
+<code class="signature">protected  mixed <strong>$_params</strong> = array()</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Search/Query.php at line 41</div>
+<h3 id="_sql">_sql</h3>
+<code class="signature">protected  mixed <strong>$_sql</strong> = ''</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Search/Query.php at line 39</div>
+<h3 id="_table">_table</h3>
+<code class="signature">protected  Doctrine_Table $_table          the index table <strong>$_table</strong> = array()</code>
+<div class="details">
+<p></p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Search/Query.php at line 47</div>
+<h3 id="_tokenizer">_tokenizer</h3>
+<code class="signature">protected  mixed <strong>$_tokenizer</strong></code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Search/Query.php at line 45</div>
+<h3 id="_words">_words</h3>
+<code class="signature">protected  mixed <strong>$_words</strong> = array()</code>
+<div class="details">
+</div>
+
+<hr>
+
+<h2 id="detail_constr">Constructor Detail</h2>
+<div class="location">/Doctrine/Search/Query.php at line 54</div>
+<h3 id="Doctrine_Search_Query()">Doctrine_Search_Query</h3>
+<code class="signature">public <strong>Doctrine_Search_Query</strong>(mixed table, <a href="../doctrine/doctrine_table.html">Doctrine_Table</a> _table)</code>
+<div class="details">
+<p></p><dl>
+<dt>Parameters:</dt>
+<dd>_table - the index table</dd>
+</dl>
+</div>
+
+<hr>
+
+<h2 id="detail_method">Method Detail</h2>
+<div class="location">/Doctrine/Search/Query.php at line 240</div>
+<h3 id="getParams()">getParams</h3>
+<code class="signature">public  void <strong>getParams</strong>()</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Search/Query.php at line 245</div>
+<h3 id="getSqlQuery()">getSqlQuery</h3>
+<code class="signature">public  void <strong>getSqlQuery</strong>()</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Search/Query.php at line 235</div>
+<h3 id="getWords()">getWords</h3>
+<code class="signature">public  void <strong>getWords</strong>()</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Search/Query.php at line 181</div>
+<h3 id="isExpression()">isExpression</h3>
+<code class="signature">public  void <strong>isExpression</strong>(mixed term)</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Search/Query.php at line 110</div>
+<h3 id="parseClause()">parseClause</h3>
+<code class="signature">public  void <strong>parseClause</strong>(mixed originalClause, mixed recursive)</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Search/Query.php at line 192</div>
+<h3 id="parseTerm()">parseTerm</h3>
+<code class="signature">public  void <strong>parseTerm</strong>(mixed term)</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Search/Query.php at line 214</div>
+<h3 id="parseWord()">parseWord</h3>
+<code class="signature">public  void <strong>parseWord</strong>(mixed word)</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Search/Query.php at line 73</div>
+<h3 id="query()">query</h3>
+<code class="signature">public  void <strong>query</strong>(mixed text, mixed includeRelevance)</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="header">
+<h1>Doctrine</h1>
+<ul>
+<li><a href="../overview-summary.html">Overview</a></li>
+<li><a href="../doctrine/package-summary.html">Namespace</a></li>
+<li class="active">Class</li>
+<li><a href="../doctrine/package-tree.html">Tree</a></li>
+<li><a href="../deprecated-list.html">Deprecated</a></li>
+<li><a href="../index-all.html">Index</a></li>
+</ul>
+</div>
+
+<div class="small_links">
+<a href="../index.html" target="_top">Frames</a>
+<a href="../doctrine/doctrine_search_query.html" target="_top">No frames</a>
+</div>
+<div class="small_links">
+Summary: <a href="#summary_field">Field</a> | <a href="#summary_method">Method</a> | <a href="#summary_constr">Constr</a>
+Detail: <a href="#detail_field">Field</a> | <a href="#detail_method">Method</a> | <a href="#summary_constr">Constr</a>
+</div>
+<hr>
+
+<p id="footer">This document was generated by <a href="http://peej.github.com/phpdoctor/">PHPDoctor: The PHP Documentation Creator</a></p>
+
+</body>
+
+</html>

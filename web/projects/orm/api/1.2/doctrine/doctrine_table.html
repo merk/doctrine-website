@@ -1,0 +1,2456 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+<head>
+
+<meta name="generator" content="PHPDoctor 2RC4 (http://phpdoctor.sourceforge.net/)">
+<meta name="when" content="Fri, 09 Apr 2010 11:50:26 -0400">
+
+<link rel="stylesheet" type="text/css" href="../stylesheet.css">
+<link rel="start" href="../overview-summary.html">
+
+<title>Doctrine_Table (Doctrine 1.2 ORM)</title>
+
+</head>
+<body id="definition" onload="parent.document.title=document.title;">
+
+<div class="header">
+<h1>Doctrine</h1>
+<ul>
+<li><a href="../overview-summary.html">Overview</a></li>
+<li><a href="../doctrine/package-summary.html">Namespace</a></li>
+<li class="active">Class</li>
+<li><a href="../doctrine/package-tree.html">Tree</a></li>
+<li><a href="../deprecated-list.html">Deprecated</a></li>
+<li><a href="../index-all.html">Index</a></li>
+</ul>
+</div>
+
+<div class="small_links">
+<a href="../index.html" target="_top">Frames</a>
+<a href="../doctrine/doctrine_table.html" target="_top">No frames</a>
+</div>
+<div class="small_links">
+Summary: <a href="#summary_field">Field</a> | <a href="#summary_method">Method</a> | <a href="#summary_constr">Constr</a>
+Detail: <a href="#detail_field">Field</a> | <a href="#detail_method">Method</a> | <a href="#summary_constr">Constr</a>
+</div>
+<hr>
+
+<div class="qualifiedName">Doctrine\Doctrine_Table</div>
+<div class="location">/Doctrine/Table.php at line 37</div>
+
+<h1>Class Doctrine_Table</h1>
+
+<pre class="tree">Class:Doctrine_Table - Superclass: Doctrine_Configurable
+Class:Doctrine_Configurable - Superclass: Doctrine_Locator_Injectable
+<a href="../doctrine/doctrine_locator_injectable.html">Doctrine_Locator_Injectable</a><br>   &lfloor;&nbsp;<a href="../doctrine/doctrine_configurable.html">Doctrine_Configurable</a><br>      &lfloor;&nbsp;<strong>Doctrine_Table</strong><br /></pre>
+
+<hr>
+
+<p class="signature">public  class <strong>Doctrine_Table</strong><br>extends <a href="../doctrine/doctrine_configurable.html">Doctrine_Configurable</a>
+
+</p>
+
+<div class="comment" id="overview_description"><p>Doctrine_Table   represents a database table
+each Doctrine_Table holds the information of foreignKeys and associations</p></div>
+
+<dl>
+<dt>Author:</dt>
+<dd>Konsta Vesterinen <kvesteri@cc.hut.fi></dd>
+<dt>Subpackage:</dt>
+<dd>Table</dd>
+<dt>License:</dt>
+<dd>http://www.opensource.org/licenses/lgpl-license.php LGPL</dd>
+<dt>Version:</dt>
+<dd>$Revision: 7490 $</dd>
+<dt>See Also:</dt>
+<dd><code>www.doctrine-project.org</code></dd>
+<dt>Since:</dt>
+<dd>1.0</dd>
+<dt>Method:</dt>
+<dd>mixed findBy*(mixed $value) magic finders; @see __call()</dd>
+<dd>mixed findOneBy*(mixed $value) magic finders; @see __call()</dd>
+<dt>Category:</dt>
+<dd>Locator</dd>
+</dl>
+<hr>
+
+<table id="summary_field">
+<tr><th colspan="2">Field Summary</th></tr>
+<tr>
+<td class="type">protected  array $_columnNames             an array of column names keys are field names and values column names. used to look up column names from field names. this is the reverse lookup map of $_fieldNames.</td>
+<td class="description"><p class="name"><a href="#_columnNames">$_columnNames</a></p><p class="description">.</p></td>
+</tr>
+<tr>
+<td class="type">protected  array $columns                  an array of column definitions, keys are column names and values are column definitions the definition array has atleast the following values: -- type         the column type, eg. 'integer' -- length       the column length, eg. 11 additional keys: -- notnull      whether or not the column is marked as notnull -- values       enum values -- notblank     notblank validator + notnull constraint ... many more</td>
+<td class="description"><p class="name"><a href="#_columns">$_columns</a></p><p class="description">.</p></td>
+</tr>
+<tr>
+<td class="type">protected  Doctrine_Connection $conn                   Doctrine_Connection object that created this table</td>
+<td class="description"><p class="name"><a href="#_conn">$_conn</a></p><p class="description">.</p></td>
+</tr>
+<tr>
+<td class="type">protected  array $data                                 temporary data which is then loaded into Doctrine_Record::$_data</td>
+<td class="description"><p class="name"><a href="#_data">$_data</a></p><p class="description">.</p></td>
+</tr>
+<tr>
+<td class="type">protected  array $_fieldNames            an array of field names, used to look up field names from column names. Keys are column names and values are field names. Alias for columns are here.</td>
+<td class="description"><p class="name"><a href="#_fieldNames">$_fieldNames</a></p><p class="description">.</p></td>
+</tr>
+<tr>
+<td class="type">protected  array $_filters                     an array containing all record filters attached to this table</td>
+<td class="description"><p class="name"><a href="#_filters">$_filters</a></p><p class="description">.</p></td>
+</tr>
+<tr>
+<td class="type">protected  Doctrine_Record_Generator $generator</td>
+<td class="description"><p class="name"><a href="#_generator">$_generator</a></p><p class="description">Generator instance responsible for constructing this table.</p></td>
+</tr>
+<tr>
+<td class="type">protected  array $_generators                  an array containing all generators attached to this table</td>
+<td class="description"><p class="name"><a href="#_generators">$_generators</a></p><p class="description">.</p></td>
+</tr>
+<tr>
+<td class="type">protected  mixed $identifier   The field names of all fields that are part of the identifier/primary key</td>
+<td class="description"><p class="name"><a href="#_identifier">$_identifier</a></p><p class="description">.</p></td>
+</tr>
+<tr>
+<td class="type">protected  integer $identifierType                     the type of identifier this table uses</td>
+<td class="description"><p class="name"><a href="#_identifierType">$_identifierType</a></p><p class="description">.</p></td>
+</tr>
+<tr>
+<td class="type">protected  array $identityMap                          first level cache</td>
+<td class="description"><p class="name"><a href="#_identityMap">$_identityMap</a></p><p class="description">.</p></td>
+</tr>
+<tr>
+<td class="type">protected  array $_invokedMethods              method invoker cache</td>
+<td class="description"><p class="name"><a href="#_invokedMethods">$_invokedMethods</a></p><p class="description">.</p></td>
+</tr>
+<tr>
+<td class="type">protected  array $options                  an array containing all options -- name                         name of the component, for example component name of the GroupTable is 'Group' -- parents                      the parent classes of this component -- declaringClass               name of the table definition declaring class (when using inheritance the class that defines the table structure can be any class in the inheritance hierarchy, hence we need reflection to check out which class actually calls setTableDefinition) -- tableName                    database table name, in most cases this is the same as component name but in some cases where one-table-multi-class inheritance is used this will be the name of the inherited table -- sequenceName                 Some databases need sequences instead of auto incrementation primary keys, you can set specific sequence for your table by calling setOption('sequenceName', $seqName) where $seqName is the name of the desired sequence -- enumMap                      enum value arrays -- inheritanceMap               inheritanceMap is used for inheritance mapping, keys representing columns and values the column values that should correspond to child classes -- type                         table type (mysql example: INNODB) -- charset                      character set -- foreignKeys                  the foreign keys of this table -- checks                       the check constraints of this table, eg. 'price > dicounted_price' -- collate                      collate attribute -- indexes                      the index definitions of this table -- treeImpl                     the tree implementation of this table (if any) -- treeOptions                  the tree options -- queryParts                   the bound query parts -- versioning</td>
+<td class="description"><p class="name"><a href="#_options">$_options</a></p><p class="description">.</p></td>
+</tr>
+<tr>
+<td class="type">protected  Doctrine_Relation_Parser $_parser   relation parser object</td>
+<td class="description"><p class="name"><a href="#_parser">$_parser</a></p><p class="description">.</p></td>
+</tr>
+<tr>
+<td class="type">protected  Doctrine_Table_Repository $repository       record repository</td>
+<td class="description"><p class="name"><a href="#_repository">$_repository</a></p><p class="description">.</p></td>
+</tr>
+<tr>
+<td class="type">protected  array $_templates                   an array containing all templates attached to this table</td>
+<td class="description"><p class="name"><a href="#_templates">$_templates</a></p><p class="description">.</p></td>
+</tr>
+<tr>
+<td class="type">protected  Doctrine_Tree $tree                 tree object associated with this table</td>
+<td class="description"><p class="name"><a href="#_tree">$_tree</a></p><p class="description">.</p></td>
+</tr>
+<tr>
+<td class="type">protected  array $_uniques</td>
+<td class="description"><p class="name"><a href="#_uniques">$_uniques</a></p><p class="description">Array of unique sets of fields. </p></td>
+</tr>
+<tr>
+<td class="type">protected  integer $columnCount            cached column count, Doctrine_Record uses this column count in when determining its state</td>
+<td class="description"><p class="name"><a href="#columnCount">$columnCount</a></p><p class="description">.</p></td>
+</tr>
+<tr>
+<td class="type">protected  boolean $hasDefaultValues       whether or not this table has default values</td>
+<td class="description"><p class="name"><a href="#hasDefaultValues">$hasDefaultValues</a></p><p class="description">.</p></td>
+</tr>
+<tr>
+<td class="type">protected  Doctrine_Record $record             empty instance of the given model</td>
+<td class="description"><p class="name"><a href="#record">$record</a></p><p class="description">.</p></td>
+</tr>
+</table>
+
+<table class="inherit">
+<tr><th colspan="2">Fields inherited from Doctrine\Doctrine_Configurable</th></tr>
+<tr><td><a href="../doctrine/doctrine_configurable.html#_impl">_impl</a>, <a href="../doctrine/doctrine_configurable.html#_params">_params</a>, <a href="../doctrine/doctrine_configurable.html#attributes">attributes</a>, <a href="../doctrine/doctrine_configurable.html#parent">parent</a></td></tr></table>
+
+<table class="inherit">
+<tr><th colspan="2">Fields inherited from Doctrine\Doctrine_Locator_Injectable</th></tr>
+<tr><td><a href="../doctrine/doctrine_locator_injectable.html#_locator">_locator</a>, <a href="../doctrine/doctrine_locator_injectable.html#_null">_null</a>, <a href="../doctrine/doctrine_locator_injectable.html#_resources">_resources</a></td></tr></table>
+
+<table id="summary_constr">
+<tr><th colspan="2">Constructor Summary</th></tr>
+<tr>
+<td class="description"><p class="name"><a href="#Doctrine_Table()">Doctrine_Table</a>(string name, <a href="../doctrine/doctrine_connection.html">Doctrine_Connection</a> conn, boolean initDefinition)</p><p class="description">the constructor.</p></td>
+</tr>
+</table>
+
+<table id="summary_method">
+<tr><th colspan="2">Method Summary</th></tr>
+<tr>
+<td class="type"> the</td>
+<td class="description"><p class="name"><a href="#__call()">__call</a>(mixed method, mixed arguments)</p><p class="description">Adds support for magic finders.
+</p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#__get()">__get</a>(string option)</p><p class="description">Magic method for accessing to object properties.
+</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#__isset()">__isset</a>(string option)</p><p class="description">Magic method for testing object properties existence.
+</p></td>
+</tr>
+<tr>
+<td class="type"> string</td>
+<td class="description"><p class="name"><a href="#__toString()">__toString</a>()</p><p class="description">Generates a string representation of this object.
+</p></td>
+</tr>
+<tr>
+<td class="type">protected  boolean</td>
+<td class="description"><p class="name"><a href="#_checkForeignKeyExists()">_checkForeignKeyExists</a>(array def, array foreignKeys)</p><p class="description">Check if a foreign definition already exists in the fks array for a 
+foreign table, local and foreign key.</p></td>
+</tr>
+<tr>
+<td class="type">protected  string</td>
+<td class="description"><p class="name"><a href="#_resolveFindByFieldName()">_resolveFindByFieldName</a>(string name)</p><p class="description">Resolves the passed find by field name inflecting the parameter. </p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#addCheckConstraint()">addCheckConstraint</a>(mixed definition, mixed name, $definition )</p><p class="description">Adds a check constraint to the table in-memory definition.
+</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#addForeignKey()">addForeignKey</a>(array definition)</p><p class="description">Adds a foreignKey to the table in-memory definition.
+</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../doctrine/doctrine_table.html">Doctrine_Table</a></td>
+<td class="description"><p class="name"><a href="#addGenerator()">addGenerator</a>(<a href="../doctrine/doctrine_record_generator.html">Doctrine_Record_Generator</a> generator, string name)</p><p class="description">Adds a generate to the table instance..</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#addIndex()">addIndex</a>(string index, array definition)</p><p class="description">Adds an index to this table in-memory definition.
+</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#addNamedQuery()">addNamedQuery</a>(mixed queryKey, string|Doctrine_Query query)</p><p class="description">Adds a named query in the query registry.
+</p></td>
+</tr>
+<tr>
+<td class="type"> boolean</td>
+<td class="description"><p class="name"><a href="#addRecord()">addRecord</a>(<a href="../doctrine/doctrine_record.html">Doctrine_Record</a> record)</p><p class="description">Adds a record to the first level cache (identity map).
+</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../doctrine/doctrine_table.html">Doctrine_Table</a></td>
+<td class="description"><p class="name"><a href="#addTemplate()">addTemplate</a>(string template, <a href="../doctrine/doctrine_template.html">Doctrine_Template</a> impl)</p><p class="description">Adds a template to this table..</p></td>
+</tr>
+<tr>
+<td class="type">final  string</td>
+<td class="description"><p class="name"><a href="#applyInheritance()">applyInheritance</a>(mixed where, $where query)</p><p class="description">applyInheritance.</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../doctrine/doctrine_locator.html">Doctrine_Locator</a></td>
+<td class="description"><p class="name"><a href="#bind()">bind</a>(array args, integer type, string name, mixed resource, mixed value)</p><p class="description">Adds a relation to the table.
+</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../doctrine/doctrine_record.html">Doctrine_Record</a></td>
+<td class="description"><p class="name"><a href="#bindQueryPart()">bindQueryPart</a>(string queryPart, mixed value)</p><p class="description">Adds default query parts to the selects executed on this table.
+</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../doctrine/doctrine_table.html">Doctrine_Table</a></td>
+<td class="description"><p class="name"><a href="#bindQueryParts()">bindQueryParts</a>(array queryParts)</p><p class="description">Binds query parts to this component..</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#buildFindByWhere()">buildFindByWhere</a>(mixed fieldName)</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#clear()">clear</a>()</p><p class="description">Clears the first level cache (identityMap).
+</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#construct()">construct</a>()</p><p class="description">Construct template method.
+</p></td>
+</tr>
+<tr>
+<td class="type"> integer</td>
+<td class="description"><p class="name"><a href="#count()">count</a>()</p><p class="description">Implements Countable interface..</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../doctrine/doctrine_record.html">Doctrine_Record</a></td>
+<td class="description"><p class="name"><a href="#create()">create</a>(mixed array, $array an)</p><p class="description">Creates a new record.
+</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../doctrine/doctrine_query.html">Doctrine_Query</a></td>
+<td class="description"><p class="name"><a href="#createNamedQuery()">createNamedQuery</a>(string queryKey)</p><p class="description">Creates a named query from one in the query registry.
+</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../doctrine/doctrine_query.html">Doctrine_Query</a></td>
+<td class="description"><p class="name"><a href="#createQuery()">createQuery</a>(string alias)</p><p class="description">Creates a query on this table.
+</p></td>
+</tr>
+<tr>
+<td class="type"> integer</td>
+<td class="description"><p class="name"><a href="#enumIndex()">enumIndex</a>(string fieldName, mixed value)</p><p class="description">Retrieves an enum index..</p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#enumValue()">enumValue</a>(string fieldName, integer index)</p><p class="description">Retrieves an enum value.
+</p></td>
+</tr>
+<tr>
+<td class="type"> Doctrine_Collection|array</td>
+<td class="description"><p class="name"><a href="#execute()">execute</a>(string queryKey, array params, int hydrationMode)</p><p class="description">Finds result of a named query.
+</p></td>
+</tr>
+<tr>
+<td class="type"> Doctrine_Record|array</td>
+<td class="description"><p class="name"><a href="#executeOne()">executeOne</a>(string queryKey, array params, int hydrationMode)</p><p class="description">Fetches one record with a named query.
+</p></td>
+</tr>
+<tr>
+<td class="type"> boolean</td>
+<td class="description"><p class="name"><a href="#export()">export</a>()</p><p class="description">Exports this table to database based on the schema definition.
+</p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#find()">find</a>(mixed name, mixed params, int hydrationMode)</p><p class="description">Finds a record by its identifier.
+</p></td>
+</tr>
+<tr>
+<td class="type"> Doctrine_Collection|array</td>
+<td class="description"><p class="name"><a href="#findAll()">findAll</a>(int hydrationMode)</p><p class="description">Retrieves all the records stored in this table..</p></td>
+</tr>
+<tr>
+<td class="type"> Doctrine_Collection|array</td>
+<td class="description"><p class="name"><a href="#findBy()">findBy</a>(mixed fieldName, string value, int hydrationMode, string column)</p><p class="description">Find records basing on a field..</p></td>
+</tr>
+<tr>
+<td class="type"> Doctrine_Collection|array</td>
+<td class="description"><p class="name"><a href="#findByDql()">findByDql</a>(string dql, array params, int hydrationMode)</p><p class="description">Finds records in this table with a given DQL where clause..</p></td>
+</tr>
+<tr>
+<td class="type"> Doctrine_Collection|array</td>
+<td class="description"><p class="name"><a href="#findBySql()">findBySql</a>(string dql, array params, int hydrationMode)</p><p class="description">Finds records in this table with a given SQL where clause..</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../doctrine/doctrine_record.html">Doctrine_Record</a></td>
+<td class="description"><p class="name"><a href="#findOneBy()">findOneBy</a>(mixed fieldName, string value, int hydrationMode, string column)</p><p class="description">Finds the first record that satisfy the clause..</p></td>
+</tr>
+<tr>
+<td class="type"> string</td>
+<td class="description"><p class="name"><a href="#getBoundQueryPart()">getBoundQueryPart</a>(string queryPart)</p><p class="description">Retrieves a bound query part..</p></td>
+</tr>
+<tr>
+<td class="type"> string</td>
+<td class="description"><p class="name"><a href="#getClassnameToReturn()">getClassnameToReturn</a>()</p><p class="description">Get the classname to return. </p></td>
+</tr>
+<tr>
+<td class="type"> integer</td>
+<td class="description"><p class="name"><a href="#getColumnCount()">getColumnCount</a>()</p><p class="description">.</p></td>
+</tr>
+<tr>
+<td class="type"> array</td>
+<td class="description"><p class="name"><a href="#getColumnDefinition()">getColumnDefinition</a>(string columnName)</p><p class="description">Retrieves a column definition from this table schema..</p></td>
+</tr>
+<tr>
+<td class="type"> string</td>
+<td class="description"><p class="name"><a href="#getColumnName()">getColumnName</a>(mixed fieldName, string alias)</p><p class="description">Returns a column name for a column alias.
+</p></td>
+</tr>
+<tr>
+<td class="type"> array</td>
+<td class="description"><p class="name"><a href="#getColumnNames()">getColumnNames</a>(mixed fieldNames)</p><p class="description">Returns an array containing all the column names..</p></td>
+</tr>
+<tr>
+<td class="type"> string</td>
+<td class="description"><p class="name"><a href="#getColumnOwner()">getColumnOwner</a>(string columnName)</p><p class="description">Gets the owner of a column.
+</p></td>
+</tr>
+<tr>
+<td class="type"> array</td>
+<td class="description"><p class="name"><a href="#getColumns()">getColumns</a>()</p><p class="description">Retrieves all columns of the table..</p></td>
+</tr>
+<tr>
+<td class="type"> string</td>
+<td class="description"><p class="name"><a href="#getComponentName()">getComponentName</a>()</p><p class="description">Gets the subclass of Doctrine_Record that belongs to this table..</p></td>
+</tr>
+<tr>
+<td class="type"> Doctrine_Connection|null</td>
+<td class="description"><p class="name"><a href="#getConnection()">getConnection</a>()</p><p class="description">Returns the connection associated with this table (if any)..</p></td>
+</tr>
+<tr>
+<td class="type"> array</td>
+<td class="description"><p class="name"><a href="#getData()">getData</a>()</p><p class="description">Returns internal data.
+</p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#getDefaultValueOf()">getDefaultValueOf</a>(string fieldName)</p><p class="description">Retrieves the default value (if any) for a given column..</p></td>
+</tr>
+<tr>
+<td class="type"> array</td>
+<td class="description"><p class="name"><a href="#getDefinitionOf()">getDefinitionOf</a>(string fieldName)</p><p class="description">Retrieves the definition of a field.
+</p></td>
+</tr>
+<tr>
+<td class="type"> array</td>
+<td class="description"><p class="name"><a href="#getEnumValues()">getEnumValues</a>(string fieldName)</p><p class="description">Retrieves the enum values for a given field..</p></td>
+</tr>
+<tr>
+<td class="type"> array</td>
+<td class="description"><p class="name"><a href="#getExportableFormat()">getExportableFormat</a>(boolean parseForeignKeys)</p><p class="description">Returns an exportable representation of this object.
+</p></td>
+</tr>
+<tr>
+<td class="type"> integer</td>
+<td class="description"><p class="name"><a href="#getFieldLength()">getFieldLength</a>(string fieldName)</p><p class="description">Gets the maximum length of a field.
+</p></td>
+</tr>
+<tr>
+<td class="type"> string</td>
+<td class="description"><p class="name"><a href="#getFieldName()">getFieldName</a>(string columnName)</p><p class="description">Returns a column alias for a column name.
+</p></td>
+</tr>
+<tr>
+<td class="type"> array</td>
+<td class="description"><p class="name"><a href="#getFieldNames()">getFieldNames</a>()</p><p class="description">Returns an array containing all the field names..</p></td>
+</tr>
+<tr>
+<td class="type"> array</td>
+<td class="description"><p class="name"><a href="#getFieldValidators()">getFieldValidators</a>(string fieldName)</p><p class="description">Gets the names of all validators being applied on a field..</p></td>
+</tr>
+<tr>
+<td class="type"> array</td>
+<td class="description"><p class="name"><a href="#getFilters()">getFilters</a>()</p><p class="description">getFilters.</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../doctrine/doctrine_record_generator.html">Doctrine_Record_Generator</a></td>
+<td class="description"><p class="name"><a href="#getGenerator()">getGenerator</a>(string generator)</p><p class="description">Gets generator instance for a passed name..</p></td>
+</tr>
+<tr>
+<td class="type"> array</td>
+<td class="description"><p class="name"><a href="#getGenerators()">getGenerators</a>()</p><p class="description">Gets all the generators for this table..</p></td>
+</tr>
+<tr>
+<td class="type"> string</td>
+<td class="description"><p class="name"><a href="#getIdentifier()">getIdentifier</a>()</p><p class="description">Returns the definition of the identifier key..</p></td>
+</tr>
+<tr>
+<td class="type"> array</td>
+<td class="description"><p class="name"><a href="#getIdentifierColumnNames()">getIdentifierColumnNames</a>()</p><p class="description">Returns an array with all the identifier column names..</p></td>
+</tr>
+<tr>
+<td class="type"> integer</td>
+<td class="description"><p class="name"><a href="#getIdentifierType()">getIdentifierType</a>()</p><p class="description">Retrieves the type of primary key.
+</p></td>
+</tr>
+<tr>
+<td class="type"> array|boolean</td>
+<td class="description"><p class="name"><a href="#getIndex()">getIndex</a>(string index)</p><p class="description">Retrieves an index definition.
+</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#getMethodOwner()">getMethodOwner</a>(string method)</p><p class="description">getMethodOwner.</p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#getOption()">getOption</a>(string name)</p><p class="description">Returns the value of a given option..</p></td>
+</tr>
+<tr>
+<td class="type"> array</td>
+<td class="description"><p class="name"><a href="#getOptions()">getOptions</a>()</p><p class="description">Retrieves all options of this table and the associated values..</p></td>
+</tr>
+<tr>
+<td class="type"> string</td>
+<td class="description"><p class="name"><a href="#getOrderByStatement()">getOrderByStatement</a>(string alias, boolean columnNames)</p><p class="description">Get the table orderby statement.</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../doctrine/doctrine_record_generator.html">Doctrine_Record_Generator</a></td>
+<td class="description"><p class="name"><a href="#getParentGenerator()">getParentGenerator</a>()</p><p class="description">Get the parent generator responsible for this table instance.</p></td>
+</tr>
+<tr>
+<td class="type">final  <a href="../doctrine/doctrine_record.html">Doctrine_Record</a></td>
+<td class="description"><p class="name"><a href="#getProxy()">getProxy</a>(mixed id, $id database)</p><p class="description">.</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../doctrine/doctrine_query.html">Doctrine_Query</a></td>
+<td class="description"><p class="name"><a href="#getQueryObject()">getQueryObject</a>()</p><p class="description">.</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../doctrine/doctrine_record.html">Doctrine_Record</a></td>
+<td class="description"><p class="name"><a href="#getRecord()">getRecord</a>()</p><p class="description">Returns a new record.
+</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../doctrine/doctrine_record.html">Doctrine_Record</a></td>
+<td class="description"><p class="name"><a href="#getRecordInstance()">getRecordInstance</a>()</p><p class="description">Gets the record instance for this table.
+</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../doctrine/doctrine_relation.html">Doctrine_Relation</a></td>
+<td class="description"><p class="name"><a href="#getRelation()">getRelation</a>(string alias, mixed recursive)</p><p class="description">Retrieves a relation object for this component..</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../doctrine/doctrine_relation_parser.html">Doctrine_Relation_Parser</a></td>
+<td class="description"><p class="name"><a href="#getRelationParser()">getRelationParser</a>()</p><p class="description">Retrieves the relation parser associated with this table..</p></td>
+</tr>
+<tr>
+<td class="type"> array</td>
+<td class="description"><p class="name"><a href="#getRelations()">getRelations</a>()</p><p class="description">Retrieves all relation objects defined on this table..</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../doctrine/doctrine_table_repository.html">Doctrine_Table_Repository</a></td>
+<td class="description"><p class="name"><a href="#getRepository()">getRepository</a>()</p><p class="description">Gets the internal record repository..</p></td>
+</tr>
+<tr>
+<td class="type"> string</td>
+<td class="description"><p class="name"><a href="#getTableName()">getTableName</a>()</p><p class="description">Gets the table name in the db..</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../doctrine/doctrine_template.html">Doctrine_Template</a></td>
+<td class="description"><p class="name"><a href="#getTemplate()">getTemplate</a>(string template)</p><p class="description">Retrieves a particular template by class name.
+</p></td>
+</tr>
+<tr>
+<td class="type"> array</td>
+<td class="description"><p class="name"><a href="#getTemplates()">getTemplates</a>()</p><p class="description">Retrieves all templates (behaviors) attached to this table..</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../doctrine/doctrine_tree.html">Doctrine_Tree</a></td>
+<td class="description"><p class="name"><a href="#getTree()">getTree</a>()</p><p class="description">Gets associated tree.
+</p></td>
+</tr>
+<tr>
+<td class="type"> string</td>
+<td class="description"><p class="name"><a href="#getTypeOf()">getTypeOf</a>(string fieldName)</p><p class="description">Retrieves the type of a field..</p></td>
+</tr>
+<tr>
+<td class="type"> string</td>
+<td class="description"><p class="name"><a href="#getTypeOfColumn()">getTypeOfColumn</a>(string columnName)</p><p class="description">Retrieves the type of a column..</p></td>
+</tr>
+<tr>
+<td class="type"> array</td>
+<td class="description"><p class="name"><a href="#getUniques()">getUniques</a>()</p><p class="description">Gets the array of unique fields sets..</p></td>
+</tr>
+<tr>
+<td class="type"> boolean</td>
+<td class="description"><p class="name"><a href="#hasColumn()">hasColumn</a>(string columnName)</p><p class="description">Finds out whether the table definition contains a given column..</p></td>
+</tr>
+<tr>
+<td class="type"> boolean</td>
+<td class="description"><p class="name"><a href="#hasDefaultValues()">hasDefaultValues</a>()</p><p class="description">Finds out whether this table has default values for columns..</p></td>
+</tr>
+<tr>
+<td class="type"> boolean</td>
+<td class="description"><p class="name"><a href="#hasField()">hasField</a>(string fieldName)</p><p class="description">Finds out whether the table definition has a given field.
+</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#hasGenerator()">hasGenerator</a>(string generator)</p><p class="description">Checks if a generator name exists..</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../doctrine/doctrine_record.html">Doctrine_Record</a></td>
+<td class="description"><p class="name"><a href="#hasMany()">hasMany</a>(string componentName, string options)</p><p class="description">Binds One-to-Many / Many-to-Many aggregate relation.</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../doctrine/doctrine_record.html">Doctrine_Record</a></td>
+<td class="description"><p class="name"><a href="#hasOne()">hasOne</a>(string componentName, string options)</p><p class="description">Binds One-to-One aggregate relation.</p></td>
+</tr>
+<tr>
+<td class="type"> boolean</td>
+<td class="description"><p class="name"><a href="#hasRelation()">hasRelation</a>(string alias)</p><p class="description">Tests if a relation exists.
+</p></td>
+</tr>
+<tr>
+<td class="type"> boolean</td>
+<td class="description"><p class="name"><a href="#hasTemplate()">hasTemplate</a>(string template)</p><p class="description">Checks if the table has a given template..</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#initDefinition()">initDefinition</a>(string name)</p><p class="description">Initializes the in-memory table definition..</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#initIdentifier()">initIdentifier</a>()</p><p class="description">Initializes the primary key.
+</p></td>
+</tr>
+<tr>
+<td class="type"> boolean</td>
+<td class="description"><p class="name"><a href="#isGenerator()">isGenerator</a>()</p><p class="description">Check whether this table was created by a record generator or not.</p></td>
+</tr>
+<tr>
+<td class="type"> boolean</td>
+<td class="description"><p class="name"><a href="#isIdentifier()">isIdentifier</a>(string fieldName)</p><p class="description">Checks whether a field is in the primary key.
+</p></td>
+</tr>
+<tr>
+<td class="type"> boolean</td>
+<td class="description"><p class="name"><a href="#isIdentifierAutoincrement()">isIdentifierAutoincrement</a>()</p><p class="description">Checks whether a field identifier is of type autoincrement.
+</p></td>
+</tr>
+<tr>
+<td class="type"> boolean</td>
+<td class="description"><p class="name"><a href="#isIdentifierComposite()">isIdentifierComposite</a>()</p><p class="description">Checks whether a field identifier is a composite key..</p></td>
+</tr>
+<tr>
+<td class="type"> boolean</td>
+<td class="description"><p class="name"><a href="#isInheritedColumn()">isInheritedColumn</a>(mixed columnName, $columnName The)</p><p class="description">Checks whether a column is inherited from a component further up in the hierarchy..</p></td>
+</tr>
+<tr>
+<td class="type"> boolean</td>
+<td class="description"><p class="name"><a href="#isTree()">isTree</a>()</p><p class="description">Determines if table acts as tree..</p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#prepareValue()">prepareValue</a>(mixed fieldName, string value, string typeHint, string field)</p><p class="description">Performs special data preparation.
+</p></td>
+</tr>
+<tr>
+<td class="type"> string</td>
+<td class="description"><p class="name"><a href="#processOrderBy()">processOrderBy</a>(string alias, string orderBy, string columnNames)</p><p class="description">Process an order by statement to be prefixed with the passed alias and
+field names converted to column names if the 3rd argument is true..</p></td>
+</tr>
+<tr>
+<td class="type"> boolean</td>
+<td class="description"><p class="name"><a href="#removeColumn()">removeColumn</a>(string fieldName)</p><p class="description">Removes a field name from the table schema information..</p></td>
+</tr>
+<tr>
+<td class="type"> boolean</td>
+<td class="description"><p class="name"><a href="#removeRecord()">removeRecord</a>(<a href="../doctrine/doctrine_record.html">Doctrine_Record</a> record)</p><p class="description">Removes a record from the identity map.
+</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#setColumn()">setColumn</a>(string name, string type, integer length, mixed options, boolean prepend)</p><p class="description">Adds a column to the schema. </p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#setColumnOption()">setColumnOption</a>(string columnName, string option, string value)</p><p class="description">Set an individual column option.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#setColumnOptions()">setColumnOptions</a>(string columnName, mixed options, array validators)</p><p class="description">Customize the array of options for a column or multiple columns. </p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#setColumns()">setColumns</a>(array definitions)</p><p class="description">Set multiple column definitions at once.</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../doctrine/doctrine_table.html">Doctrine_Table</a></td>
+<td class="description"><p class="name"><a href="#setConnection()">setConnection</a>(mixed conn)</p><p class="description">Sets the default connection for this table.
+</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#setData()">setData</a>(array data)</p><p class="description">Doctrine uses this function internally.
+</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#setGenerator()">setGenerator</a>(<a href="../doctrine/doctrine_record_generator.html">Doctrine_Record_Generator</a> generator)</p><p class="description">Set the generator responsible for creating this table.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#setMethodOwner()">setMethodOwner</a>(string method, string class)</p><p class="description">setMethodOwner.</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../doctrine/doctrine_table.html">Doctrine_Table</a></td>
+<td class="description"><p class="name"><a href="#setOption()">setOption</a>(string name, mixed value)</p><p class="description">Sets an option for the table.
+</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#setOptions()">setOptions</a>(array options)</p><p class="description">Sets all the options.
+</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#setTableName()">setTableName</a>(string tableName)</p><p class="description">sets the table name in the schema definition..</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#unique()">unique</a>(array fields, array options, bool createUniqueIndex)</p><p class="description">Defines a n-uple of fields that must be unique for every record. </p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../doctrine/doctrine_table.html">Doctrine_Table</a></td>
+<td class="description"><p class="name"><a href="#unshiftFilter()">unshiftFilter</a>(<a href="../doctrine/doctrine_record_filter.html">Doctrine_Record_Filter</a> filter)</p><p class="description">unshiftFilter.</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../doctrine/doctrine_validator_errorstack.html">Doctrine_Validator_ErrorStack</a></td>
+<td class="description"><p class="name"><a href="#validateField()">validateField</a>(string fieldName, string value, <a href="../doctrine/doctrine_record.html">Doctrine_Record</a> record)</p><p class="description">Validates a given field using table ATTR_VALIDATE rules..</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#validateUniques()">validateUniques</a>(<a href="../doctrine/doctrine_record.html">Doctrine_Record</a> record)</p><p class="description">Validates all the unique indexes.
+</p></td>
+</tr>
+</table>
+
+<table class="inherit">
+<tr><th colspan="2">Methods inherited from Doctrine\Doctrine_Configurable</th></tr>
+<tr><td><a href="../doctrine/doctrine_configurable.html#addListener()">addListener</a>, <a href="../doctrine/doctrine_configurable.html#addRecordListener()">addRecordListener</a>, <a href="../doctrine/doctrine_configurable.html#getAttribute()">getAttribute</a>, <a href="../doctrine/doctrine_configurable.html#getAttributes()">getAttributes</a>, <a href="../doctrine/doctrine_configurable.html#getCharset()">getCharset</a>, <a href="../doctrine/doctrine_configurable.html#getCollate()">getCollate</a>, <a href="../doctrine/doctrine_configurable.html#getImpl()">getImpl</a>, <a href="../doctrine/doctrine_configurable.html#getListener()">getListener</a>, <a href="../doctrine/doctrine_configurable.html#getParam()">getParam</a>, <a href="../doctrine/doctrine_configurable.html#getParamNamespaces()">getParamNamespaces</a>, <a href="../doctrine/doctrine_configurable.html#getParams()">getParams</a>, <a href="../doctrine/doctrine_configurable.html#getParent()">getParent</a>, <a href="../doctrine/doctrine_configurable.html#getRecordListener()">getRecordListener</a>, <a href="../doctrine/doctrine_configurable.html#hasImpl()">hasImpl</a>, <a href="../doctrine/doctrine_configurable.html#setAttribute()">setAttribute</a>, <a href="../doctrine/doctrine_configurable.html#setCharset()">setCharset</a>, <a href="../doctrine/doctrine_configurable.html#setCollate()">setCollate</a>, <a href="../doctrine/doctrine_configurable.html#setEventListener()">setEventListener</a>, <a href="../doctrine/doctrine_configurable.html#setImpl()">setImpl</a>, <a href="../doctrine/doctrine_configurable.html#setListener()">setListener</a>, <a href="../doctrine/doctrine_configurable.html#setParam()">setParam</a>, <a href="../doctrine/doctrine_configurable.html#setParent()">setParent</a>, <a href="../doctrine/doctrine_configurable.html#setRecordListener()">setRecordListener</a>, <a href="../doctrine/doctrine_configurable.html#unsetAttribute()">unsetAttribute</a></td></tr></table>
+
+<table class="inherit">
+<tr><th colspan="2">Methods inherited from Doctrine\Doctrine_Locator_Injectable</th></tr>
+<tr><td><a href="../doctrine/doctrine_locator_injectable.html#bind()">bind</a>, <a href="../doctrine/doctrine_locator_injectable.html#getLocator()">getLocator</a>, <a href="../doctrine/doctrine_locator_injectable.html#getNullObject()">getNullObject</a>, <a href="../doctrine/doctrine_locator_injectable.html#initNullObject()">initNullObject</a>, <a href="../doctrine/doctrine_locator_injectable.html#locate()">locate</a>, <a href="../doctrine/doctrine_locator_injectable.html#setLocator()">setLocator</a></td></tr></table>
+
+<h2 id="detail_field">Field Detail</h2>
+<div class="location">/Doctrine/Table.php at line 109</div>
+<h3 id="_columnNames">_columnNames</h3>
+<code class="signature">protected  array $_columnNames             an array of column names keys are field names and values column names. used to look up column names from field names. this is the reverse lookup map of $_fieldNames. <strong>$_columnNames</strong> = array()</code>
+<div class="details">
+<p></p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 85</div>
+<h3 id="_columns">_columns</h3>
+<code class="signature">protected  array $columns                  an array of column definitions, keys are column names and values are column definitions the definition array has atleast the following values: -- type         the column type, eg. 'integer' -- length       the column length, eg. 11 additional keys: -- notnull      whether or not the column is marked as notnull -- values       enum values -- notblank     notblank validator + notnull constraint ... many more <strong>$_columns</strong> = array()</code>
+<div class="details">
+<p></p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 58</div>
+<h3 id="_conn">_conn</h3>
+<code class="signature">protected  Doctrine_Connection $conn                   Doctrine_Connection object that created this table <strong>$_conn</strong></code>
+<div class="details">
+<p></p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 42</div>
+<h3 id="_data">_data</h3>
+<code class="signature">protected  array $data                                 temporary data which is then loaded into Doctrine_Record::$_data <strong>$_data</strong> = array()</code>
+<div class="details">
+<p></p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 100</div>
+<h3 id="_fieldNames">_fieldNames</h3>
+<code class="signature">protected  array $_fieldNames            an array of field names, used to look up field names from column names. Keys are column names and values are field names. Alias for columns are here. <strong>$_fieldNames</strong> = array()</code>
+<div class="details">
+<p></p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 204</div>
+<h3 id="_filters">_filters</h3>
+<code class="signature">protected  array $_filters                     an array containing all record filters attached to this table <strong>$_filters</strong> = array()</code>
+<div class="details">
+<p></p><dl>
+<dt>See Also:</dt>
+<dd>Doctrine_Record_Filter</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 218</div>
+<h3 id="_generator">_generator</h3>
+<code class="signature">protected  Doctrine_Record_Generator $generator <strong>$_generator</strong></code>
+<div class="details">
+<p>Generator instance responsible for constructing this table</p><dl>
+<dt>See Also:</dt>
+<dd>Doctrine_Record_Generator</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 210</div>
+<h3 id="_generators">_generators</h3>
+<code class="signature">protected  array $_generators                  an array containing all generators attached to this table <strong>$_generators</strong> = array()</code>
+<div class="details">
+<p></p><dl>
+<dt>See Also:</dt>
+<dd>Doctrine_Record_Generator</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 47</div>
+<h3 id="_identifier">_identifier</h3>
+<code class="signature">protected  mixed $identifier   The field names of all fields that are part of the identifier/primary key <strong>$_identifier</strong> = array()</code>
+<div class="details">
+<p></p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 53</div>
+<h3 id="_identifierType">_identifierType</h3>
+<code class="signature">protected  integer $identifierType                     the type of identifier this table uses <strong>$_identifierType</strong></code>
+<div class="details">
+<p></p><dl>
+<dt>See Also:</dt>
+<dd>constants</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 63</div>
+<h3 id="_identityMap">_identityMap</h3>
+<code class="signature">protected  array $identityMap                          first level cache <strong>$_identityMap</strong> = array()</code>
+<div class="details">
+<p></p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 223</div>
+<h3 id="_invokedMethods">_invokedMethods</h3>
+<code class="signature">protected  array $_invokedMethods              method invoker cache <strong>$_invokedMethods</strong> = array()</code>
+<div class="details">
+<p></p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 165</div>
+<h3 id="_options">_options</h3>
+<code class="signature">protected  array $options                  an array containing all options -- name                         name of the component, for example component name of the GroupTable is 'Group' -- parents                      the parent classes of this component -- declaringClass               name of the table definition declaring class (when using inheritance the class that defines the table structure can be any class in the inheritance hierarchy, hence we need reflection to check out which class actually calls setTableDefinition) -- tableName                    database table name, in most cases this is the same as component name but in some cases where one-table-multi-class inheritance is used this will be the name of the inherited table -- sequenceName                 Some databases need sequences instead of auto incrementation primary keys, you can set specific sequence for your table by calling setOption('sequenceName', $seqName) where $seqName is the name of the desired sequence -- enumMap                      enum value arrays -- inheritanceMap               inheritanceMap is used for inheritance mapping, keys representing columns and values the column values that should correspond to child classes -- type                         table type (mysql example: INNODB) -- charset                      character set -- foreignKeys                  the foreign keys of this table -- checks                       the check constraints of this table, eg. 'price > dicounted_price' -- collate                      collate attribute -- indexes                      the index definitions of this table -- treeImpl                     the tree implementation of this table (if any) -- treeOptions                  the tree options -- queryParts                   the bound query parts -- versioning <strong>$_options</strong> = array(...)</code>
+<div class="details">
+<p></p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 192</div>
+<h3 id="_parser">_parser</h3>
+<code class="signature">protected  Doctrine_Relation_Parser $_parser   relation parser object <strong>$_parser</strong></code>
+<div class="details">
+<p></p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 68</div>
+<h3 id="_repository">_repository</h3>
+<code class="signature">protected  Doctrine_Table_Repository $repository       record repository <strong>$_repository</strong></code>
+<div class="details">
+<p></p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 198</div>
+<h3 id="_templates">_templates</h3>
+<code class="signature">protected  array $_templates                   an array containing all templates attached to this table <strong>$_templates</strong> = array()</code>
+<div class="details">
+<p></p><dl>
+<dt>See Also:</dt>
+<dd>Doctrine_Template</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 187</div>
+<h3 id="_tree">_tree</h3>
+<code class="signature">protected  Doctrine_Tree $tree                 tree object associated with this table <strong>$_tree</strong></code>
+<div class="details">
+<p></p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 92</div>
+<h3 id="_uniques">_uniques</h3>
+<code class="signature">protected  array $_uniques <strong>$_uniques</strong> = array()</code>
+<div class="details">
+<p>Array of unique sets of fields. These values are validated on save</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 115</div>
+<h3 id="columnCount">columnCount</h3>
+<code class="signature">protected  integer $columnCount            cached column count, Doctrine_Record uses this column count in when determining its state <strong>$columnCount</strong></code>
+<div class="details">
+<p></p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 120</div>
+<h3 id="hasDefaultValues">hasDefaultValues</h3>
+<code class="signature">protected  boolean $hasDefaultValues       whether or not this table has default values <strong>$hasDefaultValues</strong></code>
+<div class="details">
+<p></p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 228</div>
+<h3 id="record">record</h3>
+<code class="signature">protected  Doctrine_Record $record             empty instance of the given model <strong>$record</strong></code>
+<div class="details">
+<p></p></div>
+
+<hr>
+
+<h2 id="detail_constr">Constructor Detail</h2>
+<div class="location">/Doctrine/Table.php at line 238</div>
+<h3 id="Doctrine_Table()">Doctrine_Table</h3>
+<code class="signature">public <strong>Doctrine_Table</strong>(string name, <a href="../doctrine/doctrine_connection.html">Doctrine_Connection</a> conn, boolean initDefinition)</code>
+<div class="details">
+<p>the constructor</p><dl>
+<dt>Throws:</dt>
+<dd>if there are no opened connections</dd>
+<dt>Parameters:</dt>
+<dd>name - the name of the component</dd>
+<dd>conn - the connection associated with this table</dd>
+<dd>initDefinition - whether to init the in-memory schema</dd>
+</dl>
+</div>
+
+<hr>
+
+<h2 id="detail_method">Method Detail</h2>
+<div class="location">/Doctrine/Table.php at line 2765</div>
+<h3 id="__call()">__call</h3>
+<code class="signature">public  the <strong>__call</strong>(mixed method, mixed arguments)</code>
+<div class="details">
+<p>Adds support for magic finders.</p><p>This method add support for calling methods not defined in code, such as:
+findByColumnName, findByRelationAlias
+findById, findByContactId, etc.</p><dl>
+<dt>Returns:</dt>
+<dd>result of the finder</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 773</div>
+<h3 id="__get()">__get</h3>
+<code class="signature">public  mixed <strong>__get</strong>(string option)</code>
+<div class="details">
+<p>Magic method for accessing to object properties.</p><p>This method is an alias for getOption.
+<code>
+foreach ($table->indexes as $name => $definition) {
+...
+}
+</code></p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 793</div>
+<h3 id="__isset()">__isset</h3>
+<code class="signature">public  void <strong>__isset</strong>(string option)</code>
+<div class="details">
+<p>Magic method for testing object properties existence.</p><p>This method tests if an option exists.
+<code>
+if (isset($table->tableName)) {
+...
+}
+</code></p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 2705</div>
+<h3 id="__toString()">__toString</h3>
+<code class="signature">public  string <strong>__toString</strong>()</code>
+<div class="details">
+<p>Generates a string representation of this object.</p><p>This method is useful for debugging purposes, or it can be overriden in
+Doctrine_Record to provide a value when Record is casted to (string).</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 740</div>
+<h3 id="_checkForeignKeyExists()">_checkForeignKeyExists</h3>
+<code class="signature">protected  boolean <strong>_checkForeignKeyExists</strong>(array def, array foreignKeys)</code>
+<div class="details">
+<p>Check if a foreign definition already exists in the fks array for a 
+foreign table, local and foreign key</p><dl>
+<dt>Parameters:</dt>
+<dd>def - Foreign key definition to check for</dd>
+<dd>foreignKeys - Array of existing foreign key definitions to check in</dd>
+<dt>Returns:</dt>
+<dd>$result Whether or not the foreign key was found</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 2744</div>
+<h3 id="_resolveFindByFieldName()">_resolveFindByFieldName</h3>
+<code class="signature">protected  string <strong>_resolveFindByFieldName</strong>(string name)</code>
+<div class="details">
+<p>Resolves the passed find by field name inflecting the parameter. </p><p>This method resolves the appropriate field name
+regardless of whether the user passes a column name, field name, or a Doctrine_Inflector::classified()
+version of their column name. It will be inflected with Doctrine_Inflector::tableize() 
+to get the column or field name.</p><dl>
+<dt>Returns:</dt>
+<dd>$fieldName</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 850</div>
+<h3 id="addCheckConstraint()">addCheckConstraint</h3>
+<code class="signature">public  void <strong>addCheckConstraint</strong>(mixed definition, mixed name, $definition )</code>
+<div class="details">
+<p>Adds a check constraint to the table in-memory definition.</p><p>This method adds a CHECK constraint to the schema definition.
+It does not add the constraint to the physical table in the 
+db; @see export().</p><dl>
+<dt>Parameters:</dt>
+<dd></dd>
+<dd>name - if string used as name for the constraint. Otherwise it is indexed numerically.</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 833</div>
+<h3 id="addForeignKey()">addForeignKey</h3>
+<code class="signature">public  void <strong>addForeignKey</strong>(array definition)</code>
+<div class="details">
+<p>Adds a foreignKey to the table in-memory definition.</p><p>This method adds a foreign key to the schema definition.
+It does not add the key to the physical table in the db; @see export().</p><dl>
+<dt>Parameters:</dt>
+<dd>definition - definition of the foreign key</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 2525</div>
+<h3 id="addGenerator()">addGenerator</h3>
+<code class="signature">public  <a href="../doctrine/doctrine_table.html">Doctrine_Table</a> <strong>addGenerator</strong>(<a href="../doctrine/doctrine_record_generator.html">Doctrine_Record_Generator</a> generator, string name)</code>
+<div class="details">
+<p>Adds a generate to the table instance.</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 871</div>
+<h3 id="addIndex()">addIndex</h3>
+<code class="signature">public  void <strong>addIndex</strong>(string index, array definition)</code>
+<div class="details">
+<p>Adds an index to this table in-memory definition.</p><p>This method adds an INDEX to the schema definition.
+It does not add the index to the physical table in the db; @see export().</p><dl>
+<dt>Parameters:</dt>
+<dd>index - index name</dd>
+<dd>definition - keys are type, fields</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 1531</div>
+<h3 id="addNamedQuery()">addNamedQuery</h3>
+<code class="signature">public  void <strong>addNamedQuery</strong>(mixed queryKey, string|Doctrine_Query query)</code>
+<div class="details">
+<p>Adds a named query in the query registry.</p><p>This methods register a query object with a name to use in the future.</p><dl>
+<dt>See Also:</dt>
+<dd><a href="../doctrine/doctrine_table.html#createNamedQuery()">createNamedQuery()</a></dd>
+<dt>Parameters:</dt>
+<dd>query - key name to use for storage</dd>
+<dd>query - DQL string or object</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 1765</div>
+<h3 id="addRecord()">addRecord</h3>
+<code class="signature">public  boolean <strong>addRecord</strong>(<a href="../doctrine/doctrine_record.html">Doctrine_Record</a> record)</code>
+<div class="details">
+<p>Adds a record to the first level cache (identity map).</p><p>This method is used internally to cache records, ensuring that only one 
+object that represents a sql record exists in all scopes.</p><dl>
+<dt>Parameters:</dt>
+<dd>record - record to be added</dd>
+<dt>Returns:</dt>
+<dd>true if record was not present in the map</dd>
+<dt>Todo:</dt>
+<dd>Better name? registerRecord?</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 2475</div>
+<h3 id="addTemplate()">addTemplate</h3>
+<code class="signature">public  <a href="../doctrine/doctrine_table.html">Doctrine_Table</a> <strong>addTemplate</strong>(string template, <a href="../doctrine/doctrine_template.html">Doctrine_Template</a> impl)</code>
+<div class="details">
+<p>Adds a template to this table.</p><dl>
+<dt>Parameters:</dt>
+<dd>template - template name</dd>
+<dd>impl - behavior to attach</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 1927</div>
+<h3 id="applyInheritance()">applyInheritance</h3>
+<code class="signature">public final  string <strong>applyInheritance</strong>(mixed where, $where query)</code>
+<div class="details">
+<p>applyInheritance</p><dl>
+<dt>Parameters:</dt>
+<dd>query - where part to be modified</dd>
+<dt>Returns:</dt>
+<dd>query where part with column aggregation inheritance added</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 943</div>
+<h3 id="bind()">bind</h3>
+<code class="signature">public  <a href="../doctrine/doctrine_locator.html">Doctrine_Locator</a> <strong>bind</strong>(array args, integer type, string name, mixed resource, mixed value)</code>
+<div class="details">
+<p>Adds a relation to the table.</p><p>This method defines a relation on this table, that will be present on
+every record belonging to this component.</p><dl>
+<dt>Parameters:</dt>
+<dd>args - first value is a string, name of related component; second value is array, options for the relation.</dd>
+<dd>type - Doctrine_Relation::ONE or Doctrine_Relation::MANY</dd>
+<dt>See Also:</dt>
+<dd>Doctrine_Relation::_$definition</dd>
+<dt>Todo:</dt>
+<dd>Name proposal: addRelation</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 2590</div>
+<h3 id="bindQueryPart()">bindQueryPart</h3>
+<code class="signature">public  <a href="../doctrine/doctrine_record.html">Doctrine_Record</a> <strong>bindQueryPart</strong>(string queryPart, mixed value)</code>
+<div class="details">
+<p>Adds default query parts to the selects executed on this table.</p><p>This method binds given value to given query part.
+Every query created by this table will have this part set by default.</p><dl>
+<dt>Returns:</dt>
+<dd>this object</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 2573</div>
+<h3 id="bindQueryParts()">bindQueryParts</h3>
+<code class="signature">public  <a href="../doctrine/doctrine_table.html">Doctrine_Table</a> <strong>bindQueryParts</strong>(array queryParts)</code>
+<div class="details">
+<p>Binds query parts to this component.</p><dl>
+<dt>See Also:</dt>
+<dd><a href="../doctrine/doctrine_table.html#bindQueryPart()">bindQueryPart()</a></dd>
+<dt>Parameters:</dt>
+<dd>queryParts - an array of pre-bound query parts</dd>
+<dt>Returns:</dt>
+<dd>this object</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 2710</div>
+<h3 id="buildFindByWhere()">buildFindByWhere</h3>
+<code class="signature">public  void <strong>buildFindByWhere</strong>(mixed fieldName)</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 1750</div>
+<h3 id="clear()">clear</h3>
+<code class="signature">public  void <strong>clear</strong>()</code>
+<div class="details">
+<p>Clears the first level cache (identityMap).</p><p>This method ensures that records are reloaded from the db.</p><dl>
+<dt>Todo:</dt>
+<dd>what about a more descriptive name? clearIdentityMap?</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 287</div>
+<h3 id="construct()">construct</h3>
+<code class="signature">public  void <strong>construct</strong>()</code>
+<div class="details">
+<p>Construct template method.</p><p>This method provides concrete Table classes with the possibility
+to hook into the constructor procedure. It is called after the 
+Doctrine_Table construction process is finished.</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 1945</div>
+<h3 id="count()">count</h3>
+<code class="signature">public  integer <strong>count</strong>()</code>
+<div class="details">
+<p>Implements Countable interface.</p><dl>
+<dt>Returns:</dt>
+<dd>number of records in the table</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 1514</div>
+<h3 id="create()">create</h3>
+<code class="signature">public  <a href="../doctrine/doctrine_record.html">Doctrine_Record</a> <strong>create</strong>(mixed array, $array an)</code>
+<div class="details">
+<p>Creates a new record.</p><p>This method create a new instance of the model defined by this table.
+The class of this record is the subclass of Doctrine_Record defined by 
+this component. The record is not created in the database until you
+call @save().</p>
+Strict Standards: Only variables should be assigned by reference in /Users/jwage/Sites/doctrine_website/lib/vendor/phpdoctor/classes/seeTag.php on line 141
+<dl>
+<dt>Parameters:</dt>
+<dd>an - array where keys are field names and values representing field values. Can contain also related components;</dd>
+<dt>See Also:</dt>
+<dd><a href="../doctrine/doctrine_record.html#fromArray()">Doctrine_Record::fromArray()</a></dd>
+<dt>Returns:</dt>
+<dd>the created record object</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 1546</div>
+<h3 id="createNamedQuery()">createNamedQuery</h3>
+<code class="signature">public  <a href="../doctrine/doctrine_query.html">Doctrine_Query</a> <strong>createNamedQuery</strong>(string queryKey)</code>
+<div class="details">
+<p>Creates a named query from one in the query registry.</p><p>This method clones a new query object from a previously registered one.</p><dl>
+<dt>See Also:</dt>
+<dd><a href="../doctrine/doctrine_table.html#addNamedQuery()">addNamedQuery()</a></dd>
+<dt>Parameters:</dt>
+<dd>queryKey - query key name</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 1028</div>
+<h3 id="createQuery()">createQuery</h3>
+<code class="signature">public  <a href="../doctrine/doctrine_query.html">Doctrine_Query</a> <strong>createQuery</strong>(string alias)</code>
+<div class="details">
+<p>Creates a query on this table.</p><p>This method returns a new Doctrine_Query object and adds the component 
+name of this table as the query 'from' part.
+<code>
+$table = Doctrine_Core::getTable('User');
+$table->createQuery('myuser')
+->where('myuser.Phonenumber = ?', '5551234');
+</code></p><dl>
+<dt>Parameters:</dt>
+<dd>alias - name for component aliasing</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 2010</div>
+<h3 id="enumIndex()">enumIndex</h3>
+<code class="signature">public  integer <strong>enumIndex</strong>(string fieldName, mixed value)</code>
+<div class="details">
+<p>Retrieves an enum index.</p><dl>
+<dt>See Also:</dt>
+<dd><a href="../doctrine/doctrine_column.html#enumValue()">enumValue()</a></dd>
+<dt>Parameters:</dt>
+<dd></dd>
+<dd>value - value of the enum considered</dd>
+<dt>Returns:</dt>
+<dd>can be string if native enums are used.</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 1986</div>
+<h3 id="enumValue()">enumValue</h3>
+<code class="signature">public  mixed <strong>enumValue</strong>(string fieldName, integer index)</code>
+<div class="details">
+<p>Retrieves an enum value.</p><p>This method finds a enum string value. If ATTR_USE_NATIVE_ENUM is set
+on the connection, index and value are the same thing.</p><dl>
+<dt>Parameters:</dt>
+<dd></dd>
+<dd>index - numeric index of the enum</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 1720</div>
+<h3 id="execute()">execute</h3>
+<code class="signature">public  Doctrine_Collection|array <strong>execute</strong>(string queryKey, array params, int hydrationMode)</code>
+<div class="details">
+<p>Finds result of a named query.</p><p>This method fetches data using the provided $queryKey to choose a named
+query in the query registry.</p><dl>
+<dt>Parameters:</dt>
+<dd>queryKey - the query key</dd>
+<dd>params - prepared statement params (if any)</dd>
+<dd>hydrationMode - Doctrine_Core::HYDRATE_ARRAY or Doctrine_Core::HYDRATE_RECORD</dd>
+<dt>Throws:</dt>
+<dd>if no query for given queryKey is found</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 1737</div>
+<h3 id="executeOne()">executeOne</h3>
+<code class="signature">public  Doctrine_Record|array <strong>executeOne</strong>(string queryKey, array params, int hydrationMode)</code>
+<div class="details">
+<p>Fetches one record with a named query.</p><p>This method uses the provided $queryKey to clone and execute
+the associated named query in the query registry.</p><dl>
+<dt>Parameters:</dt>
+<dd>queryKey - the query key</dd>
+<dd>params - prepared statement params (if any)</dd>
+<dd>hydrationMode - Doctrine_Core::HYDRATE_ARRAY or Doctrine_Core::HYDRATE_RECORD</dd>
+<dt>Throws:</dt>
+<dd>if no query for given queryKey is found</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 635</div>
+<h3 id="export()">export</h3>
+<code class="signature">public  boolean <strong>export</strong>()</code>
+<div class="details">
+<p>Exports this table to database based on the schema definition.</p><p>This method create a physical table in the database, using the 
+definition that comes from the component Doctrine_Record instance.</p><dl>
+<dt>Throws:</dt>
+<dd>if some error other than Doctrine_Core::ERR_ALREADY_EXISTS occurred during the create table operation</dd>
+<dt>Returns:</dt>
+<dd>whether or not the export operation was successful false if table already existed in the database</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 1576</div>
+<h3 id="find()">find</h3>
+<code class="signature">public  mixed <strong>find</strong>(mixed name, mixed params, int hydrationMode)</code>
+<div class="details">
+<p>Finds a record by its identifier.</p><p><code>
+$table->find(11);
+$table->find(11, Doctrine_Core::HYDRATE_RECORD);
+$table->find('namedQueryForYearArchive', array(2009), Doctrine_Core::HYDRATE_ARRAY);
+</code></p><dl>
+<dt>Parameters:</dt>
+<dd>name - Database Row ID or Query Name defined previously as a NamedQuery</dd>
+<dd>params - This argument is the hydration mode (Doctrine_Core::HYDRATE_ARRAY or Doctrine_Core::HYDRATE_RECORD) if first param is a Database Row ID. Otherwise this argument expect an array of query params.</dd>
+<dd>hydrationMode - Optional Doctrine_Core::HYDRATE_ARRAY or Doctrine_Core::HYDRATE_RECORD if first argument is a NamedQuery</dd>
+<dt>Returns:</dt>
+<dd>Doctrine_Collection, array, Doctrine_Record or false if no result</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 1638</div>
+<h3 id="findAll()">findAll</h3>
+<code class="signature">public  Doctrine_Collection|array <strong>findAll</strong>(int hydrationMode)</code>
+<div class="details">
+<p>Retrieves all the records stored in this table.</p><dl>
+<dt>Parameters:</dt>
+<dd>hydrationMode - Doctrine_Core::HYDRATE_ARRAY or Doctrine_Core::HYDRATE_RECORD</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 1685</div>
+<h3 id="findBy()">findBy</h3>
+<code class="signature">public  Doctrine_Collection|array <strong>findBy</strong>(mixed fieldName, string value, int hydrationMode, string column)</code>
+<div class="details">
+<p>Find records basing on a field.</p><dl>
+<dt>Parameters:</dt>
+<dd>column - field for the WHERE clause</dd>
+<dd>value - prepared statement parameter</dd>
+<dd>hydrationMode - Doctrine_Core::HYDRATE_ARRAY or Doctrine_Core::HYDRATE_RECORD</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 1669</div>
+<h3 id="findByDql()">findByDql</h3>
+<code class="signature">public  Doctrine_Collection|array <strong>findByDql</strong>(string dql, array params, int hydrationMode)</code>
+<div class="details">
+<p>Finds records in this table with a given DQL where clause.</p><dl>
+<dt>Parameters:</dt>
+<dd>dql - DQL WHERE clause</dd>
+<dd>params - preparated statement parameters</dd>
+<dd>hydrationMode - Doctrine_Core::HYDRATE_ARRAY or Doctrine_Core::HYDRATE_RECORD</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 1655</div>
+<h3 id="findBySql()">findBySql</h3>
+<code class="signature">public  Doctrine_Collection|array <strong>findBySql</strong>(string dql, array params, int hydrationMode)</code>
+<div class="details">
+<p>Finds records in this table with a given SQL where clause.</p><dl>
+<dt>Parameters:</dt>
+<dd>dql - DQL WHERE clause to use</dd>
+<dd>params - query parameters (a la PDO)</dd>
+<dd>hydrationMode - Doctrine_Core::HYDRATE_ARRAY or Doctrine_Core::HYDRATE_RECORD</dd>
+<dt>Todo:</dt>
+<dd>This actually takes DQL, not SQL, but it requires column names instead of field names. This should be fixed to use raw SQL instead.</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 1700</div>
+<h3 id="findOneBy()">findOneBy</h3>
+<code class="signature">public  <a href="../doctrine/doctrine_record.html">Doctrine_Record</a> <strong>findOneBy</strong>(mixed fieldName, string value, int hydrationMode, string column)</code>
+<div class="details">
+<p>Finds the first record that satisfy the clause.</p><dl>
+<dt>Parameters:</dt>
+<dd>column - field for the WHERE clause</dd>
+<dd>value - prepared statement parameter</dd>
+<dd>hydrationMode - Doctrine_Core::HYDRATE_ARRAY or Doctrine_Core::HYDRATE_RECORD</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 2661</div>
+<h3 id="getBoundQueryPart()">getBoundQueryPart</h3>
+<code class="signature">public  string <strong>getBoundQueryPart</strong>(string queryPart)</code>
+<div class="details">
+<p>Retrieves a bound query part.</p><dl>
+<dt>See Also:</dt>
+<dd><a href="../doctrine/doctrine_table.html#bindQueryPart()">bindQueryPart()</a></dd>
+<dt>Parameters:</dt>
+<dd>queryPart - field interested</dd>
+<dt>Returns:</dt>
+<dd>value of the bind</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 1876</div>
+<h3 id="getClassnameToReturn()">getClassnameToReturn</h3>
+<code class="signature">public  string <strong>getClassnameToReturn</strong>()</code>
+<div class="details">
+<p>Get the classname to return. Most often this is just the options['name'].</p><p>Check the subclasses option and the inheritanceMap for each subclass to see
+if all the maps in a subclass is met. If this is the case return that
+subclass name. If no subclasses match or if there are no subclasses defined
+return the name of the class for this tables record.</p><dl>
+<dt>Todo:</dt>
+<dd>this function could use reflection to check the first time it runs if the subclassing option is not set.</dd>
+<dt>Returns:</dt>
+<dd>The name of the class to create</dd>
+<dt>Deprecated.</dt>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 2141</div>
+<h3 id="getColumnCount()">getColumnCount</h3>
+<code class="signature">public  integer <strong>getColumnCount</strong>()</code>
+<div class="details">
+<p></p><dl>
+<dt>Returns:</dt>
+<dd>the number of columns in this table</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 1172</div>
+<h3 id="getColumnDefinition()">getColumnDefinition</h3>
+<code class="signature">public  array <strong>getColumnDefinition</strong>(string columnName)</code>
+<div class="details">
+<p>Retrieves a column definition from this table schema.</p><dl>
+<dt>Returns:</dt>
+<dd>column definition; @see $_columns</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 1153</div>
+<h3 id="getColumnName()">getColumnName</h3>
+<code class="signature">public  string <strong>getColumnName</strong>(mixed fieldName, string alias)</code>
+<div class="details">
+<p>Returns a column name for a column alias.</p><p>If the actual name for the alias cannot be found
+this method returns the given alias.</p><dl>
+<dt>Parameters:</dt>
+<dd>alias - column alias</dd>
+<dt>Returns:</dt>
+<dd>column name</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 2181</div>
+<h3 id="getColumnNames()">getColumnNames</h3>
+<code class="signature">public  array <strong>getColumnNames</strong>(mixed fieldNames)</code>
+<div class="details">
+<p>Returns an array containing all the column names.</p><dl>
+<dt>Returns:</dt>
+<dd>numeric array</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 523</div>
+<h3 id="getColumnOwner()">getColumnOwner</h3>
+<code class="signature">public  string <strong>getColumnOwner</strong>(string columnName)</code>
+<div class="details">
+<p>Gets the owner of a column.</p><p>The owner of a column is the name of the component in a hierarchy that
+defines the column.</p><dl>
+<dt>Parameters:</dt>
+<dd>columnName - the column name</dd>
+<dt>Returns:</dt>
+<dd>the name of the owning/defining component</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 2152</div>
+<h3 id="getColumns()">getColumns</h3>
+<code class="signature">public  array <strong>getColumns</strong>()</code>
+<div class="details">
+<p>Retrieves all columns of the table.</p><dl>
+<dt>See Also:</dt>
+<dd>$_columns;</dd>
+<dt>Returns:</dt>
+<dd>keys are column names and values are definition</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 2389</div>
+<h3 id="getComponentName()">getComponentName</h3>
+<code class="signature">public  string <strong>getComponentName</strong>()</code>
+<div class="details">
+<p>Gets the subclass of Doctrine_Record that belongs to this table.</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 1495</div>
+<h3 id="getConnection()">getConnection</h3>
+<code class="signature">public  Doctrine_Connection|null <strong>getConnection</strong>()</code>
+<div class="details">
+<p>Returns the connection associated with this table (if any).</p><dl>
+<dt>Returns:</dt>
+<dd>the connection object</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 2283</div>
+<h3 id="getData()">getData</h3>
+<code class="signature">public  array <strong>getData</strong>()</code>
+<div class="details">
+<p>Returns internal data.</p><p>This method is used by Doctrine_Record instances
+when retrieving data from database.</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 1415</div>
+<h3 id="getDefaultValueOf()">getDefaultValueOf</h3>
+<code class="signature">public  mixed <strong>getDefaultValueOf</strong>(string fieldName)</code>
+<div class="details">
+<p>Retrieves the default value (if any) for a given column.</p><dl>
+<dt>Parameters:</dt>
+<dd>fieldName - column name</dd>
+<dt>Returns:</dt>
+<dd>default value as set in definition</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 2234</div>
+<h3 id="getDefinitionOf()">getDefinitionOf</h3>
+<code class="signature">public  array <strong>getDefinitionOf</strong>(string fieldName)</code>
+<div class="details">
+<p>Retrieves the definition of a field.</p><p>This method retrieves the definition of the column, basing of $fieldName
+which can be a column name or a field name (alias).</p><dl>
+<dt>Returns:</dt>
+<dd>false on failure</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 1966</div>
+<h3 id="getEnumValues()">getEnumValues</h3>
+<code class="signature">public  array <strong>getEnumValues</strong>(string fieldName)</code>
+<div class="details">
+<p>Retrieves the enum values for a given field.</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 650</div>
+<h3 id="getExportableFormat()">getExportableFormat</h3>
+<code class="signature">public  array <strong>getExportableFormat</strong>(boolean parseForeignKeys)</code>
+<div class="details">
+<p>Returns an exportable representation of this object.</p><p>This method produces a array representation of the table schema, where
+keys are tableName, columns (@see $_columns) and options. 
+The options subarray contains 'primary' and 'foreignKeys'.</p><dl>
+<dt>Parameters:</dt>
+<dd>parseForeignKeys - whether to include foreign keys definition in the options</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 2649</div>
+<h3 id="getFieldLength()">getFieldLength</h3>
+<code class="signature">public  integer <strong>getFieldLength</strong>(string fieldName)</code>
+<div class="details">
+<p>Gets the maximum length of a field.
+For integer fields, length is bytes occupied.
+For decimal fields, it is the total number of cyphers</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 1188</div>
+<h3 id="getFieldName()">getFieldName</h3>
+<code class="signature">public  string <strong>getFieldName</strong>(string columnName)</code>
+<div class="details">
+<p>Returns a column alias for a column name.</p><p>If no alias can be found the column name is returned.</p><dl>
+<dt>Parameters:</dt>
+<dd>columnName - column name</dd>
+<dt>Returns:</dt>
+<dd>column alias</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 2220</div>
+<h3 id="getFieldNames()">getFieldNames</h3>
+<code class="signature">public  array <strong>getFieldNames</strong>()</code>
+<div class="details">
+<p>Returns an array containing all the field names.</p><dl>
+<dt>Returns:</dt>
+<dd>numeric array</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 2603</div>
+<h3 id="getFieldValidators()">getFieldValidators</h3>
+<code class="signature">public  array <strong>getFieldValidators</strong>(string fieldName)</code>
+<div class="details">
+<p>Gets the names of all validators being applied on a field.</p><dl>
+<dt>Returns:</dt>
+<dd>names of validators</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 2692</div>
+<h3 id="getFilters()">getFilters</h3>
+<code class="signature">public  array <strong>getFilters</strong>()</code>
+<div class="details">
+<p>getFilters</p><dl>
+<dt>Returns:</dt>
+<dd>$filters</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 2498</div>
+<h3 id="getGenerator()">getGenerator</h3>
+<code class="signature">public  <a href="../doctrine/doctrine_record_generator.html">Doctrine_Record_Generator</a> <strong>getGenerator</strong>(string generator)</code>
+<div class="details">
+<p>Gets generator instance for a passed name.</p><dl>
+<dt>Returns:</dt>
+<dd>$generator</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 2487</div>
+<h3 id="getGenerators()">getGenerators</h3>
+<code class="signature">public  array <strong>getGenerators</strong>()</code>
+<div class="details">
+<p>Gets all the generators for this table.</p><dl>
+<dt>Returns:</dt>
+<dd>$generators</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 1432</div>
+<h3 id="getIdentifier()">getIdentifier</h3>
+<code class="signature">public  string <strong>getIdentifier</strong>()</code>
+<div class="details">
+<p>Returns the definition of the identifier key.</p><dl>
+<dt>Returns:</dt>
+<dd>can be array if a multi-column primary key is used.</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 2199</div>
+<h3 id="getIdentifierColumnNames()">getIdentifierColumnNames</h3>
+<code class="signature">public  array <strong>getIdentifierColumnNames</strong>()</code>
+<div class="details">
+<p>Returns an array with all the identifier column names.</p><dl>
+<dt>Returns:</dt>
+<dd>numeric array</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 1444</div>
+<h3 id="getIdentifierType()">getIdentifierType</h3>
+<code class="signature">public  integer <strong>getIdentifierType</strong>()</code>
+<div class="details">
+<p>Retrieves the type of primary key.</p><p>This method finds out if the primary key is multifield.</p><dl>
+<dt>See Also:</dt>
+<dd>constants</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 898</div>
+<h3 id="getIndex()">getIndex</h3>
+<code class="signature">public  array|boolean <strong>getIndex</strong>(string index)</code>
+<div class="details">
+<p>Retrieves an index definition.</p><p>This method returns a given index definition: @see addIndex().</p><dl>
+<dt>Parameters:</dt>
+<dd>index - index name; @see addIndex()</dd>
+<dt>Returns:</dt>
+<dd>array on success, FALSE on failure</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 607</div>
+<h3 id="getMethodOwner()">getMethodOwner</h3>
+<code class="signature">public  void <strong>getMethodOwner</strong>(string method)</code>
+<div class="details">
+<p>getMethodOwner</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 1086</div>
+<h3 id="getOption()">getOption</h3>
+<code class="signature">public  mixed <strong>getOption</strong>(string name)</code>
+<div class="details">
+<p>Returns the value of a given option.</p>
+Strict Standards: Only variables should be assigned by reference in /Users/jwage/Sites/doctrine_website/lib/vendor/phpdoctor/classes/seeTag.php on line 141
+<dl>
+<dt>See Also:</dt>
+<dd><a href="../doctrine/doctrine_table.html#_options">  for available options</a></dd>
+<dt>Parameters:</dt>
+<dd>name - the name of the option</dd>
+<dt>Returns:</dt>
+<dd>the value of given option</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 803</div>
+<h3 id="getOptions()">getOptions</h3>
+<code class="signature">public  array <strong>getOptions</strong>()</code>
+<div class="details">
+<p>Retrieves all options of this table and the associated values.</p><dl>
+<dt>Returns:</dt>
+<dd>all options and their values</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 1102</div>
+<h3 id="getOrderByStatement()">getOrderByStatement</h3>
+<code class="signature">public  string <strong>getOrderByStatement</strong>(string alias, boolean columnNames)</code>
+<div class="details">
+<p>Get the table orderby statement</p><dl>
+<dt>Parameters:</dt>
+<dd>alias - The alias to use</dd>
+<dd>columnNames - Whether or not to use column names instead of field names</dd>
+<dt>Returns:</dt>
+<dd>$orderByStatement</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 2561</div>
+<h3 id="getParentGenerator()">getParentGenerator</h3>
+<code class="signature">public  <a href="../doctrine/doctrine_record_generator.html">Doctrine_Record_Generator</a> <strong>getParentGenerator</strong>()</code>
+<div class="details">
+<p>Get the parent generator responsible for this table instance</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 1903</div>
+<h3 id="getProxy()">getProxy</h3>
+<code class="signature">public final  <a href="../doctrine/doctrine_record.html">Doctrine_Record</a> <strong>getProxy</strong>(mixed id, $id database)</code>
+<div class="details">
+<p></p><dl>
+<dt>Parameters:</dt>
+<dd>database - row id</dd>
+<dt>Throws:</dt>
+<dd>Doctrine_Find_Exception</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 1953</div>
+<h3 id="getQueryObject()">getQueryObject</h3>
+<code class="signature">public  <a href="../doctrine/doctrine_query.html">Doctrine_Query</a> <strong>getQueryObject</strong>()</code>
+<div class="details">
+<p></p><dl>
+<dt>Returns:</dt>
+<dd>a Doctrine_Query object</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 1808</div>
+<h3 id="getRecord()">getRecord</h3>
+<code class="signature">public  <a href="../doctrine/doctrine_record.html">Doctrine_Record</a> <strong>getRecord</strong>()</code>
+<div class="details">
+<p>Returns a new record.</p><p>This method checks if a internal record exists in identityMap, if does 
+not exist it creates a new one.</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 542</div>
+<h3 id="getRecordInstance()">getRecordInstance</h3>
+<code class="signature">public  <a href="../doctrine/doctrine_record.html">Doctrine_Record</a> <strong>getRecordInstance</strong>()</code>
+<div class="details">
+<p>Gets the record instance for this table.</p><p>The Doctrine_Table instance always holds at least one
+instance of a model so that it can be reused for several things, 
+but primarily it is first used to instantiate all the internal
+in memory schema definition.</p><dl>
+<dt>Returns:</dt>
+<dd>Empty instance of the record</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 999</div>
+<h3 id="getRelation()">getRelation</h3>
+<code class="signature">public  <a href="../doctrine/doctrine_relation.html">Doctrine_Relation</a> <strong>getRelation</strong>(string alias, mixed recursive)</code>
+<div class="details">
+<p>Retrieves a relation object for this component.</p><dl>
+<dt>Parameters:</dt>
+<dd>alias - relation alias; @see hasRelation()</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 755</div>
+<h3 id="getRelationParser()">getRelationParser</h3>
+<code class="signature">public  <a href="../doctrine/doctrine_relation_parser.html">Doctrine_Relation_Parser</a> <strong>getRelationParser</strong>()</code>
+<div class="details">
+<p>Retrieves the relation parser associated with this table.</p><dl>
+<dt>Returns:</dt>
+<dd>relation parser object</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 1009</div>
+<h3 id="getRelations()">getRelations</h3>
+<code class="signature">public  array <strong>getRelations</strong>()</code>
+<div class="details">
+<p>Retrieves all relation objects defined on this table.</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 1045</div>
+<h3 id="getRepository()">getRepository</h3>
+<code class="signature">public  <a href="../doctrine/doctrine_table_repository.html">Doctrine_Table_Repository</a> <strong>getRepository</strong>()</code>
+<div class="details">
+<p>Gets the internal record repository.</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 2399</div>
+<h3 id="getTableName()">getTableName</h3>
+<code class="signature">public  string <strong>getTableName</strong>()</code>
+<div class="details">
+<p>Gets the table name in the db.</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 2446</div>
+<h3 id="getTemplate()">getTemplate</h3>
+<code class="signature">public  <a href="../doctrine/doctrine_template.html">Doctrine_Template</a> <strong>getTemplate</strong>(string template)</code>
+<div class="details">
+<p>Retrieves a particular template by class name.</p><p>This method retrieves a behavior/template object attached to the table.
+For Doctrine_Template_* classes, the base name can be used.</p><dl>
+<dt>Parameters:</dt>
+<dd>template - name of the behavior</dd>
+<dt>Throws:</dt>
+<dd>if the given template is not set on this table</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 2430</div>
+<h3 id="getTemplates()">getTemplates</h3>
+<code class="signature">public  array <strong>getTemplates</strong>()</code>
+<div class="details">
+<p>Retrieves all templates (behaviors) attached to this table.</p><dl>
+<dt>Returns:</dt>
+<dd>an array containing all templates</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 2369</div>
+<h3 id="getTree()">getTree</h3>
+<code class="signature">public  <a href="../doctrine/doctrine_tree.html">Doctrine_Tree</a> <strong>getTree</strong>()</code>
+<div class="details">
+<p>Gets associated tree.
+This method returns the associated Tree object (if any exists). 
+Normally implemented by NestedSet behavior.</p><dl>
+<dt>Returns:</dt>
+<dd>false if not a tree</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 2246</div>
+<h3 id="getTypeOf()">getTypeOf</h3>
+<code class="signature">public  string <strong>getTypeOf</strong>(string fieldName)</code>
+<div class="details">
+<p>Retrieves the type of a field.</p><dl>
+<dt>Returns:</dt>
+<dd>false on failure</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 2257</div>
+<h3 id="getTypeOfColumn()">getTypeOfColumn</h3>
+<code class="signature">public  string <strong>getTypeOfColumn</strong>(string columnName)</code>
+<div class="details">
+<p>Retrieves the type of a column.</p><dl>
+<dt>Returns:</dt>
+<dd>false if column is not found</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 2210</div>
+<h3 id="getUniques()">getUniques</h3>
+<code class="signature">public  array <strong>getUniques</strong>()</code>
+<div class="details">
+<p>Gets the array of unique fields sets.</p><dl>
+<dt>See Also:</dt>
+<dd>$_uniques;</dd>
+<dt>Returns:</dt>
+<dd>numeric array</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 1454</div>
+<h3 id="hasColumn()">hasColumn</h3>
+<code class="signature">public  boolean <strong>hasColumn</strong>(string columnName)</code>
+<div class="details">
+<p>Finds out whether the table definition contains a given column.</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 1404</div>
+<h3 id="hasDefaultValues()">hasDefaultValues</h3>
+<code class="signature">public  boolean <strong>hasDefaultValues</strong>()</code>
+<div class="details">
+<p>Finds out whether this table has default values for columns.</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 1467</div>
+<h3 id="hasField()">hasField</h3>
+<code class="signature">public  boolean <strong>hasField</strong>(string fieldName)</code>
+<div class="details">
+<p>Finds out whether the table definition has a given field.</p><p>This method returns true if @see hasColumn() returns true or if an alias
+named $fieldName exists.</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 2513</div>
+<h3 id="hasGenerator()">hasGenerator</h3>
+<code class="signature">public  void <strong>hasGenerator</strong>(string generator)</code>
+<div class="details">
+<p>Checks if a generator name exists.</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 972</div>
+<h3 id="hasMany()">hasMany</h3>
+<code class="signature">public  <a href="../doctrine/doctrine_record.html">Doctrine_Record</a> <strong>hasMany</strong>(string componentName, string options)</code>
+<div class="details">
+<p>Binds One-to-Many / Many-to-Many aggregate relation</p><dl>
+<dt>Parameters:</dt>
+<dd>componentName - the name of the related component</dd>
+<dd>options - relation options</dd>
+<dt>See Also:</dt>
+<dd>Doctrine_Relation::_$definition</dd>
+<dt>Returns:</dt>
+<dd>this object</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 959</div>
+<h3 id="hasOne()">hasOne</h3>
+<code class="signature">public  <a href="../doctrine/doctrine_record.html">Doctrine_Record</a> <strong>hasOne</strong>(string componentName, string options)</code>
+<div class="details">
+<p>Binds One-to-One aggregate relation</p><dl>
+<dt>Parameters:</dt>
+<dd>componentName - the name of the related component</dd>
+<dd>options - relation options</dd>
+<dt>See Also:</dt>
+<dd>Doctrine_Relation::_$definition</dd>
+<dt>Returns:</dt>
+<dd>this object</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 988</div>
+<h3 id="hasRelation()">hasRelation</h3>
+<code class="signature">public  boolean <strong>hasRelation</strong>(string alias)</code>
+<div class="details">
+<p>Tests if a relation exists.</p><p>This method queries the table definition to find out if a relation 
+is defined for this component. Alias defined with foreignAlias are not
+recognized as there's only one Doctrine_Relation object on the owning 
+side.</p><dl>
+<dt>Parameters:</dt>
+<dd>alias - the relation alias to search for.</dd>
+<dt>Returns:</dt>
+<dd>true if the relation exists. Otherwise false.</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 2463</div>
+<h3 id="hasTemplate()">hasTemplate</h3>
+<code class="signature">public  boolean <strong>hasTemplate</strong>(string template)</code>
+<div class="details">
+<p>Checks if the table has a given template.</p><dl>
+<dt>Parameters:</dt>
+<dd>template - name of template; @see getTemplate()</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 295</div>
+<h3 id="initDefinition()">initDefinition</h3>
+<code class="signature">public  void <strong>initDefinition</strong>(string name)</code>
+<div class="details">
+<p>Initializes the in-memory table definition.</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 412</div>
+<h3 id="initIdentifier()">initIdentifier</h3>
+<code class="signature">public  void <strong>initIdentifier</strong>()</code>
+<div class="details">
+<p>Initializes the primary key.</p><p>Called in the construction process, builds the identifier definition
+copying in the schema the list of the fields which constitutes 
+the primary key.</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 2551</div>
+<h3 id="isGenerator()">isGenerator</h3>
+<code class="signature">public  boolean <strong>isGenerator</strong>()</code>
+<div class="details">
+<p>Check whether this table was created by a record generator or not</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 570</div>
+<h3 id="isIdentifier()">isIdentifier</h3>
+<code class="signature">public  boolean <strong>isIdentifier</strong>(string fieldName)</code>
+<div class="details">
+<p>Checks whether a field is in the primary key.</p><p>Checks if $fieldName is part of the table identifier, which defines
+the one-column or multi-column primary key.</p><dl>
+<dt>Parameters:</dt>
+<dd>fieldName - The field name</dd>
+<dt>Returns:</dt>
+<dd>TRUE if the field is part of the table identifier/primary key field(s),</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 585</div>
+<h3 id="isIdentifierAutoincrement()">isIdentifierAutoincrement</h3>
+<code class="signature">public  boolean <strong>isIdentifierAutoincrement</strong>()</code>
+<div class="details">
+<p>Checks whether a field identifier is of type autoincrement.</p><p>This method checks if the primary key is a AUTOINCREMENT column or
+if the table uses a natural key.</p><dl>
+<dt>Returns:</dt>
+<dd>TRUE if the identifier is autoincrement FALSE otherwise</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 596</div>
+<h3 id="isIdentifierComposite()">isIdentifierComposite</h3>
+<code class="signature">public  boolean <strong>isIdentifierComposite</strong>()</code>
+<div class="details">
+<p>Checks whether a field identifier is a composite key.</p><dl>
+<dt>Returns:</dt>
+<dd>TRUE if the identifier is a composite key, FALSE otherwise</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 556</div>
+<h3 id="isInheritedColumn()">isInheritedColumn</h3>
+<code class="signature">public  boolean <strong>isInheritedColumn</strong>(mixed columnName, $columnName The)</code>
+<div class="details">
+<p>Checks whether a column is inherited from a component further up in the hierarchy.</p><dl>
+<dt>Parameters:</dt>
+<dd>The - column name</dd>
+<dt>Returns:</dt>
+<dd>TRUE if column is inherited, FALSE otherwise.</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 2420</div>
+<h3 id="isTree()">isTree</h3>
+<code class="signature">public  boolean <strong>isTree</strong>()</code>
+<div class="details">
+<p>Determines if table acts as tree.</p><dl>
+<dt>Returns:</dt>
+<dd>if tree return true, otherwise returns false</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 2315</div>
+<h3 id="prepareValue()">prepareValue</h3>
+<code class="signature">public  mixed <strong>prepareValue</strong>(mixed fieldName, string value, string typeHint, string field)</code>
+<div class="details">
+<p>Performs special data preparation.</p><p>This method returns a representation of a field data, depending on
+the type of the given column.</p><p>1. It unserializes array and object typed columns
+2. Uncompresses gzip typed columns
+3. Gets the appropriate enum values for enum typed columns
+4. Initializes special null object pointer for null values (for fast column existence checking purposes)</p><p>example:
+<code type='php'>
+$field = 'name';
+$value = null;
+$table->prepareValue($field, $value); // Doctrine_Null
+</code></p><dl>
+<dt>Throws:</dt>
+<dd>if unserialization of array/object typed column fails or</dd>
+<dd>if uncompression of gzip typed column fails *</dd>
+<dt>Parameters:</dt>
+<dd>field - the name of the field</dd>
+<dd>value - field value</dd>
+<dd>typeHint - Type hint used to pass in the type of the value to prepare if it is already known. This enables the method to skip the type determination. Used i.e. during hydration.</dd>
+<dt>Returns:</dt>
+<dd>prepared value</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 1118</div>
+<h3 id="processOrderBy()">processOrderBy</h3>
+<code class="signature">public  string <strong>processOrderBy</strong>(string alias, string orderBy, string columnNames)</code>
+<div class="details">
+<p>Process an order by statement to be prefixed with the passed alias and
+field names converted to column names if the 3rd argument is true.</p><dl>
+<dt>Parameters:</dt>
+<dd>alias - The alias to prefix columns with</dd>
+<dd>orderBy - The order by to process</dd>
+<dd>columnNames - Whether or not to convert field names to column names</dd>
+<dt>Returns:</dt>
+<dd>$orderBy</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 2164</div>
+<h3 id="removeColumn()">removeColumn</h3>
+<code class="signature">public  boolean <strong>removeColumn</strong>(string fieldName)</code>
+<div class="details">
+<p>Removes a field name from the table schema information.</p><dl>
+<dt>Returns:</dt>
+<dd>true if the field is found and removed. False otherwise.</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 1788</div>
+<h3 id="removeRecord()">removeRecord</h3>
+<code class="signature">public  boolean <strong>removeRecord</strong>(<a href="../doctrine/doctrine_record.html">Doctrine_Record</a> record)</code>
+<div class="details">
+<p>Removes a record from the identity map.</p><p>This method deletes from the cache the given record; can be used to 
+force reloading of an object from database.</p><dl>
+<dt>Parameters:</dt>
+<dd>record - record to remove from cache</dd>
+<dt>Returns:</dt>
+<dd>true if the record was found and removed, false if the record wasn't found.</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 1282</div>
+<h3 id="setColumn()">setColumn</h3>
+<code class="signature">public  void <strong>setColumn</strong>(string name, string type, integer length, mixed options, boolean prepend)</code>
+<div class="details">
+<p>Adds a column to the schema. </p><p>This method does not alter the database table; @see export();</p><dl>
+<dt>See Also:</dt>
+<dd>$_columns;</dd>
+<dt>Parameters:</dt>
+<dd>name - column physical name</dd>
+<dd>type - type of data</dd>
+<dd>length - maximum length</dd>
+<dd></dd>
+<dd>prepend - Whether to prepend or append the new column to the column list. By default the column gets appended.</dd>
+<dt>Throws:</dt>
+<dd>if trying use wrongly typed parameter</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 1235</div>
+<h3 id="setColumnOption()">setColumnOption</h3>
+<code class="signature">public  void <strong>setColumnOption</strong>(string columnName, string option, string value)</code>
+<div class="details">
+<p>Set an individual column option</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 1214</div>
+<h3 id="setColumnOptions()">setColumnOptions</h3>
+<code class="signature">public  void <strong>setColumnOptions</strong>(string columnName, mixed options, array validators)</code>
+<div class="details">
+<p>Customize the array of options for a column or multiple columns. First
+argument can be a single field/column name or an array of them. The second
+argument is an array of options.</p><p>[php]
+public function setTableDefinition()
+{
+parent::setTableDefinition();
+$this->setColumnOptions('username', array(
+'unique' => true
+));
+}</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 1260</div>
+<h3 id="setColumns()">setColumns</h3>
+<code class="signature">public  void <strong>setColumns</strong>(array definitions)</code>
+<div class="details">
+<p>Set multiple column definitions at once</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 1481</div>
+<h3 id="setConnection()">setConnection</h3>
+<code class="signature">public  <a href="../doctrine/doctrine_table.html">Doctrine_Table</a> <strong>setConnection</strong>(mixed conn)</code>
+<div class="details">
+<p>Sets the default connection for this table.</p><p>This method assign the connection which this table will use
+to create queries.</p><dl>
+<dt>Params:</dt>
+<dd>Doctrine_Connection      a connection object</dd>
+<dt>Returns:</dt>
+<dd>this object; fluent interface</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 2270</div>
+<h3 id="setData()">setData</h3>
+<code class="signature">public  void <strong>setData</strong>(array data)</code>
+<div class="details">
+<p>Doctrine uses this function internally.
+Users are strongly discouraged to use this function.</p><dl>
+<dt>Parameters:</dt>
+<dd>data - internal data</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 2541</div>
+<h3 id="setGenerator()">setGenerator</h3>
+<code class="signature">public  void <strong>setGenerator</strong>(<a href="../doctrine/doctrine_record_generator.html">Doctrine_Record_Generator</a> generator)</code>
+<div class="details">
+<p>Set the generator responsible for creating this table</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 619</div>
+<h3 id="setMethodOwner()">setMethodOwner</h3>
+<code class="signature">public  void <strong>setMethodOwner</strong>(string method, string class)</code>
+<div class="details">
+<p>setMethodOwner</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 1061</div>
+<h3 id="setOption()">setOption</h3>
+<code class="signature">public  <a href="../doctrine/doctrine_table.html">Doctrine_Table</a> <strong>setOption</strong>(string name, mixed value)</code>
+<div class="details">
+<p>Sets an option for the table.</p><p>This method sets an option and returns this object in order to
+allow flexible method chaining.</p>
+Strict Standards: Only variables should be assigned by reference in /Users/jwage/Sites/doctrine_website/lib/vendor/phpdoctor/classes/seeTag.php on line 141
+<dl>
+<dt>See Also:</dt>
+<dd><a href="../doctrine/doctrine_table.html#_options">  for available options</a></dd>
+<dt>Parameters:</dt>
+<dd>name - the name of the option to set</dd>
+<dd>value - the value of the option</dd>
+<dt>Returns:</dt>
+<dd>this object</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 817</div>
+<h3 id="setOptions()">setOptions</h3>
+<code class="signature">public  void <strong>setOptions</strong>(array options)</code>
+<div class="details">
+<p>Sets all the options.</p><p>This method sets options of the table that are specified in the argument.
+It has no effect on other options.</p><dl>
+<dt>Parameters:</dt>
+<dd>options - keys are option names</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 2410</div>
+<h3 id="setTableName()">setTableName</h3>
+<code class="signature">public  void <strong>setTableName</strong>(string tableName)</code>
+<div class="details">
+<p>sets the table name in the schema definition.</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 919</div>
+<h3 id="unique()">unique</h3>
+<code class="signature">public  void <strong>unique</strong>(array fields, array options, bool createUniqueIndex)</code>
+<div class="details">
+<p>Defines a n-uple of fields that must be unique for every record. </p><p>This method Will automatically add UNIQUE index definition 
+and validate the values on save. The UNIQUE index is not created in the
+database until you use @see export().</p><dl>
+<dt>Parameters:</dt>
+<dd>fields - values are fieldnames</dd>
+<dd>options - array of options for unique validator</dd>
+<dd>createUniqueIndex - Whether or not to create a unique index in the database</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 2676</div>
+<h3 id="unshiftFilter()">unshiftFilter</h3>
+<code class="signature">public  <a href="../doctrine/doctrine_table.html">Doctrine_Table</a> <strong>unshiftFilter</strong>(<a href="../doctrine/doctrine_record_filter.html">Doctrine_Record_Filter</a> filter)</code>
+<div class="details">
+<p>unshiftFilter</p><dl>
+<dt>Returns:</dt>
+<dd>this object (provides a fluent interface)</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 2030</div>
+<h3 id="validateField()">validateField</h3>
+<code class="signature">public  <a href="../doctrine/doctrine_validator_errorstack.html">Doctrine_Validator_ErrorStack</a> <strong>validateField</strong>(string fieldName, string value, <a href="../doctrine/doctrine_record.html">Doctrine_Record</a> record)</code>
+<div class="details">
+<p>Validates a given field using table ATTR_VALIDATE rules.</p><dl>
+<dt>See Also:</dt>
+<dd>Doctrine_Core::ATTR_VALIDATE</dd>
+<dt>Parameters:</dt>
+<dd></dd>
+<dd></dd>
+<dd>record - record to consider; if it does not exists, it is created</dd>
+<dt>Returns:</dt>
+<dd>$errorStack</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Table.php at line 2115</div>
+<h3 id="validateUniques()">validateUniques</h3>
+<code class="signature">public  void <strong>validateUniques</strong>(<a href="../doctrine/doctrine_record.html">Doctrine_Record</a> record)</code>
+<div class="details">
+<p>Validates all the unique indexes.</p><p>This methods validates 'unique' sets of fields for the given Doctrine_Record instance.
+Pushes error to the record error stack if they are generated.</p></div>
+
+<hr>
+
+<div class="header">
+<h1>Doctrine</h1>
+<ul>
+<li><a href="../overview-summary.html">Overview</a></li>
+<li><a href="../doctrine/package-summary.html">Namespace</a></li>
+<li class="active">Class</li>
+<li><a href="../doctrine/package-tree.html">Tree</a></li>
+<li><a href="../deprecated-list.html">Deprecated</a></li>
+<li><a href="../index-all.html">Index</a></li>
+</ul>
+</div>
+
+<div class="small_links">
+<a href="../index.html" target="_top">Frames</a>
+<a href="../doctrine/doctrine_table.html" target="_top">No frames</a>
+</div>
+<div class="small_links">
+Summary: <a href="#summary_field">Field</a> | <a href="#summary_method">Method</a> | <a href="#summary_constr">Constr</a>
+Detail: <a href="#detail_field">Field</a> | <a href="#detail_method">Method</a> | <a href="#summary_constr">Constr</a>
+</div>
+<hr>
+
+<p id="footer">This document was generated by <a href="http://peej.github.com/phpdoctor/">PHPDoctor: The PHP Documentation Creator</a></p>
+
+</body>
+
+</html>

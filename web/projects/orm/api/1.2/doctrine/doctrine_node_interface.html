@@ -1,0 +1,526 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+<head>
+
+<meta name="generator" content="PHPDoctor 2RC4 (http://phpdoctor.sourceforge.net/)">
+<meta name="when" content="Fri, 09 Apr 2010 11:50:25 -0400">
+
+<link rel="stylesheet" type="text/css" href="../stylesheet.css">
+<link rel="start" href="../overview-summary.html">
+
+<title>Doctrine_Node_Interface (Doctrine 1.2 ORM)</title>
+
+</head>
+<body id="definition" onload="parent.document.title=document.title;">
+
+<div class="header">
+<h1>Doctrine</h1>
+<ul>
+<li><a href="../overview-summary.html">Overview</a></li>
+<li><a href="../doctrine/package-summary.html">Namespace</a></li>
+<li class="active">Class</li>
+<li><a href="../doctrine/package-tree.html">Tree</a></li>
+<li><a href="../deprecated-list.html">Deprecated</a></li>
+<li><a href="../index-all.html">Index</a></li>
+</ul>
+</div>
+
+<div class="small_links">
+<a href="../index.html" target="_top">Frames</a>
+<a href="../doctrine/doctrine_node_interface.html" target="_top">No frames</a>
+</div>
+<div class="small_links">
+Summary: <a href="#summary_field">Field</a> | <a href="#summary_method">Method</a> | <a href="#summary_constr">Constr</a>
+Detail: <a href="#detail_field">Field</a> | <a href="#detail_method">Method</a> | <a href="#summary_constr">Constr</a>
+</div>
+<hr>
+
+<div class="qualifiedName">Doctrine\Doctrine_Node_Interface</div>
+<div class="location">/Doctrine/Node/Interface.php at line 33</div>
+
+<h1>Interface Doctrine_Node_Interface</h1>
+
+<pre class="tree"><strong>Doctrine_Node_Interface</strong><br /></pre>
+
+<hr>
+
+<p class="signature">public  interface <strong>Doctrine_Node_Interface</strong></p>
+
+<div class="comment" id="overview_description"><p>Doctrine_Node_Interface</p></div>
+
+<dl>
+<dt>Subpackage:</dt>
+<dd>Node</dd>
+<dt>License:</dt>
+<dd>http://www.opensource.org/licenses/lgpl-license.php LGPL</dd>
+<dt>See Also:</dt>
+<dd><code>www.doctrine-project.org</code></dd>
+<dt>Since:</dt>
+<dd>1.0</dd>
+<dt>Version:</dt>
+<dd>$Revision: 7490 $</dd>
+<dt>Author:</dt>
+<dd>Joe Simms <joe.simms@websites4.com></dd>
+</dl>
+<hr>
+
+<table id="summary_method">
+<tr><th colspan="2">Method Summary</th></tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#addChild()">addChild</a>(mixed record)</p><p class="description">adds node as last child of record.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#delete()">delete</a>()</p><p class="description">deletes node and it's descendants.</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../doctrine/doctrine_collection.html">Doctrine_Collection</a></td>
+<td class="description"><p class="name"><a href="#getAncestors()">getAncestors</a>()</p><p class="description">gets ancestors for node.</p></td>
+</tr>
+<tr>
+<td class="type"> array</td>
+<td class="description"><p class="name"><a href="#getChildren()">getChildren</a>()</p><p class="description">gets children for node (direct descendants only).</p></td>
+</tr>
+<tr>
+<td class="type"> Iterator</td>
+<td class="description"><p class="name"><a href="#getDescendants()">getDescendants</a>()</p><p class="description">gets descendants for node (direct descendants only).</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../doctrine/doctrine_record.html">Doctrine_Record</a></td>
+<td class="description"><p class="name"><a href="#getFirstChild()">getFirstChild</a>()</p><p class="description">gets record of first child or empty record.</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../doctrine/doctrine_record.html">Doctrine_Record</a></td>
+<td class="description"><p class="name"><a href="#getLastChild()">getLastChild</a>()</p><p class="description">gets record of last child or empty record.</p></td>
+</tr>
+<tr>
+<td class="type"> int</td>
+<td class="description"><p class="name"><a href="#getLevel()">getLevel</a>()</p><p class="description">gets level (depth) of node in the tree.</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../doctrine/doctrine_record.html">Doctrine_Record</a></td>
+<td class="description"><p class="name"><a href="#getNextSibling()">getNextSibling</a>()</p><p class="description">gets record of next sibling or empty record.</p></td>
+</tr>
+<tr>
+<td class="type"> int</td>
+<td class="description"><p class="name"><a href="#getNumberChildren()">getNumberChildren</a>()</p><p class="description">gets number of children (direct descendants).</p></td>
+</tr>
+<tr>
+<td class="type"> int</td>
+<td class="description"><p class="name"><a href="#getNumberDescendants()">getNumberDescendants</a>()</p><p class="description">gets number of descendants (children and their children).</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../doctrine/doctrine_record.html">Doctrine_Record</a></td>
+<td class="description"><p class="name"><a href="#getParent()">getParent</a>()</p><p class="description">gets record of parent or empty record.</p></td>
+</tr>
+<tr>
+<td class="type"> string</td>
+<td class="description"><p class="name"><a href="#getPath()">getPath</a>(string seperator, bool includeNode)</p><p class="description">gets path to node from root, uses record::toString() method to get node names.</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../doctrine/doctrine_record.html">Doctrine_Record</a></td>
+<td class="description"><p class="name"><a href="#getPrevSibling()">getPrevSibling</a>()</p><p class="description">gets record of prev sibling or empty record.</p></td>
+</tr>
+<tr>
+<td class="type"> array</td>
+<td class="description"><p class="name"><a href="#getSiblings()">getSiblings</a>(mixed includeNode)</p><p class="description">gets siblings for node.</p></td>
+</tr>
+<tr>
+<td class="type"> bool</td>
+<td class="description"><p class="name"><a href="#hasChildren()">hasChildren</a>()</p><p class="description">test if node has children.</p></td>
+</tr>
+<tr>
+<td class="type"> bool</td>
+<td class="description"><p class="name"><a href="#hasNextSibling()">hasNextSibling</a>()</p><p class="description">test if node has next sibling.</p></td>
+</tr>
+<tr>
+<td class="type"> bool</td>
+<td class="description"><p class="name"><a href="#hasParent()">hasParent</a>()</p><p class="description">test if node has parent.</p></td>
+</tr>
+<tr>
+<td class="type"> bool</td>
+<td class="description"><p class="name"><a href="#hasPrevSibling()">hasPrevSibling</a>()</p><p class="description">test if node has previous sibling.</p></td>
+</tr>
+<tr>
+<td class="type"> bool</td>
+<td class="description"><p class="name"><a href="#insertAsFirstChildOf()">insertAsFirstChildOf</a>(mixed dest)</p><p class="description">inserts node as first child of dest record.</p></td>
+</tr>
+<tr>
+<td class="type"> bool</td>
+<td class="description"><p class="name"><a href="#insertAsLastChildOf()">insertAsLastChildOf</a>(mixed dest)</p><p class="description">inserts node as first child of dest record.</p></td>
+</tr>
+<tr>
+<td class="type"> bool</td>
+<td class="description"><p class="name"><a href="#insertAsNextSiblingOf()">insertAsNextSiblingOf</a>(mixed dest)</p><p class="description">inserts node as next sibling of dest record.</p></td>
+</tr>
+<tr>
+<td class="type"> bool</td>
+<td class="description"><p class="name"><a href="#insertAsParentOf()">insertAsParentOf</a>(mixed dest)</p><p class="description">inserts node as parent of dest record.</p></td>
+</tr>
+<tr>
+<td class="type"> bool</td>
+<td class="description"><p class="name"><a href="#insertAsPrevSiblingOf()">insertAsPrevSiblingOf</a>(mixed dest)</p><p class="description">inserts node as previous sibling of dest record.</p></td>
+</tr>
+<tr>
+<td class="type"> bool</td>
+<td class="description"><p class="name"><a href="#isDescendantOf()">isDescendantOf</a>(mixed subj)</p><p class="description">determines if node is child of subject node.</p></td>
+</tr>
+<tr>
+<td class="type"> bool</td>
+<td class="description"><p class="name"><a href="#isDescendantOfOrEqualTo()">isDescendantOfOrEqualTo</a>(mixed subj)</p><p class="description">determines if node is child of or sibling to subject node.</p></td>
+</tr>
+<tr>
+<td class="type"> bool</td>
+<td class="description"><p class="name"><a href="#isEqualTo()">isEqualTo</a>(mixed subj)</p><p class="description">determines if node is equal to subject node.</p></td>
+</tr>
+<tr>
+<td class="type"> bool</td>
+<td class="description"><p class="name"><a href="#isLeaf()">isLeaf</a>()</p><p class="description">determines if node is leaf.</p></td>
+</tr>
+<tr>
+<td class="type"> bool</td>
+<td class="description"><p class="name"><a href="#isRoot()">isRoot</a>()</p><p class="description">determines if node is root.</p></td>
+</tr>
+<tr>
+<td class="type"> bool</td>
+<td class="description"><p class="name"><a href="#isValidNode()">isValidNode</a>()</p><p class="description">determines if node is valid.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#moveAsFirstChildOf()">moveAsFirstChildOf</a>(mixed dest)</p><p class="description">moves node as first child of dest record.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#moveAsLastChildOf()">moveAsLastChildOf</a>(mixed dest)</p><p class="description">moves node as last child of dest record.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#moveAsNextSiblingOf()">moveAsNextSiblingOf</a>(mixed dest)</p><p class="description">moves node as next sibling of dest record.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#moveAsPrevSiblingOf()">moveAsPrevSiblingOf</a>(mixed dest)</p><p class="description">moves node as prev sibling of dest record.</p></td>
+</tr>
+</table>
+
+<h2 id="detail_method">Method Detail</h2>
+<div class="location">/Doctrine/Node/Interface.php at line 219</div>
+<h3 id="addChild()">addChild</h3>
+<code class="signature">public  void <strong>addChild</strong>(mixed record)</code>
+<div class="details">
+<p>adds node as last child of record</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Node/Interface.php at line 267</div>
+<h3 id="delete()">delete</h3>
+<code class="signature">public  void <strong>delete</strong>()</code>
+<div class="details">
+<p>deletes node and it's descendants</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Node/Interface.php at line 124</div>
+<h3 id="getAncestors()">getAncestors</h3>
+<code class="signature">public  <a href="../doctrine/doctrine_collection.html">Doctrine_Collection</a> <strong>getAncestors</strong>()</code>
+<div class="details">
+<p>gets ancestors for node</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Node/Interface.php at line 103</div>
+<h3 id="getChildren()">getChildren</h3>
+<code class="signature">public  array <strong>getChildren</strong>()</code>
+<div class="details">
+<p>gets children for node (direct descendants only)</p><dl>
+<dt>Returns:</dt>
+<dd>array of sibling Doctrine_Record objects</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Node/Interface.php at line 110</div>
+<h3 id="getDescendants()">getDescendants</h3>
+<code class="signature">public  Iterator <strong>getDescendants</strong>()</code>
+<div class="details">
+<p>gets descendants for node (direct descendants only)</p><dl>
+<dt>Returns:</dt>
+<dd>iterator to traverse descendants from node</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Node/Interface.php at line 89</div>
+<h3 id="getFirstChild()">getFirstChild</h3>
+<code class="signature">public  <a href="../doctrine/doctrine_record.html">Doctrine_Record</a> <strong>getFirstChild</strong>()</code>
+<div class="details">
+<p>gets record of first child or empty record</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Node/Interface.php at line 96</div>
+<h3 id="getLastChild()">getLastChild</h3>
+<code class="signature">public  <a href="../doctrine/doctrine_record.html">Doctrine_Record</a> <strong>getLastChild</strong>()</code>
+<div class="details">
+<p>gets record of last child or empty record</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Node/Interface.php at line 140</div>
+<h3 id="getLevel()">getLevel</h3>
+<code class="signature">public  int <strong>getLevel</strong>()</code>
+<div class="details">
+<p>gets level (depth) of node in the tree</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Node/Interface.php at line 75</div>
+<h3 id="getNextSibling()">getNextSibling</h3>
+<code class="signature">public  <a href="../doctrine/doctrine_record.html">Doctrine_Record</a> <strong>getNextSibling</strong>()</code>
+<div class="details">
+<p>gets record of next sibling or empty record</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Node/Interface.php at line 147</div>
+<h3 id="getNumberChildren()">getNumberChildren</h3>
+<code class="signature">public  int <strong>getNumberChildren</strong>()</code>
+<div class="details">
+<p>gets number of children (direct descendants)</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Node/Interface.php at line 154</div>
+<h3 id="getNumberDescendants()">getNumberDescendants</h3>
+<code class="signature">public  int <strong>getNumberDescendants</strong>()</code>
+<div class="details">
+<p>gets number of descendants (children and their children)</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Node/Interface.php at line 117</div>
+<h3 id="getParent()">getParent</h3>
+<code class="signature">public  <a href="../doctrine/doctrine_record.html">Doctrine_Record</a> <strong>getParent</strong>()</code>
+<div class="details">
+<p>gets record of parent or empty record</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Node/Interface.php at line 133</div>
+<h3 id="getPath()">getPath</h3>
+<code class="signature">public  string <strong>getPath</strong>(string seperator, bool includeNode)</code>
+<div class="details">
+<p>gets path to node from root, uses record::toString() method to get node names</p><dl>
+<dt>Parameters:</dt>
+<dd>seperator - path seperator</dd>
+<dd>includeNode - whether or not to include node at end of path</dd>
+<dt>Returns:</dt>
+<dd>string representation of path</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Node/Interface.php at line 68</div>
+<h3 id="getPrevSibling()">getPrevSibling</h3>
+<code class="signature">public  <a href="../doctrine/doctrine_record.html">Doctrine_Record</a> <strong>getPrevSibling</strong>()</code>
+<div class="details">
+<p>gets record of prev sibling or empty record</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Node/Interface.php at line 82</div>
+<h3 id="getSiblings()">getSiblings</h3>
+<code class="signature">public  array <strong>getSiblings</strong>(mixed includeNode)</code>
+<div class="details">
+<p>gets siblings for node</p><dl>
+<dt>Returns:</dt>
+<dd>array of sibling Doctrine_Record objects</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Node/Interface.php at line 54</div>
+<h3 id="hasChildren()">hasChildren</h3>
+<code class="signature">public  bool <strong>hasChildren</strong>()</code>
+<div class="details">
+<p>test if node has children</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Node/Interface.php at line 47</div>
+<h3 id="hasNextSibling()">hasNextSibling</h3>
+<code class="signature">public  bool <strong>hasNextSibling</strong>()</code>
+<div class="details">
+<p>test if node has next sibling</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Node/Interface.php at line 61</div>
+<h3 id="hasParent()">hasParent</h3>
+<code class="signature">public  bool <strong>hasParent</strong>()</code>
+<div class="details">
+<p>test if node has parent</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Node/Interface.php at line 40</div>
+<h3 id="hasPrevSibling()">hasPrevSibling</h3>
+<code class="signature">public  bool <strong>hasPrevSibling</strong>()</code>
+<div class="details">
+<p>test if node has previous sibling</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Node/Interface.php at line 182</div>
+<h3 id="insertAsFirstChildOf()">insertAsFirstChildOf</h3>
+<code class="signature">public  bool <strong>insertAsFirstChildOf</strong>(mixed dest)</code>
+<div class="details">
+<p>inserts node as first child of dest record</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Node/Interface.php at line 189</div>
+<h3 id="insertAsLastChildOf()">insertAsLastChildOf</h3>
+<code class="signature">public  bool <strong>insertAsLastChildOf</strong>(mixed dest)</code>
+<div class="details">
+<p>inserts node as first child of dest record</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Node/Interface.php at line 175</div>
+<h3 id="insertAsNextSiblingOf()">insertAsNextSiblingOf</h3>
+<code class="signature">public  bool <strong>insertAsNextSiblingOf</strong>(mixed dest)</code>
+<div class="details">
+<p>inserts node as next sibling of dest record</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Node/Interface.php at line 161</div>
+<h3 id="insertAsParentOf()">insertAsParentOf</h3>
+<code class="signature">public  bool <strong>insertAsParentOf</strong>(mixed dest)</code>
+<div class="details">
+<p>inserts node as parent of dest record</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Node/Interface.php at line 168</div>
+<h3 id="insertAsPrevSiblingOf()">insertAsPrevSiblingOf</h3>
+<code class="signature">public  bool <strong>insertAsPrevSiblingOf</strong>(mixed dest)</code>
+<div class="details">
+<p>inserts node as previous sibling of dest record</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Node/Interface.php at line 247</div>
+<h3 id="isDescendantOf()">isDescendantOf</h3>
+<code class="signature">public  bool <strong>isDescendantOf</strong>(mixed subj)</code>
+<div class="details">
+<p>determines if node is child of subject node</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Node/Interface.php at line 254</div>
+<h3 id="isDescendantOfOrEqualTo()">isDescendantOfOrEqualTo</h3>
+<code class="signature">public  bool <strong>isDescendantOfOrEqualTo</strong>(mixed subj)</code>
+<div class="details">
+<p>determines if node is child of or sibling to subject node</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Node/Interface.php at line 240</div>
+<h3 id="isEqualTo()">isEqualTo</h3>
+<code class="signature">public  bool <strong>isEqualTo</strong>(mixed subj)</code>
+<div class="details">
+<p>determines if node is equal to subject node</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Node/Interface.php at line 226</div>
+<h3 id="isLeaf()">isLeaf</h3>
+<code class="signature">public  bool <strong>isLeaf</strong>()</code>
+<div class="details">
+<p>determines if node is leaf</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Node/Interface.php at line 233</div>
+<h3 id="isRoot()">isRoot</h3>
+<code class="signature">public  bool <strong>isRoot</strong>()</code>
+<div class="details">
+<p>determines if node is root</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Node/Interface.php at line 261</div>
+<h3 id="isValidNode()">isValidNode</h3>
+<code class="signature">public  bool <strong>isValidNode</strong>()</code>
+<div class="details">
+<p>determines if node is valid</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Node/Interface.php at line 207</div>
+<h3 id="moveAsFirstChildOf()">moveAsFirstChildOf</h3>
+<code class="signature">public  void <strong>moveAsFirstChildOf</strong>(mixed dest)</code>
+<div class="details">
+<p>moves node as first child of dest record</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Node/Interface.php at line 213</div>
+<h3 id="moveAsLastChildOf()">moveAsLastChildOf</h3>
+<code class="signature">public  void <strong>moveAsLastChildOf</strong>(mixed dest)</code>
+<div class="details">
+<p>moves node as last child of dest record</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Node/Interface.php at line 201</div>
+<h3 id="moveAsNextSiblingOf()">moveAsNextSiblingOf</h3>
+<code class="signature">public  void <strong>moveAsNextSiblingOf</strong>(mixed dest)</code>
+<div class="details">
+<p>moves node as next sibling of dest record</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Node/Interface.php at line 195</div>
+<h3 id="moveAsPrevSiblingOf()">moveAsPrevSiblingOf</h3>
+<code class="signature">public  void <strong>moveAsPrevSiblingOf</strong>(mixed dest)</code>
+<div class="details">
+<p>moves node as prev sibling of dest record</p></div>
+
+<hr>
+
+<div class="header">
+<h1>Doctrine</h1>
+<ul>
+<li><a href="../overview-summary.html">Overview</a></li>
+<li><a href="../doctrine/package-summary.html">Namespace</a></li>
+<li class="active">Class</li>
+<li><a href="../doctrine/package-tree.html">Tree</a></li>
+<li><a href="../deprecated-list.html">Deprecated</a></li>
+<li><a href="../index-all.html">Index</a></li>
+</ul>
+</div>
+
+<div class="small_links">
+<a href="../index.html" target="_top">Frames</a>
+<a href="../doctrine/doctrine_node_interface.html" target="_top">No frames</a>
+</div>
+<div class="small_links">
+Summary: <a href="#summary_field">Field</a> | <a href="#summary_method">Method</a> | <a href="#summary_constr">Constr</a>
+Detail: <a href="#detail_field">Field</a> | <a href="#detail_method">Method</a> | <a href="#summary_constr">Constr</a>
+</div>
+<hr>
+
+<p id="footer">This document was generated by <a href="http://peej.github.com/phpdoctor/">PHPDoctor: The PHP Documentation Creator</a></p>
+
+</body>
+
+</html>

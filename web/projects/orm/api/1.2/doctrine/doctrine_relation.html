@@ -1,0 +1,567 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+<head>
+
+<meta name="generator" content="PHPDoctor 2RC4 (http://phpdoctor.sourceforge.net/)">
+<meta name="when" content="Fri, 09 Apr 2010 11:50:26 -0400">
+
+<link rel="stylesheet" type="text/css" href="../stylesheet.css">
+<link rel="start" href="../overview-summary.html">
+
+<title>Doctrine_Relation (Doctrine 1.2 ORM)</title>
+
+</head>
+<body id="definition" onload="parent.document.title=document.title;">
+
+<div class="header">
+<h1>Doctrine</h1>
+<ul>
+<li><a href="../overview-summary.html">Overview</a></li>
+<li><a href="../doctrine/package-summary.html">Namespace</a></li>
+<li class="active">Class</li>
+<li><a href="../doctrine/package-tree.html">Tree</a></li>
+<li><a href="../deprecated-list.html">Deprecated</a></li>
+<li><a href="../index-all.html">Index</a></li>
+</ul>
+</div>
+
+<div class="small_links">
+<a href="../index.html" target="_top">Frames</a>
+<a href="../doctrine/doctrine_relation.html" target="_top">No frames</a>
+</div>
+<div class="small_links">
+Summary: <a href="#summary_field">Field</a> | <a href="#summary_method">Method</a> | <a href="#summary_constr">Constr</a>
+Detail: <a href="#detail_field">Field</a> | <a href="#detail_method">Method</a> | <a href="#summary_constr">Constr</a>
+</div>
+<hr>
+
+<div class="qualifiedName">Doctrine\Doctrine_Relation</div>
+<div class="location">/Doctrine/Relation.php at line 34</div>
+
+<h1>Class Doctrine_Relation</h1>
+
+<pre class="tree"><strong>Doctrine_Relation</strong><br /></pre>
+
+<hr>
+
+<p class="signature">public abstract  class <strong>Doctrine_Relation</strong></p>
+
+<div class="comment" id="overview_description"><p>Doctrine_Relation
+This class represents a relation between components</p></div>
+
+<dl>
+<dt>Subpackage:</dt>
+<dd>Relation</dd>
+<dt>License:</dt>
+<dd>http://www.opensource.org/licenses/lgpl-license.php LGPL</dd>
+<dt>See Also:</dt>
+<dd><code>www.doctrine-project.org</code></dd>
+<dt>Since:</dt>
+<dd>1.0</dd>
+<dt>Version:</dt>
+<dd>$Revision: 7490 $</dd>
+<dt>Author:</dt>
+<dd>Konsta Vesterinen <kvesteri@cc.hut.fi></dd>
+</dl>
+<hr>
+
+<table id="summary_field">
+<tr><th colspan="2">Field Summary</th></tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#MANY">MANY</a></p><p class="description">constant for MANY_TO_MANY and ONE_TO_MANY relationships.</p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ONE">$ONE</a></p><p class="description">constant for ONE_TO_ONE and MANY_TO_ONE relationships.</p></td>
+</tr>
+<tr>
+<td class="type">protected  mixed</td>
+<td class="description"><p class="name"><a href="#_isRefClass">$_isRefClass</a></p></td>
+</tr>
+<tr>
+<td class="type">protected  array $definition   @see __construct()</td>
+<td class="description"><p class="name"><a href="#definition">$definition</a></p><p class="description">.</p></td>
+</tr>
+</table>
+
+<table id="summary_constr">
+<tr><th colspan="2">Constructor Summary</th></tr>
+<tr>
+<td class="description"><p class="name"><a href="#Doctrine_Relation()">Doctrine_Relation</a>(array definition)</p><p class="description">constructor.</p></td>
+</tr>
+</table>
+
+<table id="summary_method">
+<tr><th colspan="2">Method Summary</th></tr>
+<tr>
+<td class="type"> string</td>
+<td class="description"><p class="name"><a href="#__toString()">__toString</a>()</p><p class="description">__toString.</p></td>
+</tr>
+<tr>
+<td class="type">abstract  Doctrine_Record|Doctrine_Collection</td>
+<td class="description"><p class="name"><a href="#fetchRelatedFor()">fetchRelatedFor</a>(<a href="../doctrine/doctrine_record.html">Doctrine_Record</a> record)</p><p class="description">fetchRelatedFor.</p></td>
+</tr>
+<tr>
+<td class="type">final  string</td>
+<td class="description"><p class="name"><a href="#getAlias()">getAlias</a>()</p><p class="description">getAlias
+returns the relation alias.</p></td>
+</tr>
+<tr>
+<td class="type">final  string</td>
+<td class="description"><p class="name"><a href="#getClass()">getClass</a>()</p><p class="description">getClass
+returns the name of the related class.</p></td>
+</tr>
+<tr>
+<td class="type">final  string</td>
+<td class="description"><p class="name"><a href="#getForeign()">getForeign</a>()</p><p class="description">getForeign
+returns the name of the foreignkey column where
+the localkey column is pointing at.</p></td>
+</tr>
+<tr>
+<td class="type">final  string</td>
+<td class="description"><p class="name"><a href="#getForeignColumnName()">getForeignColumnName</a>()</p><p class="description">getForeignColumnName
+returns the column name of the foreign column.</p></td>
+</tr>
+<tr>
+<td class="type">final  void</td>
+<td class="description"><p class="name"><a href="#getForeignFieldName()">getForeignFieldName</a>()</p><p class="description">getLocalFieldName
+returns the field name of the foreign column.</p></td>
+</tr>
+<tr>
+<td class="type"> string</td>
+<td class="description"><p class="name"><a href="#getForeignKeyName()">getForeignKeyName</a>()</p><p class="description">Get the name of the foreign key for this relationship.</p></td>
+</tr>
+<tr>
+<td class="type">final  string</td>
+<td class="description"><p class="name"><a href="#getLocal()">getLocal</a>()</p><p class="description">getLocal
+returns the name of the local column.</p></td>
+</tr>
+<tr>
+<td class="type">final  string</td>
+<td class="description"><p class="name"><a href="#getLocalColumnName()">getLocalColumnName</a>()</p><p class="description">getLocalColumnName
+returns the column name of the local column.</p></td>
+</tr>
+<tr>
+<td class="type">final  void</td>
+<td class="description"><p class="name"><a href="#getLocalFieldName()">getLocalFieldName</a>()</p><p class="description">getLocalFieldName
+returns the field name of the local column.</p></td>
+</tr>
+<tr>
+<td class="type"> string</td>
+<td class="description"><p class="name"><a href="#getOrderBy()">getOrderBy</a>(string alias, boolean columnNames)</p><p class="description">Get the relationship orderby SQL/DQL.</p></td>
+</tr>
+<tr>
+<td class="type"> string</td>
+<td class="description"><p class="name"><a href="#getOrderByStatement()">getOrderByStatement</a>(string alias, boolean columnNames)</p><p class="description">Get the relationship orderby statement.</p></td>
+</tr>
+<tr>
+<td class="type"> string</td>
+<td class="description"><p class="name"><a href="#getRelationDql()">getRelationDql</a>(integer count)</p><p class="description">getRelationDql.</p></td>
+</tr>
+<tr>
+<td class="type">final  <a href="../doctrine/doctrine_table.html">Doctrine_Table</a></td>
+<td class="description"><p class="name"><a href="#getTable()">getTable</a>()</p><p class="description">getTable
+returns the foreign table object.</p></td>
+</tr>
+<tr>
+<td class="type">final  integer</td>
+<td class="description"><p class="name"><a href="#getType()">getType</a>()</p><p class="description">getType
+returns the relation type, either 0 or 1.</p></td>
+</tr>
+<tr>
+<td class="type"> boolean</td>
+<td class="description"><p class="name"><a href="#hasConstraint()">hasConstraint</a>()</p><p class="description">hasConstraint
+whether or not this relation has an explicit constraint.</p></td>
+</tr>
+<tr>
+<td class="type"> boolean</td>
+<td class="description"><p class="name"><a href="#isCascadeDelete()">isCascadeDelete</a>()</p><p class="description">Checks whether this relation cascades deletions to the related objects
+on the application level..</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#isDeferrable()">isDeferrable</a>()</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#isDeferred()">isDeferred</a>()</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#isEqual()">isEqual</a>()</p></td>
+</tr>
+<tr>
+<td class="type">final  boolean</td>
+<td class="description"><p class="name"><a href="#isOneToOne()">isOneToOne</a>()</p><p class="description">isOneToOne
+returns whether or not this relation is a one-to-one relation.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#isRefClass()">isRefClass</a>()</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#offsetExists()">offsetExists</a>(mixed offset)</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#offsetGet()">offsetGet</a>(mixed offset)</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#offsetSet()">offsetSet</a>(mixed offset, mixed value)</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#offsetUnset()">offsetUnset</a>(mixed offset)</p></td>
+</tr>
+<tr>
+<td class="type"> array</td>
+<td class="description"><p class="name"><a href="#toArray()">toArray</a>()</p><p class="description">toArray.</p></td>
+</tr>
+</table>
+
+<h2 id="detail_field">Field Detail</h2>
+<div class="location">/Doctrine/Relation.php at line 48</div>
+<h3 id="MANY">MANY</h3>
+<code class="signature">public final  int <strong>MANY</strong> = 1</code>
+<div class="details">
+<p>constant for MANY_TO_MANY and ONE_TO_MANY relationships</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Relation.php at line 43</div>
+<h3 id="ONE">ONE</h3>
+<code class="signature">public final  int <strong>$ONE</strong></code>
+<div class="details">
+<p>constant for ONE_TO_ONE and MANY_TO_ONE relationships</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Relation.php at line 77</div>
+<h3 id="_isRefClass">_isRefClass</h3>
+<code class="signature">protected  mixed <strong>$_isRefClass</strong> = null</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Relation.php at line 55</div>
+<h3 id="definition">definition</h3>
+<code class="signature">protected  array $definition   @see __construct() <strong>$definition</strong> = array(...)</code>
+<div class="details">
+<p></p></div>
+
+<hr>
+
+<h2 id="detail_constr">Constructor Detail</h2>
+<div class="location">/Doctrine/Relation.php at line 128</div>
+<h3 id="Doctrine_Relation()">Doctrine_Relation</h3>
+<code class="signature">public <strong>Doctrine_Relation</strong>(array definition)</code>
+<div class="details">
+<p>constructor</p><dl>
+<dt>Parameters:</dt>
+<dd>definition - an associative array with the following structure: name foreign key constraint name local the local field(s) foreign the foreign reference field(s) table the foreign table object localTable the local table object refTable the reference table object (if any) onDelete referential delete action onUpdate referential update action deferred deferred constraint checking alias relation alias type the relation type, either Doctrine_Relation::ONE or Doctrine_Relation::MANY constraint boolean value, true if the relation has an explicit referential integrity constraint foreignKeyName the name of the dbms foreign key to create. Optional, if left blank Doctrine will generate one for you The onDelete and onUpdate keys accept the following values: CASCADE: Delete or update the row from the parent table and automatically delete or update the matching rows in the child table. Both ON DELETE CASCADE and ON UPDATE CASCADE are supported. Between two tables, you should not define several ON UPDATE CASCADE clauses that act on the same column in the parent table or in the child table. SET NULL: Delete or update the row from the parent table and set the foreign key column or columns in the child table to NULL. This is valid only if the foreign key columns do not have the NOT NULL qualifier specified. Both ON DELETE SET NULL and ON UPDATE SET NULL clauses are supported. NO ACTION: In standard SQL, NO ACTION means no action in the sense that an attempt to delete or update a primary key value is not allowed to proceed if there is a related foreign key value in the referenced table. RESTRICT: Rejects the delete or update operation for the parent table. NO ACTION and RESTRICT are the same as omitting the ON DELETE or ON UPDATE clause. SET DEFAULT</dd>
+</dl>
+</div>
+
+<hr>
+
+<h2 id="detail_method">Method Detail</h2>
+<div class="location">/Doctrine/Relation.php at line 444</div>
+<h3 id="__toString()">__toString</h3>
+<code class="signature">public  string <strong>__toString</strong>()</code>
+<div class="details">
+<p>__toString</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Relation.php at line 366</div>
+<h3 id="fetchRelatedFor()">fetchRelatedFor</h3>
+<code class="signature">public abstract  Doctrine_Record|Doctrine_Collection <strong>fetchRelatedFor</strong>(<a href="../doctrine/doctrine_record.html">Doctrine_Record</a> record)</code>
+<div class="details">
+<p>fetchRelatedFor</p><p>fetches a component related to given record</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Relation.php at line 214</div>
+<h3 id="getAlias()">getAlias</h3>
+<code class="signature">public final  string <strong>getAlias</strong>()</code>
+<div class="details">
+<p>getAlias
+returns the relation alias</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Relation.php at line 261</div>
+<h3 id="getClass()">getClass</h3>
+<code class="signature">public final  string <strong>getClass</strong>()</code>
+<div class="details">
+<p>getClass
+returns the name of the related class</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Relation.php at line 304</div>
+<h3 id="getForeign()">getForeign</h3>
+<code class="signature">public final  string <strong>getForeign</strong>()</code>
+<div class="details">
+<p>getForeign
+returns the name of the foreignkey column where
+the localkey column is pointing at</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Relation.php at line 324</div>
+<h3 id="getForeignColumnName()">getForeignColumnName</h3>
+<code class="signature">public final  string <strong>getForeignColumnName</strong>()</code>
+<div class="details">
+<p>getForeignColumnName
+returns the column name of the foreign column</p><dl>
+<dt>Returns:</dt>
+<dd>$columnName</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Relation.php at line 313</div>
+<h3 id="getForeignFieldName()">getForeignFieldName</h3>
+<code class="signature">public final  void <strong>getForeignFieldName</strong>()</code>
+<div class="details">
+<p>getLocalFieldName
+returns the field name of the foreign column</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Relation.php at line 373</div>
+<h3 id="getForeignKeyName()">getForeignKeyName</h3>
+<code class="signature">public  string <strong>getForeignKeyName</strong>()</code>
+<div class="details">
+<p>Get the name of the foreign key for this relationship</p><dl>
+<dt>Returns:</dt>
+<dd>$foreignKeyName</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Relation.php at line 272</div>
+<h3 id="getLocal()">getLocal</h3>
+<code class="signature">public final  string <strong>getLocal</strong>()</code>
+<div class="details">
+<p>getLocal
+returns the name of the local column</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Relation.php at line 292</div>
+<h3 id="getLocalColumnName()">getLocalColumnName</h3>
+<code class="signature">public final  string <strong>getLocalColumnName</strong>()</code>
+<div class="details">
+<p>getLocalColumnName
+returns the column name of the local column</p><dl>
+<dt>Returns:</dt>
+<dd>$columnName</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Relation.php at line 281</div>
+<h3 id="getLocalFieldName()">getLocalFieldName</h3>
+<code class="signature">public final  void <strong>getLocalFieldName</strong>()</code>
+<div class="details">
+<p>getLocalFieldName
+returns the field name of the local column</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Relation.php at line 388</div>
+<h3 id="getOrderBy()">getOrderBy</h3>
+<code class="signature">public  string <strong>getOrderBy</strong>(string alias, boolean columnNames)</code>
+<div class="details">
+<p>Get the relationship orderby SQL/DQL</p><dl>
+<dt>Parameters:</dt>
+<dd>alias - The alias to use</dd>
+<dd>columnNames - Whether or not to use column names instead of field names</dd>
+<dt>Returns:</dt>
+<dd>$orderBy</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Relation.php at line 406</div>
+<h3 id="getOrderByStatement()">getOrderByStatement</h3>
+<code class="signature">public  string <strong>getOrderByStatement</strong>(string alias, boolean columnNames)</code>
+<div class="details">
+<p>Get the relationship orderby statement</p><dl>
+<dt>Parameters:</dt>
+<dd>alias - The alias to use</dd>
+<dd>columnNames - Whether or not to use column names instead of field names</dd>
+<dt>Returns:</dt>
+<dd>$orderByStatement</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Relation.php at line 346</div>
+<h3 id="getRelationDql()">getRelationDql</h3>
+<code class="signature">public  string <strong>getRelationDql</strong>(integer count)</code>
+<div class="details">
+<p>getRelationDql</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Relation.php at line 248</div>
+<h3 id="getTable()">getTable</h3>
+<code class="signature">public final  <a href="../doctrine/doctrine_table.html">Doctrine_Table</a> <strong>getTable</strong>()</code>
+<div class="details">
+<p>getTable
+returns the foreign table object</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Relation.php at line 226</div>
+<h3 id="getType()">getType</h3>
+<code class="signature">public final  integer <strong>getType</strong>()</code>
+<div class="details">
+<p>getType
+returns the relation type, either 0 or 1</p><dl>
+<dt>See Also:</dt>
+<dd>MANY_* and ONE_* constants</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Relation.php at line 150</div>
+<h3 id="hasConstraint()">hasConstraint</h3>
+<code class="signature">public  boolean <strong>hasConstraint</strong>()</code>
+<div class="details">
+<p>hasConstraint
+whether or not this relation has an explicit constraint</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Relation.php at line 237</div>
+<h3 id="isCascadeDelete()">isCascadeDelete</h3>
+<code class="signature">public  boolean <strong>isCascadeDelete</strong>()</code>
+<div class="details">
+<p>Checks whether this relation cascades deletions to the related objects
+on the application level.</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Relation.php at line 162</div>
+<h3 id="isDeferrable()">isDeferrable</h3>
+<code class="signature">public  void <strong>isDeferrable</strong>()</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Relation.php at line 157</div>
+<h3 id="isDeferred()">isDeferred</h3>
+<code class="signature">public  void <strong>isDeferred</strong>()</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Relation.php at line 167</div>
+<h3 id="isEqual()">isEqual</h3>
+<code class="signature">public  void <strong>isEqual</strong>()</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Relation.php at line 335</div>
+<h3 id="isOneToOne()">isOneToOne</h3>
+<code class="signature">public final  boolean <strong>isOneToOne</strong>()</code>
+<div class="details">
+<p>isOneToOne
+returns whether or not this relation is a one-to-one relation</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Relation.php at line 421</div>
+<h3 id="isRefClass()">isRefClass</h3>
+<code class="signature">public  void <strong>isRefClass</strong>()</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Relation.php at line 172</div>
+<h3 id="offsetExists()">offsetExists</h3>
+<code class="signature">public  void <strong>offsetExists</strong>(mixed offset)</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Relation.php at line 177</div>
+<h3 id="offsetGet()">offsetGet</h3>
+<code class="signature">public  void <strong>offsetGet</strong>(mixed offset)</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Relation.php at line 186</div>
+<h3 id="offsetSet()">offsetSet</h3>
+<code class="signature">public  void <strong>offsetSet</strong>(mixed offset, mixed value)</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Relation.php at line 193</div>
+<h3 id="offsetUnset()">offsetUnset</h3>
+<code class="signature">public  void <strong>offsetUnset</strong>(mixed offset)</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Relation.php at line 203</div>
+<h3 id="toArray()">toArray</h3>
+<code class="signature">public  array <strong>toArray</strong>()</code>
+<div class="details">
+<p>toArray</p></div>
+
+<hr>
+
+<div class="header">
+<h1>Doctrine</h1>
+<ul>
+<li><a href="../overview-summary.html">Overview</a></li>
+<li><a href="../doctrine/package-summary.html">Namespace</a></li>
+<li class="active">Class</li>
+<li><a href="../doctrine/package-tree.html">Tree</a></li>
+<li><a href="../deprecated-list.html">Deprecated</a></li>
+<li><a href="../index-all.html">Index</a></li>
+</ul>
+</div>
+
+<div class="small_links">
+<a href="../index.html" target="_top">Frames</a>
+<a href="../doctrine/doctrine_relation.html" target="_top">No frames</a>
+</div>
+<div class="small_links">
+Summary: <a href="#summary_field">Field</a> | <a href="#summary_method">Method</a> | <a href="#summary_constr">Constr</a>
+Detail: <a href="#detail_field">Field</a> | <a href="#detail_method">Method</a> | <a href="#summary_constr">Constr</a>
+</div>
+<hr>
+
+<p id="footer">This document was generated by <a href="http://peej.github.com/phpdoctor/">PHPDoctor: The PHP Documentation Creator</a></p>
+
+</body>
+
+</html>

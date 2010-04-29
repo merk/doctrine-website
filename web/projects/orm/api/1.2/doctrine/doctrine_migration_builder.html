@@ -1,0 +1,455 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+<head>
+
+<meta name="generator" content="PHPDoctor 2RC4 (http://phpdoctor.sourceforge.net/)">
+<meta name="when" content="Fri, 09 Apr 2010 11:50:25 -0400">
+
+<link rel="stylesheet" type="text/css" href="../stylesheet.css">
+<link rel="start" href="../overview-summary.html">
+
+<title>Doctrine_Migration_Builder (Doctrine 1.2 ORM)</title>
+
+</head>
+<body id="definition" onload="parent.document.title=document.title;">
+
+<div class="header">
+<h1>Doctrine</h1>
+<ul>
+<li><a href="../overview-summary.html">Overview</a></li>
+<li><a href="../doctrine/package-summary.html">Namespace</a></li>
+<li class="active">Class</li>
+<li><a href="../doctrine/package-tree.html">Tree</a></li>
+<li><a href="../deprecated-list.html">Deprecated</a></li>
+<li><a href="../index-all.html">Index</a></li>
+</ul>
+</div>
+
+<div class="small_links">
+<a href="../index.html" target="_top">Frames</a>
+<a href="../doctrine/doctrine_migration_builder.html" target="_top">No frames</a>
+</div>
+<div class="small_links">
+Summary: <a href="#summary_field">Field</a> | <a href="#summary_method">Method</a> | <a href="#summary_constr">Constr</a>
+Detail: <a href="#detail_field">Field</a> | <a href="#detail_method">Method</a> | <a href="#summary_constr">Constr</a>
+</div>
+<hr>
+
+<div class="qualifiedName">Doctrine\Doctrine_Migration_Builder</div>
+<div class="location">/Doctrine/Migration/Builder.php at line 34</div>
+
+<h1>Class Doctrine_Migration_Builder</h1>
+
+<pre class="tree">Class:Doctrine_Migration_Builder - Superclass: Doctrine_Builder
+<a href="../doctrine/doctrine_builder.html">Doctrine_Builder</a><br>   &lfloor;&nbsp;<strong>Doctrine_Migration_Builder</strong><br /></pre>
+
+<hr>
+
+<p class="signature">public  class <strong>Doctrine_Migration_Builder</strong><br>extends <a href="../doctrine/doctrine_builder.html">Doctrine_Builder</a>
+
+</p>
+
+<div class="comment" id="overview_description"><p>Doctrine_Migration_Builder</p></div>
+
+<dl>
+<dt>Subpackage:</dt>
+<dd>Migration</dd>
+<dt>Author:</dt>
+<dd>Konsta Vesterinen <kvesteri@cc.hut.fi></dd>
+<dd>Jonathan H. Wage <jwage@mac.com></dd>
+<dt>License:</dt>
+<dd>http://www.opensource.org/licenses/lgpl-license.php LGPL</dd>
+<dt>See Also:</dt>
+<dd><code>www.doctrine-project.org</code></dd>
+<dt>Since:</dt>
+<dd>1.0</dd>
+<dt>Version:</dt>
+<dd>$Revision: 2939 $</dd>
+</dl>
+<hr>
+
+<table id="summary_field">
+<tr><th colspan="2">Field Summary</th></tr>
+<tr>
+<td class="type">private  Doctrine_Migration $migration</td>
+<td class="description"><p class="name"><a href="#migration">$migration</a></p><p class="description">Instance of the migration class for the migration classes directory.</p></td>
+</tr>
+<tr>
+<td class="type">private  string</td>
+<td class="description"><p class="name"><a href="#migrationsPath">$migrationsPath</a></p><p class="description">The path to your migration classes directory.</p></td>
+</tr>
+<tr>
+<td class="type">private  string $suffix</td>
+<td class="description"><p class="name"><a href="#suffix">$suffix</a></p><p class="description">File suffix to use when writing class definitions.</p></td>
+</tr>
+<tr>
+<td class="type">private static  $tpl</td>
+<td class="description"><p class="name"><a href="#tpl">$tpl</a></p><p class="description">Class template used for writing classes.</p></td>
+</tr>
+</table>
+
+<table id="summary_constr">
+<tr><th colspan="2">Constructor Summary</th></tr>
+<tr>
+<td class="description"><p class="name"><a href="#Doctrine_Migration_Builder()">Doctrine_Migration_Builder</a>(mixed migrationsPath)</p><p class="description">Instantiate new instance of the Doctrine_Migration_Builder class.</p></td>
+</tr>
+</table>
+
+<table id="summary_method">
+<tr><th colspan="2">Method Summary</th></tr>
+<tr>
+<td class="type"> string</td>
+<td class="description"><p class="name"><a href="#buildAddColumn()">buildAddColumn</a>(string tableName, string columnName, string column)</p><p class="description">Build the code for adding columns.</p></td>
+</tr>
+<tr>
+<td class="type"> sgtring</td>
+<td class="description"><p class="name"><a href="#buildAddIndex()">buildAddIndex</a>(string tableName, string indexName, string index)</p><p class="description">Build the code for adding indexes.</p></td>
+</tr>
+<tr>
+<td class="type"> string</td>
+<td class="description"><p class="name"><a href="#buildChangeColumn()">buildChangeColumn</a>(string tableName, string columnName, string column)</p><p class="description">Build the code for changing columns.</p></td>
+</tr>
+<tr>
+<td class="type"> string</td>
+<td class="description"><p class="name"><a href="#buildCreateForeignKey()">buildCreateForeignKey</a>(string tableName, array definition)</p><p class="description">Build the code for creating foreign keys.</p></td>
+</tr>
+<tr>
+<td class="type"> string</td>
+<td class="description"><p class="name"><a href="#buildCreateTable()">buildCreateTable</a>(string tableData)</p><p class="description">Build the code for creating tables.</p></td>
+</tr>
+<tr>
+<td class="type"> string</td>
+<td class="description"><p class="name"><a href="#buildDropForeignKey()">buildDropForeignKey</a>(string tableName, array definition)</p><p class="description">Build the code for dropping foreign keys.</p></td>
+</tr>
+<tr>
+<td class="type"> string</td>
+<td class="description"><p class="name"><a href="#buildDropTable()">buildDropTable</a>(string tableData)</p><p class="description">Build the code for dropping tables.</p></td>
+</tr>
+<tr>
+<td class="type"> string</td>
+<td class="description"><p class="name"><a href="#buildMigrationClass()">buildMigrationClass</a>(string className, string fileName, array options, string down, string up)</p><p class="description">Build the code for a migration class.</p></td>
+</tr>
+<tr>
+<td class="type"> string</td>
+<td class="description"><p class="name"><a href="#buildRemoveColumn()">buildRemoveColumn</a>(string tableName, string columnName, string column)</p><p class="description">Build the code for removing columns.</p></td>
+</tr>
+<tr>
+<td class="type"> string</td>
+<td class="description"><p class="name"><a href="#buildRemoveIndex()">buildRemoveIndex</a>(string tableName, string indexName, string index)</p><p class="description">Build the code for removing indexes.</p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#generateMigrationClass()">generateMigrationClass</a>(string className, array options, string down, boolean return, string up)</p><p class="description">Generate a migration class.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#generateMigrationsFromDb()">generateMigrationsFromDb</a>()</p><p class="description">Generate a set of migration classes from the existing databases.</p></td>
+</tr>
+<tr>
+<td class="type"> array</td>
+<td class="description"><p class="name"><a href="#generateMigrationsFromDiff()">generateMigrationsFromDiff</a>(<a href="../doctrine/doctrine_migration_diff.html">Doctrine_Migration_Diff</a> diff)</p><p class="description">Generate migrations from a Doctrine_Migration_Diff instance.</p></td>
+</tr>
+<tr>
+<td class="type"> boolean</td>
+<td class="description"><p class="name"><a href="#generateMigrationsFromModels()">generateMigrationsFromModels</a>(string modelsPath, string modelLoading)</p><p class="description">Generate a set of migrations from a set of models.</p></td>
+</tr>
+<tr>
+<td class="type"> string</td>
+<td class="description"><p class="name"><a href="#getMigrationsPath()">getMigrationsPath</a>()</p><p class="description">Get the path where generated migration classes are written to.</p></td>
+</tr>
+<tr>
+<td class="type">protected  void</td>
+<td class="description"><p class="name"><a href="#loadTemplate()">loadTemplate</a>()</p><p class="description">Loads the class template used for generating classes.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#setMigrationsPath()">setMigrationsPath</a>(string path)</p><p class="description">Set the path to write the generated migration classes.</p></td>
+</tr>
+</table>
+
+<table class="inherit">
+<tr><th colspan="2">Methods inherited from Doctrine\Doctrine_Builder</th></tr>
+<tr><td><a href="../doctrine/doctrine_builder.html#varExport()">varExport</a></td></tr></table>
+
+<h2 id="detail_field">Field Detail</h2>
+<div class="location">/Doctrine/Migration/Builder.php at line 55</div>
+<h3 id="migration">migration</h3>
+<code class="signature">private  Doctrine_Migration $migration <strong>$migration</strong></code>
+<div class="details">
+<p>Instance of the migration class for the migration classes directory</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Migration/Builder.php at line 41</div>
+<h3 id="migrationsPath">migrationsPath</h3>
+<code class="signature">private  string <strong>$migrationsPath</strong> = ''</code>
+<div class="details">
+<p>The path to your migration classes directory</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Migration/Builder.php at line 48</div>
+<h3 id="suffix">suffix</h3>
+<code class="signature">private  string $suffix <strong>$suffix</strong> = '.php'</code>
+<div class="details">
+<p>File suffix to use when writing class definitions</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Migration/Builder.php at line 62</div>
+<h3 id="tpl">tpl</h3>
+<code class="signature">private static  $tpl <strong>$tpl</strong></code>
+<div class="details">
+<p>Class template used for writing classes</p></div>
+
+<hr>
+
+<h2 id="detail_constr">Constructor Detail</h2>
+<div class="location">/Doctrine/Migration/Builder.php at line 73</div>
+<h3 id="Doctrine_Migration_Builder()">Doctrine_Migration_Builder</h3>
+<code class="signature">public <strong>Doctrine_Migration_Builder</strong>(mixed migrationsPath)</code>
+<div class="details">
+<p>Instantiate new instance of the Doctrine_Migration_Builder class</p><p><code>
+$builder = new Doctrine_Migration_Builder('/path/to/migrations');
+</code></p></div>
+
+<hr>
+
+<h2 id="detail_method">Method Detail</h2>
+<div class="location">/Doctrine/Migration/Builder.php at line 413</div>
+<h3 id="buildAddColumn()">buildAddColumn</h3>
+<code class="signature">public  string <strong>buildAddColumn</strong>(string tableName, string columnName, string column)</code>
+<div class="details">
+<p>Build the code for adding columns</p><dl>
+<dt>Returns:</dt>
+<dd>$code</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Migration/Builder.php at line 458</div>
+<h3 id="buildAddIndex()">buildAddIndex</h3>
+<code class="signature">public  sgtring <strong>buildAddIndex</strong>(string tableName, string indexName, string index)</code>
+<div class="details">
+<p>Build the code for adding indexes</p><dl>
+<dt>Returns:</dt>
+<dd>$code</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Migration/Builder.php at line 442</div>
+<h3 id="buildChangeColumn()">buildChangeColumn</h3>
+<code class="signature">public  string <strong>buildChangeColumn</strong>(string tableName, string columnName, string column)</code>
+<div class="details">
+<p>Build the code for changing columns</p><dl>
+<dt>Returns:</dt>
+<dd>$code</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Migration/Builder.php at line 349</div>
+<h3 id="buildCreateForeignKey()">buildCreateForeignKey</h3>
+<code class="signature">public  string <strong>buildCreateForeignKey</strong>(string tableName, array definition)</code>
+<div class="details">
+<p>Build the code for creating foreign keys</p><dl>
+<dt>Returns:</dt>
+<dd>$code</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Migration/Builder.php at line 372</div>
+<h3 id="buildCreateTable()">buildCreateTable</h3>
+<code class="signature">public  string <strong>buildCreateTable</strong>(string tableData)</code>
+<div class="details">
+<p>Build the code for creating tables</p><dl>
+<dt>Returns:</dt>
+<dd>$code</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Migration/Builder.php at line 361</div>
+<h3 id="buildDropForeignKey()">buildDropForeignKey</h3>
+<code class="signature">public  string <strong>buildDropForeignKey</strong>(string tableName, array definition)</code>
+<div class="details">
+<p>Build the code for dropping foreign keys</p><dl>
+<dt>Returns:</dt>
+<dd>$code</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Migration/Builder.php at line 400</div>
+<h3 id="buildDropTable()">buildDropTable</h3>
+<code class="signature">public  string <strong>buildDropTable</strong>(string tableData)</code>
+<div class="details">
+<p>Build the code for dropping tables</p><dl>
+<dt>Returns:</dt>
+<dd>$code</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Migration/Builder.php at line 529</div>
+<h3 id="buildMigrationClass()">buildMigrationClass</h3>
+<code class="signature">public  string <strong>buildMigrationClass</strong>(string className, string fileName, array options, string down, string up)</code>
+<div class="details">
+<p>Build the code for a migration class</p><dl>
+<dt>Parameters:</dt>
+<dd>className - Class name to generate</dd>
+<dd>fileName - File name to write the class to</dd>
+<dd>options - Options for the migration class</dd>
+<dd>up - The code for the up function</dd>
+<dd>down - The code for the down function</dd>
+<dt>Returns:</dt>
+<dd>$content The code for the generated class</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Migration/Builder.php at line 429</div>
+<h3 id="buildRemoveColumn()">buildRemoveColumn</h3>
+<code class="signature">public  string <strong>buildRemoveColumn</strong>(string tableName, string columnName, string column)</code>
+<div class="details">
+<p>Build the code for removing columns</p><dl>
+<dt>Returns:</dt>
+<dd>$code</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Migration/Builder.php at line 471</div>
+<h3 id="buildRemoveIndex()">buildRemoveIndex</h3>
+<code class="signature">public  string <strong>buildRemoveIndex</strong>(string tableName, string indexName, string index)</code>
+<div class="details">
+<p>Build the code for removing indexes</p><dl>
+<dt>Returns:</dt>
+<dd>$code</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Migration/Builder.php at line 487</div>
+<h3 id="generateMigrationClass()">generateMigrationClass</h3>
+<code class="signature">public  mixed <strong>generateMigrationClass</strong>(string className, array options, string down, boolean return, string up)</code>
+<div class="details">
+<p>Generate a migration class</p><dl>
+<dt>Parameters:</dt>
+<dd>className - Class name to generate</dd>
+<dd>options - Options for the migration class</dd>
+<dd>up - The code for the up function</dd>
+<dd>down - The code for the down function</dd>
+<dd>return - Whether or not to return the code. If true return and false it writes the class to disk.</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Migration/Builder.php at line 270</div>
+<h3 id="generateMigrationsFromDb()">generateMigrationsFromDb</h3>
+<code class="signature">public  void <strong>generateMigrationsFromDb</strong>()</code>
+<div class="details">
+<p>Generate a set of migration classes from the existing databases</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Migration/Builder.php at line 145</div>
+<h3 id="generateMigrationsFromDiff()">generateMigrationsFromDiff</h3>
+<code class="signature">public  array <strong>generateMigrationsFromDiff</strong>(<a href="../doctrine/doctrine_migration_diff.html">Doctrine_Migration_Diff</a> diff)</code>
+<div class="details">
+<p>Generate migrations from a Doctrine_Migration_Diff instance</p><dl>
+<dt>Parameters:</dt>
+<dd>diff - Instance to generate changes from</dd>
+<dt>Returns:</dt>
+<dd>$changes Array of changes produced from the diff</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Migration/Builder.php at line 290</div>
+<h3 id="generateMigrationsFromModels()">generateMigrationsFromModels</h3>
+<code class="signature">public  boolean <strong>generateMigrationsFromModels</strong>(string modelsPath, string modelLoading)</code>
+<div class="details">
+<p>Generate a set of migrations from a set of models</p><dl>
+<dt>Parameters:</dt>
+<dd>modelsPath - Path to models</dd>
+<dd>modelLoading - What type of model loading to use when loading the models</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Migration/Builder.php at line 104</div>
+<h3 id="getMigrationsPath()">getMigrationsPath</h3>
+<code class="signature">public  string <strong>getMigrationsPath</strong>()</code>
+<div class="details">
+<p>Get the path where generated migration classes are written to</p><dl>
+<dt>Returns:</dt>
+<dd>the path where migration classes are stored and being generated</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Migration/Builder.php at line 114</div>
+<h3 id="loadTemplate()">loadTemplate</h3>
+<code class="signature">protected  void <strong>loadTemplate</strong>()</code>
+<div class="details">
+<p>Loads the class template used for generating classes</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Migration/Builder.php at line 92</div>
+<h3 id="setMigrationsPath()">setMigrationsPath</h3>
+<code class="signature">public  void <strong>setMigrationsPath</strong>(string path)</code>
+<div class="details">
+<p>Set the path to write the generated migration classes</p><dl>
+<dt>Parameters:</dt>
+<dd>path - the path where migration classes are stored and being generated</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="header">
+<h1>Doctrine</h1>
+<ul>
+<li><a href="../overview-summary.html">Overview</a></li>
+<li><a href="../doctrine/package-summary.html">Namespace</a></li>
+<li class="active">Class</li>
+<li><a href="../doctrine/package-tree.html">Tree</a></li>
+<li><a href="../deprecated-list.html">Deprecated</a></li>
+<li><a href="../index-all.html">Index</a></li>
+</ul>
+</div>
+
+<div class="small_links">
+<a href="../index.html" target="_top">Frames</a>
+<a href="../doctrine/doctrine_migration_builder.html" target="_top">No frames</a>
+</div>
+<div class="small_links">
+Summary: <a href="#summary_field">Field</a> | <a href="#summary_method">Method</a> | <a href="#summary_constr">Constr</a>
+Detail: <a href="#detail_field">Field</a> | <a href="#detail_method">Method</a> | <a href="#summary_constr">Constr</a>
+</div>
+<hr>
+
+<p id="footer">This document was generated by <a href="http://peej.github.com/phpdoctor/">PHPDoctor: The PHP Documentation Creator</a></p>
+
+</body>
+
+</html>

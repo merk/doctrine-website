@@ -1,0 +1,46 @@
+---
+BlogPost: 
+  tableName: blog_post
+  actAs:
+    Sluggable:
+      fields: [name]
+    Timestampable:
+  columns: 
+    id:
+      type: integer(4)
+      primary: true
+      autoincrement: true
+    sf_guard_user_id:
+      type: integer(4)
+    name:
+      type: string
+      length: 255
+    body:
+      type: clob
+    is_published:
+      type: boolean
+      default: false
+  relations:
+    User:
+      class: sfGuardUser
+      foreignAlias: BlogPosts
+    Tags:
+      class: Tag
+      refClass: BlogPostTag
+      foreignAlias: BlogPosts
+
+BlogPostTag:
+  columns:
+    blog_post_id:
+      type: integer(4)
+      primary: true
+    tag_id:
+      type: integer(4)
+      primary: true
+  relations:
+    BlogPost:
+      foreignAlias: BlogPostTags
+      onDelete: CASCADE
+    Tag:
+      foreignAlias: BlogPostTags
+      onDelete: CASCADE

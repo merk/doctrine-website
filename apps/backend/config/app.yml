@@ -1,0 +1,3 @@
+# default values
+all:
+  cs_sf_admin_title: Doctrine Backend

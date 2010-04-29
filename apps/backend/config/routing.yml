@@ -1,0 +1,79 @@
+# default rules
+homepage:
+  url:   /
+  param: { module: main, action: index }
+
+blog_posts:
+  class:         sfDoctrineRouteCollection
+  options:
+    model:       BlogPost
+    module:      blog_post
+    prefix_path: blog_posts
+    with_wildcard_routes: true
+
+comments:
+  class:         sfDoctrineRouteCollection
+  options:
+    model:       RecordComment
+    module:      comments
+    prefix_path: comments
+    with_wildcard_routes: true
+
+contributors:
+  class:         sfDoctrineRouteCollection
+  options:
+    model:       Contributor
+    module:      contributors
+    prefix_path: contributors
+    with_wildcard_routes: true
+
+faqs:
+  class:         sfDoctrineRouteCollection
+  options:
+    model:       Faq
+    module:      faqs
+    prefix_path: faqs
+    with_wildcard_routes: true
+
+users:
+  class:         sfDoctrineRouteCollection
+  options:
+    model:       sfGuardUser
+    module:      users
+    prefix_path: users
+    with_wildcard_routes: true
+
+groups:
+  class:         sfDoctrineRouteCollection
+  options:
+    model:       sfGuardGroup
+    module:      groups
+    prefix_path: groups
+    with_wildcard_routes: true
+
+permissions:
+  class:         sfDoctrineRouteCollection
+  options:
+    model:       sfGuardPermission
+    module:      permissions
+    prefix_path: permissions
+    with_wildcard_routes: true
+
+login:
+  url:   /login
+  param: { module: sfGuardAuth, action: login }
+
+logout:
+  url:   /logout
+  param: { module: sfGuardAuth, action: logout }
+
+default_symfony:
+  url:   /symfony/:action/*
+  param: { module: default }
+
+default_index:
+  url:   /:module
+  param: { action: index }
+
+default:
+  url:   /:module/:action/*

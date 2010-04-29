@@ -1,0 +1,23 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           Contributor
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          contributors
+    with_doctrine_route:     1
+
+    config:
+      actions: ~
+      fields:  ~
+      list:
+        display:  [=name, core, active]
+      filter:
+        class:    ContributorFormFilter
+        display:  [name, nick, email, core, active]
+      form:    ~
+      edit:    ~
+      new:     ~

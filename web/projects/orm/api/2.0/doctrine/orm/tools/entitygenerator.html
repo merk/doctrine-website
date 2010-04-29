@@ -1,0 +1,841 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+<head>
+
+<meta name="generator" content="PHPDoctor 2RC4 (http://phpdoctor.sourceforge.net/)">
+<meta name="when" content="Fri, 09 Apr 2010 13:13:21 -0400">
+
+<link rel="stylesheet" type="text/css" href="../../../stylesheet.css">
+<link rel="start" href="../../../overview-summary.html">
+
+<title>EntityGenerator (Doctrine 2.0 ORM)</title>
+
+</head>
+<body id="definition" onload="parent.document.title=document.title;">
+
+<div class="header">
+<h1>Doctrine</h1>
+<ul>
+<li><a href="../../../overview-summary.html">Overview</a></li>
+<li><a href="../../../doctrine/orm/tools/package-summary.html">Namespace</a></li>
+<li class="active">Class</li>
+<li><a href="../../../doctrine/orm/tools/package-tree.html">Tree</a></li>
+<li><a href="../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../index-all.html">Index</a></li>
+</ul>
+</div>
+
+<div class="small_links">
+<a href="../../../index.html" target="_top">Frames</a>
+<a href="../../../doctrine/orm/tools/entitygenerator.html" target="_top">No frames</a>
+</div>
+<div class="small_links">
+Summary: <a href="#summary_field">Field</a> | <a href="#summary_method">Method</a> | <a href="#summary_constr">Constr</a>
+Detail: <a href="#detail_field">Field</a> | <a href="#detail_method">Method</a> | <a href="#summary_constr">Constr</a>
+</div>
+<hr>
+
+<div class="qualifiedName">Doctrine\ORM\Tools\EntityGenerator</div>
+<div class="location">/Doctrine/ORM/Tools/EntityGenerator.php at line 50</div>
+
+<h1>Class EntityGenerator</h1>
+
+<pre class="tree"><strong>EntityGenerator</strong><br /></pre>
+
+<hr>
+
+<p class="signature">public  class <strong>EntityGenerator</strong></p>
+
+<div class="comment" id="overview_description"><p>Generic class used to generate PHP5 entity classes from ClassMetadataInfo instances</p><p>[php]
+$classes = $em->getClassMetadataFactory()->getAllMetadata();</p><p>$generator = new \Doctrine\ORM\Tools\EntityGenerator();
+$generator->setGenerateAnnotations(true);
+$generator->setGenerateStubMethods(true);
+$generator->setRegenerateEntityIfExists(false);
+$generator->setUpdateEntityIfExists(true);
+$generator->generate($classes, '/path/to/generate/entities');</p></div>
+
+<dl>
+<dt>License:</dt>
+<dd>http://www.opensource.org/licenses/lgpl-license.php LGPL</dd>
+<dt>See Also:</dt>
+<dd><code>www.doctrine-project.org</code></dd>
+<dt>Since:</dt>
+<dd>2.0</dd>
+<dt>Version:</dt>
+<dd>$Revision$</dd>
+<dt>Author:</dt>
+<dd>Benjamin Eberlei <kontakt@beberlei.de></dd>
+<dd>Guilherme Blanco <guilhermeblanco@hotmail.com></dd>
+<dd>Jonathan Wage <jonwage@gmail.com></dd>
+<dd>Roman Borschel <roman@code-factory.org></dd>
+</dl>
+<hr>
+
+<table id="summary_field">
+<tr><th colspan="2">Field Summary</th></tr>
+<tr>
+<td class="type">private static  mixed</td>
+<td class="description"><p class="name"><a href="#_addMethodTemplate">$_addMethodTemplate</a></p></td>
+</tr>
+<tr>
+<td class="type">private static  mixed</td>
+<td class="description"><p class="name"><a href="#_classTemplate">$_classTemplate</a></p></td>
+</tr>
+<tr>
+<td class="type">private  mixed</td>
+<td class="description"><p class="name"><a href="#_classToExtend">$_classToExtend</a></p><p class="description">The class all generated entities should extend.</p></td>
+</tr>
+<tr>
+<td class="type">private  mixed</td>
+<td class="description"><p class="name"><a href="#_extension">$_extension</a></p><p class="description">The extension to use for written php files.</p></td>
+</tr>
+<tr>
+<td class="type">private  mixed</td>
+<td class="description"><p class="name"><a href="#_generateAnnotations">$_generateAnnotations</a></p><p class="description">Whether or not to generation annotations.</p></td>
+</tr>
+<tr>
+<td class="type">private  mixed</td>
+<td class="description"><p class="name"><a href="#_generateEntityStubMethods">$_generateEntityStubMethods</a></p><p class="description">Whether or not to generated sub methods.</p></td>
+</tr>
+<tr>
+<td class="type">private static  mixed</td>
+<td class="description"><p class="name"><a href="#_getMethodTemplate">$_getMethodTemplate</a></p></td>
+</tr>
+<tr>
+<td class="type">private  mixed</td>
+<td class="description"><p class="name"><a href="#_isNew">$_isNew</a></p><p class="description">Whether or not the current ClassMetadataInfo instance is new or old.</p></td>
+</tr>
+<tr>
+<td class="type">private static  mixed</td>
+<td class="description"><p class="name"><a href="#_lifecycleCallbackMethodTemplate">$_lifecycleCallbackMethodTemplate</a></p></td>
+</tr>
+<tr>
+<td class="type">private  mixed</td>
+<td class="description"><p class="name"><a href="#_numSpaces">$_numSpaces</a></p><p class="description">Number of spaces to use for indention in generated code.</p></td>
+</tr>
+<tr>
+<td class="type">private  mixed</td>
+<td class="description"><p class="name"><a href="#_reflection">$_reflection</a></p><p class="description">If isNew is false then this variable contains instance of ReflectionClass for current entity.</p></td>
+</tr>
+<tr>
+<td class="type">private  mixed</td>
+<td class="description"><p class="name"><a href="#_regenerateEntityIfExists">$_regenerateEntityIfExists</a></p><p class="description">Whether or not to re-generate entity class if it exists already.</p></td>
+</tr>
+<tr>
+<td class="type">private static  mixed</td>
+<td class="description"><p class="name"><a href="#_setMethodTemplate">$_setMethodTemplate</a></p></td>
+</tr>
+<tr>
+<td class="type">private  mixed</td>
+<td class="description"><p class="name"><a href="#_spaces">$_spaces</a></p><p class="description">The actual spaces to use for indention.</p></td>
+</tr>
+<tr>
+<td class="type">private  mixed</td>
+<td class="description"><p class="name"><a href="#_updateEntityIfExists">$_updateEntityIfExists</a></p><p class="description">Whether or not to update the entity class if it exists already.</p></td>
+</tr>
+</table>
+
+<table id="summary_method">
+<tr><th colspan="2">Method Summary</th></tr>
+<tr>
+<td class="type">private  void</td>
+<td class="description"><p class="name"><a href="#_extendsClass()">_extendsClass</a>()</p></td>
+</tr>
+<tr>
+<td class="type">private  void</td>
+<td class="description"><p class="name"><a href="#_generateAssociationMappingPropertyDocBlock()">_generateAssociationMappingPropertyDocBlock</a>(mixed associationMapping, mixed metadata)</p></td>
+</tr>
+<tr>
+<td class="type">private  void</td>
+<td class="description"><p class="name"><a href="#_generateDiscriminatorColumnAnnotation()">_generateDiscriminatorColumnAnnotation</a>(mixed metadata)</p></td>
+</tr>
+<tr>
+<td class="type">private  void</td>
+<td class="description"><p class="name"><a href="#_generateDiscriminatorMapAnnotation()">_generateDiscriminatorMapAnnotation</a>(mixed metadata)</p></td>
+</tr>
+<tr>
+<td class="type">private  void</td>
+<td class="description"><p class="name"><a href="#_generateEntityAssociationMappingProperties()">_generateEntityAssociationMappingProperties</a>(mixed metadata)</p></td>
+</tr>
+<tr>
+<td class="type">private  void</td>
+<td class="description"><p class="name"><a href="#_generateEntityBody()">_generateEntityBody</a>(mixed metadata)</p></td>
+</tr>
+<tr>
+<td class="type">private  void</td>
+<td class="description"><p class="name"><a href="#_generateEntityClassName()">_generateEntityClassName</a>(mixed metadata)</p></td>
+</tr>
+<tr>
+<td class="type">private  void</td>
+<td class="description"><p class="name"><a href="#_generateEntityDocBlock()">_generateEntityDocBlock</a>(mixed metadata)</p></td>
+</tr>
+<tr>
+<td class="type">private  void</td>
+<td class="description"><p class="name"><a href="#_generateEntityFieldMappingProperties()">_generateEntityFieldMappingProperties</a>(mixed metadata)</p></td>
+</tr>
+<tr>
+<td class="type">private  void</td>
+<td class="description"><p class="name"><a href="#_generateEntityLifecycleCallbackMethods()">_generateEntityLifecycleCallbackMethods</a>(mixed metadata)</p></td>
+</tr>
+<tr>
+<td class="type">private  void</td>
+<td class="description"><p class="name"><a href="#_generateEntityNamespace()">_generateEntityNamespace</a>(mixed metadata)</p></td>
+</tr>
+<tr>
+<td class="type">private  void</td>
+<td class="description"><p class="name"><a href="#_generateEntityStubMethod()">_generateEntityStubMethod</a>(mixed metadata, mixed type, mixed fieldName, mixed typeHint)</p></td>
+</tr>
+<tr>
+<td class="type">private  void</td>
+<td class="description"><p class="name"><a href="#_generateEntityStubMethods()">_generateEntityStubMethods</a>(mixed metadata)</p></td>
+</tr>
+<tr>
+<td class="type">private  void</td>
+<td class="description"><p class="name"><a href="#_generateEntityUse()">_generateEntityUse</a>(mixed metadata)</p></td>
+</tr>
+<tr>
+<td class="type">private  void</td>
+<td class="description"><p class="name"><a href="#_generateFieldMappingPropertyDocBlock()">_generateFieldMappingPropertyDocBlock</a>(mixed fieldMapping, mixed metadata)</p></td>
+</tr>
+<tr>
+<td class="type">private  void</td>
+<td class="description"><p class="name"><a href="#_generateInheritanceAnnotation()">_generateInheritanceAnnotation</a>(mixed metadata)</p></td>
+</tr>
+<tr>
+<td class="type">private  void</td>
+<td class="description"><p class="name"><a href="#_generateJoinColumnAnnotation()">_generateJoinColumnAnnotation</a>(mixed joinColumn)</p></td>
+</tr>
+<tr>
+<td class="type">private  void</td>
+<td class="description"><p class="name"><a href="#_generateLifecycleCallbackMethod()">_generateLifecycleCallbackMethod</a>(mixed name, mixed methodName, mixed metadata)</p></td>
+</tr>
+<tr>
+<td class="type">private  void</td>
+<td class="description"><p class="name"><a href="#_generateTableAnnotation()">_generateTableAnnotation</a>(mixed metadata)</p></td>
+</tr>
+<tr>
+<td class="type">private  void</td>
+<td class="description"><p class="name"><a href="#_getChangeTrackingPolicyString()">_getChangeTrackingPolicyString</a>(mixed policy)</p></td>
+</tr>
+<tr>
+<td class="type">private  void</td>
+<td class="description"><p class="name"><a href="#_getClassName()">_getClassName</a>(mixed metadata)</p></td>
+</tr>
+<tr>
+<td class="type">private  void</td>
+<td class="description"><p class="name"><a href="#_getClassToExtend()">_getClassToExtend</a>()</p></td>
+</tr>
+<tr>
+<td class="type">private  void</td>
+<td class="description"><p class="name"><a href="#_getClassToExtendName()">_getClassToExtendName</a>()</p></td>
+</tr>
+<tr>
+<td class="type">private  void</td>
+<td class="description"><p class="name"><a href="#_getClassToExtendNamespace()">_getClassToExtendNamespace</a>()</p></td>
+</tr>
+<tr>
+<td class="type">private  void</td>
+<td class="description"><p class="name"><a href="#_getIdGeneratorTypeString()">_getIdGeneratorTypeString</a>(mixed type)</p></td>
+</tr>
+<tr>
+<td class="type">private  void</td>
+<td class="description"><p class="name"><a href="#_getInheritanceTypeString()">_getInheritanceTypeString</a>(mixed type)</p></td>
+</tr>
+<tr>
+<td class="type">private  void</td>
+<td class="description"><p class="name"><a href="#_getNamespace()">_getNamespace</a>(mixed metadata)</p></td>
+</tr>
+<tr>
+<td class="type">private  void</td>
+<td class="description"><p class="name"><a href="#_hasMethod()">_hasMethod</a>(mixed method, mixed metadata)</p></td>
+</tr>
+<tr>
+<td class="type">private  void</td>
+<td class="description"><p class="name"><a href="#_hasNamespace()">_hasNamespace</a>(mixed metadata)</p></td>
+</tr>
+<tr>
+<td class="type">private  void</td>
+<td class="description"><p class="name"><a href="#_hasProperty()">_hasProperty</a>(mixed property, mixed metadata)</p></td>
+</tr>
+<tr>
+<td class="type">private  void</td>
+<td class="description"><p class="name"><a href="#_prefixCodeWithSpaces()">_prefixCodeWithSpaces</a>(mixed code, mixed num)</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#generate()">generate</a>(array metadatas, string outputDirectory)</p><p class="description">Generate and write entity classes for the given array of ClassMetadataInfo instances.</p></td>
+</tr>
+<tr>
+<td class="type"> string</td>
+<td class="description"><p class="name"><a href="#generateEntityClass()">generateEntityClass</a>(<a href="../../../doctrine/orm/mapping/classmetadatainfo.html">ClassMetadataInfo</a> metadata)</p><p class="description">Generate a PHP5 Doctrine 2 entity class from the given ClassMetadataInfo instance.</p></td>
+</tr>
+<tr>
+<td class="type"> string</td>
+<td class="description"><p class="name"><a href="#generateUpdatedEntityClass()">generateUpdatedEntityClass</a>(<a href="../../../doctrine/orm/mapping/classmetadatainfo.html">ClassMetadataInfo</a> metadata, string path)</p><p class="description">Generate the updated code for the given ClassMetadataInfo and entity at path.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#setClassToExtend()">setClassToExtend</a>(mixed classToExtend)</p><p class="description">Set the name of the class the generated classes should extend from.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#setExtension()">setExtension</a>(string extension)</p><p class="description">Set the extension to use when writing php files to disk.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#setGenerateAnnotations()">setGenerateAnnotations</a>(bool bool)</p><p class="description">Set whether or not to generate annotations for the entity.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#setGenerateStubMethods()">setGenerateStubMethods</a>(bool bool)</p><p class="description">Set whether or not to generate stub methods for the entity.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#setNumSpaces()">setNumSpaces</a>(integer numSpaces)</p><p class="description">Set the number of spaces the exported class should have.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#setRegenerateEntityIfExists()">setRegenerateEntityIfExists</a>(bool bool)</p><p class="description">Set whether or not to regenerate the entity if it exists.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#setUpdateEntityIfExists()">setUpdateEntityIfExists</a>(bool bool)</p><p class="description">Set whether or not to try and update the entity if it already exists.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#writeEntityClass()">writeEntityClass</a>(<a href="../../../doctrine/orm/mapping/classmetadatainfo.html">ClassMetadataInfo</a> metadata, string outputDirectory)</p><p class="description">Generated and write entity class to disk for the given ClassMetadataInfo instance.</p></td>
+</tr>
+</table>
+
+<h2 id="detail_field">Field Detail</h2>
+<div class="location">/Doctrine/ORM/Tools/EntityGenerator.php at line 115</div>
+<h3 id="_addMethodTemplate">_addMethodTemplate</h3>
+<code class="signature">private static  mixed <strong>$_addMethodTemplate</strong> = '/**
+ * <description>
+ *
+ * @param <variableType>$<variableName>
+ */
+public function <methodName>(<methodTypeHint>$<variableName>)
+{
+    $this-><fieldName>[] = $<variableName>;
+}'</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/ORM/Tools/EntityGenerator.php at line 82</div>
+<h3 id="_classTemplate">_classTemplate</h3>
+<code class="signature">private static  mixed <strong>$_classTemplate</strong> = '<?php
+
+<namespace><use>
+
+<entityAnnotation>
+<entityClassName>
+{
+<entityBody>
+}'</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/ORM/Tools/EntityGenerator.php at line 68</div>
+<h3 id="_classToExtend">_classToExtend</h3>
+<code class="signature">private  mixed <strong>$_classToExtend</strong></code>
+<div class="details">
+<p>The class all generated entities should extend</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/ORM/Tools/EntityGenerator.php at line 53</div>
+<h3 id="_extension">_extension</h3>
+<code class="signature">private  mixed <strong>$_extension</strong> = '.php'</code>
+<div class="details">
+<p>The extension to use for written php files</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/ORM/Tools/EntityGenerator.php at line 71</div>
+<h3 id="_generateAnnotations">_generateAnnotations</h3>
+<code class="signature">private  mixed <strong>$_generateAnnotations</strong> = false</code>
+<div class="details">
+<p>Whether or not to generation annotations</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/ORM/Tools/EntityGenerator.php at line 74</div>
+<h3 id="_generateEntityStubMethods">_generateEntityStubMethods</h3>
+<code class="signature">private  mixed <strong>$_generateEntityStubMethods</strong> = false</code>
+<div class="details">
+<p>Whether or not to generated sub methods</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/ORM/Tools/EntityGenerator.php at line 93</div>
+<h3 id="_getMethodTemplate">_getMethodTemplate</h3>
+<code class="signature">private static  mixed <strong>$_getMethodTemplate</strong> = '/**
+ * <description>
+ *
+ * @return <variableType>$<variableName>
+ */
+public function <methodName>()
+{
+    return $this-><fieldName>;
+}'</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/ORM/Tools/EntityGenerator.php at line 56</div>
+<h3 id="_isNew">_isNew</h3>
+<code class="signature">private  mixed <strong>$_isNew</strong> = true</code>
+<div class="details">
+<p>Whether or not the current ClassMetadataInfo instance is new or old</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/ORM/Tools/EntityGenerator.php at line 126</div>
+<h3 id="_lifecycleCallbackMethodTemplate">_lifecycleCallbackMethodTemplate</h3>
+<code class="signature">private static  mixed <strong>$_lifecycleCallbackMethodTemplate</strong> = '/**
+ * @<name>
+ */
+public function <methodName>()
+{
+    // Add your code here
+}'</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/ORM/Tools/EntityGenerator.php at line 62</div>
+<h3 id="_numSpaces">_numSpaces</h3>
+<code class="signature">private  mixed <strong>$_numSpaces</strong> = 4</code>
+<div class="details">
+<p>Number of spaces to use for indention in generated code</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/ORM/Tools/EntityGenerator.php at line 59</div>
+<h3 id="_reflection">_reflection</h3>
+<code class="signature">private  mixed <strong>$_reflection</strong></code>
+<div class="details">
+<p>If isNew is false then this variable contains instance of ReflectionClass for current entity</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/ORM/Tools/EntityGenerator.php at line 80</div>
+<h3 id="_regenerateEntityIfExists">_regenerateEntityIfExists</h3>
+<code class="signature">private  mixed <strong>$_regenerateEntityIfExists</strong> = false</code>
+<div class="details">
+<p>Whether or not to re-generate entity class if it exists already</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/ORM/Tools/EntityGenerator.php at line 104</div>
+<h3 id="_setMethodTemplate">_setMethodTemplate</h3>
+<code class="signature">private static  mixed <strong>$_setMethodTemplate</strong> = '/**
+ * <description>
+ *
+ * @param <variableType>$<variableName>
+ */
+public function <methodName>(<methodTypeHint>$<variableName>)
+{
+    $this-><fieldName> = $<variableName>;
+}'</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/ORM/Tools/EntityGenerator.php at line 65</div>
+<h3 id="_spaces">_spaces</h3>
+<code class="signature">private  mixed <strong>$_spaces</strong> = '    '</code>
+<div class="details">
+<p>The actual spaces to use for indention</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/ORM/Tools/EntityGenerator.php at line 77</div>
+<h3 id="_updateEntityIfExists">_updateEntityIfExists</h3>
+<code class="signature">private  mixed <strong>$_updateEntityIfExists</strong> = false</code>
+<div class="details">
+<p>Whether or not to update the entity class if it exists already</p></div>
+
+<hr>
+
+<h2 id="detail_method">Method Detail</h2>
+<div class="location">/Doctrine/ORM/Tools/EntityGenerator.php at line 366</div>
+<h3 id="_extendsClass()">_extendsClass</h3>
+<code class="signature">private  void <strong>_extendsClass</strong>()</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/ORM/Tools/EntityGenerator.php at line 682</div>
+<h3 id="_generateAssociationMappingPropertyDocBlock()">_generateAssociationMappingPropertyDocBlock</h3>
+<code class="signature">private  void <strong>_generateAssociationMappingPropertyDocBlock</strong>(mixed associationMapping, mixed metadata)</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/ORM/Tools/EntityGenerator.php at line 464</div>
+<h3 id="_generateDiscriminatorColumnAnnotation()">_generateDiscriminatorColumnAnnotation</h3>
+<code class="signature">private  void <strong>_generateDiscriminatorColumnAnnotation</strong>(mixed metadata)</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/ORM/Tools/EntityGenerator.php at line 476</div>
+<h3 id="_generateDiscriminatorMapAnnotation()">_generateDiscriminatorMapAnnotation</h3>
+<code class="signature">private  void <strong>_generateDiscriminatorMapAnnotation</strong>(mixed metadata)</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/ORM/Tools/EntityGenerator.php at line 559</div>
+<h3 id="_generateEntityAssociationMappingProperties()">_generateEntityAssociationMappingProperties</h3>
+<code class="signature">private  void <strong>_generateEntityAssociationMappingProperties</strong>(mixed metadata)</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/ORM/Tools/EntityGenerator.php at line 323</div>
+<h3 id="_generateEntityBody()">_generateEntityBody</h3>
+<code class="signature">private  void <strong>_generateEntityBody</strong>(mixed metadata)</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/ORM/Tools/EntityGenerator.php at line 317</div>
+<h3 id="_generateEntityClassName()">_generateEntityClassName</h3>
+<code class="signature">private  void <strong>_generateEntityClassName</strong>(mixed metadata)</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/ORM/Tools/EntityGenerator.php at line 401</div>
+<h3 id="_generateEntityDocBlock()">_generateEntityDocBlock</h3>
+<code class="signature">private  void <strong>_generateEntityDocBlock</strong>(mixed metadata)</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/ORM/Tools/EntityGenerator.php at line 576</div>
+<h3 id="_generateEntityFieldMappingProperties()">_generateEntityFieldMappingProperties</h3>
+<code class="signature">private  void <strong>_generateEntityFieldMappingProperties</strong>(mixed metadata)</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/ORM/Tools/EntityGenerator.php at line 542</div>
+<h3 id="_generateEntityLifecycleCallbackMethods()">_generateEntityLifecycleCallbackMethods</h3>
+<code class="signature">private  void <strong>_generateEntityLifecycleCallbackMethods</strong>(mixed metadata)</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/ORM/Tools/EntityGenerator.php at line 303</div>
+<h3 id="_generateEntityNamespace()">_generateEntityNamespace</h3>
+<code class="signature">private  void <strong>_generateEntityNamespace</strong>(mixed metadata)</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/ORM/Tools/EntityGenerator.php at line 593</div>
+<h3 id="_generateEntityStubMethod()">_generateEntityStubMethod</h3>
+<code class="signature">private  void <strong>_generateEntityStubMethod</strong>(mixed metadata, mixed type, mixed fieldName, mixed typeHint)</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/ORM/Tools/EntityGenerator.php at line 489</div>
+<h3 id="_generateEntityStubMethods()">_generateEntityStubMethods</h3>
+<code class="signature">private  void <strong>_generateEntityStubMethods</strong>(mixed metadata)</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/ORM/Tools/EntityGenerator.php at line 310</div>
+<h3 id="_generateEntityUse()">_generateEntityUse</h3>
+<code class="signature">private  void <strong>_generateEntityUse</strong>(mixed metadata)</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/ORM/Tools/EntityGenerator.php at line 779</div>
+<h3 id="_generateFieldMappingPropertyDocBlock()">_generateFieldMappingPropertyDocBlock</h3>
+<code class="signature">private  void <strong>_generateFieldMappingPropertyDocBlock</strong>(mixed fieldMapping, mixed metadata)</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/ORM/Tools/EntityGenerator.php at line 457</div>
+<h3 id="_generateInheritanceAnnotation()">_generateInheritanceAnnotation</h3>
+<code class="signature">private  void <strong>_generateInheritanceAnnotation</strong>(mixed metadata)</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/ORM/Tools/EntityGenerator.php at line 647</div>
+<h3 id="_generateJoinColumnAnnotation()">_generateJoinColumnAnnotation</h3>
+<code class="signature">private  void <strong>_generateJoinColumnAnnotation</strong>(mixed joinColumn)</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/ORM/Tools/EntityGenerator.php at line 627</div>
+<h3 id="_generateLifecycleCallbackMethod()">_generateLifecycleCallbackMethod</h3>
+<code class="signature">private  void <strong>_generateLifecycleCallbackMethod</strong>(mixed name, mixed methodName, mixed metadata)</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/ORM/Tools/EntityGenerator.php at line 443</div>
+<h3 id="_generateTableAnnotation()">_generateTableAnnotation</h3>
+<code class="signature">private  void <strong>_generateTableAnnotation</strong>(mixed metadata)</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/ORM/Tools/EntityGenerator.php at line 904</div>
+<h3 id="_getChangeTrackingPolicyString()">_getChangeTrackingPolicyString</h3>
+<code class="signature">private  void <strong>_getChangeTrackingPolicyString</strong>(mixed policy)</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/ORM/Tools/EntityGenerator.php at line 390</div>
+<h3 id="_getClassName()">_getClassName</h3>
+<code class="signature">private  void <strong>_getClassName</strong>(mixed metadata)</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/ORM/Tools/EntityGenerator.php at line 371</div>
+<h3 id="_getClassToExtend()">_getClassToExtend</h3>
+<code class="signature">private  void <strong>_getClassToExtend</strong>()</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/ORM/Tools/EntityGenerator.php at line 376</div>
+<h3 id="_getClassToExtendName()">_getClassToExtendName</h3>
+<code class="signature">private  void <strong>_getClassToExtendName</strong>()</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/ORM/Tools/EntityGenerator.php at line 383</div>
+<h3 id="_getClassToExtendNamespace()">_getClassToExtendNamespace</h3>
+<code class="signature">private  void <strong>_getClassToExtendNamespace</strong>()</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/ORM/Tools/EntityGenerator.php at line 921</div>
+<h3 id="_getIdGeneratorTypeString()">_getIdGeneratorTypeString</h3>
+<code class="signature">private  void <strong>_getIdGeneratorTypeString</strong>(mixed type)</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/ORM/Tools/EntityGenerator.php at line 884</div>
+<h3 id="_getInheritanceTypeString()">_getInheritanceTypeString</h3>
+<code class="signature">private  void <strong>_getInheritanceTypeString</strong>(mixed type)</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/ORM/Tools/EntityGenerator.php at line 396</div>
+<h3 id="_getNamespace()">_getNamespace</h3>
+<code class="signature">private  void <strong>_getNamespace</strong>(mixed metadata)</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/ORM/Tools/EntityGenerator.php at line 356</div>
+<h3 id="_hasMethod()">_hasMethod</h3>
+<code class="signature">private  void <strong>_hasMethod</strong>(mixed method, mixed metadata)</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/ORM/Tools/EntityGenerator.php at line 361</div>
+<h3 id="_hasNamespace()">_hasNamespace</h3>
+<code class="signature">private  void <strong>_hasNamespace</strong>(mixed metadata)</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/ORM/Tools/EntityGenerator.php at line 351</div>
+<h3 id="_hasProperty()">_hasProperty</h3>
+<code class="signature">private  void <strong>_hasProperty</strong>(mixed property, mixed metadata)</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/ORM/Tools/EntityGenerator.php at line 873</div>
+<h3 id="_prefixCodeWithSpaces()">_prefixCodeWithSpaces</h3>
+<code class="signature">private  void <strong>_prefixCodeWithSpaces</strong>(mixed code, mixed num)</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/ORM/Tools/EntityGenerator.php at line 142</div>
+<h3 id="generate()">generate</h3>
+<code class="signature">public  void <strong>generate</strong>(array metadatas, string outputDirectory)</code>
+<div class="details">
+<p>Generate and write entity classes for the given array of ClassMetadataInfo instances</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/ORM/Tools/EntityGenerator.php at line 188</div>
+<h3 id="generateEntityClass()">generateEntityClass</h3>
+<code class="signature">public  string <strong>generateEntityClass</strong>(<a href="../../../doctrine/orm/mapping/classmetadatainfo.html">ClassMetadataInfo</a> metadata)</code>
+<div class="details">
+<p>Generate a PHP5 Doctrine 2 entity class from the given ClassMetadataInfo instance</p><dl>
+<dt>Returns:</dt>
+<dd>$code</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/ORM/Tools/EntityGenerator.php at line 216</div>
+<h3 id="generateUpdatedEntityClass()">generateUpdatedEntityClass</h3>
+<code class="signature">public  string <strong>generateUpdatedEntityClass</strong>(<a href="../../../doctrine/orm/mapping/classmetadatainfo.html">ClassMetadataInfo</a> metadata, string path)</code>
+<div class="details">
+<p>Generate the updated code for the given ClassMetadataInfo and entity at path</p><dl>
+<dt>Returns:</dt>
+<dd>$code;</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/ORM/Tools/EntityGenerator.php at line 254</div>
+<h3 id="setClassToExtend()">setClassToExtend</h3>
+<code class="signature">public  void <strong>setClassToExtend</strong>(mixed classToExtend)</code>
+<div class="details">
+<p>Set the name of the class the generated classes should extend from</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/ORM/Tools/EntityGenerator.php at line 244</div>
+<h3 id="setExtension()">setExtension</h3>
+<code class="signature">public  void <strong>setExtension</strong>(string extension)</code>
+<div class="details">
+<p>Set the extension to use when writing php files to disk</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/ORM/Tools/EntityGenerator.php at line 265</div>
+<h3 id="setGenerateAnnotations()">setGenerateAnnotations</h3>
+<code class="signature">public  void <strong>setGenerateAnnotations</strong>(bool bool)</code>
+<div class="details">
+<p>Set whether or not to generate annotations for the entity</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/ORM/Tools/EntityGenerator.php at line 298</div>
+<h3 id="setGenerateStubMethods()">setGenerateStubMethods</h3>
+<code class="signature">public  void <strong>setGenerateStubMethods</strong>(bool bool)</code>
+<div class="details">
+<p>Set whether or not to generate stub methods for the entity</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/ORM/Tools/EntityGenerator.php at line 232</div>
+<h3 id="setNumSpaces()">setNumSpaces</h3>
+<code class="signature">public  void <strong>setNumSpaces</strong>(integer numSpaces)</code>
+<div class="details">
+<p>Set the number of spaces the exported class should have</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/ORM/Tools/EntityGenerator.php at line 287</div>
+<h3 id="setRegenerateEntityIfExists()">setRegenerateEntityIfExists</h3>
+<code class="signature">public  void <strong>setRegenerateEntityIfExists</strong>(bool bool)</code>
+<div class="details">
+<p>Set whether or not to regenerate the entity if it exists</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/ORM/Tools/EntityGenerator.php at line 276</div>
+<h3 id="setUpdateEntityIfExists()">setUpdateEntityIfExists</h3>
+<code class="signature">public  void <strong>setUpdateEntityIfExists</strong>(bool bool)</code>
+<div class="details">
+<p>Set whether or not to try and update the entity if it already exists</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/ORM/Tools/EntityGenerator.php at line 156</div>
+<h3 id="writeEntityClass()">writeEntityClass</h3>
+<code class="signature">public  void <strong>writeEntityClass</strong>(<a href="../../../doctrine/orm/mapping/classmetadatainfo.html">ClassMetadataInfo</a> metadata, string outputDirectory)</code>
+<div class="details">
+<p>Generated and write entity class to disk for the given ClassMetadataInfo instance</p></div>
+
+<hr>
+
+<div class="header">
+<h1>Doctrine</h1>
+<ul>
+<li><a href="../../../overview-summary.html">Overview</a></li>
+<li><a href="../../../doctrine/orm/tools/package-summary.html">Namespace</a></li>
+<li class="active">Class</li>
+<li><a href="../../../doctrine/orm/tools/package-tree.html">Tree</a></li>
+<li><a href="../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../index-all.html">Index</a></li>
+</ul>
+</div>
+
+<div class="small_links">
+<a href="../../../index.html" target="_top">Frames</a>
+<a href="../../../doctrine/orm/tools/entitygenerator.html" target="_top">No frames</a>
+</div>
+<div class="small_links">
+Summary: <a href="#summary_field">Field</a> | <a href="#summary_method">Method</a> | <a href="#summary_constr">Constr</a>
+Detail: <a href="#detail_field">Field</a> | <a href="#detail_method">Method</a> | <a href="#summary_constr">Constr</a>
+</div>
+<hr>
+
+<p id="footer">This document was generated by <a href="http://peej.github.com/phpdoctor/">PHPDoctor: The PHP Documentation Creator</a></p>
+
+</body>
+
+</html>

@@ -1,0 +1,688 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+<head>
+
+<meta name="generator" content="PHPDoctor 2RC4 (http://phpdoctor.sourceforge.net/)">
+<meta name="when" content="Fri, 09 Apr 2010 11:50:24 -0400">
+
+<link rel="stylesheet" type="text/css" href="../stylesheet.css">
+<link rel="start" href="../overview-summary.html">
+
+<title>Doctrine_Cli (Doctrine 1.2 ORM)</title>
+
+</head>
+<body id="definition" onload="parent.document.title=document.title;">
+
+<div class="header">
+<h1>Doctrine</h1>
+<ul>
+<li><a href="../overview-summary.html">Overview</a></li>
+<li><a href="../doctrine/package-summary.html">Namespace</a></li>
+<li class="active">Class</li>
+<li><a href="../doctrine/package-tree.html">Tree</a></li>
+<li><a href="../deprecated-list.html">Deprecated</a></li>
+<li><a href="../index-all.html">Index</a></li>
+</ul>
+</div>
+
+<div class="small_links">
+<a href="../index.html" target="_top">Frames</a>
+<a href="../doctrine/doctrine_cli.html" target="_top">No frames</a>
+</div>
+<div class="small_links">
+Summary: <a href="#summary_field">Field</a> | <a href="#summary_method">Method</a> | <a href="#summary_constr">Constr</a>
+Detail: <a href="#detail_field">Field</a> | <a href="#detail_method">Method</a> | <a href="#summary_constr">Constr</a>
+</div>
+<hr>
+
+<div class="qualifiedName">Doctrine\Doctrine_Cli</div>
+<div class="location">/Doctrine/Cli.php at line 35</div>
+
+<h1>Class Doctrine_Cli</h1>
+
+<pre class="tree"><strong>Doctrine_Cli</strong><br /></pre>
+
+<hr>
+
+<p class="signature">public  class <strong>Doctrine_Cli</strong></p>
+
+<div class="comment" id="overview_description"><p>Command line interface class</p><p>Interface for easily executing Doctrine_Task classes from a command line interface</p></div>
+
+<dl>
+<dt>Subpackage:</dt>
+<dd>Cli</dd>
+<dt>License:</dt>
+<dd>http://www.opensource.org/licenses/lgpl-license.php LGPL</dd>
+<dt>See Also:</dt>
+<dd><code>www.doctrine-project.org</code></dd>
+<dt>Since:</dt>
+<dd>1.0</dd>
+<dt>Version:</dt>
+<dd>$Revision: 2761 $</dd>
+<dt>Author:</dt>
+<dd>Jonathan H. Wage <jwage@mac.com></dd>
+</dl>
+<hr>
+
+<table id="summary_field">
+<tr><th colspan="2">Field Summary</th></tr>
+<tr>
+<td class="type">final  string</td>
+<td class="description"><p class="name"><a href="#TASK_BASE_CLASS">TASK_BASE_CLASS</a></p><p class="description">The name of the Doctrine Task base class.</p></td>
+</tr>
+<tr>
+<td class="type">private  array</td>
+<td class="description"><p class="name"><a href="#_config">$_config</a></p><p class="description">.</p></td>
+</tr>
+<tr>
+<td class="type">private  object Doctrine_Cli_Formatter</td>
+<td class="description"><p class="name"><a href="#_formatter">$_formatter</a></p><p class="description">.</p></td>
+</tr>
+<tr>
+<td class="type">private  array</td>
+<td class="description"><p class="name"><a href="#_registeredTask">$_registeredTask</a></p><p class="description">An array, keyed on class name, containing task instances.</p></td>
+</tr>
+<tr>
+<td class="type">protected  string</td>
+<td class="description"><p class="name"><a href="#_scriptName">$_scriptName</a></p><p class="description">.</p></td>
+</tr>
+<tr>
+<td class="type">private  object Doctrine_Task</td>
+<td class="description"><p class="name"><a href="#_taskInstance">$_taskInstance</a></p><p class="description">.</p></td>
+</tr>
+</table>
+
+<table id="summary_constr">
+<tr><th colspan="2">Constructor Summary</th></tr>
+<tr>
+<td class="description"><p class="name"><a href="#Doctrine_Cli()">Doctrine_Cli</a>(mixed config, mixed formatter, array [$config=array()], object|null [$formatter=null])</p><p class="description">__construct.</p></td>
+</tr>
+</table>
+
+<table id="summary_method">
+<tr><th colspan="2">Method Summary</th></tr>
+<tr>
+<td class="type">protected  void</td>
+<td class="description"><p class="name"><a href="#_getTaskClassFromArgs()">_getTaskClassFromArgs</a>(mixed args)</p><p class="description">Old method retained for backwards compatibility.</p></td>
+</tr>
+<tr>
+<td class="type">protected  void</td>
+<td class="description"><p class="name"><a href="#_run()">_run</a>(array args)</p><p class="description">Run the actual task execution with the passed arguments.</p></td>
+</tr>
+<tr>
+<td class="type">protected  string</td>
+<td class="description"><p class="name"><a href="#assembleArgumentList()">assembleArgumentList</a>(array argumentsDescriptions, array config, object formatter)</p><p class="description">.</p></td>
+</tr>
+<tr>
+<td class="type">protected  bool</td>
+<td class="description"><p class="name"><a href="#classIsTask()">classIsTask</a>(string className)</p><p class="description">Returns TRUE if the specified class is a Task, or FALSE otherwise.</p></td>
+</tr>
+<tr>
+<td class="type">private  array</td>
+<td class="description"><p class="name"><a href="#createOldStyleTaskList()">createOldStyleTaskList</a>(array registeredTask)</p><p class="description">Used by Doctrine_Cli::loadTasks() and Doctrine_Cli::getLoadedTasks() to re-create their pre-refactoring behaviour.</p></td>
+</tr>
+<tr>
+<td class="type">protected  object</td>
+<td class="description"><p class="name"><a href="#createTaskInstance()">createTaskInstance</a>(string className, object cli)</p><p class="description">Creates, and returns, a new instance of the specified Task class.</p></td>
+</tr>
+<tr>
+<td class="type">protected  void</td>
+<td class="description"><p class="name"><a href="#executeTask()">executeTask</a>(object task, array preparedArguments)</p><p class="description">Executes the task with the specified _prepared_ arguments.</p></td>
+</tr>
+<tr>
+<td class="type">protected  string</td>
+<td class="description"><p class="name"><a href="#formatExceptionMessage()">formatExceptionMessage</a>(Exception exception)</p><p class="description">Formats, and then returns, the message in the specified exception.</p></td>
+</tr>
+<tr>
+<td class="type"> array</td>
+<td class="description"><p class="name"><a href="#getConfig()">getConfig</a>()</p><p class="description">.</p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#getConfigValue()">getConfigValue</a>(string name)</p><p class="description">Returns the specified value from the config, or the default value, if specified.</p></td>
+</tr>
+<tr>
+<td class="type"> object</td>
+<td class="description"><p class="name"><a href="#getFormatter()">getFormatter</a>()</p><p class="description">.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#getLoadedTasks()">getLoadedTasks</a>()</p><p class="description">Old method retained for backwards compatibility.</p></td>
+</tr>
+<tr>
+<td class="type"> array</td>
+<td class="description"><p class="name"><a href="#getRegisteredTasks()">getRegisteredTasks</a>()</p><p class="description">Returns an array containing the registered tasks.</p></td>
+</tr>
+<tr>
+<td class="type"> object</td>
+<td class="description"><p class="name"><a href="#getTaskInstance()">getTaskInstance</a>()</p><p class="description">.</p></td>
+</tr>
+<tr>
+<td class="type"> bool</td>
+<td class="description"><p class="name"><a href="#hasConfigValue()">hasConfigValue</a>(string name, mixed value, mixed strict, mixed [$value=null], bool [$strict=false])</p><p class="description">Returns TRUE if the element in the config has the specified value, or FALSE otherwise.</p></td>
+</tr>
+<tr>
+<td class="type">protected  void</td>
+<td class="description"><p class="name"><a href="#includeAndRegisterDoctrineTaskClasses()">includeAndRegisterDoctrineTaskClasses</a>(mixed directories, mixed [$directories=null])</p><p class="description">Includes and registers Doctrine-style tasks from the specified directory / directories.</p></td>
+</tr>
+<tr>
+<td class="type">protected  void</td>
+<td class="description"><p class="name"><a href="#includeAndRegisterTaskClasses()">includeAndRegisterTaskClasses</a>()</p><p class="description">Called by the constructor, this method includes and registers Doctrine core Tasks and then registers all other
+loaded Task classes.</p></td>
+</tr>
+<tr>
+<td class="type">protected  array</td>
+<td class="description"><p class="name"><a href="#includeDoctrineTaskClasses()">includeDoctrineTaskClasses</a>(string directory)</p><p class="description">Attempts to include Doctrine-style Task-classes from the specified directory - and nothing more besides.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#loadTasks()">loadTasks</a>(mixed directory)</p><p class="description">Old method retained for backwards compatibility.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#notify()">notify</a>(string notification, string style)</p><p class="description">Notify the formatter of a message.</p></td>
+</tr>
+<tr>
+<td class="type">protected  void</td>
+<td class="description"><p class="name"><a href="#notifyException()">notifyException</a>(Exception exception)</p><p class="description">Notify the formatter of an exception.</p></td>
+</tr>
+<tr>
+<td class="type">protected  array</td>
+<td class="description"><p class="name"><a href="#prepareArgs()">prepareArgs</a>(array args)</p><p class="description">Prepare the raw arguments for execution. </p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#printTasks()">printTasks</a>(mixed taskName, mixed full, string|null [$taskName=null], bool [$full=false])</p><p class="description">Prints an index of all the available tasks in the CLI instance.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#registerIncludedTaskClasses()">registerIncludedTaskClasses</a>()</p><p class="description">Registers all loaded classes - by default - or the specified loaded Task classes.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#registerTaskClass()">registerTaskClass</a>(string className)</p><p class="description">Registers the specified _included_ task-class.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#run()">run</a>(array args)</p><p class="description">Public function to run the loaded task with the passed arguments.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#setConfig()">setConfig</a>(array config)</p><p class="description">.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#setFormatter()">setFormatter</a>(object formatter)</p><p class="description">.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#setRegisteredTasks()">setRegisteredTasks</a>(array registeredTask)</p><p class="description">Sets the array of registered tasks.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#setTaskInstance()">setTaskInstance</a>(object task)</p><p class="description">.</p></td>
+</tr>
+<tr>
+<td class="type"> bool</td>
+<td class="description"><p class="name"><a href="#taskClassIsRegistered()">taskClassIsRegistered</a>(string className)</p><p class="description">Returns TRUE if the specified Task-class is registered, or FALSE otherwise.</p></td>
+</tr>
+<tr>
+<td class="type"> bool</td>
+<td class="description"><p class="name"><a href="#taskNameIsRegistered()">taskNameIsRegistered</a>(string taskName, mixed className, string|null [&$className=null])</p><p class="description">Returns TRUE if a task with the specified name is registered, or FALSE otherwise.</p></td>
+</tr>
+</table>
+
+<h2 id="detail_field">Field Detail</h2>
+<div class="location">/Doctrine/Cli.php at line 42</div>
+<h3 id="TASK_BASE_CLASS">TASK_BASE_CLASS</h3>
+<code class="signature">public final  string <strong>TASK_BASE_CLASS</strong> = 'Doctrine_Task'</code>
+<div class="details">
+<p>The name of the Doctrine Task base class</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Cli.php at line 52</div>
+<h3 id="_config">_config</h3>
+<code class="signature">private  array <strong>$_config</strong></code>
+<div class="details">
+<p></p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Cli.php at line 57</div>
+<h3 id="_formatter">_formatter</h3>
+<code class="signature">private  object Doctrine_Cli_Formatter <strong>$_formatter</strong></code>
+<div class="details">
+<p></p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Cli.php at line 64</div>
+<h3 id="_registeredTask">_registeredTask</h3>
+<code class="signature">private  array <strong>$_registeredTask</strong> = array()</code>
+<div class="details">
+<p>An array, keyed on class name, containing task instances</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Cli.php at line 47</div>
+<h3 id="_scriptName">_scriptName</h3>
+<code class="signature">protected  string <strong>$_scriptName</strong> = null</code>
+<div class="details">
+<p></p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Cli.php at line 69</div>
+<h3 id="_taskInstance">_taskInstance</h3>
+<code class="signature">private  object Doctrine_Task <strong>$_taskInstance</strong></code>
+<div class="details">
+<p></p></div>
+
+<hr>
+
+<h2 id="detail_constr">Constructor Detail</h2>
+<div class="location">/Doctrine/Cli.php at line 77</div>
+<h3 id="Doctrine_Cli()">Doctrine_Cli</h3>
+<code class="signature">public <strong>Doctrine_Cli</strong>(mixed config, mixed formatter, array [$config=array()], object|null [$formatter=null])</code>
+<div class="details">
+<p>__construct</p><dl>
+<dt>Parameters:</dt>
+<dd></dd>
+<dd>[$formatter=null] - Doctrine_Cli_Formatter</dd>
+</dl>
+</div>
+
+<hr>
+
+<h2 id="detail_method">Method Detail</h2>
+<div class="location">/Doctrine/Cli.php at line 665</div>
+<h3 id="_getTaskClassFromArgs()">_getTaskClassFromArgs</h3>
+<code class="signature">protected  void <strong>_getTaskClassFromArgs</strong>(mixed args)</code>
+<div class="details">
+<p>Old method retained for backwards compatibility</p><dl>
+<dt>Deprecated.</dt>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Cli.php at line 476</div>
+<h3 id="_run()">_run</h3>
+<code class="signature">protected  void <strong>_run</strong>(array args)</code>
+<div class="details">
+<p>Run the actual task execution with the passed arguments</p><dl>
+<dt>Parameters:</dt>
+<dd>args - Array of arguments for this task being executed</dd>
+<dt>Throws:</dt>
+<dd>If the requested task has not been registered or if required arguments are missing</dd>
+<dt>Todo:</dt>
+<dd>Continue refactoring for testing</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Cli.php at line 611</div>
+<h3 id="assembleArgumentList()">assembleArgumentList</h3>
+<code class="signature">protected  string <strong>assembleArgumentList</strong>(array argumentsDescriptions, array config, object formatter)</code>
+<div class="details">
+<p></p><dl>
+<dt>Parameters:</dt>
+<dd></dd>
+<dd></dd>
+<dd>formatter - Doctrine_Cli_Formatter</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Cli.php at line 359</div>
+<h3 id="classIsTask()">classIsTask</h3>
+<code class="signature">protected  bool <strong>classIsTask</strong>(string className)</code>
+<div class="details">
+<p>Returns TRUE if the specified class is a Task, or FALSE otherwise</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Cli.php at line 637</div>
+<h3 id="createOldStyleTaskList()">createOldStyleTaskList</h3>
+<code class="signature">private  array <strong>createOldStyleTaskList</strong>(array registeredTask)</code>
+<div class="details">
+<p>Used by Doctrine_Cli::loadTasks() and Doctrine_Cli::getLoadedTasks() to re-create their pre-refactoring behaviour</p><dl>
+<dt>Ignore.</dt>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Cli.php at line 374</div>
+<h3 id="createTaskInstance()">createTaskInstance</h3>
+<code class="signature">protected  object <strong>createTaskInstance</strong>(string className, object cli)</code>
+<div class="details">
+<p>Creates, and returns, a new instance of the specified Task class</p><p>Displays a message, and returns FALSE, if there were problems instantiating the class</p><dl>
+<dt>Parameters:</dt>
+<dd></dd>
+<dd>cli - Doctrine_Cli</dd>
+<dt>Returns:</dt>
+<dd>Doctrine_Task</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Cli.php at line 508</div>
+<h3 id="executeTask()">executeTask</h3>
+<code class="signature">protected  void <strong>executeTask</strong>(object task, array preparedArguments)</code>
+<div class="details">
+<p>Executes the task with the specified _prepared_ arguments</p><dl>
+<dt>Parameters:</dt>
+<dd>task - Doctrine_Task</dd>
+<dd></dd>
+<dt>Throws:</dt>
+<dd>If required arguments are missing</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Cli.php at line 416</div>
+<h3 id="formatExceptionMessage()">formatExceptionMessage</h3>
+<code class="signature">protected  string <strong>formatExceptionMessage</strong>(Exception exception)</code>
+<div class="details">
+<p>Formats, and then returns, the message in the specified exception</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Cli.php at line 95</div>
+<h3 id="getConfig()">getConfig</h3>
+<code class="signature">public  array <strong>getConfig</strong>()</code>
+<div class="details">
+<p></p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Cli.php at line 123</div>
+<h3 id="getConfigValue()">getConfigValue</h3>
+<code class="signature">public  mixed <strong>getConfigValue</strong>(string name)</code>
+<div class="details">
+<p>Returns the specified value from the config, or the default value, if specified</p><dl>
+<dt>Throws:</dt>
+<dd>If the element does not exist in the config</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Cli.php at line 111</div>
+<h3 id="getFormatter()">getFormatter</h3>
+<code class="signature">public  object <strong>getFormatter</strong>()</code>
+<div class="details">
+<p></p><dl>
+<dt>Returns:</dt>
+<dd>Doctrine_Cli_Formatter</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Cli.php at line 675</div>
+<h3 id="getLoadedTasks()">getLoadedTasks</h3>
+<code class="signature">public  void <strong>getLoadedTasks</strong>()</code>
+<div class="details">
+<p>Old method retained for backwards compatibility</p><dl>
+<dt>Deprecated.</dt>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Cli.php at line 181</div>
+<h3 id="getRegisteredTasks()">getRegisteredTasks</h3>
+<code class="signature">public  array <strong>getRegisteredTasks</strong>()</code>
+<div class="details">
+<p>Returns an array containing the registered tasks</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Cli.php at line 229</div>
+<h3 id="getTaskInstance()">getTaskInstance</h3>
+<code class="signature">public  object <strong>getTaskInstance</strong>()</code>
+<div class="details">
+<p></p><dl>
+<dt>Returns:</dt>
+<dd>Doctrine_Task</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Cli.php at line 149</div>
+<h3 id="hasConfigValue()">hasConfigValue</h3>
+<code class="signature">public  bool <strong>hasConfigValue</strong>(string name, mixed value, mixed strict, mixed [$value=null], bool [$strict=false])</code>
+<div class="details">
+<p>Returns TRUE if the element in the config has the specified value, or FALSE otherwise</p><p>If $value is not passed, this method will return TRUE if the specified element has _any_ value, or FALSE if the
+element is not set</p><p>For strict checking, set $strict to TRUE - the default is FALSE</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Cli.php at line 258</div>
+<h3 id="includeAndRegisterDoctrineTaskClasses()">includeAndRegisterDoctrineTaskClasses</h3>
+<code class="signature">protected  void <strong>includeAndRegisterDoctrineTaskClasses</strong>(mixed directories, mixed [$directories=null])</code>
+<div class="details">
+<p>Includes and registers Doctrine-style tasks from the specified directory / directories</p><p>If no directory is given it looks in the default Doctrine/Task folder for the core tasks</p><dl>
+<dt>Parameters:</dt>
+<dd>[$directories=null] - Can be a string path or array of paths</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Cli.php at line 241</div>
+<h3 id="includeAndRegisterTaskClasses()">includeAndRegisterTaskClasses</h3>
+<code class="signature">protected  void <strong>includeAndRegisterTaskClasses</strong>()</code>
+<div class="details">
+<p>Called by the constructor, this method includes and registers Doctrine core Tasks and then registers all other
+loaded Task classes</p><p>The second round of registering will pick-up loaded custom Tasks.  Methods are provided that will allow users to
+register Tasks loaded after creating an instance of Doctrine_Cli.</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Cli.php at line 287</div>
+<h3 id="includeDoctrineTaskClasses()">includeDoctrineTaskClasses</h3>
+<code class="signature">protected  array <strong>includeDoctrineTaskClasses</strong>(string directory)</code>
+<div class="details">
+<p>Attempts to include Doctrine-style Task-classes from the specified directory - and nothing more besides</p><p>Returns an array containing the names of Task classes included</p><p>This method effectively makes two assumptions:
+- The directory contains only _Task_ class-files
+- The class files, and the class in each, follow the Doctrine naming conventions</p><p>This means that a file called "Foo.php", say, will be expected to contain a Task class called
+"Doctrine_Task_Foo".  Hence the method's name, "include*Doctrine*TaskClasses".</p><dl>
+<dt>Returns:</dt>
+<dd>$taskClassesIncluded</dd>
+<dt>Throws:</dt>
+<dd>If the directory does not exist</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Cli.php at line 654</div>
+<h3 id="loadTasks()">loadTasks</h3>
+<code class="signature">public  void <strong>loadTasks</strong>(mixed directory)</code>
+<div class="details">
+<p>Old method retained for backwards compatibility</p><dl>
+<dt>Deprecated.</dt>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Cli.php at line 400</div>
+<h3 id="notify()">notify</h3>
+<code class="signature">public  void <strong>notify</strong>(string notification, string style)</code>
+<div class="details">
+<p>Notify the formatter of a message</p><dl>
+<dt>Parameters:</dt>
+<dd>notification - The notification message</dd>
+<dd>style - Style to format the notification with(INFO, ERROR)</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Cli.php at line 436</div>
+<h3 id="notifyException()">notifyException</h3>
+<code class="signature">protected  void <strong>notifyException</strong>(Exception exception)</code>
+<div class="details">
+<p>Notify the formatter of an exception</p><p>N.B. This should really only be called by Doctrine_Cli::run().  Exceptions should be thrown when errors occur:
+it's up to Doctrine_Cli::run() to determine how those exceptions are reported.</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Cli.php at line 527</div>
+<h3 id="prepareArgs()">prepareArgs</h3>
+<code class="signature">protected  array <strong>prepareArgs</strong>(array args)</code>
+<div class="details">
+<p>Prepare the raw arguments for execution. Combines with the required and optional argument
+list in order to determine a complete array of arguments for the task</p><dl>
+<dt>Parameters:</dt>
+<dd>args - Array of raw arguments</dd>
+<dt>Returns:</dt>
+<dd>$prepared Array of prepared arguments</dd>
+<dt>Todo:</dt>
+<dd>Continue refactoring for testing</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Cli.php at line 573</div>
+<h3 id="printTasks()">printTasks</h3>
+<code class="signature">public  void <strong>printTasks</strong>(mixed taskName, mixed full, string|null [$taskName=null], bool [$full=false])</code>
+<div class="details">
+<p>Prints an index of all the available tasks in the CLI instance</p><dl>
+<dt>Todo:</dt>
+<dd>Continue refactoring for testing</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Cli.php at line 384</div>
+<h3 id="registerIncludedTaskClasses()">registerIncludedTaskClasses</h3>
+<code class="signature">public  void <strong>registerIncludedTaskClasses</strong>()</code>
+<div class="details">
+<p>Registers all loaded classes - by default - or the specified loaded Task classes</p><p>This method will skip registered task classes, so it can be safely called many times over</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Cli.php at line 335</div>
+<h3 id="registerTaskClass()">registerTaskClass</h3>
+<code class="signature">public  void <strong>registerTaskClass</strong>(string className)</code>
+<div class="details">
+<p>Registers the specified _included_ task-class</p><dl>
+<dt>Throws:</dt>
+<dd>If the class does not exist or the task-name is blank</dd>
+<dd>If the class is not a Doctrine Task</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Cli.php at line 449</div>
+<h3 id="run()">run</h3>
+<code class="signature">public  void <strong>run</strong>(array args)</code>
+<div class="details">
+<p>Public function to run the loaded task with the passed arguments</p><dl>
+<dt>Throws:</dt>
+<dd>Doctrine_Cli_Exception</dd>
+<dt>Todo:</dt>
+<dd>Should know more about what we're attempting to run so feedback can be improved. Continue refactoring.</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Cli.php at line 87</div>
+<h3 id="setConfig()">setConfig</h3>
+<code class="signature">public  void <strong>setConfig</strong>(array config)</code>
+<div class="details">
+<p></p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Cli.php at line 103</div>
+<h3 id="setFormatter()">setFormatter</h3>
+<code class="signature">public  void <strong>setFormatter</strong>(object formatter)</code>
+<div class="details">
+<p></p><dl>
+<dt>Parameters:</dt>
+<dd>formatter - Doctrine_Cli_Formatter</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Cli.php at line 171</div>
+<h3 id="setRegisteredTasks()">setRegisteredTasks</h3>
+<code class="signature">public  void <strong>setRegisteredTasks</strong>(array registeredTask)</code>
+<div class="details">
+<p>Sets the array of registered tasks</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Cli.php at line 221</div>
+<h3 id="setTaskInstance()">setTaskInstance</h3>
+<code class="signature">public  void <strong>setTaskInstance</strong>(object task)</code>
+<div class="details">
+<p></p><dl>
+<dt>Parameters:</dt>
+<dd>task - Doctrine_Task</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Cli.php at line 192</div>
+<h3 id="taskClassIsRegistered()">taskClassIsRegistered</h3>
+<code class="signature">public  bool <strong>taskClassIsRegistered</strong>(string className)</code>
+<div class="details">
+<p>Returns TRUE if the specified Task-class is registered, or FALSE otherwise</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Cli.php at line 206</div>
+<h3 id="taskNameIsRegistered()">taskNameIsRegistered</h3>
+<code class="signature">public  bool <strong>taskNameIsRegistered</strong>(string taskName, mixed className, string|null [&$className=null])</code>
+<div class="details">
+<p>Returns TRUE if a task with the specified name is registered, or FALSE otherwise</p><p>If a matching task is found, $className is set with the name of the implementing class</p></div>
+
+<hr>
+
+<div class="header">
+<h1>Doctrine</h1>
+<ul>
+<li><a href="../overview-summary.html">Overview</a></li>
+<li><a href="../doctrine/package-summary.html">Namespace</a></li>
+<li class="active">Class</li>
+<li><a href="../doctrine/package-tree.html">Tree</a></li>
+<li><a href="../deprecated-list.html">Deprecated</a></li>
+<li><a href="../index-all.html">Index</a></li>
+</ul>
+</div>
+
+<div class="small_links">
+<a href="../index.html" target="_top">Frames</a>
+<a href="../doctrine/doctrine_cli.html" target="_top">No frames</a>
+</div>
+<div class="small_links">
+Summary: <a href="#summary_field">Field</a> | <a href="#summary_method">Method</a> | <a href="#summary_constr">Constr</a>
+Detail: <a href="#detail_field">Field</a> | <a href="#detail_method">Method</a> | <a href="#summary_constr">Constr</a>
+</div>
+<hr>
+
+<p id="footer">This document was generated by <a href="http://peej.github.com/phpdoctor/">PHPDoctor: The PHP Documentation Creator</a></p>
+
+</body>
+
+</html>

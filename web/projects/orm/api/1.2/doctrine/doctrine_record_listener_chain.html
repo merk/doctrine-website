@@ -1,0 +1,474 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+<head>
+
+<meta name="generator" content="PHPDoctor 2RC4 (http://phpdoctor.sourceforge.net/)">
+<meta name="when" content="Fri, 09 Apr 2010 11:50:26 -0400">
+
+<link rel="stylesheet" type="text/css" href="../stylesheet.css">
+<link rel="start" href="../overview-summary.html">
+
+<title>Doctrine_Record_Listener_Chain (Doctrine 1.2 ORM)</title>
+
+</head>
+<body id="definition" onload="parent.document.title=document.title;">
+
+<div class="header">
+<h1>Doctrine</h1>
+<ul>
+<li><a href="../overview-summary.html">Overview</a></li>
+<li><a href="../doctrine/package-summary.html">Namespace</a></li>
+<li class="active">Class</li>
+<li><a href="../doctrine/package-tree.html">Tree</a></li>
+<li><a href="../deprecated-list.html">Deprecated</a></li>
+<li><a href="../index-all.html">Index</a></li>
+</ul>
+</div>
+
+<div class="small_links">
+<a href="../index.html" target="_top">Frames</a>
+<a href="../doctrine/doctrine_record_listener_chain.html" target="_top">No frames</a>
+</div>
+<div class="small_links">
+Summary: <a href="#summary_field">Field</a> | <a href="#summary_method">Method</a> | <a href="#summary_constr">Constr</a>
+Detail: <a href="#detail_field">Field</a> | <a href="#detail_method">Method</a> | <a href="#summary_constr">Constr</a>
+</div>
+<hr>
+
+<div class="qualifiedName">Doctrine\Doctrine_Record_Listener_Chain</div>
+<div class="location">/Doctrine/Record/Listener/Chain.php at line 35</div>
+
+<h1>Class Doctrine_Record_Listener_Chain</h1>
+
+<pre class="tree">Class:Doctrine_Record_Listener_Chain - Superclass: Doctrine_Access
+Class:Doctrine_Access - Superclass: Doctrine_Locator_Injectable
+<a href="../doctrine/doctrine_locator_injectable.html">Doctrine_Locator_Injectable</a><br>   &lfloor;&nbsp;<a href="../doctrine/doctrine_access.html">Doctrine_Access</a><br>      &lfloor;&nbsp;<strong>Doctrine_Record_Listener_Chain</strong><br /></pre>
+
+<hr>
+
+<p class="signature">public  class <strong>Doctrine_Record_Listener_Chain</strong><br>extends <a href="../doctrine/doctrine_access.html">Doctrine_Access</a>
+
+</p>
+
+<div class="comment" id="overview_description"><p>Doctrine_Record_Listener_Chain
+this class represents a chain of different listeners,
+useful for having multiple listeners listening the events at the same time</p></div>
+
+<dl>
+<dt>Subpackage:</dt>
+<dd>Record</dd>
+<dt>Author:</dt>
+<dd>Konsta Vesterinen <kvesteri@cc.hut.fi></dd>
+<dt>License:</dt>
+<dd>http://www.opensource.org/licenses/lgpl-license.php LGPL</dd>
+<dt>See Also:</dt>
+<dd><code>www.doctrine-project.org</code></dd>
+<dt>Since:</dt>
+<dd>1.0</dd>
+<dt>Version:</dt>
+<dd>$Revision$</dd>
+<dt>Category:</dt>
+<dd>Locator</dd>
+</dl>
+<hr>
+
+<table id="summary_field">
+<tr><th colspan="2">Field Summary</th></tr>
+<tr>
+<td class="type">protected  array $listeners        an array containing all listeners</td>
+<td class="description"><p class="name"><a href="#_listeners">$_listeners</a></p><p class="description">.</p></td>
+</tr>
+<tr>
+<td class="type">protected  array $_options        an array containing chain options</td>
+<td class="description"><p class="name"><a href="#_options">$_options</a></p><p class="description">.</p></td>
+</tr>
+</table>
+
+<table id="summary_method">
+<tr><th colspan="2">Method Summary</th></tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#add()">add</a>(object listener, string name, mixed value)</p><p class="description">add
+adds a listener to the chain of listeners.</p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#get()">get</a>(mixed key, mixed offset)</p><p class="description">returns a Doctrine_Record_Listener on success
+and null on failure.</p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#getOption()">getOption</a>(string name)</p><p class="description">getOption 
+returns the value of given option.</p></td>
+</tr>
+<tr>
+<td class="type"> array</td>
+<td class="description"><p class="name"><a href="#getOptions()">getOptions</a>()</p><p class="description">Get array of configured options.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#postDelete()">postDelete</a>(mixed event)</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#postHydrate()">postHydrate</a>(mixed event)</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#postInsert()">postInsert</a>(mixed event)</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#postSave()">postSave</a>(mixed event)</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#postSerialize()">postSerialize</a>(mixed event)</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#postUnserialize()">postUnserialize</a>(mixed event)</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#postUpdate()">postUpdate</a>(mixed event)</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#postValidate()">postValidate</a>(mixed event)</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#preDelete()">preDelete</a>(mixed event)</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#preDqlDelete()">preDqlDelete</a>(mixed event)</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#preDqlSelect()">preDqlSelect</a>(mixed event)</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#preDqlUpdate()">preDqlUpdate</a>(mixed event)</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#preHydrate()">preHydrate</a>(mixed event)</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#preInsert()">preInsert</a>(mixed event)</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#preSave()">preSave</a>(mixed event)</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#preSerialize()">preSerialize</a>(mixed event)</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#preUnserialize()">preUnserialize</a>(mixed event)</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#preUpdate()">preUpdate</a>(mixed event)</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#preValidate()">preValidate</a>(mixed event)</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../doctrine/doctrine_record_listener_chain.html">Doctrine_Record_Listener_Chain</a></td>
+<td class="description"><p class="name"><a href="#set()">set</a>(mixed key, <a href="../doctrine/doctrine_record_listener.html">Doctrine_Record_Listener</a> listener, mixed offset, mixed value)</p><p class="description">set.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#setOption()">setOption</a>(mixed name, mixed value)</p><p class="description">setOption 
+sets an option in order to allow flexible listener chaining.</p></td>
+</tr>
+</table>
+
+<table class="inherit">
+<tr><th colspan="2">Methods inherited from Doctrine\Doctrine_Access</th></tr>
+<tr><td><a href="../doctrine/doctrine_access.html#__get()">__get</a>, <a href="../doctrine/doctrine_access.html#__isset()">__isset</a>, <a href="../doctrine/doctrine_access.html#__set()">__set</a>, <a href="../doctrine/doctrine_access.html#__unset()">__unset</a>, <a href="../doctrine/doctrine_access.html#add()">add</a>, <a href="../doctrine/doctrine_access.html#contains()">contains</a>, <a href="../doctrine/doctrine_access.html#get()">get</a>, <a href="../doctrine/doctrine_access.html#offsetExists()">offsetExists</a>, <a href="../doctrine/doctrine_access.html#offsetGet()">offsetGet</a>, <a href="../doctrine/doctrine_access.html#offsetSet()">offsetSet</a>, <a href="../doctrine/doctrine_access.html#offsetUnset()">offsetUnset</a>, <a href="../doctrine/doctrine_access.html#remove()">remove</a>, <a href="../doctrine/doctrine_access.html#set()">set</a>, <a href="../doctrine/doctrine_access.html#setArray()">setArray</a></td></tr></table>
+
+<table class="inherit">
+<tr><th colspan="2">Methods inherited from Doctrine\Doctrine_Locator_Injectable</th></tr>
+<tr><td><a href="../doctrine/doctrine_locator_injectable.html#bind()">bind</a>, <a href="../doctrine/doctrine_locator_injectable.html#getLocator()">getLocator</a>, <a href="../doctrine/doctrine_locator_injectable.html#getNullObject()">getNullObject</a>, <a href="../doctrine/doctrine_locator_injectable.html#initNullObject()">initNullObject</a>, <a href="../doctrine/doctrine_locator_injectable.html#locate()">locate</a>, <a href="../doctrine/doctrine_locator_injectable.html#setLocator()">setLocator</a></td></tr></table>
+
+<h2 id="detail_field">Field Detail</h2>
+<div class="location">/Doctrine/Record/Listener/Chain.php at line 40</div>
+<h3 id="_listeners">_listeners</h3>
+<code class="signature">protected  array $listeners        an array containing all listeners <strong>$_listeners</strong> = array()</code>
+<div class="details">
+<p></p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Record/Listener/Chain.php at line 45</div>
+<h3 id="_options">_options</h3>
+<code class="signature">protected  array $_options        an array containing chain options <strong>$_options</strong> = array('disabled' => false)</code>
+<div class="details">
+<p></p></div>
+
+<hr>
+
+<h2 id="detail_method">Method Detail</h2>
+<div class="location">/Doctrine/Record/Listener/Chain.php at line 97</div>
+<h3 id="add()">add</h3>
+<code class="signature">public  void <strong>add</strong>(object listener, string name, mixed value)</code>
+<div class="details">
+<p>add
+adds a listener to the chain of listeners</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Record/Listener/Chain.php at line 118</div>
+<h3 id="get()">get</h3>
+<code class="signature">public  mixed <strong>get</strong>(mixed key, mixed offset)</code>
+<div class="details">
+<p>returns a Doctrine_Record_Listener on success
+and null on failure</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Record/Listener/Chain.php at line 70</div>
+<h3 id="getOption()">getOption</h3>
+<code class="signature">public  mixed <strong>getOption</strong>(string name)</code>
+<div class="details">
+<p>getOption 
+returns the value of given option</p><dl>
+<dt>Parameters:</dt>
+<dd>name - the name of the option</dd>
+<dt>Returns:</dt>
+<dd>the value of given option</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Record/Listener/Chain.php at line 84</div>
+<h3 id="getOptions()">getOptions</h3>
+<code class="signature">public  array <strong>getOptions</strong>()</code>
+<div class="details">
+<p>Get array of configured options</p><dl>
+<dt>Returns:</dt>
+<dd>$options</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Record/Listener/Chain.php at line 273</div>
+<h3 id="postDelete()">postDelete</h3>
+<code class="signature">public  void <strong>postDelete</strong>(mixed event)</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Record/Listener/Chain.php at line 378</div>
+<h3 id="postHydrate()">postHydrate</h3>
+<code class="signature">public  void <strong>postHydrate</strong>(mixed event)</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Record/Listener/Chain.php at line 348</div>
+<h3 id="postInsert()">postInsert</h3>
+<code class="signature">public  void <strong>postInsert</strong>(mixed event)</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Record/Listener/Chain.php at line 228</div>
+<h3 id="postSave()">postSave</h3>
+<code class="signature">public  void <strong>postSave</strong>(mixed event)</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Record/Listener/Chain.php at line 153</div>
+<h3 id="postSerialize()">postSerialize</h3>
+<code class="signature">public  void <strong>postSerialize</strong>(mixed event)</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Record/Listener/Chain.php at line 183</div>
+<h3 id="postUnserialize()">postUnserialize</h3>
+<code class="signature">public  void <strong>postUnserialize</strong>(mixed event)</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Record/Listener/Chain.php at line 318</div>
+<h3 id="postUpdate()">postUpdate</h3>
+<code class="signature">public  void <strong>postUpdate</strong>(mixed event)</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Record/Listener/Chain.php at line 408</div>
+<h3 id="postValidate()">postValidate</h3>
+<code class="signature">public  void <strong>postValidate</strong>(mixed event)</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Record/Listener/Chain.php at line 258</div>
+<h3 id="preDelete()">preDelete</h3>
+<code class="signature">public  void <strong>preDelete</strong>(mixed event)</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Record/Listener/Chain.php at line 243</div>
+<h3 id="preDqlDelete()">preDqlDelete</h3>
+<code class="signature">public  void <strong>preDqlDelete</strong>(mixed event)</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Record/Listener/Chain.php at line 198</div>
+<h3 id="preDqlSelect()">preDqlSelect</h3>
+<code class="signature">public  void <strong>preDqlSelect</strong>(mixed event)</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Record/Listener/Chain.php at line 288</div>
+<h3 id="preDqlUpdate()">preDqlUpdate</h3>
+<code class="signature">public  void <strong>preDqlUpdate</strong>(mixed event)</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Record/Listener/Chain.php at line 363</div>
+<h3 id="preHydrate()">preHydrate</h3>
+<code class="signature">public  void <strong>preHydrate</strong>(mixed event)</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Record/Listener/Chain.php at line 333</div>
+<h3 id="preInsert()">preInsert</h3>
+<code class="signature">public  void <strong>preInsert</strong>(mixed event)</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Record/Listener/Chain.php at line 213</div>
+<h3 id="preSave()">preSave</h3>
+<code class="signature">public  void <strong>preSave</strong>(mixed event)</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Record/Listener/Chain.php at line 138</div>
+<h3 id="preSerialize()">preSerialize</h3>
+<code class="signature">public  void <strong>preSerialize</strong>(mixed event)</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Record/Listener/Chain.php at line 168</div>
+<h3 id="preUnserialize()">preUnserialize</h3>
+<code class="signature">public  void <strong>preUnserialize</strong>(mixed event)</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Record/Listener/Chain.php at line 303</div>
+<h3 id="preUpdate()">preUpdate</h3>
+<code class="signature">public  void <strong>preUpdate</strong>(mixed event)</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Record/Listener/Chain.php at line 393</div>
+<h3 id="preValidate()">preValidate</h3>
+<code class="signature">public  void <strong>preValidate</strong>(mixed event)</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Record/Listener/Chain.php at line 133</div>
+<h3 id="set()">set</h3>
+<code class="signature">public  <a href="../doctrine/doctrine_record_listener_chain.html">Doctrine_Record_Listener_Chain</a> <strong>set</strong>(mixed key, <a href="../doctrine/doctrine_record_listener.html">Doctrine_Record_Listener</a> listener, mixed offset, mixed value)</code>
+<div class="details">
+<p>set</p><dl>
+<dt>Parameters:</dt>
+<dd></dd>
+<dd>listener - listener to be added</dd>
+<dt>Returns:</dt>
+<dd>this object</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Record/Listener/Chain.php at line 54</div>
+<h3 id="setOption()">setOption</h3>
+<code class="signature">public  void <strong>setOption</strong>(mixed name, mixed value)</code>
+<div class="details">
+<p>setOption 
+sets an option in order to allow flexible listener chaining</p><dl>
+<dt>Parameters:</dt>
+<dd>name - the name of the option to set</dd>
+<dd>value - the value of the option</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="header">
+<h1>Doctrine</h1>
+<ul>
+<li><a href="../overview-summary.html">Overview</a></li>
+<li><a href="../doctrine/package-summary.html">Namespace</a></li>
+<li class="active">Class</li>
+<li><a href="../doctrine/package-tree.html">Tree</a></li>
+<li><a href="../deprecated-list.html">Deprecated</a></li>
+<li><a href="../index-all.html">Index</a></li>
+</ul>
+</div>
+
+<div class="small_links">
+<a href="../index.html" target="_top">Frames</a>
+<a href="../doctrine/doctrine_record_listener_chain.html" target="_top">No frames</a>
+</div>
+<div class="small_links">
+Summary: <a href="#summary_field">Field</a> | <a href="#summary_method">Method</a> | <a href="#summary_constr">Constr</a>
+Detail: <a href="#detail_field">Field</a> | <a href="#detail_method">Method</a> | <a href="#summary_constr">Constr</a>
+</div>
+<hr>
+
+<p id="footer">This document was generated by <a href="http://peej.github.com/phpdoctor/">PHPDoctor: The PHP Documentation Creator</a></p>
+
+</body>
+
+</html>

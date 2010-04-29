@@ -1,0 +1,238 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+<head>
+
+<meta name="generator" content="PHPDoctor 2RC4 (http://phpdoctor.sourceforge.net/)">
+<meta name="when" content="Fri, 09 Apr 2010 11:50:25 -0400">
+
+<link rel="stylesheet" type="text/css" href="../stylesheet.css">
+<link rel="start" href="../overview-summary.html">
+
+<title>Doctrine_Connection_Mysql (Doctrine 1.2 ORM)</title>
+
+</head>
+<body id="definition" onload="parent.document.title=document.title;">
+
+<div class="header">
+<h1>Doctrine</h1>
+<ul>
+<li><a href="../overview-summary.html">Overview</a></li>
+<li><a href="../doctrine/package-summary.html">Namespace</a></li>
+<li class="active">Class</li>
+<li><a href="../doctrine/package-tree.html">Tree</a></li>
+<li><a href="../deprecated-list.html">Deprecated</a></li>
+<li><a href="../index-all.html">Index</a></li>
+</ul>
+</div>
+
+<div class="small_links">
+<a href="../index.html" target="_top">Frames</a>
+<a href="../doctrine/doctrine_connection_mysql.html" target="_top">No frames</a>
+</div>
+<div class="small_links">
+Summary: <a href="#summary_field">Field</a> | <a href="#summary_method">Method</a> | <a href="#summary_constr">Constr</a>
+Detail: <a href="#detail_field">Field</a> | <a href="#detail_method">Method</a> | <a href="#summary_constr">Constr</a>
+</div>
+<hr>
+
+<div class="qualifiedName">Doctrine\Doctrine_Connection_Mysql</div>
+<div class="location">/Doctrine/Connection/Mysql.php at line 34</div>
+
+<h1>Class Doctrine_Connection_Mysql</h1>
+
+<pre class="tree">Class:Doctrine_Connection_Mysql - Superclass: Doctrine_Connection_Common
+Class:Doctrine_Connection_Common - Superclass: Doctrine_Connection
+Class:Doctrine_Connection - Superclass: Doctrine_Configurable
+Class:Doctrine_Configurable - Superclass: Doctrine_Locator_Injectable
+<a href="../doctrine/doctrine_locator_injectable.html">Doctrine_Locator_Injectable</a><br>   &lfloor;&nbsp;<a href="../doctrine/doctrine_configurable.html">Doctrine_Configurable</a><br>      &lfloor;&nbsp;<a href="../doctrine/doctrine_connection.html">Doctrine_Connection</a><br>         &lfloor;&nbsp;<a href="../doctrine/doctrine_connection_common.html">Doctrine_Connection_Common</a><br>            &lfloor;&nbsp;<strong>Doctrine_Connection_Mysql</strong><br /></pre>
+
+<hr>
+
+<p class="signature">public  class <strong>Doctrine_Connection_Mysql</strong><br>extends <a href="../doctrine/doctrine_connection_common.html">Doctrine_Connection_Common</a>
+
+</p>
+
+<div class="comment" id="overview_description"><p>Doctrine_Connection_Mysql</p></div>
+
+<dl>
+<dt>Subpackage:</dt>
+<dd>Connection</dd>
+<dt>License:</dt>
+<dd>http://www.opensource.org/licenses/lgpl-license.php LGPL</dd>
+<dt>Author:</dt>
+<dd>Konsta Vesterinen <kvesteri@cc.hut.fi></dd>
+<dd>Lukas Smith <smith@pooteeweet.org> (PEAR MDB2 library)</dd>
+<dt>Version:</dt>
+<dd>$Revision: 7490 $</dd>
+<dt>See Also:</dt>
+<dd><code>www.doctrine-project.org</code></dd>
+<dt>Since:</dt>
+<dd>1.0</dd>
+<dt>Category:</dt>
+<dd>Locator</dd>
+</dl>
+<hr>
+
+<table id="summary_field">
+<tr><th colspan="2">Field Summary</th></tr>
+<tr>
+<td class="type">protected  string $driverName                  the name of this connection driver</td>
+<td class="description"><p class="name"><a href="#driverName">$driverName</a></p><p class="description">.</p></td>
+</tr>
+</table>
+
+<table id="summary_constr">
+<tr><th colspan="2">Constructor Summary</th></tr>
+<tr>
+<td class="description"><p class="name"><a href="#Doctrine_Connection_Mysql()">Doctrine_Connection_Mysql</a>(<a href="../doctrine/doctrine_manager.html">Doctrine_Manager</a> manager, PDO|Doctrine_Adapter adapter)</p><p class="description">the constructor.</p></td>
+</tr>
+</table>
+
+<table id="summary_method">
+<tr><th colspan="2">Method Summary</th></tr>
+<tr>
+<td class="type"> boolean</td>
+<td class="description"><p class="name"><a href="#connect()">connect</a>()</p><p class="description">Overrides connect Method, to add specific attributes
+PDO emulate prepares is required to avoid bugs on mysql < 5.1
+when trying to prepare DROP DATABASE or CREATE DATABASE statements.</p></td>
+</tr>
+<tr>
+<td class="type"> string</td>
+<td class="description"><p class="name"><a href="#getDatabaseName()">getDatabaseName</a>()</p><p class="description">returns the name of the connected database.</p></td>
+</tr>
+<tr>
+<td class="type"> integer</td>
+<td class="description"><p class="name"><a href="#replace()">replace</a>(string table, array fields, array keys, string name, array an)</p><p class="description">Execute a SQL REPLACE query. </p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#setCharset()">setCharset</a>(string charset)</p><p class="description">Set the charset on the current connection.</p></td>
+</tr>
+</table>
+
+<table class="inherit">
+<tr><th colspan="2">Methods inherited from Doctrine\Doctrine_Connection_Common</th></tr>
+<tr><td><a href="../doctrine/doctrine_connection_common.html#modifyLimitQuery()">modifyLimitQuery</a></td></tr></table>
+
+<table class="inherit">
+<tr><th colspan="2">Methods inherited from Doctrine\Doctrine_Connection</th></tr>
+<tr><td><a href="../doctrine/doctrine_connection.html#__get()">__get</a>, <a href="../doctrine/doctrine_connection.html#__toString()">__toString</a>, <a href="../doctrine/doctrine_connection.html#_generateUniqueName()">_generateUniqueName</a>, <a href="../doctrine/doctrine_connection.html#addTable()">addTable</a>, <a href="../doctrine/doctrine_connection.html#beginInternalTransaction()">beginInternalTransaction</a>, <a href="../doctrine/doctrine_connection.html#beginTransaction()">beginTransaction</a>, <a href="../doctrine/doctrine_connection.html#clear()">clear</a>, <a href="../doctrine/doctrine_connection.html#close()">close</a>, <a href="../doctrine/doctrine_connection.html#commit()">commit</a>, <a href="../doctrine/doctrine_connection.html#connect()">connect</a>, <a href="../doctrine/doctrine_connection.html#convertBooleans()">convertBooleans</a>, <a href="../doctrine/doctrine_connection.html#count()">count</a>, <a href="../doctrine/doctrine_connection.html#create()">create</a>, <a href="../doctrine/doctrine_connection.html#createDatabase()">createDatabase</a>, <a href="../doctrine/doctrine_connection.html#createQuery()">createQuery</a>, <a href="../doctrine/doctrine_connection.html#delete()">delete</a>, <a href="../doctrine/doctrine_connection.html#driverName()">driverName</a>, <a href="../doctrine/doctrine_connection.html#dropDatabase()">dropDatabase</a>, <a href="../doctrine/doctrine_connection.html#errorCode()">errorCode</a>, <a href="../doctrine/doctrine_connection.html#errorInfo()">errorInfo</a>, <a href="../doctrine/doctrine_connection.html#evictTables()">evictTables</a>, <a href="../doctrine/doctrine_connection.html#exec()">exec</a>, <a href="../doctrine/doctrine_connection.html#execute()">execute</a>, <a href="../doctrine/doctrine_connection.html#fetchAll()">fetchAll</a>, <a href="../doctrine/doctrine_connection.html#fetchArray()">fetchArray</a>, <a href="../doctrine/doctrine_connection.html#fetchAssoc()">fetchAssoc</a>, <a href="../doctrine/doctrine_connection.html#fetchBoth()">fetchBoth</a>, <a href="../doctrine/doctrine_connection.html#fetchColumn()">fetchColumn</a>, <a href="../doctrine/doctrine_connection.html#fetchOne()">fetchOne</a>, <a href="../doctrine/doctrine_connection.html#fetchRow()">fetchRow</a>, <a href="../doctrine/doctrine_connection.html#flush()">flush</a>, <a href="../doctrine/doctrine_connection.html#generateUniqueIndexName()">generateUniqueIndexName</a>, <a href="../doctrine/doctrine_connection.html#generateUniqueRelationForeignKeyName()">generateUniqueRelationForeignKeyName</a>, <a href="../doctrine/doctrine_connection.html#getAttribute()">getAttribute</a>, <a href="../doctrine/doctrine_connection.html#getAvailableDrivers()">getAvailableDrivers</a>, <a href="../doctrine/doctrine_connection.html#getDbh()">getDbh</a>, <a href="../doctrine/doctrine_connection.html#getDriverName()">getDriverName</a>, <a href="../doctrine/doctrine_connection.html#getIterator()">getIterator</a>, <a href="../doctrine/doctrine_connection.html#getManager()">getManager</a>, <a href="../doctrine/doctrine_connection.html#getName()">getName</a>, <a href="../doctrine/doctrine_connection.html#getOption()">getOption</a>, <a href="../doctrine/doctrine_connection.html#getOptions()">getOptions</a>, <a href="../doctrine/doctrine_connection.html#getQueryCacheDriver()">getQueryCacheDriver</a>, <a href="../doctrine/doctrine_connection.html#getResultCacheDriver()">getResultCacheDriver</a>, <a href="../doctrine/doctrine_connection.html#getSupportedDrivers()">getSupportedDrivers</a>, <a href="../doctrine/doctrine_connection.html#getTable()">getTable</a>, <a href="../doctrine/doctrine_connection.html#getTables()">getTables</a>, <a href="../doctrine/doctrine_connection.html#getTmpConnection()">getTmpConnection</a>, <a href="../doctrine/doctrine_connection.html#getTransactionLevel()">getTransactionLevel</a>, <a href="../doctrine/doctrine_connection.html#hasTable()">hasTable</a>, <a href="../doctrine/doctrine_connection.html#incrementQueryCount()">incrementQueryCount</a>, <a href="../doctrine/doctrine_connection.html#insert()">insert</a>, <a href="../doctrine/doctrine_connection.html#isConnected()">isConnected</a>, <a href="../doctrine/doctrine_connection.html#lastInsertId()">lastInsertId</a>, <a href="../doctrine/doctrine_connection.html#modifyLimitQuery()">modifyLimitQuery</a>, <a href="../doctrine/doctrine_connection.html#modifyLimitSubquery()">modifyLimitSubquery</a>, <a href="../doctrine/doctrine_connection.html#prepare()">prepare</a>, <a href="../doctrine/doctrine_connection.html#query()">query</a>, <a href="../doctrine/doctrine_connection.html#queryOne()">queryOne</a>, <a href="../doctrine/doctrine_connection.html#quote()">quote</a>, <a href="../doctrine/doctrine_connection.html#quoteIdentifier()">quoteIdentifier</a>, <a href="../doctrine/doctrine_connection.html#quoteMultipleIdentifier()">quoteMultipleIdentifier</a>, <a href="../doctrine/doctrine_connection.html#replace()">replace</a>, <a href="../doctrine/doctrine_connection.html#rethrowException()">rethrowException</a>, <a href="../doctrine/doctrine_connection.html#rollback()">rollback</a>, <a href="../doctrine/doctrine_connection.html#select()">select</a>, <a href="../doctrine/doctrine_connection.html#serialize()">serialize</a>, <a href="../doctrine/doctrine_connection.html#setAttribute()">setAttribute</a>, <a href="../doctrine/doctrine_connection.html#setDateFormat()">setDateFormat</a>, <a href="../doctrine/doctrine_connection.html#setName()">setName</a>, <a href="../doctrine/doctrine_connection.html#setOption()">setOption</a>, <a href="../doctrine/doctrine_connection.html#standaloneQuery()">standaloneQuery</a>, <a href="../doctrine/doctrine_connection.html#supports()">supports</a>, <a href="../doctrine/doctrine_connection.html#unserialize()">unserialize</a>, <a href="../doctrine/doctrine_connection.html#update()">update</a></td></tr></table>
+
+<table class="inherit">
+<tr><th colspan="2">Methods inherited from Doctrine\Doctrine_Configurable</th></tr>
+<tr><td><a href="../doctrine/doctrine_configurable.html#addListener()">addListener</a>, <a href="../doctrine/doctrine_configurable.html#addRecordListener()">addRecordListener</a>, <a href="../doctrine/doctrine_configurable.html#getAttribute()">getAttribute</a>, <a href="../doctrine/doctrine_configurable.html#getAttributes()">getAttributes</a>, <a href="../doctrine/doctrine_configurable.html#getCharset()">getCharset</a>, <a href="../doctrine/doctrine_configurable.html#getCollate()">getCollate</a>, <a href="../doctrine/doctrine_configurable.html#getImpl()">getImpl</a>, <a href="../doctrine/doctrine_configurable.html#getListener()">getListener</a>, <a href="../doctrine/doctrine_configurable.html#getParam()">getParam</a>, <a href="../doctrine/doctrine_configurable.html#getParamNamespaces()">getParamNamespaces</a>, <a href="../doctrine/doctrine_configurable.html#getParams()">getParams</a>, <a href="../doctrine/doctrine_configurable.html#getParent()">getParent</a>, <a href="../doctrine/doctrine_configurable.html#getRecordListener()">getRecordListener</a>, <a href="../doctrine/doctrine_configurable.html#hasImpl()">hasImpl</a>, <a href="../doctrine/doctrine_configurable.html#setAttribute()">setAttribute</a>, <a href="../doctrine/doctrine_configurable.html#setCharset()">setCharset</a>, <a href="../doctrine/doctrine_configurable.html#setCollate()">setCollate</a>, <a href="../doctrine/doctrine_configurable.html#setEventListener()">setEventListener</a>, <a href="../doctrine/doctrine_configurable.html#setImpl()">setImpl</a>, <a href="../doctrine/doctrine_configurable.html#setListener()">setListener</a>, <a href="../doctrine/doctrine_configurable.html#setParam()">setParam</a>, <a href="../doctrine/doctrine_configurable.html#setParent()">setParent</a>, <a href="../doctrine/doctrine_configurable.html#setRecordListener()">setRecordListener</a>, <a href="../doctrine/doctrine_configurable.html#unsetAttribute()">unsetAttribute</a></td></tr></table>
+
+<table class="inherit">
+<tr><th colspan="2">Methods inherited from Doctrine\Doctrine_Locator_Injectable</th></tr>
+<tr><td><a href="../doctrine/doctrine_locator_injectable.html#bind()">bind</a>, <a href="../doctrine/doctrine_locator_injectable.html#getLocator()">getLocator</a>, <a href="../doctrine/doctrine_locator_injectable.html#getNullObject()">getNullObject</a>, <a href="../doctrine/doctrine_locator_injectable.html#initNullObject()">initNullObject</a>, <a href="../doctrine/doctrine_locator_injectable.html#locate()">locate</a>, <a href="../doctrine/doctrine_locator_injectable.html#setLocator()">setLocator</a></td></tr></table>
+
+<h2 id="detail_field">Field Detail</h2>
+<div class="location">/Doctrine/Connection/Mysql.php at line 39</div>
+<h3 id="driverName">driverName</h3>
+<code class="signature">protected  string $driverName                  the name of this connection driver <strong>$driverName</strong> = 'Mysql'</code>
+<div class="details">
+<p></p></div>
+
+<hr>
+
+<h2 id="detail_constr">Constructor Detail</h2>
+<div class="location">/Doctrine/Connection/Mysql.php at line 47</div>
+<h3 id="Doctrine_Connection_Mysql()">Doctrine_Connection_Mysql</h3>
+<code class="signature">public <strong>Doctrine_Connection_Mysql</strong>(<a href="../doctrine/doctrine_manager.html">Doctrine_Manager</a> manager, PDO|Doctrine_Adapter adapter)</code>
+<div class="details">
+<p>the constructor</p><dl>
+<dt>Parameters:</dt>
+<dd></dd>
+<dd>adapter - database handler</dd>
+</dl>
+</div>
+
+<hr>
+
+<h2 id="detail_method">Method Detail</h2>
+<div class="location">/Doctrine/Connection/Mysql.php at line 99</div>
+<h3 id="connect()">connect</h3>
+<code class="signature">public  boolean <strong>connect</strong>()</code>
+<div class="details">
+<p>Overrides connect Method, to add specific attributes
+PDO emulate prepares is required to avoid bugs on mysql < 5.1
+when trying to prepare DROP DATABASE or CREATE DATABASE statements</p><dl>
+<dt>See Also:</dt>
+<dd>:: connect();</dd>
+<dt>Returns:</dt>
+<dd>connected</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Connection/Mysql.php at line 113</div>
+<h3 id="getDatabaseName()">getDatabaseName</h3>
+<code class="signature">public  string <strong>getDatabaseName</strong>()</code>
+<div class="details">
+<p>returns the name of the connected database</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Connection/Mysql.php at line 194</div>
+<h3 id="replace()">replace</h3>
+<code class="signature">public  integer <strong>replace</strong>(string table, array fields, array keys, string name, array an)</code>
+<div class="details">
+<p>Execute a SQL REPLACE query. A REPLACE query is identical to a INSERT
+query, except that if there is already a row in the table with the same
+key field values, the REPLACE query just updates its values instead of
+inserting a new row.</p><p>The REPLACE type of query does not make part of the SQL standards. Since
+practically only MySQL implements it natively, this type of query is
+emulated through this method for other DBMS using standard types of
+queries inside a transaction to assure the atomicity of the operation.</p><dl>
+<dt>Parameters:</dt>
+<dd>table - name of the table on which the REPLACE query will be executed.</dd>
+<dd>fields - associative array that describes the fields and the values that will be inserted or updated in the specified table. The indexes of the array are the names of all the fields of the table. The values of the array are also associative arrays that describe the values and other properties of the table fields. Here follows a list of field properties that need to be specified: value: Value to be assigned to the specified field. This value may be of specified in database independent type format as this function can perform the necessary datatype conversions. Default: this property is required unless the Null property is set to 1. type Name of the type of the field. Currently, all types Metabase are supported except for clob and blob. Default: no type conversion null Boolean property that indicates that the value for this field should be set to null. The default value for fields missing in INSERT queries may be specified the definition of a table. Often, the default value is already null, but since the REPLACE may be emulated using an UPDATE query, make sure that all fields of the table are listed in this function argument array. Default: 0 key Boolean property that indicates that this field should be handled as a primary key or at least as part of the compound unique index of the table that will determine the row that will updated if it exists or inserted a new row otherwise. This function will fail if no key field is specified or if the value of a key field is set to null because fields that are part of unique index they may not be null. Default: 0</dd>
+<dt>Returns:</dt>
+<dd>the number of affected rows</dd>
+<dt>Throws:</dt>
+<dd>if this driver doesn't support replace</dd>
+<dd>if some of the key values was null</dd>
+<dd>if there were no key fields</dd>
+<dd>if something fails at PDO level</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Connection/Mysql.php at line 123</div>
+<h3 id="setCharset()">setCharset</h3>
+<code class="signature">public  void <strong>setCharset</strong>(string charset)</code>
+<div class="details">
+<p>Set the charset on the current connection</p></div>
+
+<hr>
+
+<div class="header">
+<h1>Doctrine</h1>
+<ul>
+<li><a href="../overview-summary.html">Overview</a></li>
+<li><a href="../doctrine/package-summary.html">Namespace</a></li>
+<li class="active">Class</li>
+<li><a href="../doctrine/package-tree.html">Tree</a></li>
+<li><a href="../deprecated-list.html">Deprecated</a></li>
+<li><a href="../index-all.html">Index</a></li>
+</ul>
+</div>
+
+<div class="small_links">
+<a href="../index.html" target="_top">Frames</a>
+<a href="../doctrine/doctrine_connection_mysql.html" target="_top">No frames</a>
+</div>
+<div class="small_links">
+Summary: <a href="#summary_field">Field</a> | <a href="#summary_method">Method</a> | <a href="#summary_constr">Constr</a>
+Detail: <a href="#detail_field">Field</a> | <a href="#detail_method">Method</a> | <a href="#summary_constr">Constr</a>
+</div>
+<hr>
+
+<p id="footer">This document was generated by <a href="http://peej.github.com/phpdoctor/">PHPDoctor: The PHP Documentation Creator</a></p>
+
+</body>
+
+</html>

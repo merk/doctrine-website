@@ -1,0 +1,5 @@
+default:
+  stylesheets:   [main, layout, documentation]
+  javascripts:
+    - "/js/mootools-min.js"
+    - "/js/documentation_toc.js"

@@ -1,0 +1,24 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           sfGuardUser
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          users
+    with_doctrine_route:     1
+
+    config:
+      actions: ~
+      fields:  ~
+      list:
+        display:  [=username, is_active, is_super_admin]
+      filter:
+        class:    sfGuardUserFormFilter
+        display:  [username, is_active, is_super_admin]
+      form:
+        class: sfGuardUserAdminForm
+      edit:    ~
+      new:     ~

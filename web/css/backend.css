@@ -1,0 +1,24 @@
+#sf_admin_container table, #sf_admin_container .sf_admin_form {
+  margin-left: 30px;
+}
+
+#sf_admin_container table thead tr th {
+  padding: 8px;
+}
+
+#sf_admin_container table tfoot tr th {
+  padding: 8px;
+}
+
+#sf_admin_container table tr td {
+  padding: 4px;
+}
+
+#sf_admin_bar {
+  display: none;
+}
+
+.notice, .error {
+  margin-left: 30px !important;
+  margin-bottom: 10px !important;
+}

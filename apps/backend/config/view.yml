@@ -1,0 +1,14 @@
+default:
+  http_metas:
+    content-type: text/html
+
+  metas:
+    title:        Doctrine Backend
+    language:     en
+
+  stylesheets:    [main, layout, backend]
+
+  javascripts:    []
+
+  has_layout:     true
+  layout:         layout

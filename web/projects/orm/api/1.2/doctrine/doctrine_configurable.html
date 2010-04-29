@@ -1,0 +1,508 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+<head>
+
+<meta name="generator" content="PHPDoctor 2RC4 (http://phpdoctor.sourceforge.net/)">
+<meta name="when" content="Fri, 09 Apr 2010 11:50:24 -0400">
+
+<link rel="stylesheet" type="text/css" href="../stylesheet.css">
+<link rel="start" href="../overview-summary.html">
+
+<title>Doctrine_Configurable (Doctrine 1.2 ORM)</title>
+
+</head>
+<body id="definition" onload="parent.document.title=document.title;">
+
+<div class="header">
+<h1>Doctrine</h1>
+<ul>
+<li><a href="../overview-summary.html">Overview</a></li>
+<li><a href="../doctrine/package-summary.html">Namespace</a></li>
+<li class="active">Class</li>
+<li><a href="../doctrine/package-tree.html">Tree</a></li>
+<li><a href="../deprecated-list.html">Deprecated</a></li>
+<li><a href="../index-all.html">Index</a></li>
+</ul>
+</div>
+
+<div class="small_links">
+<a href="../index.html" target="_top">Frames</a>
+<a href="../doctrine/doctrine_configurable.html" target="_top">No frames</a>
+</div>
+<div class="small_links">
+Summary: <a href="#summary_field">Field</a> | <a href="#summary_method">Method</a> | <a href="#summary_constr">Constr</a>
+Detail: <a href="#detail_field">Field</a> | <a href="#detail_method">Method</a> | <a href="#summary_constr">Constr</a>
+</div>
+<hr>
+
+<div class="qualifiedName">Doctrine\Doctrine_Configurable</div>
+<div class="location">/Doctrine/Configurable.php at line 34</div>
+
+<h1>Class Doctrine_Configurable</h1>
+
+<pre class="tree">Class:Doctrine_Configurable - Superclass: Doctrine_Locator_Injectable
+<a href="../doctrine/doctrine_locator_injectable.html">Doctrine_Locator_Injectable</a><br>   &lfloor;&nbsp;<strong>Doctrine_Configurable</strong><br /></pre>
+
+<hr>
+
+<p class="signature">public abstract  class <strong>Doctrine_Configurable</strong><br>extends <a href="../doctrine/doctrine_locator_injectable.html">Doctrine_Locator_Injectable</a>
+
+</p>
+
+<div class="comment" id="overview_description"><p>Doctrine_Configurable
+the base for Doctrine_Table, Doctrine_Manager and Doctrine_Connection</p></div>
+
+<dl>
+<dt>Subpackage:</dt>
+<dd>Configurable</dd>
+<dt>License:</dt>
+<dd>http://www.opensource.org/licenses/lgpl-license.php LGPL</dd>
+<dt>See Also:</dt>
+<dd><code>www.doctrine-project.org</code></dd>
+<dt>Since:</dt>
+<dd>1.0</dd>
+<dt>Version:</dt>
+<dd>$Revision: 7490 $</dd>
+<dt>Author:</dt>
+<dd>Konsta Vesterinen <kvesteri@cc.hut.fi></dd>
+<dt>Category:</dt>
+<dd>Locator</dd>
+</dl>
+<hr>
+
+<table id="summary_field">
+<tr><th colspan="2">Field Summary</th></tr>
+<tr>
+<td class="type">protected  array $_impl                    an array containing concrete implementations for class templates keys as template names and values as names of the concrete implementation classes</td>
+<td class="description"><p class="name"><a href="#_impl">$_impl</a></p><p class="description">.</p></td>
+</tr>
+<tr>
+<td class="type">protected  array $_params                  an array of user defined parameters</td>
+<td class="description"><p class="name"><a href="#_params">$_params</a></p><p class="description">.</p></td>
+</tr>
+<tr>
+<td class="type">protected  array $attributes               an array of containing all attributes</td>
+<td class="description"><p class="name"><a href="#attributes">$attributes</a></p><p class="description">.</p></td>
+</tr>
+<tr>
+<td class="type">protected  Doctrine_Configurable $parent   the parent of this component</td>
+<td class="description"><p class="name"><a href="#parent">$parent</a></p><p class="description">.</p></td>
+</tr>
+</table>
+
+<table class="inherit">
+<tr><th colspan="2">Fields inherited from Doctrine\Doctrine_Locator_Injectable</th></tr>
+<tr><td><a href="../doctrine/doctrine_locator_injectable.html#_locator">_locator</a>, <a href="../doctrine/doctrine_locator_injectable.html#_null">_null</a>, <a href="../doctrine/doctrine_locator_injectable.html#_resources">_resources</a></td></tr></table>
+
+<table id="summary_method">
+<tr><th colspan="2">Method Summary</th></tr>
+<tr>
+<td class="type"> <a href="../doctrine/doctrine_configurable.html">Doctrine_Configurable</a></td>
+<td class="description"><p class="name"><a href="#addListener()">addListener</a>(Doctrine_EventListener_Interface|Doctrine_Overloadable listener, mixed name)</p><p class="description">addListener.</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../doctrine/doctrine_configurable.html">Doctrine_Configurable</a></td>
+<td class="description"><p class="name"><a href="#addRecordListener()">addRecordListener</a>(Doctrine_EventListener_Interface|Doctrine_Overloadable listener, mixed name)</p><p class="description">addRecordListener.</p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#getAttribute()">getAttribute</a>(integer attribute)</p><p class="description">returns the value of an attribute.</p></td>
+</tr>
+<tr>
+<td class="type"> array</td>
+<td class="description"><p class="name"><a href="#getAttributes()">getAttributes</a>()</p><p class="description">getAttributes
+returns all attributes as an array.</p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#getCharset()">getCharset</a>()</p><p class="description">Get the charset.</p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#getCollate()">getCollate</a>()</p><p class="description">Get the collate.</p></td>
+</tr>
+<tr>
+<td class="type"> string</td>
+<td class="description"><p class="name"><a href="#getImpl()">getImpl</a>(mixed template)</p><p class="description">getImpl
+returns the implementation for given class.</p></td>
+</tr>
+<tr>
+<td class="type"> Doctrine_EventListener_Interface|Doctrine_Overloadable</td>
+<td class="description"><p class="name"><a href="#getListener()">getListener</a>()</p><p class="description">getListener.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#getParam()">getParam</a>(mixed name, mixed namespace)</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#getParamNamespaces()">getParamNamespaces</a>()</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#getParams()">getParams</a>(mixed namespace)</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../doctrine/doctrine_configurable.html">Doctrine_Configurable</a></td>
+<td class="description"><p class="name"><a href="#getParent()">getParent</a>()</p><p class="description">getParent
+returns the parent of this component.</p></td>
+</tr>
+<tr>
+<td class="type"> Doctrine_EventListener_Interface|Doctrine_Overloadable</td>
+<td class="description"><p class="name"><a href="#getRecordListener()">getRecordListener</a>()</p><p class="description">getListener.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#hasImpl()">hasImpl</a>(mixed template)</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#setAttribute()">setAttribute</a>(mixed attribute, mixed value)</p><p class="description">setAttribute
+sets a given attribute.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#setCharset()">setCharset</a>(string charset)</p><p class="description">Set the charset.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#setCollate()">setCollate</a>(string collate)</p><p class="description">Set the collate.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#setEventListener()">setEventListener</a>(<a href="../doctrine/doctrine_eventlistener.html">Doctrine_EventListener</a> listener)</p><p class="description">.</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../doctrine/doctrine_configurable.html">Doctrine_Configurable</a></td>
+<td class="description"><p class="name"><a href="#setImpl()">setImpl</a>(string template, string class)</p><p class="description">setImpl
+binds given class to given template name.</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../doctrine/doctrine_configurable.html">Doctrine_Configurable</a></td>
+<td class="description"><p class="name"><a href="#setListener()">setListener</a>(Doctrine_EventListener_Interface|Doctrine_Overloadable listener)</p><p class="description">setListener.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#setParam()">setParam</a>(mixed name, mixed value, mixed namespace)</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#setParent()">setParent</a>(<a href="../doctrine/doctrine_configurable.html">Doctrine_Configurable</a> component)</p><p class="description">sets a parent for this configurable component
+the parent must be configurable component itself.</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../doctrine/doctrine_configurable.html">Doctrine_Configurable</a></td>
+<td class="description"><p class="name"><a href="#setRecordListener()">setRecordListener</a>(Doctrine_EventListener_Interface|Doctrine_Overloadable listener)</p><p class="description">setListener.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#unsetAttribute()">unsetAttribute</a>(integer attribute)</p><p class="description">Unset an attribute from this levels attributes.</p></td>
+</tr>
+</table>
+
+<table class="inherit">
+<tr><th colspan="2">Methods inherited from Doctrine\Doctrine_Locator_Injectable</th></tr>
+<tr><td><a href="../doctrine/doctrine_locator_injectable.html#bind()">bind</a>, <a href="../doctrine/doctrine_locator_injectable.html#getLocator()">getLocator</a>, <a href="../doctrine/doctrine_locator_injectable.html#getNullObject()">getNullObject</a>, <a href="../doctrine/doctrine_locator_injectable.html#initNullObject()">initNullObject</a>, <a href="../doctrine/doctrine_locator_injectable.html#locate()">locate</a>, <a href="../doctrine/doctrine_locator_injectable.html#setLocator()">setLocator</a></td></tr></table>
+
+<h2 id="detail_field">Field Detail</h2>
+<div class="location">/Doctrine/Configurable.php at line 51</div>
+<h3 id="_impl">_impl</h3>
+<code class="signature">protected  array $_impl                    an array containing concrete implementations for class templates keys as template names and values as names of the concrete implementation classes <strong>$_impl</strong> = array()</code>
+<div class="details">
+<p></p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Configurable.php at line 56</div>
+<h3 id="_params">_params</h3>
+<code class="signature">protected  array $_params                  an array of user defined parameters <strong>$_params</strong> = array()</code>
+<div class="details">
+<p></p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Configurable.php at line 39</div>
+<h3 id="attributes">attributes</h3>
+<code class="signature">protected  array $attributes               an array of containing all attributes <strong>$attributes</strong> = array()</code>
+<div class="details">
+<p></p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Configurable.php at line 44</div>
+<h3 id="parent">parent</h3>
+<code class="signature">protected  Doctrine_Configurable $parent   the parent of this component <strong>$parent</strong></code>
+<div class="details">
+<p></p></div>
+
+<hr>
+
+<h2 id="detail_method">Method Detail</h2>
+<div class="location">/Doctrine/Configurable.php at line 277</div>
+<h3 id="addListener()">addListener</h3>
+<code class="signature">public  <a href="../doctrine/doctrine_configurable.html">Doctrine_Configurable</a> <strong>addListener</strong>(Doctrine_EventListener_Interface|Doctrine_Overloadable listener, mixed name)</code>
+<div class="details">
+<p>addListener</p><dl>
+<dt>Returns:</dt>
+<dd>this object</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Configurable.php at line 225</div>
+<h3 id="addRecordListener()">addRecordListener</h3>
+<code class="signature">public  <a href="../doctrine/doctrine_configurable.html">Doctrine_Configurable</a> <strong>addRecordListener</strong>(Doctrine_EventListener_Interface|Doctrine_Overloadable listener, mixed name)</code>
+<div class="details">
+<p>addRecordListener</p><dl>
+<dt>Returns:</dt>
+<dd>this object</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Configurable.php at line 329</div>
+<h3 id="getAttribute()">getAttribute</h3>
+<code class="signature">public  mixed <strong>getAttribute</strong>(integer attribute)</code>
+<div class="details">
+<p>returns the value of an attribute</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Configurable.php at line 360</div>
+<h3 id="getAttributes()">getAttributes</h3>
+<code class="signature">public  array <strong>getAttributes</strong>()</code>
+<div class="details">
+<p>getAttributes
+returns all attributes as an array</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Configurable.php at line 380</div>
+<h3 id="getCharset()">getCharset</h3>
+<code class="signature">public  mixed <strong>getCharset</strong>()</code>
+<div class="details">
+<p>Get the charset</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Configurable.php at line 400</div>
+<h3 id="getCollate()">getCollate</h3>
+<code class="signature">public  mixed <strong>getCollate</strong>()</code>
+<div class="details">
+<p>Get the collate</p><dl>
+<dt>Returns:</dt>
+<dd>$collate</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Configurable.php at line 187</div>
+<h3 id="getImpl()">getImpl</h3>
+<code class="signature">public  string <strong>getImpl</strong>(mixed template)</code>
+<div class="details">
+<p>getImpl
+returns the implementation for given class</p><dl>
+<dt>Returns:</dt>
+<dd>name of the concrete implementation</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Configurable.php at line 294</div>
+<h3 id="getListener()">getListener</h3>
+<code class="signature">public  Doctrine_EventListener_Interface|Doctrine_Overloadable <strong>getListener</strong>()</code>
+<div class="details">
+<p>getListener</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Configurable.php at line 148</div>
+<h3 id="getParam()">getParam</h3>
+<code class="signature">public  void <strong>getParam</strong>(mixed name, mixed namespace)</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Configurable.php at line 132</div>
+<h3 id="getParamNamespaces()">getParamNamespaces</h3>
+<code class="signature">public  void <strong>getParamNamespaces</strong>()</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Configurable.php at line 119</div>
+<h3 id="getParams()">getParams</h3>
+<code class="signature">public  void <strong>getParams</strong>(mixed namespace)</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Configurable.php at line 423</div>
+<h3 id="getParent()">getParent</h3>
+<code class="signature">public  <a href="../doctrine/doctrine_configurable.html">Doctrine_Configurable</a> <strong>getParent</strong>()</code>
+<div class="details">
+<p>getParent
+returns the parent of this component</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Configurable.php at line 242</div>
+<h3 id="getRecordListener()">getRecordListener</h3>
+<code class="signature">public  Doctrine_EventListener_Interface|Doctrine_Overloadable <strong>getRecordListener</strong>()</code>
+<div class="details">
+<p>getListener</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Configurable.php at line 199</div>
+<h3 id="hasImpl()">hasImpl</h3>
+<code class="signature">public  void <strong>hasImpl</strong>(mixed template)</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Configurable.php at line 73</div>
+<h3 id="setAttribute()">setAttribute</h3>
+<code class="signature">public  void <strong>setAttribute</strong>(mixed attribute, mixed value)</code>
+<div class="details">
+<p>setAttribute
+sets a given attribute</p><p><code>
+$manager->setAttribute(Doctrine_Core::ATTR_PORTABILITY, Doctrine_Core::PORTABILITY_ALL);
+</code></p><dl>
+<dt>Parameters:</dt>
+<dd>attribute - either a Doctrine_Core::ATTR_* integer constant or a string corresponding to a constant</dd>
+<dd>value - the value of the attribute</dd>
+<dt>See Also:</dt>
+<dd>constants</dd>
+<dt>Throws:</dt>
+<dd>if the value is invalid</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Configurable.php at line 370</div>
+<h3 id="setCharset()">setCharset</h3>
+<code class="signature">public  void <strong>setCharset</strong>(string charset)</code>
+<div class="details">
+<p>Set the charset</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Configurable.php at line 390</div>
+<h3 id="setCollate()">setCollate</h3>
+<code class="signature">public  void <strong>setCollate</strong>(string collate)</code>
+<div class="details">
+<p>Set the collate</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Configurable.php at line 214</div>
+<h3 id="setEventListener()">setEventListener</h3>
+<code class="signature">public  void <strong>setEventListener</strong>(<a href="../doctrine/doctrine_eventlistener.html">Doctrine_EventListener</a> listener)</code>
+<div class="details">
+<p></p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Configurable.php at line 174</div>
+<h3 id="setImpl()">setImpl</h3>
+<code class="signature">public  <a href="../doctrine/doctrine_configurable.html">Doctrine_Configurable</a> <strong>setImpl</strong>(string template, string class)</code>
+<div class="details">
+<p>setImpl
+binds given class to given template name</p><p>this method is the base of Doctrine dependency injection</p><dl>
+<dt>Parameters:</dt>
+<dd>template - name of the class template</dd>
+<dd>class - name of the class to be bound</dd>
+<dt>Returns:</dt>
+<dd>this object</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Configurable.php at line 311</div>
+<h3 id="setListener()">setListener</h3>
+<code class="signature">public  <a href="../doctrine/doctrine_configurable.html">Doctrine_Configurable</a> <strong>setListener</strong>(Doctrine_EventListener_Interface|Doctrine_Overloadable listener)</code>
+<div class="details">
+<p>setListener</p><dl>
+<dt>Returns:</dt>
+<dd>this object</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Configurable.php at line 137</div>
+<h3 id="setParam()">setParam</h3>
+<code class="signature">public  void <strong>setParam</strong>(mixed name, mixed value, mixed namespace)</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Configurable.php at line 412</div>
+<h3 id="setParent()">setParent</h3>
+<code class="signature">public  void <strong>setParent</strong>(<a href="../doctrine/doctrine_configurable.html">Doctrine_Configurable</a> component)</code>
+<div class="details">
+<p>sets a parent for this configurable component
+the parent must be configurable component itself</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Configurable.php at line 259</div>
+<h3 id="setRecordListener()">setRecordListener</h3>
+<code class="signature">public  <a href="../doctrine/doctrine_configurable.html">Doctrine_Configurable</a> <strong>setRecordListener</strong>(Doctrine_EventListener_Interface|Doctrine_Overloadable listener)</code>
+<div class="details">
+<p>setListener</p><dl>
+<dt>Returns:</dt>
+<dd>this object</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Configurable.php at line 347</div>
+<h3 id="unsetAttribute()">unsetAttribute</h3>
+<code class="signature">public  void <strong>unsetAttribute</strong>(integer attribute)</code>
+<div class="details">
+<p>Unset an attribute from this levels attributes</p></div>
+
+<hr>
+
+<div class="header">
+<h1>Doctrine</h1>
+<ul>
+<li><a href="../overview-summary.html">Overview</a></li>
+<li><a href="../doctrine/package-summary.html">Namespace</a></li>
+<li class="active">Class</li>
+<li><a href="../doctrine/package-tree.html">Tree</a></li>
+<li><a href="../deprecated-list.html">Deprecated</a></li>
+<li><a href="../index-all.html">Index</a></li>
+</ul>
+</div>
+
+<div class="small_links">
+<a href="../index.html" target="_top">Frames</a>
+<a href="../doctrine/doctrine_configurable.html" target="_top">No frames</a>
+</div>
+<div class="small_links">
+Summary: <a href="#summary_field">Field</a> | <a href="#summary_method">Method</a> | <a href="#summary_constr">Constr</a>
+Detail: <a href="#detail_field">Field</a> | <a href="#detail_method">Method</a> | <a href="#summary_constr">Constr</a>
+</div>
+<hr>
+
+<p id="footer">This document was generated by <a href="http://peej.github.com/phpdoctor/">PHPDoctor: The PHP Documentation Creator</a></p>
+
+</body>
+
+</html>

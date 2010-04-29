@@ -1,0 +1,641 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+<head>
+
+<meta name="generator" content="PHPDoctor 2RC4 (http://phpdoctor.sourceforge.net/)">
+<meta name="when" content="Fri, 09 Apr 2010 11:50:25 -0400">
+
+<link rel="stylesheet" type="text/css" href="../stylesheet.css">
+<link rel="start" href="../overview-summary.html">
+
+<title>Doctrine_Migration (Doctrine 1.2 ORM)</title>
+
+</head>
+<body id="definition" onload="parent.document.title=document.title;">
+
+<div class="header">
+<h1>Doctrine</h1>
+<ul>
+<li><a href="../overview-summary.html">Overview</a></li>
+<li><a href="../doctrine/package-summary.html">Namespace</a></li>
+<li class="active">Class</li>
+<li><a href="../doctrine/package-tree.html">Tree</a></li>
+<li><a href="../deprecated-list.html">Deprecated</a></li>
+<li><a href="../index-all.html">Index</a></li>
+</ul>
+</div>
+
+<div class="small_links">
+<a href="../index.html" target="_top">Frames</a>
+<a href="../doctrine/doctrine_migration.html" target="_top">No frames</a>
+</div>
+<div class="small_links">
+Summary: <a href="#summary_field">Field</a> | <a href="#summary_method">Method</a> | <a href="#summary_constr">Constr</a>
+Detail: <a href="#detail_field">Field</a> | <a href="#detail_method">Method</a> | <a href="#summary_constr">Constr</a>
+</div>
+<hr>
+
+<div class="qualifiedName">Doctrine\Doctrine_Migration</div>
+<div class="location">/Doctrine/Migration.php at line 35</div>
+
+<h1>Class Doctrine_Migration</h1>
+
+<pre class="tree"><strong>Doctrine_Migration</strong><br /></pre>
+
+<hr>
+
+<p class="signature">public  class <strong>Doctrine_Migration</strong></p>
+
+<div class="comment" id="overview_description"><p>Doctrine_Migration</p><p>this class represents a database view</p></div>
+
+<dl>
+<dt>Subpackage:</dt>
+<dd>Migration</dd>
+<dt>License:</dt>
+<dd>http://www.opensource.org/licenses/lgpl-license.php LGPL</dd>
+<dt>See Also:</dt>
+<dd><code>www.doctrine-project.org</code></dd>
+<dt>Since:</dt>
+<dd>1.0</dd>
+<dt>Version:</dt>
+<dd>$Revision: 1080 $</dd>
+<dt>Author:</dt>
+<dd>Jonathan H. Wage <jwage@mac.com></dd>
+</dl>
+<hr>
+
+<table id="summary_field">
+<tr><th colspan="2">Field Summary</th></tr>
+<tr>
+<td class="type">protected  mixed</td>
+<td class="description"><p class="name"><a href="#_connection">$_connection</a></p></td>
+</tr>
+<tr>
+<td class="type">protected  mixed</td>
+<td class="description"><p class="name"><a href="#_errors">$_errors</a></p></td>
+</tr>
+<tr>
+<td class="type">protected  mixed</td>
+<td class="description"><p class="name"><a href="#_migrationClasses">$_migrationClasses</a></p></td>
+</tr>
+<tr>
+<td class="type">protected  mixed</td>
+<td class="description"><p class="name"><a href="#_migrationClassesDirectory">$_migrationClassesDirectory</a></p></td>
+</tr>
+<tr>
+<td class="type">protected static  mixed</td>
+<td class="description"><p class="name"><a href="#_migrationClassesForDirectories">$_migrationClassesForDirectories</a></p></td>
+</tr>
+<tr>
+<td class="type">protected  mixed</td>
+<td class="description"><p class="name"><a href="#_migrationTableCreated">$_migrationTableCreated</a></p></td>
+</tr>
+<tr>
+<td class="type">protected  mixed</td>
+<td class="description"><p class="name"><a href="#_migrationTableName">$_migrationTableName</a></p></td>
+</tr>
+<tr>
+<td class="type">protected  mixed</td>
+<td class="description"><p class="name"><a href="#_process">$_process</a></p></td>
+</tr>
+<tr>
+<td class="type">protected  mixed</td>
+<td class="description"><p class="name"><a href="#_reflectionClass">$_reflectionClass</a></p></td>
+</tr>
+</table>
+
+<table id="summary_constr">
+<tr><th colspan="2">Constructor Summary</th></tr>
+<tr>
+<td class="description"><p class="name"><a href="#Doctrine_Migration()">Doctrine_Migration</a>(string directory, mixed connection)</p><p class="description">Specify the path to the directory with the migration classes.
+</p></td>
+</tr>
+</table>
+
+<table id="summary_method">
+<tr><th colspan="2">Method Summary</th></tr>
+<tr>
+<td class="type">protected  boolean</td>
+<td class="description"><p class="name"><a href="#_createMigrationTable()">_createMigrationTable</a>()</p><p class="description">Create the migration table and return true. </p></td>
+</tr>
+<tr>
+<td class="type">protected  integer</td>
+<td class="description"><p class="name"><a href="#_doMigrate()">_doMigrate</a>(integer to)</p><p class="description">Do the actual migration process.</p></td>
+</tr>
+<tr>
+<td class="type">protected  void</td>
+<td class="description"><p class="name"><a href="#_doMigrateStep()">_doMigrateStep</a>(string direction, integer num)</p><p class="description">Perform a single migration step. </p></td>
+</tr>
+<tr>
+<td class="type">protected  void</td>
+<td class="description"><p class="name"><a href="#_throwErrorsException()">_throwErrorsException</a>()</p><p class="description">Throw an exception with all the errors trigged during the migration.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#addError()">addError</a>(Exception e)</p><p class="description">Add an error to the stack. </p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#clearErrors()">clearErrors</a>()</p><p class="description">Clears the error exceptions.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#getConnection()">getConnection</a>()</p></td>
+</tr>
+<tr>
+<td class="type"> integer</td>
+<td class="description"><p class="name"><a href="#getCurrentVersion()">getCurrentVersion</a>()</p><p class="description">Get the current version of the database.</p></td>
+</tr>
+<tr>
+<td class="type"> array</td>
+<td class="description"><p class="name"><a href="#getErrors()">getErrors</a>()</p><p class="description">Get all the error exceptions.</p></td>
+</tr>
+<tr>
+<td class="type"> integer</td>
+<td class="description"><p class="name"><a href="#getLatestVersion()">getLatestVersion</a>()</p><p class="description">Gets the latest possible version from the loaded migration classes.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#getMigrationClass()">getMigrationClass</a>(integer num)</p><p class="description">Get instance of migration class for number/version specified.</p></td>
+</tr>
+<tr>
+<td class="type"> array</td>
+<td class="description"><p class="name"><a href="#getMigrationClasses()">getMigrationClasses</a>()</p><p class="description">Get all the loaded migration classes. </p></td>
+</tr>
+<tr>
+<td class="type"> string</td>
+<td class="description"><p class="name"><a href="#getMigrationClassesDirectory()">getMigrationClassesDirectory</a>()</p><p class="description">Get the migration classes directory.</p></td>
+</tr>
+<tr>
+<td class="type"> integer</td>
+<td class="description"><p class="name"><a href="#getNextMigrationClassVersion()">getNextMigrationClassVersion</a>()</p><p class="description">Get the next incremented class version based on the loaded migration classes.</p></td>
+</tr>
+<tr>
+<td class="type"> integer</td>
+<td class="description"><p class="name"><a href="#getNextVersion()">getNextVersion</a>()</p><p class="description">Get the next incremented version number based on the latest version number
+using getLatestVersion().</p></td>
+</tr>
+<tr>
+<td class="type"> integer</td>
+<td class="description"><p class="name"><a href="#getNumErrors()">getNumErrors</a>()</p><p class="description">Get the number of errors.</p></td>
+</tr>
+<tr>
+<td class="type"> string</td>
+<td class="description"><p class="name"><a href="#getTableName()">getTableName</a>()</p><p class="description">Get the table name for storing the version number for this migration instance.</p></td>
+</tr>
+<tr>
+<td class="type"> boolean</td>
+<td class="description"><p class="name"><a href="#hasErrors()">hasErrors</a>()</p><p class="description">Whether or not the migration instance has errors.</p></td>
+</tr>
+<tr>
+<td class="type"> boolean</td>
+<td class="description"><p class="name"><a href="#hasMigrated()">hasMigrated</a>()</p><p class="description">hReturns true/false for whether or not this database has been migrated in the past.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#loadMigrationClass()">loadMigrationClass</a>(string name, mixed path)</p><p class="description">Load the specified migration class name in to this migration instances queue of
+migration classes to execute. </p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#loadMigrationClassesFromDirectory()">loadMigrationClassesFromDirectory</a>(string directory)</p><p class="description">Load migration classes from the passed directory. </p></td>
+</tr>
+<tr>
+<td class="type"> integer</td>
+<td class="description"><p class="name"><a href="#migrate()">migrate</a>(integer to, boolean dryRun)</p><p class="description">Perform a migration process by specifying the migration number/version to
+migrate to. </p></td>
+</tr>
+<tr>
+<td class="type"> boolean</td>
+<td class="description"><p class="name"><a href="#migrateDryRun()">migrateDryRun</a>(string to)</p><p class="description">Run the migration process but rollback at the very end. </p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#setConnection()">setConnection</a>(mixed conn)</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#setCurrentVersion()">setCurrentVersion</a>(integer number)</p><p class="description">Set the current version of the database.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#setTableName()">setTableName</a>(string tableName)</p><p class="description">Set the table name for storing the version number for this migration instance.</p></td>
+</tr>
+</table>
+
+<h2 id="detail_field">Field Detail</h2>
+<div class="location">/Doctrine/Migration.php at line 37</div>
+<h3 id="_connection">_connection</h3>
+<code class="signature">protected  mixed <strong>$_connection</strong></code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Migration.php at line 37</div>
+<h3 id="_errors">_errors</h3>
+<code class="signature">protected  mixed <strong>$_errors</strong> = array()</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Migration.php at line 37</div>
+<h3 id="_migrationClasses">_migrationClasses</h3>
+<code class="signature">protected  mixed <strong>$_migrationClasses</strong> = array()</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Migration.php at line 37</div>
+<h3 id="_migrationClassesDirectory">_migrationClassesDirectory</h3>
+<code class="signature">protected  mixed <strong>$_migrationClassesDirectory</strong> = array()</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Migration.php at line 46</div>
+<h3 id="_migrationClassesForDirectories">_migrationClassesForDirectories</h3>
+<code class="signature">protected static  mixed <strong>$_migrationClassesForDirectories</strong> = array()</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Migration.php at line 37</div>
+<h3 id="_migrationTableCreated">_migrationTableCreated</h3>
+<code class="signature">protected  mixed <strong>$_migrationTableCreated</strong> = false</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Migration.php at line 37</div>
+<h3 id="_migrationTableName">_migrationTableName</h3>
+<code class="signature">protected  mixed <strong>$_migrationTableName</strong> = 'migration_version'</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Migration.php at line 37</div>
+<h3 id="_process">_process</h3>
+<code class="signature">protected  mixed <strong>$_process</strong></code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Migration.php at line 37</div>
+<h3 id="_reflectionClass">_reflectionClass</h3>
+<code class="signature">protected  mixed <strong>$_reflectionClass</strong></code>
+<div class="details">
+</div>
+
+<hr>
+
+<h2 id="detail_constr">Constructor Detail</h2>
+<div class="location">/Doctrine/Migration.php at line 57</div>
+<h3 id="Doctrine_Migration()">Doctrine_Migration</h3>
+<code class="signature">public <strong>Doctrine_Migration</strong>(string directory, mixed connection)</code>
+<div class="details">
+<p>Specify the path to the directory with the migration classes.
+The classes will be loaded and the migration table will be created if it
+does not already exist</p><dl>
+<dt>Parameters:</dt>
+<dd>directory - The path to your migrations directory</dd>
+<dd>connection - The connection name or instance to use for this migration</dd>
+</dl>
+</div>
+
+<hr>
+
+<h2 id="detail_method">Method Detail</h2>
+<div class="location">/Doctrine/Migration.php at line 546</div>
+<h3 id="_createMigrationTable()">_createMigrationTable</h3>
+<code class="signature">protected  boolean <strong>_createMigrationTable</strong>()</code>
+<div class="details">
+<p>Create the migration table and return true. If it already exists it will
+silence the exception and return false</p><dl>
+<dt>Returns:</dt>
+<dd>$created Whether or not the table was created. Exceptions are silenced when table already exists</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Migration.php at line 467</div>
+<h3 id="_doMigrate()">_doMigrate</h3>
+<code class="signature">protected  integer <strong>_doMigrate</strong>(integer to)</code>
+<div class="details">
+<p>Do the actual migration process</p><dl>
+<dt>Returns:</dt>
+<dd>$to</dd>
+<dt>Throws:</dt>
+<dd>Doctrine_Exception</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Migration.php at line 498</div>
+<h3 id="_doMigrateStep()">_doMigrateStep</h3>
+<code class="signature">protected  void <strong>_doMigrateStep</strong>(string direction, integer num)</code>
+<div class="details">
+<p>Perform a single migration step. Executes a single migration class and
+processes the changes</p><dl>
+<dt>Parameters:</dt>
+<dd>direction - Direction to go, 'up' or 'down'</dd>
+<dd></dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Migration.php at line 443</div>
+<h3 id="_throwErrorsException()">_throwErrorsException</h3>
+<code class="signature">protected  void <strong>_throwErrorsException</strong>()</code>
+<div class="details">
+<p>Throw an exception with all the errors trigged during the migration</p><dl>
+<dt>Throws:</dt>
+<dd>$e</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Migration.php at line 406</div>
+<h3 id="addError()">addError</h3>
+<code class="signature">public  void <strong>addError</strong>(Exception e)</code>
+<div class="details">
+<p>Add an error to the stack. Excepts some type of Exception</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Migration.php at line 395</div>
+<h3 id="clearErrors()">clearErrors</h3>
+<code class="signature">public  void <strong>clearErrors</strong>()</code>
+<div class="details">
+<p>Clears the error exceptions</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Migration.php at line 81</div>
+<h3 id="getConnection()">getConnection</h3>
+<code class="signature">public  void <strong>getConnection</strong>()</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Migration.php at line 240</div>
+<h3 id="getCurrentVersion()">getCurrentVersion</h3>
+<code class="signature">public  integer <strong>getCurrentVersion</strong>()</code>
+<div class="details">
+<p>Get the current version of the database</p><dl>
+<dt>Returns:</dt>
+<dd>$version</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Migration.php at line 385</div>
+<h3 id="getErrors()">getErrors</h3>
+<code class="signature">public  array <strong>getErrors</strong>()</code>
+<div class="details">
+<p>Get all the error exceptions</p><dl>
+<dt>Returns:</dt>
+<dd>$errors</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Migration.php at line 268</div>
+<h3 id="getLatestVersion()">getLatestVersion</h3>
+<code class="signature">public  integer <strong>getLatestVersion</strong>()</code>
+<div class="details">
+<p>Gets the latest possible version from the loaded migration classes</p><dl>
+<dt>Returns:</dt>
+<dd>$latestVersion</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Migration.php at line 427</div>
+<h3 id="getMigrationClass()">getMigrationClass</h3>
+<code class="signature">public  void <strong>getMigrationClass</strong>(integer num)</code>
+<div class="details">
+<p>Get instance of migration class for number/version specified</p><dl>
+<dt>Throws:</dt>
+<dd>$e</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Migration.php at line 215</div>
+<h3 id="getMigrationClasses()">getMigrationClasses</h3>
+<code class="signature">public  array <strong>getMigrationClasses</strong>()</code>
+<div class="details">
+<p>Get all the loaded migration classes. Array where key is the number/version
+and the value is the class name.</p><dl>
+<dt>Returns:</dt>
+<dd>$migrationClasses</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Migration.php at line 96</div>
+<h3 id="getMigrationClassesDirectory()">getMigrationClassesDirectory</h3>
+<code class="signature">public  string <strong>getMigrationClassesDirectory</strong>()</code>
+<div class="details">
+<p>Get the migration classes directory</p><dl>
+<dt>Returns:</dt>
+<dd>$migrationClassesDirectory</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Migration.php at line 292</div>
+<h3 id="getNextMigrationClassVersion()">getNextMigrationClassVersion</h3>
+<code class="signature">public  integer <strong>getNextMigrationClassVersion</strong>()</code>
+<div class="details">
+<p>Get the next incremented class version based on the loaded migration classes</p><dl>
+<dt>Returns:</dt>
+<dd>$nextMigrationClassVersion</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Migration.php at line 282</div>
+<h3 id="getNextVersion()">getNextVersion</h3>
+<code class="signature">public  integer <strong>getNextVersion</strong>()</code>
+<div class="details">
+<p>Get the next incremented version number based on the latest version number
+using getLatestVersion()</p><dl>
+<dt>Returns:</dt>
+<dd>$nextVersion</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Migration.php at line 375</div>
+<h3 id="getNumErrors()">getNumErrors</h3>
+<code class="signature">public  integer <strong>getNumErrors</strong>()</code>
+<div class="details">
+<p>Get the number of errors</p><dl>
+<dt>Returns:</dt>
+<dd>$numErrors</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Migration.php at line 106</div>
+<h3 id="getTableName()">getTableName</h3>
+<code class="signature">public  string <strong>getTableName</strong>()</code>
+<div class="details">
+<p>Get the table name for storing the version number for this migration instance</p><dl>
+<dt>Returns:</dt>
+<dd>$migrationTableName</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Migration.php at line 416</div>
+<h3 id="hasErrors()">hasErrors</h3>
+<code class="signature">public  boolean <strong>hasErrors</strong>()</code>
+<div class="details">
+<p>Whether or not the migration instance has errors</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Migration.php at line 254</div>
+<h3 id="hasMigrated()">hasMigrated</h3>
+<code class="signature">public  boolean <strong>hasMigrated</strong>()</code>
+<div class="details">
+<p>hReturns true/false for whether or not this database has been migrated in the past</p><dl>
+<dt>Returns:</dt>
+<dd>$migrated</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Migration.php at line 177</div>
+<h3 id="loadMigrationClass()">loadMigrationClass</h3>
+<code class="signature">public  void <strong>loadMigrationClass</strong>(string name, mixed path)</code>
+<div class="details">
+<p>Load the specified migration class name in to this migration instances queue of
+migration classes to execute. It must be a child of Doctrine_Migration in order
+to be loaded.</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Migration.php at line 130</div>
+<h3 id="loadMigrationClassesFromDirectory()">loadMigrationClassesFromDirectory</h3>
+<code class="signature">public  void <strong>loadMigrationClassesFromDirectory</strong>(string directory)</code>
+<div class="details">
+<p>Load migration classes from the passed directory. Any file found with a .php
+extension will be passed to the loadMigrationClass()</p><dl>
+<dt>Parameters:</dt>
+<dd>directory - Directory to load migration classes from</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Migration.php at line 313</div>
+<h3 id="migrate()">migrate</h3>
+<code class="signature">public  integer <strong>migrate</strong>(integer to, boolean dryRun)</code>
+<div class="details">
+<p>Perform a migration process by specifying the migration number/version to
+migrate to. It will automatically know whether you are migrating up or down
+based on the current version of the database.</p><dl>
+<dt>Parameters:</dt>
+<dd>to - Version to migrate to</dd>
+<dd>dryRun - Whether or not to run the migrate process as a dry run</dd>
+<dt>Returns:</dt>
+<dd>$to Version number migrated to</dd>
+<dt>Throws:</dt>
+<dd>Doctrine_Exception</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Migration.php at line 365</div>
+<h3 id="migrateDryRun()">migrateDryRun</h3>
+<code class="signature">public  boolean <strong>migrateDryRun</strong>(string to)</code>
+<div class="details">
+<p>Run the migration process but rollback at the very end. Returns true or
+false for whether or not the migration can be ran</p><dl>
+<dt>Returns:</dt>
+<dd>$success</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Migration.php at line 86</div>
+<h3 id="setConnection()">setConnection</h3>
+<code class="signature">public  void <strong>setConnection</strong>(mixed conn)</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Migration.php at line 226</div>
+<h3 id="setCurrentVersion()">setCurrentVersion</h3>
+<code class="signature">public  void <strong>setCurrentVersion</strong>(integer number)</code>
+<div class="details">
+<p>Set the current version of the database</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Migration.php at line 117</div>
+<h3 id="setTableName()">setTableName</h3>
+<code class="signature">public  void <strong>setTableName</strong>(string tableName)</code>
+<div class="details">
+<p>Set the table name for storing the version number for this migration instance</p></div>
+
+<hr>
+
+<div class="header">
+<h1>Doctrine</h1>
+<ul>
+<li><a href="../overview-summary.html">Overview</a></li>
+<li><a href="../doctrine/package-summary.html">Namespace</a></li>
+<li class="active">Class</li>
+<li><a href="../doctrine/package-tree.html">Tree</a></li>
+<li><a href="../deprecated-list.html">Deprecated</a></li>
+<li><a href="../index-all.html">Index</a></li>
+</ul>
+</div>
+
+<div class="small_links">
+<a href="../index.html" target="_top">Frames</a>
+<a href="../doctrine/doctrine_migration.html" target="_top">No frames</a>
+</div>
+<div class="small_links">
+Summary: <a href="#summary_field">Field</a> | <a href="#summary_method">Method</a> | <a href="#summary_constr">Constr</a>
+Detail: <a href="#detail_field">Field</a> | <a href="#detail_method">Method</a> | <a href="#summary_constr">Constr</a>
+</div>
+<hr>
+
+<p id="footer">This document was generated by <a href="http://peej.github.com/phpdoctor/">PHPDoctor: The PHP Documentation Creator</a></p>
+
+</body>
+
+</html>

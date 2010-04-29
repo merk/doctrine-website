@@ -1,0 +1,23 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           sfGuardGroup
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          groups
+    with_doctrine_route:     1
+
+    config:
+      actions: ~
+      fields:  ~
+      list:
+        display:  [=name, description]
+      filter:
+        class:    sfGuardGroupFormFilter
+        display:  [name, users_list]
+      form:    ~
+      edit:    ~
+      new:     ~

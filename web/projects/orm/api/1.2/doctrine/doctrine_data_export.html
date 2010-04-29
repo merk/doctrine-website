@@ -1,0 +1,167 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+<head>
+
+<meta name="generator" content="PHPDoctor 2RC4 (http://phpdoctor.sourceforge.net/)">
+<meta name="when" content="Fri, 09 Apr 2010 11:50:25 -0400">
+
+<link rel="stylesheet" type="text/css" href="../stylesheet.css">
+<link rel="start" href="../overview-summary.html">
+
+<title>Doctrine_Data_Export (Doctrine 1.2 ORM)</title>
+
+</head>
+<body id="definition" onload="parent.document.title=document.title;">
+
+<div class="header">
+<h1>Doctrine</h1>
+<ul>
+<li><a href="../overview-summary.html">Overview</a></li>
+<li><a href="../doctrine/package-summary.html">Namespace</a></li>
+<li class="active">Class</li>
+<li><a href="../doctrine/package-tree.html">Tree</a></li>
+<li><a href="../deprecated-list.html">Deprecated</a></li>
+<li><a href="../index-all.html">Index</a></li>
+</ul>
+</div>
+
+<div class="small_links">
+<a href="../index.html" target="_top">Frames</a>
+<a href="../doctrine/doctrine_data_export.html" target="_top">No frames</a>
+</div>
+<div class="small_links">
+Summary: <a href="#summary_field">Field</a> | <a href="#summary_method">Method</a> | <a href="#summary_constr">Constr</a>
+Detail: <a href="#detail_field">Field</a> | <a href="#detail_method">Method</a> | <a href="#summary_constr">Constr</a>
+</div>
+<hr>
+
+<div class="qualifiedName">Doctrine\Doctrine_Data_Export</div>
+<div class="location">/Doctrine/Data/Export.php at line 33</div>
+
+<h1>Class Doctrine_Data_Export</h1>
+
+<pre class="tree">Class:Doctrine_Data_Export - Superclass: Doctrine_Data
+<a href="../doctrine/doctrine_data.html">Doctrine_Data</a><br>   &lfloor;&nbsp;<strong>Doctrine_Data_Export</strong><br /></pre>
+
+<hr>
+
+<p class="signature">public  class <strong>Doctrine_Data_Export</strong><br>extends <a href="../doctrine/doctrine_data.html">Doctrine_Data</a>
+
+</p>
+
+<div class="comment" id="overview_description"><p>Doctrine_Data_Export</p></div>
+
+<dl>
+<dt>Subpackage:</dt>
+<dd>Data</dd>
+<dt>Author:</dt>
+<dd>Jonathan H. Wage <jwage@mac.com></dd>
+<dt>License:</dt>
+<dd>http://www.opensource.org/licenses/lgpl-license.php LGPL</dd>
+<dt>See Also:</dt>
+<dd><code>www.doctrine-project.org</code></dd>
+<dt>Since:</dt>
+<dd>1.0</dd>
+<dt>Version:</dt>
+<dd>$Revision: 2552 $</dd>
+</dl>
+<hr>
+
+<table class="inherit">
+<tr><th colspan="2">Fields inherited from Doctrine\Doctrine_Data</th></tr>
+<tr><td><a href="../doctrine/doctrine_data.html#_directory">_directory</a>, <a href="../doctrine/doctrine_data.html#_exportIndividualFiles">_exportIndividualFiles</a>, <a href="../doctrine/doctrine_data.html#_format">_format</a>, <a href="../doctrine/doctrine_data.html#_formats">_formats</a>, <a href="../doctrine/doctrine_data.html#_models">_models</a></td></tr></table>
+
+<table id="summary_constr">
+<tr><th colspan="2">Constructor Summary</th></tr>
+<tr>
+<td class="description"><p class="name"><a href="#Doctrine_Data_Export()">Doctrine_Data_Export</a>(string directory)</p><p class="description">constructor.</p></td>
+</tr>
+</table>
+
+<table id="summary_method">
+<tr><th colspan="2">Method Summary</th></tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#doExport()">doExport</a>()</p><p class="description">doExport.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#dumpData()">dumpData</a>(mixed data, string array)</p><p class="description">dumpData.</p></td>
+</tr>
+<tr>
+<td class="type"> array</td>
+<td class="description"><p class="name"><a href="#prepareData()">prepareData</a>(string data)</p><p class="description">prepareData.</p></td>
+</tr>
+</table>
+
+<table class="inherit">
+<tr><th colspan="2">Methods inherited from Doctrine\Doctrine_Data</th></tr>
+<tr><td><a href="../doctrine/doctrine_data.html#exportData()">exportData</a>, <a href="../doctrine/doctrine_data.html#exportIndividualFiles()">exportIndividualFiles</a>, <a href="../doctrine/doctrine_data.html#getDirectory()">getDirectory</a>, <a href="../doctrine/doctrine_data.html#getFormat()">getFormat</a>, <a href="../doctrine/doctrine_data.html#getFormats()">getFormats</a>, <a href="../doctrine/doctrine_data.html#getModels()">getModels</a>, <a href="../doctrine/doctrine_data.html#importData()">importData</a>, <a href="../doctrine/doctrine_data.html#isRelation()">isRelation</a>, <a href="../doctrine/doctrine_data.html#purge()">purge</a>, <a href="../doctrine/doctrine_data.html#setDirectory()">setDirectory</a>, <a href="../doctrine/doctrine_data.html#setFormat()">setFormat</a>, <a href="../doctrine/doctrine_data.html#setModels()">setModels</a></td></tr></table>
+
+<h2 id="detail_constr">Constructor Detail</h2>
+<div class="location">/Doctrine/Data/Export.php at line 41</div>
+<h3 id="Doctrine_Data_Export()">Doctrine_Data_Export</h3>
+<code class="signature">public <strong>Doctrine_Data_Export</strong>(string directory)</code>
+<div class="details">
+<p>constructor</p></div>
+
+<hr>
+
+<h2 id="detail_method">Method Detail</h2>
+<div class="location">/Doctrine/Data/Export.php at line 60</div>
+<h3 id="doExport()">doExport</h3>
+<code class="signature">public  void <strong>doExport</strong>()</code>
+<div class="details">
+<p>doExport</p><p>FIXME: This function has ugly hacks in it for temporarily disabling INDEXBY query parts of tables 
+to export.</p><p>Update from jwage: I am not sure if their is any other better solution for this. It may be the correct
+solution to disable the indexBy settings for tables when exporting data fixtures. Maybe a better idea 
+would be to extract this functionality to a pair of functions to enable/disable the index by settings 
+so simply turn them on and off when they need to query for the translations standalone and don't need 
+it to be indexed by the lang.</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Data/Export.php at line 114</div>
+<h3 id="dumpData()">dumpData</h3>
+<code class="signature">public  void <strong>dumpData</strong>(mixed data, string array)</code>
+<div class="details">
+<p>dumpData</p><p>Dump the prepared data to the fixtures files</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Data/Export.php at line 150</div>
+<h3 id="prepareData()">prepareData</h3>
+<code class="signature">public  array <strong>prepareData</strong>(string data)</code>
+<div class="details">
+<p>prepareData</p><p>Prepare the raw data to be exported with the parser</p></div>
+
+<hr>
+
+<div class="header">
+<h1>Doctrine</h1>
+<ul>
+<li><a href="../overview-summary.html">Overview</a></li>
+<li><a href="../doctrine/package-summary.html">Namespace</a></li>
+<li class="active">Class</li>
+<li><a href="../doctrine/package-tree.html">Tree</a></li>
+<li><a href="../deprecated-list.html">Deprecated</a></li>
+<li><a href="../index-all.html">Index</a></li>
+</ul>
+</div>
+
+<div class="small_links">
+<a href="../index.html" target="_top">Frames</a>
+<a href="../doctrine/doctrine_data_export.html" target="_top">No frames</a>
+</div>
+<div class="small_links">
+Summary: <a href="#summary_field">Field</a> | <a href="#summary_method">Method</a> | <a href="#summary_constr">Constr</a>
+Detail: <a href="#detail_field">Field</a> | <a href="#detail_method">Method</a> | <a href="#summary_constr">Constr</a>
+</div>
+<hr>
+
+<p id="footer">This document was generated by <a href="http://peej.github.com/phpdoctor/">PHPDoctor: The PHP Documentation Creator</a></p>
+
+</body>
+
+</html>

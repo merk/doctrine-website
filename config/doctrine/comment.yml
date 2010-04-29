@@ -1,0 +1,33 @@
+---
+RecordComment: 
+  tableName: comment
+  actAs:
+    Sluggable:
+      fields: [subject]
+    Timestampable:
+  attributes:
+    export: tables
+  columns: 
+    id:
+      type: integer
+      length: 4
+      primary: true
+      autoincrement: true
+    record_id:
+      type: string
+      length: 255
+    record_type:
+      type: string
+      length: 255
+    poster:
+      type: string
+      length: 255
+    subject:
+      type: string
+      length: 255
+    body:
+      type: clob
+  relations:
+    BlogPost:
+      local: record_id
+      foreignAlias: Comments

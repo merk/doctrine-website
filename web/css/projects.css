@@ -1,0 +1,56 @@
+#projects ul li {
+  border-bottom: 1px solid #ccc;
+  margin-right: 30px;
+  padding: 10px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+#projects ul li ul {
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+#projects ul li ul li {
+  float: left;
+  margin: 0;
+  padding: 0;
+  border: none;
+  margin-left: 20px;
+  font-weight: bold;
+  padding: 6px;
+}
+
+#projects ul li h3 {
+  margin: 0;
+  padding: 0;
+  margin-left: 100px;
+  margin-bottom: 10px;
+}
+
+#projects ul li p {
+  margin-left: 100px;
+}
+
+#projects #dbal {
+  background: #f5f5f5 url('../images/dbal_icon.png') 10px 10px no-repeat;
+}
+
+#projects #migrations {
+  background: #f5f5f5 url('../images/migrations_icon.png') 10px 10px no-repeat;
+}
+
+#projects #orm {
+  background: #f5f5f5 url('../images/orm_icon.png') 10px 10px no-repeat;
+}
+
+#projects #rest {
+  background: #f5f5f5 url('../images/rest_icon.png') 10px 10px no-repeat;
+}
+
+#mongodb_odm {
+  background: #f5f5f5 url('../images/mongodb_odm_icon.png') 30px 20px no-repeat;
+}

@@ -1,0 +1,6 @@
+all:
+  with_layout: false
+  lifetime: 3600
+
+_trainings:
+  enabled:     true

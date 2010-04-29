@@ -1,0 +1,278 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+<head>
+
+<meta name="generator" content="PHPDoctor 2RC4 (http://phpdoctor.sourceforge.net/)">
+<meta name="when" content="Fri, 09 Apr 2010 11:50:25 -0400">
+
+<link rel="stylesheet" type="text/css" href="../stylesheet.css">
+<link rel="start" href="../overview-summary.html">
+
+<title>Doctrine_Connection_Profiler (Doctrine 1.2 ORM)</title>
+
+</head>
+<body id="definition" onload="parent.document.title=document.title;">
+
+<div class="header">
+<h1>Doctrine</h1>
+<ul>
+<li><a href="../overview-summary.html">Overview</a></li>
+<li><a href="../doctrine/package-summary.html">Namespace</a></li>
+<li class="active">Class</li>
+<li><a href="../doctrine/package-tree.html">Tree</a></li>
+<li><a href="../deprecated-list.html">Deprecated</a></li>
+<li><a href="../index-all.html">Index</a></li>
+</ul>
+</div>
+
+<div class="small_links">
+<a href="../index.html" target="_top">Frames</a>
+<a href="../doctrine/doctrine_connection_profiler.html" target="_top">No frames</a>
+</div>
+<div class="small_links">
+Summary: <a href="#summary_field">Field</a> | <a href="#summary_method">Method</a> | <a href="#summary_constr">Constr</a>
+Detail: <a href="#detail_field">Field</a> | <a href="#detail_method">Method</a> | <a href="#summary_constr">Constr</a>
+</div>
+<hr>
+
+<div class="qualifiedName">Doctrine\Doctrine_Connection_Profiler</div>
+<div class="location">/Doctrine/Connection/Profiler.php at line 33</div>
+
+<h1>Class Doctrine_Connection_Profiler</h1>
+
+<pre class="tree"><strong>Doctrine_Connection_Profiler</strong><br /></pre>
+
+<dl>
+<dt>All Implemented Interfaces:</dt>
+<dd>Doctrine_Overloadable </dt>
+</dl>
+
+<hr>
+
+<p class="signature">public  class <strong>Doctrine_Connection_Profiler</strong></p>
+
+<div class="comment" id="overview_description"><p>Doctrine_Connection_Profiler</p></div>
+
+<dl>
+<dt>Subpackage:</dt>
+<dd>Connection</dd>
+<dt>Author:</dt>
+<dd>Konsta Vesterinen <kvesteri@cc.hut.fi></dd>
+<dt>License:</dt>
+<dd>http://www.opensource.org/licenses/lgpl-license.php LGPL</dd>
+<dt>See Also:</dt>
+<dd><code>www.doctrine-project.org</code></dd>
+<dt>Since:</dt>
+<dd>1.0</dd>
+<dt>Version:</dt>
+<dd>$Revision$</dd>
+</dl>
+<hr>
+
+<table id="summary_field">
+<tr><th colspan="2">Field Summary</th></tr>
+<tr>
+<td class="type">private  mixed</td>
+<td class="description"><p class="name"><a href="#eventSequences">$eventSequences</a></p><p class="description">.</p></td>
+</tr>
+<tr>
+<td class="type">private  mixed</td>
+<td class="description"><p class="name"><a href="#events">$events</a></p><p class="description">.</p></td>
+</tr>
+<tr>
+<td class="type">private  mixed</td>
+<td class="description"><p class="name"><a href="#listeners">$listeners</a></p><p class="description">.</p></td>
+</tr>
+</table>
+
+<table id="summary_constr">
+<tr><th colspan="2">Constructor Summary</th></tr>
+<tr>
+<td class="description"><p class="name"><a href="#Doctrine_Connection_Profiler()">Doctrine_Connection_Profiler</a>()</p><p class="description">constructor.</p></td>
+</tr>
+</table>
+
+<table id="summary_method">
+<tr><th colspan="2">Method Summary</th></tr>
+<tr>
+<td class="type"> boolean</td>
+<td class="description"><p class="name"><a href="#__call()">__call</a>(string m, array a)</p><p class="description">method overloader
+this method is used for invoking different listeners, for the full
+list of availible listeners, see Doctrine_EventListener.</p></td>
+</tr>
+<tr>
+<td class="type"> integer</td>
+<td class="description"><p class="name"><a href="#count()">count</a>()</p><p class="description">count.</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../doctrine/doctrine_event.html">Doctrine_Event</a></td>
+<td class="description"><p class="name"><a href="#get()">get</a>(mixed key)</p><p class="description">get.</p></td>
+</tr>
+<tr>
+<td class="type"> array</td>
+<td class="description"><p class="name"><a href="#getAll()">getAll</a>()</p><p class="description">getAll
+returns all profiled events as an array.</p></td>
+</tr>
+<tr>
+<td class="type"> ArrayIterator</td>
+<td class="description"><p class="name"><a href="#getIterator()">getIterator</a>()</p><p class="description">getIterator
+returns an iterator that iterates through the logged events.</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../doctrine/doctrine_event.html">Doctrine_Event</a></td>
+<td class="description"><p class="name"><a href="#lastEvent()">lastEvent</a>()</p><p class="description">Get the Doctrine_Event object for the last query that was run, regardless if it has
+ended or not. </p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../doctrine/doctrine_event.html">Doctrine_Event</a></td>
+<td class="description"><p class="name"><a href="#pop()">pop</a>()</p><p class="description">pop the last event from the event stack.</p></td>
+</tr>
+<tr>
+<td class="type"> boolean</td>
+<td class="description"><p class="name"><a href="#setFilterQueryType()">setFilterQueryType</a>(integer filter)</p><p class="description">setFilterQueryType.</p></td>
+</tr>
+</table>
+
+<h2 id="detail_field">Field Detail</h2>
+<div class="location">/Doctrine/Connection/Profiler.php at line 55</div>
+<h3 id="eventSequences">eventSequences</h3>
+<code class="signature">private  mixed <strong>$eventSequences</strong> = array()</code>
+<div class="details">
+<p></p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Connection/Profiler.php at line 50</div>
+<h3 id="events">events</h3>
+<code class="signature">private  mixed <strong>$events</strong> = array()</code>
+<div class="details">
+<p></p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Connection/Profiler.php at line 38</div>
+<h3 id="listeners">listeners</h3>
+<code class="signature">private  mixed <strong>$listeners</strong> = array(...)</code>
+<div class="details">
+<p></p></div>
+
+<hr>
+
+<h2 id="detail_constr">Constructor Detail</h2>
+<div class="location">/Doctrine/Connection/Profiler.php at line 60</div>
+<h3 id="Doctrine_Connection_Profiler()">Doctrine_Connection_Profiler</h3>
+<code class="signature">public <strong>Doctrine_Connection_Profiler</strong>()</code>
+<div class="details">
+<p>constructor</p></div>
+
+<hr>
+
+<h2 id="detail_method">Method Detail</h2>
+<div class="location">/Doctrine/Connection/Profiler.php at line 83</div>
+<h3 id="__call()">__call</h3>
+<code class="signature">public  boolean <strong>__call</strong>(string m, array a)</code>
+<div class="details">
+<p>method overloader
+this method is used for invoking different listeners, for the full
+list of availible listeners, see Doctrine_EventListener</p><dl>
+<dt>Parameters:</dt>
+<dd>m - the name of the method</dd>
+<dd>a - method arguments</dd>
+<dt>See Also:</dt>
+<dd>Doctrine_EventListener</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Connection/Profiler.php at line 147</div>
+<h3 id="count()">count</h3>
+<code class="signature">public  integer <strong>count</strong>()</code>
+<div class="details">
+<p>count</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Connection/Profiler.php at line 112</div>
+<h3 id="get()">get</h3>
+<code class="signature">public  <a href="../doctrine/doctrine_event.html">Doctrine_Event</a> <strong>get</strong>(mixed key)</code>
+<div class="details">
+<p>get</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Connection/Profiler.php at line 126</div>
+<h3 id="getAll()">getAll</h3>
+<code class="signature">public  array <strong>getAll</strong>()</code>
+<div class="details">
+<p>getAll
+returns all profiled events as an array</p><dl>
+<dt>Returns:</dt>
+<dd>all events in an array</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Connection/Profiler.php at line 137</div>
+<h3 id="getIterator()">getIterator</h3>
+<code class="signature">public  ArrayIterator <strong>getIterator</strong>()</code>
+<div class="details">
+<p>getIterator
+returns an iterator that iterates through the logged events</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Connection/Profiler.php at line 173</div>
+<h3 id="lastEvent()">lastEvent</h3>
+<code class="signature">public  <a href="../doctrine/doctrine_event.html">Doctrine_Event</a> <strong>lastEvent</strong>()</code>
+<div class="details">
+<p>Get the Doctrine_Event object for the last query that was run, regardless if it has
+ended or not. If the event has not ended, it's end time will be Null.</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Connection/Profiler.php at line 157</div>
+<h3 id="pop()">pop</h3>
+<code class="signature">public  <a href="../doctrine/doctrine_event.html">Doctrine_Event</a> <strong>pop</strong>()</code>
+<div class="details">
+<p>pop the last event from the event stack</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Connection/Profiler.php at line 70</div>
+<h3 id="setFilterQueryType()">setFilterQueryType</h3>
+<code class="signature">public  boolean <strong>setFilterQueryType</strong>(integer filter)</code>
+<div class="details">
+<p>setFilterQueryType</p></div>
+
+<hr>
+
+<div class="header">
+<h1>Doctrine</h1>
+<ul>
+<li><a href="../overview-summary.html">Overview</a></li>
+<li><a href="../doctrine/package-summary.html">Namespace</a></li>
+<li class="active">Class</li>
+<li><a href="../doctrine/package-tree.html">Tree</a></li>
+<li><a href="../deprecated-list.html">Deprecated</a></li>
+<li><a href="../index-all.html">Index</a></li>
+</ul>
+</div>
+
+<div class="small_links">
+<a href="../index.html" target="_top">Frames</a>
+<a href="../doctrine/doctrine_connection_profiler.html" target="_top">No frames</a>
+</div>
+<div class="small_links">
+Summary: <a href="#summary_field">Field</a> | <a href="#summary_method">Method</a> | <a href="#summary_constr">Constr</a>
+Detail: <a href="#detail_field">Field</a> | <a href="#detail_method">Method</a> | <a href="#summary_constr">Constr</a>
+</div>
+<hr>
+
+<p id="footer">This document was generated by <a href="http://peej.github.com/phpdoctor/">PHPDoctor: The PHP Documentation Creator</a></p>
+
+</body>
+
+</html>

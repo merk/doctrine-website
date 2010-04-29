@@ -1,0 +1,803 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+<head>
+
+<meta name="generator" content="PHPDoctor 2RC4 (http://phpdoctor.sourceforge.net/)">
+<meta name="when" content="Fri, 09 Apr 2010 11:50:25 -0400">
+
+<link rel="stylesheet" type="text/css" href="../stylesheet.css">
+<link rel="start" href="../overview-summary.html">
+
+<title>Doctrine_Manager (Doctrine 1.2 ORM)</title>
+
+</head>
+<body id="definition" onload="parent.document.title=document.title;">
+
+<div class="header">
+<h1>Doctrine</h1>
+<ul>
+<li><a href="../overview-summary.html">Overview</a></li>
+<li><a href="../doctrine/package-summary.html">Namespace</a></li>
+<li class="active">Class</li>
+<li><a href="../doctrine/package-tree.html">Tree</a></li>
+<li><a href="../deprecated-list.html">Deprecated</a></li>
+<li><a href="../index-all.html">Index</a></li>
+</ul>
+</div>
+
+<div class="small_links">
+<a href="../index.html" target="_top">Frames</a>
+<a href="../doctrine/doctrine_manager.html" target="_top">No frames</a>
+</div>
+<div class="small_links">
+Summary: <a href="#summary_field">Field</a> | <a href="#summary_method">Method</a> | <a href="#summary_constr">Constr</a>
+Detail: <a href="#detail_field">Field</a> | <a href="#detail_method">Method</a> | <a href="#summary_constr">Constr</a>
+</div>
+<hr>
+
+<div class="qualifiedName">Doctrine\Doctrine_Manager</div>
+<div class="location">/Doctrine/Manager.php at line 35</div>
+
+<h1>Class Doctrine_Manager</h1>
+
+<pre class="tree">Class:Doctrine_Manager - Superclass: Doctrine_Configurable
+Class:Doctrine_Configurable - Superclass: Doctrine_Locator_Injectable
+<a href="../doctrine/doctrine_locator_injectable.html">Doctrine_Locator_Injectable</a><br>   &lfloor;&nbsp;<a href="../doctrine/doctrine_configurable.html">Doctrine_Configurable</a><br>      &lfloor;&nbsp;<strong>Doctrine_Manager</strong><br /></pre>
+
+<hr>
+
+<p class="signature">public  class <strong>Doctrine_Manager</strong><br>extends <a href="../doctrine/doctrine_configurable.html">Doctrine_Configurable</a>
+
+</p>
+
+<div class="comment" id="overview_description"><p>Doctrine_Manager is the base component of all doctrine based projects.
+It opens and keeps track of all connections (database connections).</p></div>
+
+<dl>
+<dt>Subpackage:</dt>
+<dd>Manager</dd>
+<dt>License:</dt>
+<dd>http://www.opensource.org/licenses/lgpl-license.php LGPL</dd>
+<dt>See Also:</dt>
+<dd><code>www.doctrine-project.org</code></dd>
+<dt>Since:</dt>
+<dd>1.0</dd>
+<dt>Version:</dt>
+<dd>$Revision: 7490 $</dd>
+<dt>Author:</dt>
+<dd>Konsta Vesterinen <kvesteri@cc.hut.fi></dd>
+<dt>Category:</dt>
+<dd>Locator</dd>
+</dl>
+<hr>
+
+<table id="summary_field">
+<tr><th colspan="2">Field Summary</th></tr>
+<tr>
+<td class="type">protected  array $bound                an array containing all components that have a bound connection</td>
+<td class="description"><p class="name"><a href="#_bound">$_bound</a></p><p class="description">.</p></td>
+</tr>
+<tr>
+<td class="type">protected  mixed</td>
+<td class="description"><p class="name"><a href="#_connectionDrivers">$_connectionDrivers</a></p></td>
+</tr>
+<tr>
+<td class="type">protected  array $connections          an array containing all the opened connections</td>
+<td class="description"><p class="name"><a href="#_connections">$_connections</a></p><p class="description">.</p></td>
+</tr>
+<tr>
+<td class="type">protected  integer $currIndex          the current connection index</td>
+<td class="description"><p class="name"><a href="#_currIndex">$_currIndex</a></p><p class="description">.</p></td>
+</tr>
+<tr>
+<td class="type">protected  mixed</td>
+<td class="description"><p class="name"><a href="#_extensions">$_extensions</a></p></td>
+</tr>
+<tr>
+<td class="type">protected  array                       Array of registered hydrators</td>
+<td class="description"><p class="name"><a href="#_hydrators">$_hydrators</a></p><p class="description">.</p></td>
+</tr>
+<tr>
+<td class="type">protected  integer $index              the incremented index</td>
+<td class="description"><p class="name"><a href="#_index">$_index</a></p><p class="description">.</p></td>
+</tr>
+<tr>
+<td class="type">private  mixed</td>
+<td class="description"><p class="name"><a href="#_initialized">$_initialized</a></p></td>
+</tr>
+<tr>
+<td class="type">protected static  mixed</td>
+<td class="description"><p class="name"><a href="#_instance">$_instance</a></p></td>
+</tr>
+<tr>
+<td class="type">protected  boolean                     Whether or not the validators from disk have been loaded</td>
+<td class="description"><p class="name"><a href="#_loadedValidatorsFromDisk">$_loadedValidatorsFromDisk</a></p><p class="description">.</p></td>
+</tr>
+<tr>
+<td class="type">protected  Doctrine_Query_Registry     the query registry</td>
+<td class="description"><p class="name"><a href="#_queryRegistry">$_queryRegistry</a></p><p class="description">.</p></td>
+</tr>
+<tr>
+<td class="type">protected  array                       Array of registered validators</td>
+<td class="description"><p class="name"><a href="#_validators">$_validators</a></p><p class="description">.</p></td>
+</tr>
+</table>
+
+<table class="inherit">
+<tr><th colspan="2">Fields inherited from Doctrine\Doctrine_Configurable</th></tr>
+<tr><td><a href="../doctrine/doctrine_configurable.html#_impl">_impl</a>, <a href="../doctrine/doctrine_configurable.html#_params">_params</a>, <a href="../doctrine/doctrine_configurable.html#attributes">attributes</a>, <a href="../doctrine/doctrine_configurable.html#parent">parent</a></td></tr></table>
+
+<table class="inherit">
+<tr><th colspan="2">Fields inherited from Doctrine\Doctrine_Locator_Injectable</th></tr>
+<tr><td><a href="../doctrine/doctrine_locator_injectable.html#_locator">_locator</a>, <a href="../doctrine/doctrine_locator_injectable.html#_null">_null</a>, <a href="../doctrine/doctrine_locator_injectable.html#_resources">_resources</a></td></tr></table>
+
+<table id="summary_constr">
+<tr><th colspan="2">Constructor Summary</th></tr>
+<tr>
+<td class="description"><p class="name"><a href="#Doctrine_Manager()">Doctrine_Manager</a>()</p><p class="description">constructor.</p></td>
+</tr>
+</table>
+
+<table id="summary_method">
+<tr><th colspan="2">Method Summary</th></tr>
+<tr>
+<td class="type"> string</td>
+<td class="description"><p class="name"><a href="#__toString()">__toString</a>()</p><p class="description">Returns a string representation of this object.</p></td>
+</tr>
+<tr>
+<td class="type">protected  array</td>
+<td class="description"><p class="name"><a href="#_buildDsnPartsArray()">_buildDsnPartsArray</a>(string dsn)</p><p class="description">Build the blank dsn parts array used with parseDsn().</p></td>
+</tr>
+<tr>
+<td class="type"> boolean</td>
+<td class="description"><p class="name"><a href="#bindComponent()">bindComponent</a>(string componentName, string connectionName)</p><p class="description">Binds given component to given connection
+this means that when ever the given component uses a connection
+it will be using the bound connection instead of the current connection.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#closeConnection()">closeConnection</a>(<a href="../doctrine/doctrine_connection.html">Doctrine_Connection</a> connection)</p><p class="description">Closes the specified connection.</p></td>
+</tr>
+<tr>
+<td class="type">static  <a href="../doctrine/doctrine_connection.html">Doctrine_Connection</a></td>
+<td class="description"><p class="name"><a href="#connection()">connection</a>(PDO|Doctrine_Adapter_Interface adapter, string name)</p><p class="description">Open a new connection. </p></td>
+</tr>
+<tr>
+<td class="type"> boolean</td>
+<td class="description"><p class="name"><a href="#contains()">contains</a>(mixed key)</p><p class="description">Whether or not the manager contains specified connection.</p></td>
+</tr>
+<tr>
+<td class="type"> integer</td>
+<td class="description"><p class="name"><a href="#count()">count</a>()</p><p class="description">Returns the number of opened connections.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#createDatabases()">createDatabases</a>(string specifiedConnections)</p><p class="description">Creates databases for all existing connections.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#dropDatabases()">dropDatabases</a>(string specifiedConnections)</p><p class="description">Drops databases for all existing connections.</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../doctrine/doctrine_connection.html">Doctrine_Connection</a></td>
+<td class="description"><p class="name"><a href="#getConnection()">getConnection</a>(string name)</p><p class="description">Get the connection instance for the passed name.</p></td>
+</tr>
+<tr>
+<td class="type"> array</td>
+<td class="description"><p class="name"><a href="#getConnectionDrivers()">getConnectionDrivers</a>()</p><p class="description">Get all the available connection drivers.</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../doctrine/doctrine_connection.html">Doctrine_Connection</a></td>
+<td class="description"><p class="name"><a href="#getConnectionForComponent()">getConnectionForComponent</a>(string componentName)</p><p class="description">Get the connection instance for the specified component.</p></td>
+</tr>
+<tr>
+<td class="type"> string</td>
+<td class="description"><p class="name"><a href="#getConnectionName()">getConnectionName</a>(<a href="../doctrine/doctrine_connection.html">Doctrine_Connection</a> conn)</p><p class="description">Get the name of the passed connection instance.</p></td>
+</tr>
+<tr>
+<td class="type"> array</td>
+<td class="description"><p class="name"><a href="#getConnections()">getConnections</a>()</p><p class="description">Returns all opened connections.</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../doctrine/doctrine_connection.html">Doctrine_Connection</a></td>
+<td class="description"><p class="name"><a href="#getCurrentConnection()">getCurrentConnection</a>()</p><p class="description">Get the current connection instance.</p></td>
+</tr>
+<tr>
+<td class="type"> $extensions</td>
+<td class="description"><p class="name"><a href="#getExtensions()">getExtensions</a>()</p><p class="description">Get all registered Doctrine extensions.</p></td>
+</tr>
+<tr>
+<td class="type"> array</td>
+<td class="description"><p class="name"><a href="#getHydrators()">getHydrators</a>()</p><p class="description">Get all registered hydrators.</p></td>
+</tr>
+<tr>
+<td class="type">static  <a href="../doctrine/doctrine_manager.html">Doctrine_Manager</a></td>
+<td class="description"><p class="name"><a href="#getInstance()">getInstance</a>()</p><p class="description">Returns an instance of this class
+(this class uses the singleton pattern).</p></td>
+</tr>
+<tr>
+<td class="type"> ArrayIterator</td>
+<td class="description"><p class="name"><a href="#getIterator()">getIterator</a>()</p><p class="description">Returns an ArrayIterator that iterates through all connections.</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../doctrine/doctrine_query_registry.html">Doctrine_Query_Registry</a></td>
+<td class="description"><p class="name"><a href="#getQueryRegistry()">getQueryRegistry</a>()</p><p class="description">Lazy-initializes the query registry object and returns it.</p></td>
+</tr>
+<tr>
+<td class="type"> array</td>
+<td class="description"><p class="name"><a href="#getValidators()">getValidators</a>()</p><p class="description">Get available doctrine validators.</p></td>
+</tr>
+<tr>
+<td class="type"> boolean</td>
+<td class="description"><p class="name"><a href="#hasConnectionForComponent()">hasConnectionForComponent</a>(string componentName)</p><p class="description">Check if a component is bound to a connection.</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../doctrine/doctrine_connection.html">Doctrine_Connection</a></td>
+<td class="description"><p class="name"><a href="#openConnection()">openConnection</a>(PDO|Doctrine_Adapter_Interface adapter, string name, mixed setCurrent)</p><p class="description">Opens a new connection and saves it to Doctrine_Manager->connections.</p></td>
+</tr>
+<tr>
+<td class="type"> array</td>
+<td class="description"><p class="name"><a href="#parseDsn()">parseDsn</a>(string dsn)</p><p class="description">Parse a Doctrine style dsn string in to an array of parts.</p></td>
+</tr>
+<tr>
+<td class="type"> array</td>
+<td class="description"><p class="name"><a href="#parsePdoDsn()">parsePdoDsn</a>(array dsn)</p><p class="description">Parse a pdo style dsn in to an array of parts.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#registerConnectionDriver()">registerConnectionDriver</a>(mixed name, mixed class)</p><p class="description">Register a custom connection driver.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#registerExtension()">registerExtension</a>(string name, string path)</p><p class="description">Register a Doctrine extension for extensionsAutoload() method.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#registerHydrator()">registerHydrator</a>(mixed name, mixed class)</p><p class="description">Register a new driver for hydration.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#registerValidators()">registerValidators</a>(mixed validators)</p><p class="description">Register validators so that Doctrine is aware of them.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#reset()">reset</a>()</p><p class="description">Reset this instance of the manager.</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#resetInstance()">resetInstance</a>()</p><p class="description">Reset the internal static instance.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#setCurrentConnection()">setCurrentConnection</a>(mixed key)</p><p class="description">Sets the current connection to $key.</p></td>
+</tr>
+<tr>
+<td class="type"> boolean</td>
+<td class="description"><p class="name"><a href="#setDefaultAttributes()">setDefaultAttributes</a>()</p><p class="description">Sets default attributes values.
+</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../doctrine/doctrine_manager.html">Doctrine_Manager</a></td>
+<td class="description"><p class="name"><a href="#setQueryRegistry()">setQueryRegistry</a>(mixed registry)</p><p class="description">Sets the query registry.</p></td>
+</tr>
+</table>
+
+<table class="inherit">
+<tr><th colspan="2">Methods inherited from Doctrine\Doctrine_Configurable</th></tr>
+<tr><td><a href="../doctrine/doctrine_configurable.html#addListener()">addListener</a>, <a href="../doctrine/doctrine_configurable.html#addRecordListener()">addRecordListener</a>, <a href="../doctrine/doctrine_configurable.html#getAttribute()">getAttribute</a>, <a href="../doctrine/doctrine_configurable.html#getAttributes()">getAttributes</a>, <a href="../doctrine/doctrine_configurable.html#getCharset()">getCharset</a>, <a href="../doctrine/doctrine_configurable.html#getCollate()">getCollate</a>, <a href="../doctrine/doctrine_configurable.html#getImpl()">getImpl</a>, <a href="../doctrine/doctrine_configurable.html#getListener()">getListener</a>, <a href="../doctrine/doctrine_configurable.html#getParam()">getParam</a>, <a href="../doctrine/doctrine_configurable.html#getParamNamespaces()">getParamNamespaces</a>, <a href="../doctrine/doctrine_configurable.html#getParams()">getParams</a>, <a href="../doctrine/doctrine_configurable.html#getParent()">getParent</a>, <a href="../doctrine/doctrine_configurable.html#getRecordListener()">getRecordListener</a>, <a href="../doctrine/doctrine_configurable.html#hasImpl()">hasImpl</a>, <a href="../doctrine/doctrine_configurable.html#setAttribute()">setAttribute</a>, <a href="../doctrine/doctrine_configurable.html#setCharset()">setCharset</a>, <a href="../doctrine/doctrine_configurable.html#setCollate()">setCollate</a>, <a href="../doctrine/doctrine_configurable.html#setEventListener()">setEventListener</a>, <a href="../doctrine/doctrine_configurable.html#setImpl()">setImpl</a>, <a href="../doctrine/doctrine_configurable.html#setListener()">setListener</a>, <a href="../doctrine/doctrine_configurable.html#setParam()">setParam</a>, <a href="../doctrine/doctrine_configurable.html#setParent()">setParent</a>, <a href="../doctrine/doctrine_configurable.html#setRecordListener()">setRecordListener</a>, <a href="../doctrine/doctrine_configurable.html#unsetAttribute()">unsetAttribute</a></td></tr></table>
+
+<table class="inherit">
+<tr><th colspan="2">Methods inherited from Doctrine\Doctrine_Locator_Injectable</th></tr>
+<tr><td><a href="../doctrine/doctrine_locator_injectable.html#bind()">bind</a>, <a href="../doctrine/doctrine_locator_injectable.html#getLocator()">getLocator</a>, <a href="../doctrine/doctrine_locator_injectable.html#getNullObject()">getNullObject</a>, <a href="../doctrine/doctrine_locator_injectable.html#initNullObject()">initNullObject</a>, <a href="../doctrine/doctrine_locator_injectable.html#locate()">locate</a>, <a href="../doctrine/doctrine_locator_injectable.html#setLocator()">setLocator</a></td></tr></table>
+
+<h2 id="detail_field">Field Detail</h2>
+<div class="location">/Doctrine/Manager.php at line 45</div>
+<h3 id="_bound">_bound</h3>
+<code class="signature">protected  array $bound                an array containing all components that have a bound connection <strong>$_bound</strong> = array()</code>
+<div class="details">
+<p></p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Manager.php at line 81</div>
+<h3 id="_connectionDrivers">_connectionDrivers</h3>
+<code class="signature">protected  mixed <strong>$_connectionDrivers</strong> = array(...)</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Manager.php at line 40</div>
+<h3 id="_connections">_connections</h3>
+<code class="signature">protected  array $connections          an array containing all the opened connections <strong>$_connections</strong> = array()</code>
+<div class="details">
+<p></p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Manager.php at line 55</div>
+<h3 id="_currIndex">_currIndex</h3>
+<code class="signature">protected  integer $currIndex          the current connection index <strong>$_currIndex</strong></code>
+<div class="details">
+<p></p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Manager.php at line 96</div>
+<h3 id="_extensions">_extensions</h3>
+<code class="signature">protected  mixed <strong>$_extensions</strong> = array()</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Manager.php at line 70</div>
+<h3 id="_hydrators">_hydrators</h3>
+<code class="signature">protected  array                       Array of registered hydrators <strong>$_hydrators</strong> = array(...)</code>
+<div class="details">
+<p></p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Manager.php at line 50</div>
+<h3 id="_index">_index</h3>
+<code class="signature">protected  integer $index              the incremented index <strong>$_index</strong></code>
+<div class="details">
+<p></p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Manager.php at line 105</div>
+<h3 id="_initialized">_initialized</h3>
+<code class="signature">private  mixed <strong>$_initialized</strong> = false</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Manager.php at line 103</div>
+<h3 id="_instance">_instance</h3>
+<code class="signature">protected static  mixed <strong>$_instance</strong></code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Manager.php at line 101</div>
+<h3 id="_loadedValidatorsFromDisk">_loadedValidatorsFromDisk</h3>
+<code class="signature">protected  boolean                     Whether or not the validators from disk have been loaded <strong>$_loadedValidatorsFromDisk</strong> = false</code>
+<div class="details">
+<p></p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Manager.php at line 60</div>
+<h3 id="_queryRegistry">_queryRegistry</h3>
+<code class="signature">protected  Doctrine_Query_Registry     the query registry <strong>$_queryRegistry</strong></code>
+<div class="details">
+<p></p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Manager.php at line 65</div>
+<h3 id="_validators">_validators</h3>
+<code class="signature">protected  array                       Array of registered validators <strong>$_validators</strong> = array()</code>
+<div class="details">
+<p></p></div>
+
+<hr>
+
+<h2 id="detail_constr">Constructor Detail</h2>
+<div class="location">/Doctrine/Manager.php at line 112</div>
+<h3 id="Doctrine_Manager()">Doctrine_Manager</h3>
+<code class="signature">public <strong>Doctrine_Manager</strong>()</code>
+<div class="details">
+<p>constructor</p><p>this is private constructor (use getInstance to get an instance of this class)</p></div>
+
+<hr>
+
+<h2 id="detail_method">Method Detail</h2>
+<div class="location">/Doctrine/Manager.php at line 716</div>
+<h3 id="__toString()">__toString</h3>
+<code class="signature">public  string <strong>__toString</strong>()</code>
+<div class="details">
+<p>Returns a string representation of this object</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Manager.php at line 400</div>
+<h3 id="_buildDsnPartsArray()">_buildDsnPartsArray</h3>
+<code class="signature">protected  array <strong>_buildDsnPartsArray</strong>(string dsn)</code>
+<div class="details">
+<p>Build the blank dsn parts array used with parseDsn()</p><dl>
+<dt>See Also:</dt>
+<dd><a href="../doctrine/doctrine_manager.html#parseDsn()">parseDsn()</a></dd>
+<dt>Returns:</dt>
+<dd>$parts</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Manager.php at line 538</div>
+<h3 id="bindComponent()">bindComponent</h3>
+<code class="signature">public  boolean <strong>bindComponent</strong>(string componentName, string connectionName)</code>
+<div class="details">
+<p>Binds given component to given connection
+this means that when ever the given component uses a connection
+it will be using the bound connection instead of the current connection</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Manager.php at line 577</div>
+<h3 id="closeConnection()">closeConnection</h3>
+<code class="signature">public  void <strong>closeConnection</strong>(<a href="../doctrine/doctrine_connection.html">Doctrine_Connection</a> connection)</code>
+<div class="details">
+<p>Closes the specified connection</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Manager.php at line 261</div>
+<h3 id="connection()">connection</h3>
+<code class="signature">public static  <a href="../doctrine/doctrine_connection.html">Doctrine_Connection</a> <strong>connection</strong>(PDO|Doctrine_Adapter_Interface adapter, string name)</code>
+<div class="details">
+<p>Open a new connection. If the adapter parameter is set this method acts as
+a short cut for Doctrine_Manager::getInstance()->openConnection($adapter, $name);</p><p>if the adapter paramater is not set this method acts as
+a short cut for Doctrine_Manager::getInstance()->getCurrentConnection()</p><dl>
+<dt>Parameters:</dt>
+<dd>adapter - database driver</dd>
+<dd>name - name of the connection, if empty numeric key is used</dd>
+<dt>Throws:</dt>
+<dd>if trying to bind a connection with an existing name</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Manager.php at line 627</div>
+<h3 id="contains()">contains</h3>
+<code class="signature">public  boolean <strong>contains</strong>(mixed key)</code>
+<div class="details">
+<p>Whether or not the manager contains specified connection</p><dl>
+<dt>Parameters:</dt>
+<dd>key - the connection key</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Manager.php at line 637</div>
+<h3 id="count()">count</h3>
+<code class="signature">public  integer <strong>count</strong>()</code>
+<div class="details">
+<p>Returns the number of opened connections</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Manager.php at line 674</div>
+<h3 id="createDatabases()">createDatabases</h3>
+<code class="signature">public  void <strong>createDatabases</strong>(string specifiedConnections)</code>
+<div class="details">
+<p>Creates databases for all existing connections</p><dl>
+<dt>Parameters:</dt>
+<dd>specifiedConnections - Array of connections you wish to create the database for</dd>
+<dt>Todo:</dt>
+<dd>package:dbal</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Manager.php at line 696</div>
+<h3 id="dropDatabases()">dropDatabases</h3>
+<code class="signature">public  void <strong>dropDatabases</strong>(string specifiedConnections)</code>
+<div class="details">
+<p>Drops databases for all existing connections</p><dl>
+<dt>Parameters:</dt>
+<dd>specifiedConnections - Array of connections you wish to drop the database for</dd>
+<dt>Todo:</dt>
+<dd>package:dbal</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Manager.php at line 509</div>
+<h3 id="getConnection()">getConnection</h3>
+<code class="signature">public  <a href="../doctrine/doctrine_connection.html">Doctrine_Connection</a> <strong>getConnection</strong>(string name)</code>
+<div class="details">
+<p>Get the connection instance for the passed name</p><dl>
+<dt>Parameters:</dt>
+<dd>name - name of the connection, if empty numeric key is used</dd>
+<dt>Throws:</dt>
+<dd>if trying to get a non-existent connection</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Manager.php at line 807</div>
+<h3 id="getConnectionDrivers()">getConnectionDrivers</h3>
+<code class="signature">public  array <strong>getConnectionDrivers</strong>()</code>
+<div class="details">
+<p>Get all the available connection drivers</p><dl>
+<dt>Returns:</dt>
+<dd>$connectionDrivers</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Manager.php at line 549</div>
+<h3 id="getConnectionForComponent()">getConnectionForComponent</h3>
+<code class="signature">public  <a href="../doctrine/doctrine_connection.html">Doctrine_Connection</a> <strong>getConnectionForComponent</strong>(string componentName)</code>
+<div class="details">
+<p>Get the connection instance for the specified component</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Manager.php at line 524</div>
+<h3 id="getConnectionName()">getConnectionName</h3>
+<code class="signature">public  string <strong>getConnectionName</strong>(<a href="../doctrine/doctrine_connection.html">Doctrine_Connection</a> conn)</code>
+<div class="details">
+<p>Get the name of the passed connection instance</p><dl>
+<dt>Parameters:</dt>
+<dd>conn - connection object to be searched for</dd>
+<dt>Returns:</dt>
+<dd>the name of the connection</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Manager.php at line 600</div>
+<h3 id="getConnections()">getConnections</h3>
+<code class="signature">public  array <strong>getConnections</strong>()</code>
+<div class="details">
+<p>Returns all opened connections</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Manager.php at line 658</div>
+<h3 id="getCurrentConnection()">getCurrentConnection</h3>
+<code class="signature">public  <a href="../doctrine/doctrine_connection.html">Doctrine_Connection</a> <strong>getCurrentConnection</strong>()</code>
+<div class="details">
+<p>Get the current connection instance</p><dl>
+<dt>Throws:</dt>
+<dd>if there are no open connections</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Manager.php at line 832</div>
+<h3 id="getExtensions()">getExtensions</h3>
+<code class="signature">public  $extensions <strong>getExtensions</strong>()</code>
+<div class="details">
+<p>Get all registered Doctrine extensions</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Manager.php at line 787</div>
+<h3 id="getHydrators()">getHydrators</h3>
+<code class="signature">public  array <strong>getHydrators</strong>()</code>
+<div class="details">
+<p>Get all registered hydrators</p><dl>
+<dt>Returns:</dt>
+<dd>$hydrators</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Manager.php at line 182</div>
+<h3 id="getInstance()">getInstance</h3>
+<code class="signature">public static  <a href="../doctrine/doctrine_manager.html">Doctrine_Manager</a> <strong>getInstance</strong>()</code>
+<div class="details">
+<p>Returns an instance of this class
+(this class uses the singleton pattern)</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Manager.php at line 647</div>
+<h3 id="getIterator()">getIterator</h3>
+<code class="signature">public  ArrayIterator <strong>getIterator</strong>()</code>
+<div class="details">
+<p>Returns an ArrayIterator that iterates through all connections</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Manager.php at line 229</div>
+<h3 id="getQueryRegistry()">getQueryRegistry</h3>
+<code class="signature">public  <a href="../doctrine/doctrine_query_registry.html">Doctrine_Query_Registry</a> <strong>getQueryRegistry</strong>()</code>
+<div class="details">
+<p>Lazy-initializes the query registry object and returns it</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Manager.php at line 730</div>
+<h3 id="getValidators()">getValidators</h3>
+<code class="signature">public  array <strong>getValidators</strong>()</code>
+<div class="details">
+<p>Get available doctrine validators</p><dl>
+<dt>Returns:</dt>
+<dd>$validators</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Manager.php at line 566</div>
+<h3 id="hasConnectionForComponent()">hasConnectionForComponent</h3>
+<code class="signature">public  boolean <strong>hasConnectionForComponent</strong>(string componentName)</code>
+<div class="details">
+<p>Check if a component is bound to a connection</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Manager.php at line 279</div>
+<h3 id="openConnection()">openConnection</h3>
+<code class="signature">public  <a href="../doctrine/doctrine_connection.html">Doctrine_Connection</a> <strong>openConnection</strong>(PDO|Doctrine_Adapter_Interface adapter, string name, mixed setCurrent)</code>
+<div class="details">
+<p>Opens a new connection and saves it to Doctrine_Manager->connections</p><dl>
+<dt>Parameters:</dt>
+<dd>adapter - database driver</dd>
+<dd>name - name of the connection, if empty numeric key is used</dd>
+<dt>Throws:</dt>
+<dd>if trying to bind a connection with an existing name</dd>
+<dd>if trying to open connection for unknown driver</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Manager.php at line 432</div>
+<h3 id="parseDsn()">parseDsn</h3>
+<code class="signature">public  array <strong>parseDsn</strong>(string dsn)</code>
+<div class="details">
+<p>Parse a Doctrine style dsn string in to an array of parts</p><dl>
+<dt>Returns:</dt>
+<dd>Parsed contents of DSN</dd>
+<dt>Todo:</dt>
+<dd>package:dbal</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Manager.php at line 355</div>
+<h3 id="parsePdoDsn()">parsePdoDsn</h3>
+<code class="signature">public  array <strong>parsePdoDsn</strong>(array dsn)</code>
+<div class="details">
+<p>Parse a pdo style dsn in to an array of parts</p><dl>
+<dt>Parameters:</dt>
+<dd>dsn - An array of dsn information</dd>
+<dt>Returns:</dt>
+<dd>The array parsed</dd>
+<dt>Todo:</dt>
+<dd>package:dbal</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Manager.php at line 797</div>
+<h3 id="registerConnectionDriver()">registerConnectionDriver</h3>
+<code class="signature">public  void <strong>registerConnectionDriver</strong>(mixed name, mixed class)</code>
+<div class="details">
+<p>Register a custom connection driver</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Manager.php at line 819</div>
+<h3 id="registerExtension()">registerExtension</h3>
+<code class="signature">public  void <strong>registerExtension</strong>(string name, string path)</code>
+<div class="details">
+<p>Register a Doctrine extension for extensionsAutoload() method</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Manager.php at line 777</div>
+<h3 id="registerHydrator()">registerHydrator</h3>
+<code class="signature">public  void <strong>registerHydrator</strong>(mixed name, mixed class)</code>
+<div class="details">
+<p>Register a new driver for hydration</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Manager.php at line 762</div>
+<h3 id="registerValidators()">registerValidators</h3>
+<code class="signature">public  void <strong>registerValidators</strong>(mixed validators)</code>
+<div class="details">
+<p>Register validators so that Doctrine is aware of them</p><dl>
+<dt>Parameters:</dt>
+<dd>validators - Name of validator or array of validators</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Manager.php at line 208</div>
+<h3 id="reset()">reset</h3>
+<code class="signature">public  void <strong>reset</strong>()</code>
+<div class="details">
+<p>Reset this instance of the manager</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Manager.php at line 195</div>
+<h3 id="resetInstance()">resetInstance</h3>
+<code class="signature">public static  void <strong>resetInstance</strong>()</code>
+<div class="details">
+<p>Reset the internal static instance</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Manager.php at line 612</div>
+<h3 id="setCurrentConnection()">setCurrentConnection</h3>
+<code class="signature">public  void <strong>setCurrentConnection</strong>(mixed key)</code>
+<div class="details">
+<p>Sets the current connection to $key</p><dl>
+<dt>Parameters:</dt>
+<dd>key - the connection key</dd>
+<dt>Throws:</dt>
+<dd>InvalidKeyException</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Manager.php at line 128</div>
+<h3 id="setDefaultAttributes()">setDefaultAttributes</h3>
+<code class="signature">public  boolean <strong>setDefaultAttributes</strong>()</code>
+<div class="details">
+<p>Sets default attributes values.</p><p>This method sets default values for all null attributes of this 
+instance. It is idempotent and can only be called one time. Subsequent 
+calls does not alter the attribute values.</p><dl>
+<dt>Returns:</dt>
+<dd>true if inizialization was executed</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Manager.php at line 242</div>
+<h3 id="setQueryRegistry()">setQueryRegistry</h3>
+<code class="signature">public  <a href="../doctrine/doctrine_manager.html">Doctrine_Manager</a> <strong>setQueryRegistry</strong>(mixed registry)</code>
+<div class="details">
+<p>Sets the query registry</p><dl>
+<dt>Returns:</dt>
+<dd>this object</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="header">
+<h1>Doctrine</h1>
+<ul>
+<li><a href="../overview-summary.html">Overview</a></li>
+<li><a href="../doctrine/package-summary.html">Namespace</a></li>
+<li class="active">Class</li>
+<li><a href="../doctrine/package-tree.html">Tree</a></li>
+<li><a href="../deprecated-list.html">Deprecated</a></li>
+<li><a href="../index-all.html">Index</a></li>
+</ul>
+</div>
+
+<div class="small_links">
+<a href="../index.html" target="_top">Frames</a>
+<a href="../doctrine/doctrine_manager.html" target="_top">No frames</a>
+</div>
+<div class="small_links">
+Summary: <a href="#summary_field">Field</a> | <a href="#summary_method">Method</a> | <a href="#summary_constr">Constr</a>
+Detail: <a href="#detail_field">Field</a> | <a href="#detail_method">Method</a> | <a href="#summary_constr">Constr</a>
+</div>
+<hr>
+
+<p id="footer">This document was generated by <a href="http://peej.github.com/phpdoctor/">PHPDoctor: The PHP Documentation Creator</a></p>
+
+</body>
+
+</html>

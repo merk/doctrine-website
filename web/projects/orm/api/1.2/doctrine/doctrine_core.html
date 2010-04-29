@@ -1,0 +1,3182 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+<head>
+
+<meta name="generator" content="PHPDoctor 2RC4 (http://phpdoctor.sourceforge.net/)">
+<meta name="when" content="Fri, 09 Apr 2010 11:50:25 -0400">
+
+<link rel="stylesheet" type="text/css" href="../stylesheet.css">
+<link rel="start" href="../overview-summary.html">
+
+<title>Doctrine_Core (Doctrine 1.2 ORM)</title>
+
+</head>
+<body id="definition" onload="parent.document.title=document.title;">
+
+<div class="header">
+<h1>Doctrine</h1>
+<ul>
+<li><a href="../overview-summary.html">Overview</a></li>
+<li><a href="../doctrine/package-summary.html">Namespace</a></li>
+<li class="active">Class</li>
+<li><a href="../doctrine/package-tree.html">Tree</a></li>
+<li><a href="../deprecated-list.html">Deprecated</a></li>
+<li><a href="../index-all.html">Index</a></li>
+</ul>
+</div>
+
+<div class="small_links">
+<a href="../index.html" target="_top">Frames</a>
+<a href="../doctrine/doctrine_core.html" target="_top">No frames</a>
+</div>
+<div class="small_links">
+Summary: <a href="#summary_field">Field</a> | <a href="#summary_method">Method</a> | <a href="#summary_constr">Constr</a>
+Detail: <a href="#detail_field">Field</a> | <a href="#detail_method">Method</a> | <a href="#summary_constr">Constr</a>
+</div>
+<hr>
+
+<div class="qualifiedName">Doctrine\Doctrine_Core</div>
+<div class="location">/Doctrine/Core.php at line 33</div>
+
+<h1>Class Doctrine_Core</h1>
+
+<pre class="tree"><strong>Doctrine_Core</strong><br /></pre>
+
+<hr>
+
+<p class="signature">public  class <strong>Doctrine_Core</strong></p>
+
+<div class="comment" id="overview_description"><p>The base core class of Doctrine</p></div>
+
+<dl>
+<dt>Author:</dt>
+<dd>Konsta Vesterinen <kvesteri@cc.hut.fi></dd>
+<dd>Lukas Smith <smith@pooteeweet.org> (PEAR MDB2 library)</dd>
+<dt>License:</dt>
+<dd>http://www.opensource.org/licenses/lgpl-license.php LGPL</dd>
+<dt>See Also:</dt>
+<dd><code>www.doctrine-project.org</code></dd>
+<dt>Since:</dt>
+<dd>1.0</dd>
+<dt>Version:</dt>
+<dd>$Revision: 6483 $</dd>
+</dl>
+<hr>
+
+<table id="summary_field">
+<tr><th colspan="2">Field Summary</th></tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ATTR_AUTOCOMMIT">$ATTR_AUTOCOMMIT</a></p><p class="description">PDO derived attributes.</p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ATTR_AUTOLOAD_TABLE_CLASSES">ATTR_AUTOLOAD_TABLE_CLASSES</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ATTR_AUTO_ACCESSOR_OVERRIDE">ATTR_AUTO_ACCESSOR_OVERRIDE</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ATTR_AUTO_FREE_QUERY_OBJECTS">ATTR_AUTO_FREE_QUERY_OBJECTS</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ATTR_CACHE">ATTR_CACHE</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ATTR_CACHE_LIFESPAN">ATTR_CACHE_LIFESPAN</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ATTR_CASCADE_SAVES">ATTR_CASCADE_SAVES</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ATTR_CASE">ATTR_CASE</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ATTR_CLIENT_VERSION">ATTR_CLIENT_VERSION</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ATTR_CMPNAME_FORMAT">ATTR_CMPNAME_FORMAT</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ATTR_COLLECTION_CLASS">ATTR_COLLECTION_CLASS</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ATTR_COLL_KEY">ATTR_COLL_KEY</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ATTR_COLL_LIMIT">ATTR_COLL_LIMIT</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ATTR_CONNECTION_STATUS">ATTR_CONNECTION_STATUS</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ATTR_CREATE_TABLES">ATTR_CREATE_TABLES</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ATTR_CURSOR">ATTR_CURSOR</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ATTR_CURSOR_NAME">ATTR_CURSOR_NAME</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ATTR_DBNAME_FORMAT">ATTR_DBNAME_FORMAT</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ATTR_DECIMAL_PLACES">ATTR_DECIMAL_PLACES</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ATTR_DEFAULT_COLUMN_OPTIONS">ATTR_DEFAULT_COLUMN_OPTIONS</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ATTR_DEFAULT_IDENTIFIER_OPTIONS">ATTR_DEFAULT_IDENTIFIER_OPTIONS</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ATTR_DEFAULT_PARAM_NAMESPACE">ATTR_DEFAULT_PARAM_NAMESPACE</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ATTR_DEFAULT_SEQUENCE">ATTR_DEFAULT_SEQUENCE</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ATTR_DEFAULT_TABLE_CHARSET">ATTR_DEFAULT_TABLE_CHARSET</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ATTR_DEFAULT_TABLE_COLLATE">ATTR_DEFAULT_TABLE_COLLATE</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ATTR_DEFAULT_TABLE_TYPE">ATTR_DEFAULT_TABLE_TYPE</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ATTR_DEF_TABLESPACE">ATTR_DEF_TABLESPACE</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ATTR_DEF_TEXT_LENGTH">ATTR_DEF_TEXT_LENGTH</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ATTR_DEF_VARCHAR_LENGTH">ATTR_DEF_VARCHAR_LENGTH</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ATTR_DRIVER_NAME">ATTR_DRIVER_NAME</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ATTR_EMULATE_DATABASE">ATTR_EMULATE_DATABASE</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ATTR_ERRMODE">ATTR_ERRMODE</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ATTR_EXPORT">ATTR_EXPORT</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ATTR_FETCHMODE">ATTR_FETCHMODE</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ATTR_FETCH_CATALOG_NAMES">ATTR_FETCH_CATALOG_NAMES</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ATTR_FETCH_TABLE_NAMES">ATTR_FETCH_TABLE_NAMES</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ATTR_FIELD_CASE">ATTR_FIELD_CASE</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ATTR_FKNAME_FORMAT">ATTR_FKNAME_FORMAT</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ATTR_HYDRATE_OVERWRITE">ATTR_HYDRATE_OVERWRITE</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ATTR_IDXNAME_FORMAT">ATTR_IDXNAME_FORMAT</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ATTR_LISTENER">ATTR_LISTENER</a></p><p class="description">Doctrine constants.</p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ATTR_LOAD_REFERENCES">ATTR_LOAD_REFERENCES</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ATTR_MAX_COLUMN_LEN">ATTR_MAX_COLUMN_LEN</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ATTR_MAX_IDENTIFIER_LENGTH">ATTR_MAX_IDENTIFIER_LENGTH</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ATTR_MODEL_CLASS_PREFIX">ATTR_MODEL_CLASS_PREFIX</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ATTR_MODEL_LOADING">ATTR_MODEL_LOADING</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ATTR_NAME_PREFIX">ATTR_NAME_PREFIX</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ATTR_ORACLE_NULLS">ATTR_ORACLE_NULLS</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ATTR_PERSISTENT">ATTR_PERSISTENT</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ATTR_PORTABILITY">ATTR_PORTABILITY</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ATTR_PREFETCH">ATTR_PREFETCH</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ATTR_QUERY_CACHE">ATTR_QUERY_CACHE</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ATTR_QUERY_CACHE_LIFESPAN">ATTR_QUERY_CACHE_LIFESPAN</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ATTR_QUERY_CLASS">ATTR_QUERY_CLASS</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ATTR_QUERY_LIMIT">ATTR_QUERY_LIMIT</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ATTR_QUOTE_IDENTIFIER">ATTR_QUOTE_IDENTIFIER</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ATTR_RECORD_LISTENER">ATTR_RECORD_LISTENER</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ATTR_RECURSIVE_MERGE_FIXTURES">ATTR_RECURSIVE_MERGE_FIXTURES</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ATTR_RESULT_CACHE">ATTR_RESULT_CACHE</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ATTR_RESULT_CACHE_LIFESPAN">ATTR_RESULT_CACHE_LIFESPAN</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ATTR_SEQCOL_NAME">ATTR_SEQCOL_NAME</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ATTR_SEQNAME_FORMAT">ATTR_SEQNAME_FORMAT</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ATTR_SERVER_INFO">ATTR_SERVER_INFO</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ATTR_SERVER_VERSION">ATTR_SERVER_VERSION</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ATTR_STATEMENT_CLASS">ATTR_STATEMENT_CLASS</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ATTR_STRINGIFY_FETCHES">ATTR_STRINGIFY_FETCHES</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ATTR_TABLE_CLASS">ATTR_TABLE_CLASS</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ATTR_TABLE_CLASS_FORMAT">ATTR_TABLE_CLASS_FORMAT</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ATTR_TBLCLASS_FORMAT">ATTR_TBLCLASS_FORMAT</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ATTR_TBLNAME_FORMAT">ATTR_TBLNAME_FORMAT</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ATTR_THROW_EXCEPTIONS">ATTR_THROW_EXCEPTIONS</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ATTR_TIMEOUT">ATTR_TIMEOUT</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ATTR_USE_DQL_CALLBACKS">ATTR_USE_DQL_CALLBACKS</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ATTR_USE_NATIVE_ENUM">ATTR_USE_NATIVE_ENUM</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ATTR_USE_NATIVE_SET">ATTR_USE_NATIVE_SET</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ATTR_VALIDATE">ATTR_VALIDATE</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#CASE_LOWER">CASE_LOWER</a></p><p class="description">PDO derived constants.</p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#CASE_NATURAL">$CASE_NATURAL</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#CASE_UPPER">CASE_UPPER</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#CURSOR_FWDONLY">$CURSOR_FWDONLY</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#CURSOR_SCROLL">CURSOR_SCROLL</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ERR">ERR</a></p><p class="description">ERROR CONSTANTS.</p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ERRMODE_EXCEPTION">ERRMODE_EXCEPTION</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ERRMODE_SILENT">$ERRMODE_SILENT</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ERRMODE_WARNING">ERRMODE_WARNING</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ERR_ACCESS_VIOLATION">ERR_ACCESS_VIOLATION</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ERR_ALREADY_EXISTS">ERR_ALREADY_EXISTS</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ERR_CANNOT_ALTER">ERR_CANNOT_ALTER</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ERR_CANNOT_CREATE">ERR_CANNOT_CREATE</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ERR_CANNOT_DELETE">ERR_CANNOT_DELETE</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ERR_CANNOT_DROP">ERR_CANNOT_DROP</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ERR_CANNOT_REPLACE">ERR_CANNOT_REPLACE</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ERR_CLASS_NAME">ERR_CLASS_NAME</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ERR_CONNECT_FAILED">ERR_CONNECT_FAILED</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ERR_CONSTRAINT">ERR_CONSTRAINT</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ERR_CONSTRAINT_NOT_NULL">ERR_CONSTRAINT_NOT_NULL</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ERR_DEADLOCK">ERR_DEADLOCK</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ERR_DIVZERO">ERR_DIVZERO</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ERR_EXTENSION_NOT_FOUND">ERR_EXTENSION_NOT_FOUND</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ERR_INSUFFICIENT_DATA">ERR_INSUFFICIENT_DATA</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ERR_INVALID">ERR_INVALID</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ERR_INVALID_DATE">ERR_INVALID_DATE</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ERR_INVALID_DSN">ERR_INVALID_DSN</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ERR_INVALID_NUMBER">ERR_INVALID_NUMBER</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ERR_LOADMODULE">ERR_LOADMODULE</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ERR_MANAGER">ERR_MANAGER</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ERR_MANAGER_PARSE">ERR_MANAGER_PARSE</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ERR_MISMATCH">ERR_MISMATCH</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ERR_NEED_MORE_DATA">ERR_NEED_MORE_DATA</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ERR_NODBSELECTED">ERR_NODBSELECTED</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ERR_NOSUCHDB">ERR_NOSUCHDB</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ERR_NOSUCHFIELD">ERR_NOSUCHFIELD</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ERR_NOSUCHTABLE">ERR_NOSUCHTABLE</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ERR_NOT_CAPABLE">ERR_NOT_CAPABLE</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ERR_NOT_FOUND">ERR_NOT_FOUND</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ERR_NOT_LOCKED">ERR_NOT_LOCKED</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ERR_SYNTAX">ERR_SYNTAX</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ERR_TRUNCATED">ERR_TRUNCATED</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ERR_UNSUPPORTED">ERR_UNSUPPORTED</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ERR_VALUE_COUNT_ON_ROW">ERR_VALUE_COUNT_ON_ROW</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#EXPORT_ALL">EXPORT_ALL</a></p><p class="description">EXPORT_ALL.</p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#EXPORT_CONSTRAINTS">EXPORT_CONSTRAINTS</a></p><p class="description">EXPORT_CONSTRAINTS.</p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#EXPORT_NONE">$EXPORT_NONE</a></p><p class="description">EXPORT_NONE.</p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#EXPORT_PLUGINS">EXPORT_PLUGINS</a></p><p class="description">EXPORT_PLUGINS.</p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#EXPORT_TABLES">EXPORT_TABLES</a></p><p class="description">EXPORT_TABLES.</p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#FETCH_ASSOC">FETCH_ASSOC</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#FETCH_BOTH">FETCH_BOTH</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#FETCH_BOUND">FETCH_BOUND</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#FETCH_CLASS">FETCH_CLASS</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#FETCH_CLASSTYPE">FETCH_CLASSTYPE</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#FETCH_COLUMN">FETCH_COLUMN</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#FETCH_FUNC">FETCH_FUNC</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#FETCH_GROUP">FETCH_GROUP</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#FETCH_INTO">FETCH_INTO</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#FETCH_LAZY">FETCH_LAZY</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#FETCH_NAMED">FETCH_NAMED</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#FETCH_NUM">FETCH_NUM</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#FETCH_OBJ">FETCH_OBJ</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#FETCH_ORI_ABS">FETCH_ORI_ABS</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#FETCH_ORI_FIRST">FETCH_ORI_FIRST</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#FETCH_ORI_LAST">FETCH_ORI_LAST</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#FETCH_ORI_NEXT">$FETCH_ORI_NEXT</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#FETCH_ORI_PRIOR">FETCH_ORI_PRIOR</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#FETCH_ORI_REL">FETCH_ORI_REL</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#FETCH_SERIALIZE">FETCH_SERIALIZE</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#FETCH_UNIQUE">FETCH_UNIQUE</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#HYDRATE_ARRAY">HYDRATE_ARRAY</a></p><p class="description">HYDRATE_ARRAY.</p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#HYDRATE_ARRAY_HIERARCHY">HYDRATE_ARRAY_HIERARCHY</a></p><p class="description">HYDRATE_ARRAY_HIERARCHY.</p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#HYDRATE_NONE">HYDRATE_NONE</a></p><p class="description">HYDRATE_NONE.</p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#HYDRATE_ON_DEMAND">HYDRATE_ON_DEMAND</a></p><p class="description">HYDRATE_ON_DEMAND.</p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#HYDRATE_RECORD">HYDRATE_RECORD</a></p><p class="description">HYDRATE_RECORD.</p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#HYDRATE_RECORD_HIERARCHY">HYDRATE_RECORD_HIERARCHY</a></p><p class="description">HYDRATE_RECORD_HIERARCHY.</p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#HYDRATE_SCALAR">HYDRATE_SCALAR</a></p><p class="description">HYDRATE_SCALAR.</p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#HYDRATE_SINGLE_SCALAR">HYDRATE_SINGLE_SCALAR</a></p><p class="description">HYDRATE_SINGLE_SCALAR.</p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#IDENTIFIER_AUTOINC">IDENTIFIER_AUTOINC</a></p><p class="description">IDENTIFIER_AUTOINC.</p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#IDENTIFIER_COMPOSITE">IDENTIFIER_COMPOSITE</a></p><p class="description">IDENTIFIER_COMPOSITE.</p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#IDENTIFIER_NATURAL">IDENTIFIER_NATURAL</a></p><p class="description">IDENTIFIER_NATURAL.</p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#IDENTIFIER_SEQUENCE">IDENTIFIER_SEQUENCE</a></p><p class="description">IDENTIFIER_SEQUENCE.</p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#LIMIT_RECORDS">LIMIT_RECORDS</a></p><p class="description">constant for record limiting.</p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#LIMIT_ROWS">LIMIT_ROWS</a></p><p class="description">constant for row limiting.</p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#LOCK_OPTIMISTIC">$LOCK_OPTIMISTIC</a></p><p class="description">mode for optimistic locking.</p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#LOCK_PESSIMISTIC">LOCK_PESSIMISTIC</a></p><p class="description">mode for pessimistic locking.</p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#MODEL_LOADING_AGGRESSIVE">MODEL_LOADING_AGGRESSIVE</a></p><p class="description">MODEL_LOADING_AGGRESSIVE.</p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#MODEL_LOADING_CONSERVATIVE">MODEL_LOADING_CONSERVATIVE</a></p><p class="description">MODEL_LOADING_CONSERVATIVE.</p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#MODEL_LOADING_PEAR">MODEL_LOADING_PEAR</a></p><p class="description">MODEL_LOADING_PEAR.</p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#NULL_EMPTY_STRING">NULL_EMPTY_STRING</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#NULL_NATURAL">$NULL_NATURAL</a></p></td>
+</tr>
+<tr>
+<td class="type">final  mixed</td>
+<td class="description"><p class="name"><a href="#NULL_TO_STRING">NULL_TO_STRING</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#PARAM_BOOL">PARAM_BOOL</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#PARAM_INPUT_OUTPUT">PARAM_INPUT_OUTPUT</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#PARAM_INT">PARAM_INT</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#PARAM_LOB">PARAM_LOB</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#PARAM_NULL">$PARAM_NULL</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#PARAM_STMT">PARAM_STMT</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#PARAM_STR">PARAM_STR</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#PORTABILITY_ALL">PORTABILITY_ALL</a></p><p class="description">Portability: turn on all portability features..</p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#PORTABILITY_DELETE_COUNT">PORTABILITY_DELETE_COUNT</a></p><p class="description">Portability: force reporting the number of rows deleted..</p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#PORTABILITY_EMPTY_TO_NULL">PORTABILITY_EMPTY_TO_NULL</a></p><p class="description">Portability: convert empty values to null strings in data output by
+query*() and fetch*()..</p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#PORTABILITY_EXPR">PORTABILITY_EXPR</a></p><p class="description">Portability: makes Doctrine_Expression throw exception for unportable RDBMS expressions.</p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#PORTABILITY_FIX_ASSOC_FIELD_NAMES">PORTABILITY_FIX_ASSOC_FIELD_NAMES</a></p><p class="description">Portability: removes database/table qualifiers from associative indexes.</p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#PORTABILITY_FIX_CASE">PORTABILITY_FIX_CASE</a></p><p class="description">Portability: convert names of tables and fields to case defined in the
+"field_case" option when using the query*(), fetch*() methods..</p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#PORTABILITY_NONE">$PORTABILITY_NONE</a></p><p class="description">Portability: turn off all portability features..</p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#PORTABILITY_RTRIM">PORTABILITY_RTRIM</a></p><p class="description">Portability: right trim the data output by query*() and fetch*()..</p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#QUERY_LIMIT_RECORDS">QUERY_LIMIT_RECORDS</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#QUERY_LIMIT_ROWS">QUERY_LIMIT_ROWS</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#VALIDATE_ALL">VALIDATE_ALL</a></p><p class="description">VALIDATE_ALL.</p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#VALIDATE_CONSTRAINTS">VALIDATE_CONSTRAINTS</a></p><p class="description">VALIDATE_CONSTRAINTS.</p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#VALIDATE_LENGTHS">VALIDATE_LENGTHS</a></p><p class="description">VALIDATE_LENGTHS.</p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#VALIDATE_NONE">$VALIDATE_NONE</a></p><p class="description">VALIDATION CONSTANTS.</p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#VALIDATE_TYPES">VALIDATE_TYPES</a></p><p class="description">VALIDATE_TYPES.</p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#VALIDATE_USER">VALIDATE_USER</a></p><p class="description">VALIDATE_USER.</p></td>
+</tr>
+<tr>
+<td class="type">final  str</td>
+<td class="description"><p class="name"><a href="#VERSION">VERSION</a></p><p class="description">VERSION.</p></td>
+</tr>
+<tr>
+<td class="type">private static  boolean $_debug</td>
+<td class="description"><p class="name"><a href="#_debug">$_debug</a></p><p class="description">Debug bool true/false option.</p></td>
+</tr>
+<tr>
+<td class="type">private static  string $extensionsPath</td>
+<td class="description"><p class="name"><a href="#_extensionsPath">$_extensionsPath</a></p><p class="description">Path to the Doctrine extensions directory.</p></td>
+</tr>
+<tr>
+<td class="type">private static  array</td>
+<td class="description"><p class="name"><a href="#_loadedModelFiles">$_loadedModelFiles</a></p><p class="description">Array of all the loaded models and the path to each one for autoloading.</p></td>
+</tr>
+<tr>
+<td class="type">private static  string</td>
+<td class="description"><p class="name"><a href="#_modelsDirectory">$_modelsDirectory</a></p><p class="description">Path to the models directory.</p></td>
+</tr>
+<tr>
+<td class="type">private static  string $path            doctrine root directory</td>
+<td class="description"><p class="name"><a href="#_path">$_path</a></p><p class="description">Path to Doctrine root.</p></td>
+</tr>
+<tr>
+<td class="type">private static  array</td>
+<td class="description"><p class="name"><a href="#_validators">$_validators</a></p><p class="description">Array of all the loaded validators.</p></td>
+</tr>
+</table>
+
+<table id="summary_constr">
+<tr><th colspan="2">Constructor Summary</th></tr>
+<tr>
+<td class="description"><p class="name"><a href="#Doctrine_Core()">Doctrine_Core</a>()</p><p class="description">__construct.</p></td>
+</tr>
+</table>
+
+<table id="summary_method">
+<tr><th colspan="2">Method Summary</th></tr>
+<tr>
+<td class="type">static  boolean</td>
+<td class="description"><p class="name"><a href="#autoload()">autoload</a>(string className)</p><p class="description">simple autoload function
+returns true if the class was loaded, otherwise false.</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#compile()">compile</a>(string target, array includedDrivers)</p><p class="description">Method for making a single file of most used doctrine runtime components
+including the compiled file instead of multiple files (in worst
+cases dozens of files) can improve performance by an order of magnitude.</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#createDatabases()">createDatabases</a>(string specifiedConnections)</p><p class="description">Creates databases for connections.</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#createTablesFromArray()">createTablesFromArray</a>(array array)</p><p class="description">Creates database tables for the models in the supplied array.</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#createTablesFromModels()">createTablesFromModels</a>(string directory)</p><p class="description">Creates database tables for the models in the specified directory.</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#debug()">debug</a>(string bool)</p><p class="description">Turn on/off the debugging setting.</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#dropDatabases()">dropDatabases</a>(string specifiedConnections)</p><p class="description">Drops databases for connections.</p></td>
+</tr>
+<tr>
+<td class="type">static  void|string</td>
+<td class="description"><p class="name"><a href="#dump()">dump</a>(mixed var, boolean output, string indent)</p><p class="description">dumps a given variable.</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#dumpData()">dumpData</a>(string yamlPath, string individualFiles)</p><p class="description">Dump data to a yaml fixtures file.</p></td>
+</tr>
+<tr>
+<td class="type">static  boolean</td>
+<td class="description"><p class="name"><a href="#extensionsAutoload()">extensionsAutoload</a>(string className)</p><p class="description">Load classes from the Doctrine extensions directory/path.</p></td>
+</tr>
+<tr>
+<td class="type">static  array</td>
+<td class="description"><p class="name"><a href="#filterInvalidModels()">filterInvalidModels</a>(mixed classes, classes Array)</p><p class="description">Filter through an array of classes and return all the classes that are valid models.
+</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#generateMigrationClass()">generateMigrationClass</a>(string className, string migrationsPath)</p><p class="description">Generate new migration class skeleton.</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#generateMigrationsFromDb()">generateMigrationsFromDb</a>(string migrationsPath)</p><p class="description">Generate a set of migration classes from an existing database.</p></td>
+</tr>
+<tr>
+<td class="type">static  array</td>
+<td class="description"><p class="name"><a href="#generateMigrationsFromDiff()">generateMigrationsFromDiff</a>(string migrationsPath, string from, string to)</p><p class="description">Generate a set of migration classes by generating differences between two sets
+of schema information.</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#generateMigrationsFromModels()">generateMigrationsFromModels</a>(string migrationsPath, string modelsPath, integer modelLoading)</p><p class="description">Generate a set of migration classes from an existing set of models.</p></td>
+</tr>
+<tr>
+<td class="type">static  boolean</td>
+<td class="description"><p class="name"><a href="#generateModelsFromDb()">generateModelsFromDb</a>(string directory, array connections, array options)</p><p class="description">Method for importing existing schema to Doctrine_Record classes.</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#generateModelsFromYaml()">generateModelsFromYaml</a>(string yamlPath, string directory, array options)</p><p class="description">Generate a yaml schema file from an existing directory of models.</p></td>
+</tr>
+<tr>
+<td class="type">static  array</td>
+<td class="description"><p class="name"><a href="#generateSqlFromArray()">generateSqlFromArray</a>(array array)</p><p class="description">Generate a array of sql for the passed array of models.</p></td>
+</tr>
+<tr>
+<td class="type">static  string</td>
+<td class="description"><p class="name"><a href="#generateSqlFromModels()">generateSqlFromModels</a>(string directory)</p><p class="description">Generate a sql string to create the tables from all loaded models
+or the models found in the passed directory..</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#generateYamlFromDb()">generateYamlFromDb</a>(string yamlPath, array connections, array options)</p><p class="description">Generates models from database to temporary location then uses those models to generate a yaml schema file.
+</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#generateYamlFromModels()">generateYamlFromModels</a>(string yamlPath, string directory)</p><p class="description">Generate yaml schema file for the models in the specified directory.</p></td>
+</tr>
+<tr>
+<td class="type">static  <a href="../doctrine/doctrine_connection.html">Doctrine_Connection</a></td>
+<td class="description"><p class="name"><a href="#getConnectionByTableName()">getConnectionByTableName</a>(string tableName)</p><p class="description">Get the connection object for a table by the actual table name
+FIXME: I think this method is flawed because a individual connections could have the same table name.</p></td>
+</tr>
+<tr>
+<td class="type">static  array</td>
+<td class="description"><p class="name"><a href="#getExtensionsClasses()">getExtensionsClasses</a>()</p><p class="description">Get all the loaded extension classes.</p></td>
+</tr>
+<tr>
+<td class="type">static  string</td>
+<td class="description"><p class="name"><a href="#getExtensionsPath()">getExtensionsPath</a>()</p><p class="description">Get the path to load extension classes from.</p></td>
+</tr>
+<tr>
+<td class="type">static  array</td>
+<td class="description"><p class="name"><a href="#getLoadedModelFiles()">getLoadedModelFiles</a>()</p><p class="description">Returns an array of all the loaded models and the path where each of them exists.</p></td>
+</tr>
+<tr>
+<td class="type">static  array</td>
+<td class="description"><p class="name"><a href="#getLoadedModels()">getLoadedModels</a>(mixed classes, classes Array)</p><p class="description">Get all the loaded models, you can provide an array of classes or it will use get_declared_classes().</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#getModelsDirectory()">getModelsDirectory</a>()</p><p class="description">Get the directory where your models are located for PEAR style naming
+convention autoloading.</p></td>
+</tr>
+<tr>
+<td class="type">static  string</td>
+<td class="description"><p class="name"><a href="#getPath()">getPath</a>()</p><p class="description">Get the root path to Doctrine.</p></td>
+</tr>
+<tr>
+<td class="type">static  <a href="../doctrine/doctrine_table.html">Doctrine_Table</a></td>
+<td class="description"><p class="name"><a href="#getTable()">getTable</a>(string componentName)</p><p class="description">Get the Doctrine_Table object for the passed model.</p></td>
+</tr>
+<tr>
+<td class="type">static  array</td>
+<td class="description"><p class="name"><a href="#initializeModels()">initializeModels</a>(string models)</p><p class="description">Initialize all models so everything is present and loaded in to memory
+This will also inheritently initialize any model behaviors and add
+the models generated by Doctrine generators and add them to the $models
+array.</p></td>
+</tr>
+<tr>
+<td class="type">static  boolean</td>
+<td class="description"><p class="name"><a href="#isValidModelClass()">isValidModelClass</a>(mixed class)</p><p class="description">Checks if what is passed is a valid Doctrine_Record
+Will load class in to memory in order to inflect it and find out information about the class.</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#loadData()">loadData</a>(string yamlPath, string append)</p><p class="description">Load data from a yaml fixtures file.
+</p></td>
+</tr>
+<tr>
+<td class="type">static  null</td>
+<td class="description"><p class="name"><a href="#loadModel()">loadModel</a>(mixed className, mixed path)</p><p class="description">Load an individual model name and path in to the model loading registry.</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#loadModels()">loadModels</a>(string directory, integer modelLoading, string classPrefix)</p><p class="description">Recursively load all models from a directory or array of directories.</p></td>
+</tr>
+<tr>
+<td class="type">static  bool</td>
+<td class="description"><p class="name"><a href="#migrate()">migrate</a>(string migrationsPath, string to)</p><p class="description">Migrate database to specified $to version. </p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#modelsAutoload()">modelsAutoload</a>(mixed className)</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#setExtensionsPath()">setExtensionsPath</a>(string extensionsPath)</p><p class="description">Set the path to autoload extension classes from.</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#setModelsDirectory()">setModelsDirectory</a>(string directory)</p><p class="description">Set the directory where your models are located for PEAR style
+naming convention autoloading..</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#setPath()">setPath</a>(string path)</p><p class="description">Set the path to your core Doctrine libraries.</p></td>
+</tr>
+</table>
+
+<h2 id="detail_field">Field Detail</h2>
+<div class="location">/Doctrine/Core.php at line 130</div>
+<h3 id="ATTR_AUTOCOMMIT">ATTR_AUTOCOMMIT</h3>
+<code class="signature">public final  int <strong>$ATTR_AUTOCOMMIT</strong></code>
+<div class="details">
+<p>PDO derived attributes</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 194</div>
+<h3 id="ATTR_AUTOLOAD_TABLE_CLASSES">ATTR_AUTOLOAD_TABLE_CLASSES</h3>
+<code class="signature">public final  int <strong>ATTR_AUTOLOAD_TABLE_CLASSES</strong> = 160</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 198</div>
+<h3 id="ATTR_AUTO_ACCESSOR_OVERRIDE">ATTR_AUTO_ACCESSOR_OVERRIDE</h3>
+<code class="signature">public final  int <strong>ATTR_AUTO_ACCESSOR_OVERRIDE</strong> = 165</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 199</div>
+<h3 id="ATTR_AUTO_FREE_QUERY_OBJECTS">ATTR_AUTO_FREE_QUERY_OBJECTS</h3>
+<code class="signature">public final  int <strong>ATTR_AUTO_FREE_QUERY_OBJECTS</strong> = 166</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 184</div>
+<h3 id="ATTR_CACHE">ATTR_CACHE</h3>
+<code class="signature">public final  int <strong>ATTR_CACHE</strong> = 150</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 186</div>
+<h3 id="ATTR_CACHE_LIFESPAN">ATTR_CACHE_LIFESPAN</h3>
+<code class="signature">public final  int <strong>ATTR_CACHE_LIFESPAN</strong> = 151</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 206</div>
+<h3 id="ATTR_CASCADE_SAVES">ATTR_CASCADE_SAVES</h3>
+<code class="signature">public final  int <strong>ATTR_CASCADE_SAVES</strong> = 174</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 138</div>
+<h3 id="ATTR_CASE">ATTR_CASE</h3>
+<code class="signature">public final  int <strong>ATTR_CASE</strong> = 8</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 135</div>
+<h3 id="ATTR_CLIENT_VERSION">ATTR_CLIENT_VERSION</h3>
+<code class="signature">public final  int <strong>ATTR_CLIENT_VERSION</strong> = 5</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 159</div>
+<h3 id="ATTR_CMPNAME_FORMAT">ATTR_CMPNAME_FORMAT</h3>
+<code class="signature">public final  int <strong>ATTR_CMPNAME_FORMAT</strong> = 118</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 207</div>
+<h3 id="ATTR_COLLECTION_CLASS">ATTR_COLLECTION_CLASS</h3>
+<code class="signature">public final  int <strong>ATTR_COLLECTION_CLASS</strong> = 175</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 169</div>
+<h3 id="ATTR_COLL_KEY">ATTR_COLL_KEY</h3>
+<code class="signature">public final  int <strong>ATTR_COLL_KEY</strong> = 108</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 182</div>
+<h3 id="ATTR_COLL_LIMIT">ATTR_COLL_LIMIT</h3>
+<code class="signature">public final  int <strong>ATTR_COLL_LIMIT</strong> = 123</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 137</div>
+<h3 id="ATTR_CONNECTION_STATUS">ATTR_CONNECTION_STATUS</h3>
+<code class="signature">public final  int <strong>ATTR_CONNECTION_STATUS</strong> = 7</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 181</div>
+<h3 id="ATTR_CREATE_TABLES">ATTR_CREATE_TABLES</h3>
+<code class="signature">public final  int <strong>ATTR_CREATE_TABLES</strong> = 122</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 140</div>
+<h3 id="ATTR_CURSOR">ATTR_CURSOR</h3>
+<code class="signature">public final  int <strong>ATTR_CURSOR</strong> = 10</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 139</div>
+<h3 id="ATTR_CURSOR_NAME">ATTR_CURSOR_NAME</h3>
+<code class="signature">public final  int <strong>ATTR_CURSOR_NAME</strong> = 9</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 160</div>
+<h3 id="ATTR_DBNAME_FORMAT">ATTR_DBNAME_FORMAT</h3>
+<code class="signature">public final  int <strong>ATTR_DBNAME_FORMAT</strong> = 117</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 165</div>
+<h3 id="ATTR_DECIMAL_PLACES">ATTR_DECIMAL_PLACES</h3>
+<code class="signature">public final  int <strong>ATTR_DECIMAL_PLACES</strong> = 141</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 203</div>
+<h3 id="ATTR_DEFAULT_COLUMN_OPTIONS">ATTR_DEFAULT_COLUMN_OPTIONS</h3>
+<code class="signature">public final  int <strong>ATTR_DEFAULT_COLUMN_OPTIONS</strong> = 170</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 202</div>
+<h3 id="ATTR_DEFAULT_IDENTIFIER_OPTIONS">ATTR_DEFAULT_IDENTIFIER_OPTIONS</h3>
+<code class="signature">public final  int <strong>ATTR_DEFAULT_IDENTIFIER_OPTIONS</strong> = 169</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 191</div>
+<h3 id="ATTR_DEFAULT_PARAM_NAMESPACE">ATTR_DEFAULT_PARAM_NAMESPACE</h3>
+<code class="signature">public final  int <strong>ATTR_DEFAULT_PARAM_NAMESPACE</strong> = 156</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 177</div>
+<h3 id="ATTR_DEFAULT_SEQUENCE">ATTR_DEFAULT_SEQUENCE</h3>
+<code class="signature">public final  int <strong>ATTR_DEFAULT_SEQUENCE</strong> = 133</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 200</div>
+<h3 id="ATTR_DEFAULT_TABLE_CHARSET">ATTR_DEFAULT_TABLE_CHARSET</h3>
+<code class="signature">public final  int <strong>ATTR_DEFAULT_TABLE_CHARSET</strong> = 167</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 201</div>
+<h3 id="ATTR_DEFAULT_TABLE_COLLATE">ATTR_DEFAULT_TABLE_COLLATE</h3>
+<code class="signature">public final  int <strong>ATTR_DEFAULT_TABLE_COLLATE</strong> = 168</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 171</div>
+<h3 id="ATTR_DEFAULT_TABLE_TYPE">ATTR_DEFAULT_TABLE_TYPE</h3>
+<code class="signature">public final  int <strong>ATTR_DEFAULT_TABLE_TYPE</strong> = 112</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 174</div>
+<h3 id="ATTR_DEF_TABLESPACE">ATTR_DEF_TABLESPACE</h3>
+<code class="signature">public final  int <strong>ATTR_DEF_TABLESPACE</strong> = 115</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 172</div>
+<h3 id="ATTR_DEF_TEXT_LENGTH">ATTR_DEF_TEXT_LENGTH</h3>
+<code class="signature">public final  int <strong>ATTR_DEF_TEXT_LENGTH</strong> = 113</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 173</div>
+<h3 id="ATTR_DEF_VARCHAR_LENGTH">ATTR_DEF_VARCHAR_LENGTH</h3>
+<code class="signature">public final  int <strong>ATTR_DEF_VARCHAR_LENGTH</strong> = 114</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 146</div>
+<h3 id="ATTR_DRIVER_NAME">ATTR_DRIVER_NAME</h3>
+<code class="signature">public final  int <strong>ATTR_DRIVER_NAME</strong> = 16</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 175</div>
+<h3 id="ATTR_EMULATE_DATABASE">ATTR_EMULATE_DATABASE</h3>
+<code class="signature">public final  int <strong>ATTR_EMULATE_DATABASE</strong> = 116</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 133</div>
+<h3 id="ATTR_ERRMODE">ATTR_ERRMODE</h3>
+<code class="signature">public final  int <strong>ATTR_ERRMODE</strong> = 3</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 164</div>
+<h3 id="ATTR_EXPORT">ATTR_EXPORT</h3>
+<code class="signature">public final  int <strong>ATTR_EXPORT</strong> = 140</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 179</div>
+<h3 id="ATTR_FETCHMODE">ATTR_FETCHMODE</h3>
+<code class="signature">public final  int <strong>ATTR_FETCHMODE</strong> = 118</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 145</div>
+<h3 id="ATTR_FETCH_CATALOG_NAMES">ATTR_FETCH_CATALOG_NAMES</h3>
+<code class="signature">public final  int <strong>ATTR_FETCH_CATALOG_NAMES</strong> = 15</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 144</div>
+<h3 id="ATTR_FETCH_TABLE_NAMES">ATTR_FETCH_TABLE_NAMES</h3>
+<code class="signature">public final  int <strong>ATTR_FETCH_TABLE_NAMES</strong> = 14</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 155</div>
+<h3 id="ATTR_FIELD_CASE">ATTR_FIELD_CASE</h3>
+<code class="signature">public final  int <strong>ATTR_FIELD_CASE</strong> = 102</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 163</div>
+<h3 id="ATTR_FKNAME_FORMAT">ATTR_FKNAME_FORMAT</h3>
+<code class="signature">public final  int <strong>ATTR_FKNAME_FORMAT</strong> = 171</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 204</div>
+<h3 id="ATTR_HYDRATE_OVERWRITE">ATTR_HYDRATE_OVERWRITE</h3>
+<code class="signature">public final  int <strong>ATTR_HYDRATE_OVERWRITE</strong> = 172</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 156</div>
+<h3 id="ATTR_IDXNAME_FORMAT">ATTR_IDXNAME_FORMAT</h3>
+<code class="signature">public final  int <strong>ATTR_IDXNAME_FORMAT</strong> = 103</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 153</div>
+<h3 id="ATTR_LISTENER">ATTR_LISTENER</h3>
+<code class="signature">public final  int <strong>ATTR_LISTENER</strong> = 100</code>
+<div class="details">
+<p>Doctrine constants</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 188</div>
+<h3 id="ATTR_LOAD_REFERENCES">ATTR_LOAD_REFERENCES</h3>
+<code class="signature">public final  int <strong>ATTR_LOAD_REFERENCES</strong> = 153</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 148</div>
+<h3 id="ATTR_MAX_COLUMN_LEN">ATTR_MAX_COLUMN_LEN</h3>
+<code class="signature">public final  int <strong>ATTR_MAX_COLUMN_LEN</strong> = 18</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 212</div>
+<h3 id="ATTR_MAX_IDENTIFIER_LENGTH">ATTR_MAX_IDENTIFIER_LENGTH</h3>
+<code class="signature">public final  int <strong>ATTR_MAX_IDENTIFIER_LENGTH</strong> = 180</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 210</div>
+<h3 id="ATTR_MODEL_CLASS_PREFIX">ATTR_MODEL_CLASS_PREFIX</h3>
+<code class="signature">public final  int <strong>ATTR_MODEL_CLASS_PREFIX</strong> = 178</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 195</div>
+<h3 id="ATTR_MODEL_LOADING">ATTR_MODEL_LOADING</h3>
+<code class="signature">public final  int <strong>ATTR_MODEL_LOADING</strong> = 161</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 180</div>
+<h3 id="ATTR_NAME_PREFIX">ATTR_NAME_PREFIX</h3>
+<code class="signature">public final  int <strong>ATTR_NAME_PREFIX</strong> = 121</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 141</div>
+<h3 id="ATTR_ORACLE_NULLS">ATTR_ORACLE_NULLS</h3>
+<code class="signature">public final  int <strong>ATTR_ORACLE_NULLS</strong> = 11</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 142</div>
+<h3 id="ATTR_PERSISTENT">ATTR_PERSISTENT</h3>
+<code class="signature">public final  int <strong>ATTR_PERSISTENT</strong> = 12</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 167</div>
+<h3 id="ATTR_PORTABILITY">ATTR_PORTABILITY</h3>
+<code class="signature">public final  int <strong>ATTR_PORTABILITY</strong> = 106</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 131</div>
+<h3 id="ATTR_PREFETCH">ATTR_PREFETCH</h3>
+<code class="signature">public final  int <strong>ATTR_PREFETCH</strong> = 1</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 192</div>
+<h3 id="ATTR_QUERY_CACHE">ATTR_QUERY_CACHE</h3>
+<code class="signature">public final  int <strong>ATTR_QUERY_CACHE</strong> = 157</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 193</div>
+<h3 id="ATTR_QUERY_CACHE_LIFESPAN">ATTR_QUERY_CACHE_LIFESPAN</h3>
+<code class="signature">public final  int <strong>ATTR_QUERY_CACHE_LIFESPAN</strong> = 158</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 205</div>
+<h3 id="ATTR_QUERY_CLASS">ATTR_QUERY_CLASS</h3>
+<code class="signature">public final  int <strong>ATTR_QUERY_CLASS</strong> = 173</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 170</div>
+<h3 id="ATTR_QUERY_LIMIT">ATTR_QUERY_LIMIT</h3>
+<code class="signature">public final  int <strong>ATTR_QUERY_LIMIT</strong> = 109</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 154</div>
+<h3 id="ATTR_QUOTE_IDENTIFIER">ATTR_QUOTE_IDENTIFIER</h3>
+<code class="signature">public final  int <strong>ATTR_QUOTE_IDENTIFIER</strong> = 101</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 189</div>
+<h3 id="ATTR_RECORD_LISTENER">ATTR_RECORD_LISTENER</h3>
+<code class="signature">public final  int <strong>ATTR_RECORD_LISTENER</strong> = 154</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 196</div>
+<h3 id="ATTR_RECURSIVE_MERGE_FIXTURES">ATTR_RECURSIVE_MERGE_FIXTURES</h3>
+<code class="signature">public final  int <strong>ATTR_RECURSIVE_MERGE_FIXTURES</strong> = 162</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 185</div>
+<h3 id="ATTR_RESULT_CACHE">ATTR_RESULT_CACHE</h3>
+<code class="signature">public final  int <strong>ATTR_RESULT_CACHE</strong> = 150</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 187</div>
+<h3 id="ATTR_RESULT_CACHE_LIFESPAN">ATTR_RESULT_CACHE_LIFESPAN</h3>
+<code class="signature">public final  int <strong>ATTR_RESULT_CACHE_LIFESPAN</strong> = 151</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 158</div>
+<h3 id="ATTR_SEQCOL_NAME">ATTR_SEQCOL_NAME</h3>
+<code class="signature">public final  int <strong>ATTR_SEQCOL_NAME</strong> = 105</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 157</div>
+<h3 id="ATTR_SEQNAME_FORMAT">ATTR_SEQNAME_FORMAT</h3>
+<code class="signature">public final  int <strong>ATTR_SEQNAME_FORMAT</strong> = 104</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 136</div>
+<h3 id="ATTR_SERVER_INFO">ATTR_SERVER_INFO</h3>
+<code class="signature">public final  int <strong>ATTR_SERVER_INFO</strong> = 6</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 134</div>
+<h3 id="ATTR_SERVER_VERSION">ATTR_SERVER_VERSION</h3>
+<code class="signature">public final  int <strong>ATTR_SERVER_VERSION</strong> = 4</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 143</div>
+<h3 id="ATTR_STATEMENT_CLASS">ATTR_STATEMENT_CLASS</h3>
+<code class="signature">public final  int <strong>ATTR_STATEMENT_CLASS</strong> = 13</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 147</div>
+<h3 id="ATTR_STRINGIFY_FETCHES">ATTR_STRINGIFY_FETCHES</h3>
+<code class="signature">public final  int <strong>ATTR_STRINGIFY_FETCHES</strong> = 17</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 208</div>
+<h3 id="ATTR_TABLE_CLASS">ATTR_TABLE_CLASS</h3>
+<code class="signature">public final  int <strong>ATTR_TABLE_CLASS</strong> = 176</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 211</div>
+<h3 id="ATTR_TABLE_CLASS_FORMAT">ATTR_TABLE_CLASS_FORMAT</h3>
+<code class="signature">public final  int <strong>ATTR_TABLE_CLASS_FORMAT</strong> = 179</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 161</div>
+<h3 id="ATTR_TBLCLASS_FORMAT">ATTR_TBLCLASS_FORMAT</h3>
+<code class="signature">public final  int <strong>ATTR_TBLCLASS_FORMAT</strong> = 119</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 162</div>
+<h3 id="ATTR_TBLNAME_FORMAT">ATTR_TBLNAME_FORMAT</h3>
+<code class="signature">public final  int <strong>ATTR_TBLNAME_FORMAT</strong> = 120</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 190</div>
+<h3 id="ATTR_THROW_EXCEPTIONS">ATTR_THROW_EXCEPTIONS</h3>
+<code class="signature">public final  int <strong>ATTR_THROW_EXCEPTIONS</strong> = 155</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 132</div>
+<h3 id="ATTR_TIMEOUT">ATTR_TIMEOUT</h3>
+<code class="signature">public final  int <strong>ATTR_TIMEOUT</strong> = 2</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 197</div>
+<h3 id="ATTR_USE_DQL_CALLBACKS">ATTR_USE_DQL_CALLBACKS</h3>
+<code class="signature">public final  int <strong>ATTR_USE_DQL_CALLBACKS</strong> = 164</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 176</div>
+<h3 id="ATTR_USE_NATIVE_ENUM">ATTR_USE_NATIVE_ENUM</h3>
+<code class="signature">public final  int <strong>ATTR_USE_NATIVE_ENUM</strong> = 117</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 209</div>
+<h3 id="ATTR_USE_NATIVE_SET">ATTR_USE_NATIVE_SET</h3>
+<code class="signature">public final  int <strong>ATTR_USE_NATIVE_SET</strong> = 177</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 168</div>
+<h3 id="ATTR_VALIDATE">ATTR_VALIDATE</h3>
+<code class="signature">public final  int <strong>ATTR_VALIDATE</strong> = 107</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 83</div>
+<h3 id="CASE_LOWER">CASE_LOWER</h3>
+<code class="signature">public final  int <strong>CASE_LOWER</strong> = 2</code>
+<div class="details">
+<p>PDO derived constants</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 84</div>
+<h3 id="CASE_NATURAL">CASE_NATURAL</h3>
+<code class="signature">public final  int <strong>$CASE_NATURAL</strong></code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 85</div>
+<h3 id="CASE_UPPER">CASE_UPPER</h3>
+<code class="signature">public final  int <strong>CASE_UPPER</strong> = 1</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 86</div>
+<h3 id="CURSOR_FWDONLY">CURSOR_FWDONLY</h3>
+<code class="signature">public final  int <strong>$CURSOR_FWDONLY</strong></code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 87</div>
+<h3 id="CURSOR_SCROLL">CURSOR_SCROLL</h3>
+<code class="signature">public final  int <strong>CURSOR_SCROLL</strong> = 1</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 43</div>
+<h3 id="ERR">ERR</h3>
+<code class="signature">public final  int <strong>ERR</strong> = -1</code>
+<div class="details">
+<p>ERROR CONSTANTS</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 88</div>
+<h3 id="ERRMODE_EXCEPTION">ERRMODE_EXCEPTION</h3>
+<code class="signature">public final  int <strong>ERRMODE_EXCEPTION</strong> = 2</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 89</div>
+<h3 id="ERRMODE_SILENT">ERRMODE_SILENT</h3>
+<code class="signature">public final  int <strong>$ERRMODE_SILENT</strong></code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 90</div>
+<h3 id="ERRMODE_WARNING">ERRMODE_WARNING</h3>
+<code class="signature">public final  int <strong>ERRMODE_WARNING</strong> = 1</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 69</div>
+<h3 id="ERR_ACCESS_VIOLATION">ERR_ACCESS_VIOLATION</h3>
+<code class="signature">public final  int <strong>ERR_ACCESS_VIOLATION</strong> = -27</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 47</div>
+<h3 id="ERR_ALREADY_EXISTS">ERR_ALREADY_EXISTS</h3>
+<code class="signature">public final  int <strong>ERR_ALREADY_EXISTS</strong> = -5</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 73</div>
+<h3 id="ERR_CANNOT_ALTER">ERR_CANNOT_ALTER</h3>
+<code class="signature">public final  int <strong>ERR_CANNOT_ALTER</strong> = -31</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 57</div>
+<h3 id="ERR_CANNOT_CREATE">ERR_CANNOT_CREATE</h3>
+<code class="signature">public final  int <strong>ERR_CANNOT_CREATE</strong> = -15</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 58</div>
+<h3 id="ERR_CANNOT_DELETE">ERR_CANNOT_DELETE</h3>
+<code class="signature">public final  int <strong>ERR_CANNOT_DELETE</strong> = -16</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 59</div>
+<h3 id="ERR_CANNOT_DROP">ERR_CANNOT_DROP</h3>
+<code class="signature">public final  int <strong>ERR_CANNOT_DROP</strong> = -17</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 70</div>
+<h3 id="ERR_CANNOT_REPLACE">ERR_CANNOT_REPLACE</h3>
+<code class="signature">public final  int <strong>ERR_CANNOT_REPLACE</strong> = -28</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 78</div>
+<h3 id="ERR_CLASS_NAME">ERR_CLASS_NAME</h3>
+<code class="signature">public final  int <strong>ERR_CLASS_NAME</strong> = -36</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 66</div>
+<h3 id="ERR_CONNECT_FAILED">ERR_CONNECT_FAILED</h3>
+<code class="signature">public final  int <strong>ERR_CONNECT_FAILED</strong> = -24</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 45</div>
+<h3 id="ERR_CONSTRAINT">ERR_CONSTRAINT</h3>
+<code class="signature">public final  int <strong>ERR_CONSTRAINT</strong> = -3</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 71</div>
+<h3 id="ERR_CONSTRAINT_NOT_NULL">ERR_CONSTRAINT_NOT_NULL</h3>
+<code class="signature">public final  int <strong>ERR_CONSTRAINT_NOT_NULL</strong> = -29</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 72</div>
+<h3 id="ERR_DEADLOCK">ERR_DEADLOCK</h3>
+<code class="signature">public final  int <strong>ERR_DEADLOCK</strong> = -30</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 55</div>
+<h3 id="ERR_DIVZERO">ERR_DIVZERO</h3>
+<code class="signature">public final  int <strong>ERR_DIVZERO</strong> = -13</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 67</div>
+<h3 id="ERR_EXTENSION_NOT_FOUND">ERR_EXTENSION_NOT_FOUND</h3>
+<code class="signature">public final  int <strong>ERR_EXTENSION_NOT_FOUND</strong> = -25</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 77</div>
+<h3 id="ERR_INSUFFICIENT_DATA">ERR_INSUFFICIENT_DATA</h3>
+<code class="signature">public final  int <strong>ERR_INSUFFICIENT_DATA</strong> = -35</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 50</div>
+<h3 id="ERR_INVALID">ERR_INVALID</h3>
+<code class="signature">public final  int <strong>ERR_INVALID</strong> = -8</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 54</div>
+<h3 id="ERR_INVALID_DATE">ERR_INVALID_DATE</h3>
+<code class="signature">public final  int <strong>ERR_INVALID_DATE</strong> = -12</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 65</div>
+<h3 id="ERR_INVALID_DSN">ERR_INVALID_DSN</h3>
+<code class="signature">public final  int <strong>ERR_INVALID_DSN</strong> = -23</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 53</div>
+<h3 id="ERR_INVALID_NUMBER">ERR_INVALID_NUMBER</h3>
+<code class="signature">public final  int <strong>ERR_INVALID_NUMBER</strong> = -11</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 76</div>
+<h3 id="ERR_LOADMODULE">ERR_LOADMODULE</h3>
+<code class="signature">public final  int <strong>ERR_LOADMODULE</strong> = -34</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 74</div>
+<h3 id="ERR_MANAGER">ERR_MANAGER</h3>
+<code class="signature">public final  int <strong>ERR_MANAGER</strong> = -32</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 75</div>
+<h3 id="ERR_MANAGER_PARSE">ERR_MANAGER_PARSE</h3>
+<code class="signature">public final  int <strong>ERR_MANAGER_PARSE</strong> = -33</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 49</div>
+<h3 id="ERR_MISMATCH">ERR_MISMATCH</h3>
+<code class="signature">public final  int <strong>ERR_MISMATCH</strong> = -7</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 62</div>
+<h3 id="ERR_NEED_MORE_DATA">ERR_NEED_MORE_DATA</h3>
+<code class="signature">public final  int <strong>ERR_NEED_MORE_DATA</strong> = -20</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 56</div>
+<h3 id="ERR_NODBSELECTED">ERR_NODBSELECTED</h3>
+<code class="signature">public final  int <strong>ERR_NODBSELECTED</strong> = -14</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 68</div>
+<h3 id="ERR_NOSUCHDB">ERR_NOSUCHDB</h3>
+<code class="signature">public final  int <strong>ERR_NOSUCHDB</strong> = -26</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 61</div>
+<h3 id="ERR_NOSUCHFIELD">ERR_NOSUCHFIELD</h3>
+<code class="signature">public final  int <strong>ERR_NOSUCHFIELD</strong> = -19</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 60</div>
+<h3 id="ERR_NOSUCHTABLE">ERR_NOSUCHTABLE</h3>
+<code class="signature">public final  int <strong>ERR_NOSUCHTABLE</strong> = -18</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 51</div>
+<h3 id="ERR_NOT_CAPABLE">ERR_NOT_CAPABLE</h3>
+<code class="signature">public final  int <strong>ERR_NOT_CAPABLE</strong> = -9</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 46</div>
+<h3 id="ERR_NOT_FOUND">ERR_NOT_FOUND</h3>
+<code class="signature">public final  int <strong>ERR_NOT_FOUND</strong> = -4</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 63</div>
+<h3 id="ERR_NOT_LOCKED">ERR_NOT_LOCKED</h3>
+<code class="signature">public final  int <strong>ERR_NOT_LOCKED</strong> = -21</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 44</div>
+<h3 id="ERR_SYNTAX">ERR_SYNTAX</h3>
+<code class="signature">public final  int <strong>ERR_SYNTAX</strong> = -2</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 52</div>
+<h3 id="ERR_TRUNCATED">ERR_TRUNCATED</h3>
+<code class="signature">public final  int <strong>ERR_TRUNCATED</strong> = -10</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 48</div>
+<h3 id="ERR_UNSUPPORTED">ERR_UNSUPPORTED</h3>
+<code class="signature">public final  int <strong>ERR_UNSUPPORTED</strong> = -6</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 64</div>
+<h3 id="ERR_VALUE_COUNT_ON_ROW">ERR_VALUE_COUNT_ON_ROW</h3>
+<code class="signature">public final  int <strong>ERR_VALUE_COUNT_ON_ROW</strong> = -22</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 330</div>
+<h3 id="EXPORT_ALL">EXPORT_ALL</h3>
+<code class="signature">public final  int <strong>EXPORT_ALL</strong> = 7</code>
+<div class="details">
+<p>EXPORT_ALL</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 320</div>
+<h3 id="EXPORT_CONSTRAINTS">EXPORT_CONSTRAINTS</h3>
+<code class="signature">public final  int <strong>EXPORT_CONSTRAINTS</strong> = 2</code>
+<div class="details">
+<p>EXPORT_CONSTRAINTS</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 310</div>
+<h3 id="EXPORT_NONE">EXPORT_NONE</h3>
+<code class="signature">public final  int <strong>$EXPORT_NONE</strong></code>
+<div class="details">
+<p>EXPORT_NONE</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 325</div>
+<h3 id="EXPORT_PLUGINS">EXPORT_PLUGINS</h3>
+<code class="signature">public final  int <strong>EXPORT_PLUGINS</strong> = 4</code>
+<div class="details">
+<p>EXPORT_PLUGINS</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 315</div>
+<h3 id="EXPORT_TABLES">EXPORT_TABLES</h3>
+<code class="signature">public final  int <strong>EXPORT_TABLES</strong> = 1</code>
+<div class="details">
+<p>EXPORT_TABLES</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 91</div>
+<h3 id="FETCH_ASSOC">FETCH_ASSOC</h3>
+<code class="signature">public final  int <strong>FETCH_ASSOC</strong> = 2</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 92</div>
+<h3 id="FETCH_BOTH">FETCH_BOTH</h3>
+<code class="signature">public final  int <strong>FETCH_BOTH</strong> = 4</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 93</div>
+<h3 id="FETCH_BOUND">FETCH_BOUND</h3>
+<code class="signature">public final  int <strong>FETCH_BOUND</strong> = 6</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 94</div>
+<h3 id="FETCH_CLASS">FETCH_CLASS</h3>
+<code class="signature">public final  int <strong>FETCH_CLASS</strong> = 8</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 95</div>
+<h3 id="FETCH_CLASSTYPE">FETCH_CLASSTYPE</h3>
+<code class="signature">public final  int <strong>FETCH_CLASSTYPE</strong> = 262144</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 96</div>
+<h3 id="FETCH_COLUMN">FETCH_COLUMN</h3>
+<code class="signature">public final  int <strong>FETCH_COLUMN</strong> = 7</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 97</div>
+<h3 id="FETCH_FUNC">FETCH_FUNC</h3>
+<code class="signature">public final  int <strong>FETCH_FUNC</strong> = 10</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 98</div>
+<h3 id="FETCH_GROUP">FETCH_GROUP</h3>
+<code class="signature">public final  int <strong>FETCH_GROUP</strong> = 65536</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 99</div>
+<h3 id="FETCH_INTO">FETCH_INTO</h3>
+<code class="signature">public final  int <strong>FETCH_INTO</strong> = 9</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 100</div>
+<h3 id="FETCH_LAZY">FETCH_LAZY</h3>
+<code class="signature">public final  int <strong>FETCH_LAZY</strong> = 1</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 101</div>
+<h3 id="FETCH_NAMED">FETCH_NAMED</h3>
+<code class="signature">public final  int <strong>FETCH_NAMED</strong> = 11</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 102</div>
+<h3 id="FETCH_NUM">FETCH_NUM</h3>
+<code class="signature">public final  int <strong>FETCH_NUM</strong> = 3</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 103</div>
+<h3 id="FETCH_OBJ">FETCH_OBJ</h3>
+<code class="signature">public final  int <strong>FETCH_OBJ</strong> = 5</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 104</div>
+<h3 id="FETCH_ORI_ABS">FETCH_ORI_ABS</h3>
+<code class="signature">public final  int <strong>FETCH_ORI_ABS</strong> = 4</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 105</div>
+<h3 id="FETCH_ORI_FIRST">FETCH_ORI_FIRST</h3>
+<code class="signature">public final  int <strong>FETCH_ORI_FIRST</strong> = 2</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 106</div>
+<h3 id="FETCH_ORI_LAST">FETCH_ORI_LAST</h3>
+<code class="signature">public final  int <strong>FETCH_ORI_LAST</strong> = 3</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 107</div>
+<h3 id="FETCH_ORI_NEXT">FETCH_ORI_NEXT</h3>
+<code class="signature">public final  int <strong>$FETCH_ORI_NEXT</strong></code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 108</div>
+<h3 id="FETCH_ORI_PRIOR">FETCH_ORI_PRIOR</h3>
+<code class="signature">public final  int <strong>FETCH_ORI_PRIOR</strong> = 1</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 109</div>
+<h3 id="FETCH_ORI_REL">FETCH_ORI_REL</h3>
+<code class="signature">public final  int <strong>FETCH_ORI_REL</strong> = 5</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 110</div>
+<h3 id="FETCH_SERIALIZE">FETCH_SERIALIZE</h3>
+<code class="signature">public final  int <strong>FETCH_SERIALIZE</strong> = 524288</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 111</div>
+<h3 id="FETCH_UNIQUE">FETCH_UNIQUE</h3>
+<code class="signature">public final  int <strong>FETCH_UNIQUE</strong> = 196608</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 344</div>
+<h3 id="HYDRATE_ARRAY">HYDRATE_ARRAY</h3>
+<code class="signature">public final  int <strong>HYDRATE_ARRAY</strong> = 3</code>
+<div class="details">
+<p>HYDRATE_ARRAY</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 369</div>
+<h3 id="HYDRATE_ARRAY_HIERARCHY">HYDRATE_ARRAY_HIERARCHY</h3>
+<code class="signature">public final  int <strong>HYDRATE_ARRAY_HIERARCHY</strong> = 8</code>
+<div class="details">
+<p>HYDRATE_ARRAY_HIERARCHY</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 349</div>
+<h3 id="HYDRATE_NONE">HYDRATE_NONE</h3>
+<code class="signature">public final  int <strong>HYDRATE_NONE</strong> = 4</code>
+<div class="details">
+<p>HYDRATE_NONE</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 364</div>
+<h3 id="HYDRATE_ON_DEMAND">HYDRATE_ON_DEMAND</h3>
+<code class="signature">public final  int <strong>HYDRATE_ON_DEMAND</strong> = 7</code>
+<div class="details">
+<p>HYDRATE_ON_DEMAND</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 339</div>
+<h3 id="HYDRATE_RECORD">HYDRATE_RECORD</h3>
+<code class="signature">public final  int <strong>HYDRATE_RECORD</strong> = 2</code>
+<div class="details">
+<p>HYDRATE_RECORD</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 374</div>
+<h3 id="HYDRATE_RECORD_HIERARCHY">HYDRATE_RECORD_HIERARCHY</h3>
+<code class="signature">public final  int <strong>HYDRATE_RECORD_HIERARCHY</strong> = 9</code>
+<div class="details">
+<p>HYDRATE_RECORD_HIERARCHY</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 354</div>
+<h3 id="HYDRATE_SCALAR">HYDRATE_SCALAR</h3>
+<code class="signature">public final  int <strong>HYDRATE_SCALAR</strong> = 5</code>
+<div class="details">
+<p>HYDRATE_SCALAR</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 359</div>
+<h3 id="HYDRATE_SINGLE_SCALAR">HYDRATE_SINGLE_SCALAR</h3>
+<code class="signature">public final  int <strong>HYDRATE_SINGLE_SCALAR</strong> = 6</code>
+<div class="details">
+<p>HYDRATE_SINGLE_SCALAR</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 411</div>
+<h3 id="IDENTIFIER_AUTOINC">IDENTIFIER_AUTOINC</h3>
+<code class="signature">public final  int <strong>IDENTIFIER_AUTOINC</strong> = 1</code>
+<div class="details">
+<p>IDENTIFIER_AUTOINC</p><p>constant for auto_increment identifier</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 432</div>
+<h3 id="IDENTIFIER_COMPOSITE">IDENTIFIER_COMPOSITE</h3>
+<code class="signature">public final  int <strong>IDENTIFIER_COMPOSITE</strong> = 4</code>
+<div class="details">
+<p>IDENTIFIER_COMPOSITE</p><p>constant for composite identifier</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 425</div>
+<h3 id="IDENTIFIER_NATURAL">IDENTIFIER_NATURAL</h3>
+<code class="signature">public final  int <strong>IDENTIFIER_NATURAL</strong> = 3</code>
+<div class="details">
+<p>IDENTIFIER_NATURAL</p><p>constant for normal identifier</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 418</div>
+<h3 id="IDENTIFIER_SEQUENCE">IDENTIFIER_SEQUENCE</h3>
+<code class="signature">public final  int <strong>IDENTIFIER_SEQUENCE</strong> = 2</code>
+<div class="details">
+<p>IDENTIFIER_SEQUENCE</p><p>constant for sequence identifier</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 227</div>
+<h3 id="LIMIT_RECORDS">LIMIT_RECORDS</h3>
+<code class="signature">public final  int <strong>LIMIT_RECORDS</strong> = 2</code>
+<div class="details">
+<p>constant for record limiting</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 221</div>
+<h3 id="LIMIT_ROWS">LIMIT_ROWS</h3>
+<code class="signature">public final  int <strong>LIMIT_ROWS</strong> = 1</code>
+<div class="details">
+<p>constant for row limiting</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 296</div>
+<h3 id="LOCK_OPTIMISTIC">LOCK_OPTIMISTIC</h3>
+<code class="signature">public final  int <strong>$LOCK_OPTIMISTIC</strong></code>
+<div class="details">
+<p>mode for optimistic locking</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 301</div>
+<h3 id="LOCK_PESSIMISTIC">LOCK_PESSIMISTIC</h3>
+<code class="signature">public final  int <strong>LOCK_PESSIMISTIC</strong> = 1</code>
+<div class="details">
+<p>mode for pessimistic locking</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 440</div>
+<h3 id="MODEL_LOADING_AGGRESSIVE">MODEL_LOADING_AGGRESSIVE</h3>
+<code class="signature">public final  int <strong>MODEL_LOADING_AGGRESSIVE</strong> = 1</code>
+<div class="details">
+<p>MODEL_LOADING_AGGRESSIVE</p><p>Constant for agressive model loading
+Will require_once() all found model files</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 449</div>
+<h3 id="MODEL_LOADING_CONSERVATIVE">MODEL_LOADING_CONSERVATIVE</h3>
+<code class="signature">public final  int <strong>MODEL_LOADING_CONSERVATIVE</strong> = 2</code>
+<div class="details">
+<p>MODEL_LOADING_CONSERVATIVE</p><p>Constant for conservative model loading
+Will not require_once() found model files inititally instead it will build an array
+and reference it in autoload() when a class is needed it will require_once() it</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 458</div>
+<h3 id="MODEL_LOADING_PEAR">MODEL_LOADING_PEAR</h3>
+<code class="signature">public final  int <strong>MODEL_LOADING_PEAR</strong> = 3</code>
+<div class="details">
+<p>MODEL_LOADING_PEAR</p><p>Constant for pear model loading
+Will simply store the path passed to Doctrine_Core::loadModels() 
+and Doctrine_Core::autoload() will check there</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 112</div>
+<h3 id="NULL_EMPTY_STRING">NULL_EMPTY_STRING</h3>
+<code class="signature">public final  int <strong>NULL_EMPTY_STRING</strong> = 1</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 113</div>
+<h3 id="NULL_NATURAL">NULL_NATURAL</h3>
+<code class="signature">public final  int <strong>$NULL_NATURAL</strong></code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 114</div>
+<h3 id="NULL_TO_STRING">NULL_TO_STRING</h3>
+<code class="signature">public final  mixed <strong>NULL_TO_STRING</strong> = NULL</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 115</div>
+<h3 id="PARAM_BOOL">PARAM_BOOL</h3>
+<code class="signature">public final  int <strong>PARAM_BOOL</strong> = 5</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 116</div>
+<h3 id="PARAM_INPUT_OUTPUT">PARAM_INPUT_OUTPUT</h3>
+<code class="signature">public final  int <strong>PARAM_INPUT_OUTPUT</strong> = -2147483648</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 117</div>
+<h3 id="PARAM_INT">PARAM_INT</h3>
+<code class="signature">public final  int <strong>PARAM_INT</strong> = 1</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 118</div>
+<h3 id="PARAM_LOB">PARAM_LOB</h3>
+<code class="signature">public final  int <strong>PARAM_LOB</strong> = 3</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 119</div>
+<h3 id="PARAM_NULL">PARAM_NULL</h3>
+<code class="signature">public final  int <strong>$PARAM_NULL</strong></code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 120</div>
+<h3 id="PARAM_STMT">PARAM_STMT</h3>
+<code class="signature">public final  int <strong>PARAM_STMT</strong> = 4</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 121</div>
+<h3 id="PARAM_STR">PARAM_STR</h3>
+<code class="signature">public final  int <strong>PARAM_STR</strong> = 2</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 287</div>
+<h3 id="PORTABILITY_ALL">PORTABILITY_ALL</h3>
+<code class="signature">public final  int <strong>PORTABILITY_ALL</strong> = 63</code>
+<div class="details">
+<p>Portability: turn on all portability features.</p><dl>
+<dt>See Also:</dt>
+<dd>self::ATTR_PORTABILITY</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 262</div>
+<h3 id="PORTABILITY_DELETE_COUNT">PORTABILITY_DELETE_COUNT</h3>
+<code class="signature">public final  int <strong>PORTABILITY_DELETE_COUNT</strong> = 4</code>
+<div class="details">
+<p>Portability: force reporting the number of rows deleted.</p><dl>
+<dt>See Also:</dt>
+<dd>self::ATTR_PORTABILITY</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 269</div>
+<h3 id="PORTABILITY_EMPTY_TO_NULL">PORTABILITY_EMPTY_TO_NULL</h3>
+<code class="signature">public final  int <strong>PORTABILITY_EMPTY_TO_NULL</strong> = 8</code>
+<div class="details">
+<p>Portability: convert empty values to null strings in data output by
+query*() and fetch*().</p><dl>
+<dt>See Also:</dt>
+<dd>self::ATTR_PORTABILITY</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 281</div>
+<h3 id="PORTABILITY_EXPR">PORTABILITY_EXPR</h3>
+<code class="signature">public final  int <strong>PORTABILITY_EXPR</strong> = 32</code>
+<div class="details">
+<p>Portability: makes Doctrine_Expression throw exception for unportable RDBMS expressions</p><dl>
+<dt>See Also:</dt>
+<dd>self::ATTR_PORTABILITY</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 275</div>
+<h3 id="PORTABILITY_FIX_ASSOC_FIELD_NAMES">PORTABILITY_FIX_ASSOC_FIELD_NAMES</h3>
+<code class="signature">public final  int <strong>PORTABILITY_FIX_ASSOC_FIELD_NAMES</strong> = 16</code>
+<div class="details">
+<p>Portability: removes database/table qualifiers from associative indexes</p><dl>
+<dt>See Also:</dt>
+<dd>self::ATTR_PORTABILITY</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 250</div>
+<h3 id="PORTABILITY_FIX_CASE">PORTABILITY_FIX_CASE</h3>
+<code class="signature">public final  int <strong>PORTABILITY_FIX_CASE</strong> = 1</code>
+<div class="details">
+<p>Portability: convert names of tables and fields to case defined in the
+"field_case" option when using the query*(), fetch*() methods.</p><dl>
+<dt>See Also:</dt>
+<dd>self::ATTR_PORTABILITY</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 243</div>
+<h3 id="PORTABILITY_NONE">PORTABILITY_NONE</h3>
+<code class="signature">public final  int <strong>$PORTABILITY_NONE</strong></code>
+<div class="details">
+<p>Portability: turn off all portability features.</p><dl>
+<dt>See Also:</dt>
+<dd>self::ATTR_PORTABILITY</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 256</div>
+<h3 id="PORTABILITY_RTRIM">PORTABILITY_RTRIM</h3>
+<code class="signature">public final  int <strong>PORTABILITY_RTRIM</strong> = 2</code>
+<div class="details">
+<p>Portability: right trim the data output by query*() and fetch*().</p><dl>
+<dt>See Also:</dt>
+<dd>self::ATTR_PORTABILITY</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 228</div>
+<h3 id="QUERY_LIMIT_RECORDS">QUERY_LIMIT_RECORDS</h3>
+<code class="signature">public final  int <strong>QUERY_LIMIT_RECORDS</strong> = 2</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 222</div>
+<h3 id="QUERY_LIMIT_ROWS">QUERY_LIMIT_ROWS</h3>
+<code class="signature">public final  int <strong>QUERY_LIMIT_ROWS</strong> = 1</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 399</div>
+<h3 id="VALIDATE_ALL">VALIDATE_ALL</h3>
+<code class="signature">public final  int <strong>VALIDATE_ALL</strong> = 7</code>
+<div class="details">
+<p>VALIDATE_ALL</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 394</div>
+<h3 id="VALIDATE_CONSTRAINTS">VALIDATE_CONSTRAINTS</h3>
+<code class="signature">public final  int <strong>VALIDATE_CONSTRAINTS</strong> = 4</code>
+<div class="details">
+<p>VALIDATE_CONSTRAINTS</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 384</div>
+<h3 id="VALIDATE_LENGTHS">VALIDATE_LENGTHS</h3>
+<code class="signature">public final  int <strong>VALIDATE_LENGTHS</strong> = 1</code>
+<div class="details">
+<p>VALIDATE_LENGTHS</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 379</div>
+<h3 id="VALIDATE_NONE">VALIDATE_NONE</h3>
+<code class="signature">public final  int <strong>$VALIDATE_NONE</strong></code>
+<div class="details">
+<p>VALIDATION CONSTANTS</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 389</div>
+<h3 id="VALIDATE_TYPES">VALIDATE_TYPES</h3>
+<code class="signature">public final  int <strong>VALIDATE_TYPES</strong> = 2</code>
+<div class="details">
+<p>VALIDATE_TYPES</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 404</div>
+<h3 id="VALIDATE_USER">VALIDATE_USER</h3>
+<code class="signature">public final  int <strong>VALIDATE_USER</strong> = 8</code>
+<div class="details">
+<p>VALIDATE_USER</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 38</div>
+<h3 id="VERSION">VERSION</h3>
+<code class="signature">public final  str <strong>VERSION</strong> = '1.2.2'</code>
+<div class="details">
+<p>VERSION</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 479</div>
+<h3 id="_debug">_debug</h3>
+<code class="signature">private static  boolean $_debug <strong>$_debug</strong> = false</code>
+<div class="details">
+<p>Debug bool true/false option</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 472</div>
+<h3 id="_extensionsPath">_extensionsPath</h3>
+<code class="signature">private static  string $extensionsPath <strong>$_extensionsPath</strong></code>
+<div class="details">
+<p>Path to the Doctrine extensions directory</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 486</div>
+<h3 id="_loadedModelFiles">_loadedModelFiles</h3>
+<code class="signature">private static  array <strong>$_loadedModelFiles</strong> = array()</code>
+<div class="details">
+<p>Array of all the loaded models and the path to each one for autoloading</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 500</div>
+<h3 id="_modelsDirectory">_modelsDirectory</h3>
+<code class="signature">private static  string <strong>$_modelsDirectory</strong></code>
+<div class="details">
+<p>Path to the models directory</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 465</div>
+<h3 id="_path">_path</h3>
+<code class="signature">private static  string $path            doctrine root directory <strong>$_path</strong></code>
+<div class="details">
+<p>Path to Doctrine root</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 493</div>
+<h3 id="_validators">_validators</h3>
+<code class="signature">private static  array <strong>$_validators</strong> = array()</code>
+<div class="details">
+<p>Array of all the loaded validators</p></div>
+
+<hr>
+
+<h2 id="detail_constr">Constructor Detail</h2>
+<div class="location">/Doctrine/Core.php at line 508</div>
+<h3 id="Doctrine_Core()">Doctrine_Core</h3>
+<code class="signature">public <strong>Doctrine_Core</strong>()</code>
+<div class="details">
+<p>__construct</p><dl>
+<dt>Throws:</dt>
+<dd>Doctrine_Exception</dd>
+</dl>
+</div>
+
+<hr>
+
+<h2 id="detail_method">Method Detail</h2>
+<div class="location">/Doctrine/Core.php at line 1120</div>
+<h3 id="autoload()">autoload</h3>
+<code class="signature">public static  boolean <strong>autoload</strong>(string className)</code>
+<div class="details">
+<p>simple autoload function
+returns true if the class was loaded, otherwise false</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 1108</div>
+<h3 id="compile()">compile</h3>
+<code class="signature">public static  void <strong>compile</strong>(string target, array includedDrivers)</code>
+<div class="details">
+<p>Method for making a single file of most used doctrine runtime components
+including the compiled file instead of multiple files (in worst
+cases dozens of files) can improve performance by an order of magnitude</p><dl>
+<dt>Throws:</dt>
+<dd>Doctrine_Exception</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 969</div>
+<h3 id="createDatabases()">createDatabases</h3>
+<code class="signature">public static  void <strong>createDatabases</strong>(string specifiedConnections)</code>
+<div class="details">
+<p>Creates databases for connections</p><dl>
+<dt>Parameters:</dt>
+<dd>specifiedConnections - Array of connections you wish to create the database for</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 913</div>
+<h3 id="createTablesFromArray()">createTablesFromArray</h3>
+<code class="signature">public static  void <strong>createTablesFromArray</strong>(array array)</code>
+<div class="details">
+<p>Creates database tables for the models in the supplied array</p><dl>
+<dt>Parameters:</dt>
+<dd>array - An array of models to be exported</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 902</div>
+<h3 id="createTablesFromModels()">createTablesFromModels</h3>
+<code class="signature">public static  void <strong>createTablesFromModels</strong>(string directory)</code>
+<div class="details">
+<p>Creates database tables for the models in the specified directory</p><dl>
+<dt>Parameters:</dt>
+<dd>directory - Directory containing your models</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 529</div>
+<h3 id="debug()">debug</h3>
+<code class="signature">public static  void <strong>debug</strong>(string bool)</code>
+<div class="details">
+<p>Turn on/off the debugging setting</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 980</div>
+<h3 id="dropDatabases()">dropDatabases</h3>
+<code class="signature">public static  void <strong>dropDatabases</strong>(string specifiedConnections)</code>
+<div class="details">
+<p>Drops databases for connections</p><dl>
+<dt>Parameters:</dt>
+<dd>specifiedConnections - Array of connections you wish to drop the database for</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 1206</div>
+<h3 id="dump()">dump</h3>
+<code class="signature">public static  void|string <strong>dump</strong>(mixed var, boolean output, string indent)</code>
+<div class="details">
+<p>dumps a given variable</p><dl>
+<dt>Parameters:</dt>
+<dd>var - a variable of any type</dd>
+<dd>output - whether to output the content</dd>
+<dd>indent - indention string</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 992</div>
+<h3 id="dumpData()">dumpData</h3>
+<code class="signature">public static  void <strong>dumpData</strong>(string yamlPath, string individualFiles)</code>
+<div class="details">
+<p>Dump data to a yaml fixtures file</p><dl>
+<dt>Parameters:</dt>
+<dd>yamlPath - Path to write the yaml data fixtures to</dd>
+<dd>individualFiles - Whether or not to dump data to individual fixtures files</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 1176</div>
+<h3 id="extensionsAutoload()">extensionsAutoload</h3>
+<code class="signature">public static  boolean <strong>extensionsAutoload</strong>(string className)</code>
+<div class="details">
+<p>Load classes from the Doctrine extensions directory/path</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 772</div>
+<h3 id="filterInvalidModels()">filterInvalidModels</h3>
+<code class="signature">public static  array <strong>filterInvalidModels</strong>(mixed classes, classes Array)</code>
+<div class="details">
+<p>Filter through an array of classes and return all the classes that are valid models.
+This will inflect the class, causing it to be loaded in to memory.</p><dl>
+<dt>Parameters:</dt>
+<dd>Array - of classes to filter through, otherwise uses get_declared_classes()</dd>
+<dt>Returns:</dt>
+<dd>$loadedModels</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 1035</div>
+<h3 id="generateMigrationClass()">generateMigrationClass</h3>
+<code class="signature">public static  void <strong>generateMigrationClass</strong>(string className, string migrationsPath)</code>
+<div class="details">
+<p>Generate new migration class skeleton</p><dl>
+<dt>Parameters:</dt>
+<dd>className - Name of the Migration class to generate</dd>
+<dd>migrationsPath - Path to directory which contains your migration classes</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 1049</div>
+<h3 id="generateMigrationsFromDb()">generateMigrationsFromDb</h3>
+<code class="signature">public static  void <strong>generateMigrationsFromDb</strong>(string migrationsPath)</code>
+<div class="details">
+<p>Generate a set of migration classes from an existing database</p><dl>
+<dt>Throws:</dt>
+<dd>Doctrine_Migration_Exception</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 1080</div>
+<h3 id="generateMigrationsFromDiff()">generateMigrationsFromDiff</h3>
+<code class="signature">public static  array <strong>generateMigrationsFromDiff</strong>(string migrationsPath, string from, string to)</code>
+<div class="details">
+<p>Generate a set of migration classes by generating differences between two sets
+of schema information</p><dl>
+<dt>Parameters:</dt>
+<dd>migrationsPath - Path to your Doctrine migration classes</dd>
+<dd>from - From schema information</dd>
+<dd>to - To schema information</dd>
+<dt>Returns:</dt>
+<dd>$changes</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 1064</div>
+<h3 id="generateMigrationsFromModels()">generateMigrationsFromModels</h3>
+<code class="signature">public static  void <strong>generateMigrationsFromModels</strong>(string migrationsPath, string modelsPath, integer modelLoading)</code>
+<div class="details">
+<p>Generate a set of migration classes from an existing set of models</p><dl>
+<dt>Parameters:</dt>
+<dd>migrationsPath - Path to your Doctrine migration classes</dd>
+<dd>modelsPath - Path to your Doctrine model classes</dd>
+<dd>modelLoading - Style of model loading to use for loading the models in order to generate migrations</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 846</div>
+<h3 id="generateModelsFromDb()">generateModelsFromDb</h3>
+<code class="signature">public static  boolean <strong>generateModelsFromDb</strong>(string directory, array connections, array options)</code>
+<div class="details">
+<p>Method for importing existing schema to Doctrine_Record classes</p><dl>
+<dt>Parameters:</dt>
+<dd>directory - Directory to write your models to</dd>
+<dd>connections - Array of connection names to generate models for</dd>
+<dd>options - Array of options</dd>
+<dt>Throws:</dt>
+<dd>Exception</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 888</div>
+<h3 id="generateModelsFromYaml()">generateModelsFromYaml</h3>
+<code class="signature">public static  void <strong>generateModelsFromYaml</strong>(string yamlPath, string directory, array options)</code>
+<div class="details">
+<p>Generate a yaml schema file from an existing directory of models</p><dl>
+<dt>Parameters:</dt>
+<dd>yamlPath - Path to your yaml schema files</dd>
+<dd>directory - Directory to generate your models in</dd>
+<dd>options - Array of options to pass to the schema importer</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 924</div>
+<h3 id="generateSqlFromArray()">generateSqlFromArray</h3>
+<code class="signature">public static  array <strong>generateSqlFromArray</strong>(array array)</code>
+<div class="details">
+<p>Generate a array of sql for the passed array of models</p><dl>
+<dt>Returns:</dt>
+<dd>$sql</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 936</div>
+<h3 id="generateSqlFromModels()">generateSqlFromModels</h3>
+<code class="signature">public static  string <strong>generateSqlFromModels</strong>(string directory)</code>
+<div class="details">
+<p>Generate a sql string to create the tables from all loaded models
+or the models found in the passed directory.</p><dl>
+<dt>Returns:</dt>
+<dd>$build String of sql queries. One query per line</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 860</div>
+<h3 id="generateYamlFromDb()">generateYamlFromDb</h3>
+<code class="signature">public static  void <strong>generateYamlFromDb</strong>(string yamlPath, array connections, array options)</code>
+<div class="details">
+<p>Generates models from database to temporary location then uses those models to generate a yaml schema file.
+This should probably be fixed. We should write something to generate a yaml schema file directly from the database.</p><dl>
+<dt>Parameters:</dt>
+<dd>yamlPath - Path to write oyur yaml schema file to</dd>
+<dd>connections - Array of connection names to generate yaml for</dd>
+<dd>options - Array of options</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 956</div>
+<h3 id="generateYamlFromModels()">generateYamlFromModels</h3>
+<code class="signature">public static  void <strong>generateYamlFromModels</strong>(string yamlPath, string directory)</code>
+<div class="details">
+<p>Generate yaml schema file for the models in the specified directory</p><dl>
+<dt>Parameters:</dt>
+<dd>yamlPath - Path to your yaml schema files</dd>
+<dd>directory - Directory to generate your models in</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 822</div>
+<h3 id="getConnectionByTableName()">getConnectionByTableName</h3>
+<code class="signature">public static  <a href="../doctrine/doctrine_connection.html">Doctrine_Connection</a> <strong>getConnectionByTableName</strong>(string tableName)</code>
+<div class="details">
+<p>Get the connection object for a table by the actual table name
+FIXME: I think this method is flawed because a individual connections could have the same table name</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 589</div>
+<h3 id="getExtensionsClasses()">getExtensionsClasses</h3>
+<code class="signature">public static  array <strong>getExtensionsClasses</strong>()</code>
+<div class="details">
+<p>Get all the loaded extension classes</p><dl>
+<dt>Returns:</dt>
+<dd>$extensionClasses</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 579</div>
+<h3 id="getExtensionsPath()">getExtensionsPath</h3>
+<code class="signature">public static  string <strong>getExtensionsPath</strong>()</code>
+<div class="details">
+<p>Get the path to load extension classes from</p><dl>
+<dt>Returns:</dt>
+<dd>$extensionsPath</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 518</div>
+<h3 id="getLoadedModelFiles()">getLoadedModelFiles</h3>
+<code class="signature">public static  array <strong>getLoadedModelFiles</strong>()</code>
+<div class="details">
+<p>Returns an array of all the loaded models and the path where each of them exists</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 723</div>
+<h3 id="getLoadedModels()">getLoadedModels</h3>
+<code class="signature">public static  array <strong>getLoadedModels</strong>(mixed classes, classes Array)</code>
+<div class="details">
+<p>Get all the loaded models, you can provide an array of classes or it will use get_declared_classes()</p><p>Will filter through an array of classes and return the Doctrine_Records out of them.
+If you do not specify $classes it will return all of the currently loaded Doctrine_Records</p><dl>
+<dt>Parameters:</dt>
+<dd>Array - of classes to filter through, otherwise uses get_declared_classes()</dd>
+<dt>Returns:</dt>
+<dd>$loadedModels</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 623</div>
+<h3 id="getModelsDirectory()">getModelsDirectory</h3>
+<code class="signature">public static  void <strong>getModelsDirectory</strong>()</code>
+<div class="details">
+<p>Get the directory where your models are located for PEAR style naming
+convention autoloading</p><dl>
+<dt>Author:</dt>
+<dd>Jonathan Wage</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 554</div>
+<h3 id="getPath()">getPath</h3>
+<code class="signature">public static  string <strong>getPath</strong>()</code>
+<div class="details">
+<p>Get the root path to Doctrine</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 1093</div>
+<h3 id="getTable()">getTable</h3>
+<code class="signature">public static  <a href="../doctrine/doctrine_table.html">Doctrine_Table</a> <strong>getTable</strong>(string componentName)</code>
+<div class="details">
+<p>Get the Doctrine_Table object for the passed model</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 742</div>
+<h3 id="initializeModels()">initializeModels</h3>
+<code class="signature">public static  array <strong>initializeModels</strong>(string models)</code>
+<div class="details">
+<p>Initialize all models so everything is present and loaded in to memory
+This will also inheritently initialize any model behaviors and add
+the models generated by Doctrine generators and add them to the $models
+array</p><dl>
+<dt>Returns:</dt>
+<dd>$models</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 792</div>
+<h3 id="isValidModelClass()">isValidModelClass</h3>
+<code class="signature">public static  boolean <strong>isValidModelClass</strong>(mixed class)</code>
+<div class="details">
+<p>Checks if what is passed is a valid Doctrine_Record
+Will load class in to memory in order to inflect it and find out information about the class</p><dl>
+<dt>Parameters:</dt>
+<dd>class - Can be a string named after the class, an instance of the class, or an instance of the class reflected</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 1007</div>
+<h3 id="loadData()">loadData</h3>
+<code class="signature">public static  void <strong>loadData</strong>(string yamlPath, string append)</code>
+<div class="details">
+<p>Load data from a yaml fixtures file.
+The output of dumpData can be fed to loadData</p><dl>
+<dt>Parameters:</dt>
+<dd>yamlPath - Path to your yaml data fixtures</dd>
+<dd>append - Whether or not to append the data</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 599</div>
+<h3 id="loadModel()">loadModel</h3>
+<code class="signature">public static  null <strong>loadModel</strong>(mixed className, mixed path)</code>
+<div class="details">
+<p>Load an individual model name and path in to the model loading registry</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 636</div>
+<h3 id="loadModels()">loadModels</h3>
+<code class="signature">public static  void <strong>loadModels</strong>(string directory, integer modelLoading, string classPrefix)</code>
+<div class="details">
+<p>Recursively load all models from a directory or array of directories</p><dl>
+<dt>Parameters:</dt>
+<dd>directory - Path to directory of models or array of directory paths</dd>
+<dd>modelLoading - Pass value of Doctrine_Core::ATTR_MODEL_LOADING to force a certain style of model loading Allowed Doctrine_Core::MODEL_LOADING_AGGRESSIVE(default) or Doctrine_Core::MODEL_LOADING_CONSERVATIVE</dd>
+<dd>classPrefix - The class prefix of the models to load. This is useful if the class name and file name are not the same</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 1022</div>
+<h3 id="migrate()">migrate</h3>
+<code class="signature">public static  bool <strong>migrate</strong>(string migrationsPath, string to)</code>
+<div class="details">
+<p>Migrate database to specified $to version. Migrates from current to latest if you do not specify.</p><dl>
+<dt>Parameters:</dt>
+<dd>migrationsPath - Path to migrations directory which contains your migration classes</dd>
+<dd>to - Version you wish to migrate to.</dd>
+<dt>Returns:</dt>
+<dd>true</dd>
+<dt>Throws:</dt>
+<dd>Doctrine_Migration_Exception</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 1143</div>
+<h3 id="modelsAutoload()">modelsAutoload</h3>
+<code class="signature">public static  void <strong>modelsAutoload</strong>(mixed className)</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 569</div>
+<h3 id="setExtensionsPath()">setExtensionsPath</h3>
+<code class="signature">public static  void <strong>setExtensionsPath</strong>(string extensionsPath)</code>
+<div class="details">
+<p>Set the path to autoload extension classes from</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 611</div>
+<h3 id="setModelsDirectory()">setModelsDirectory</h3>
+<code class="signature">public static  void <strong>setModelsDirectory</strong>(string directory)</code>
+<div class="details">
+<p>Set the directory where your models are located for PEAR style
+naming convention autoloading.</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Core.php at line 544</div>
+<h3 id="setPath()">setPath</h3>
+<code class="signature">public static  void <strong>setPath</strong>(string path)</code>
+<div class="details">
+<p>Set the path to your core Doctrine libraries</p><dl>
+<dt>Parameters:</dt>
+<dd>path - The path to your Doctrine libraries</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="header">
+<h1>Doctrine</h1>
+<ul>
+<li><a href="../overview-summary.html">Overview</a></li>
+<li><a href="../doctrine/package-summary.html">Namespace</a></li>
+<li class="active">Class</li>
+<li><a href="../doctrine/package-tree.html">Tree</a></li>
+<li><a href="../deprecated-list.html">Deprecated</a></li>
+<li><a href="../index-all.html">Index</a></li>
+</ul>
+</div>
+
+<div class="small_links">
+<a href="../index.html" target="_top">Frames</a>
+<a href="../doctrine/doctrine_core.html" target="_top">No frames</a>
+</div>
+<div class="small_links">
+Summary: <a href="#summary_field">Field</a> | <a href="#summary_method">Method</a> | <a href="#summary_constr">Constr</a>
+Detail: <a href="#detail_field">Field</a> | <a href="#detail_method">Method</a> | <a href="#summary_constr">Constr</a>
+</div>
+<hr>
+
+<p id="footer">This document was generated by <a href="http://peej.github.com/phpdoctor/">PHPDoctor: The PHP Documentation Creator</a></p>
+
+</body>
+
+</html>

@@ -1,0 +1,908 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+<head>
+
+<meta name="generator" content="PHPDoctor 2RC4 (http://phpdoctor.sourceforge.net/)">
+<meta name="when" content="Fri, 09 Apr 2010 11:50:24 -0400">
+
+<link rel="stylesheet" type="text/css" href="../stylesheet.css">
+<link rel="start" href="../overview-summary.html">
+
+<title>Doctrine_Collection (Doctrine 1.2 ORM)</title>
+
+</head>
+<body id="definition" onload="parent.document.title=document.title;">
+
+<div class="header">
+<h1>Doctrine</h1>
+<ul>
+<li><a href="../overview-summary.html">Overview</a></li>
+<li><a href="../doctrine/package-summary.html">Namespace</a></li>
+<li class="active">Class</li>
+<li><a href="../doctrine/package-tree.html">Tree</a></li>
+<li><a href="../deprecated-list.html">Deprecated</a></li>
+<li><a href="../index-all.html">Index</a></li>
+</ul>
+</div>
+
+<div class="small_links">
+<a href="../index.html" target="_top">Frames</a>
+<a href="../doctrine/doctrine_collection.html" target="_top">No frames</a>
+</div>
+<div class="small_links">
+Summary: <a href="#summary_field">Field</a> | <a href="#summary_method">Method</a> | <a href="#summary_constr">Constr</a>
+Detail: <a href="#detail_field">Field</a> | <a href="#detail_method">Method</a> | <a href="#summary_constr">Constr</a>
+</div>
+<hr>
+
+<div class="qualifiedName">Doctrine\Doctrine_Collection</div>
+<div class="location">/Doctrine/Collection.php at line 34</div>
+
+<h1>Class Doctrine_Collection</h1>
+
+<pre class="tree">Class:Doctrine_Collection - Superclass: Doctrine_Access
+Class:Doctrine_Access - Superclass: Doctrine_Locator_Injectable
+<a href="../doctrine/doctrine_locator_injectable.html">Doctrine_Locator_Injectable</a><br>   &lfloor;&nbsp;<a href="../doctrine/doctrine_access.html">Doctrine_Access</a><br>      &lfloor;&nbsp;<strong>Doctrine_Collection</strong><br /></pre>
+
+<hr>
+
+<p class="signature">public  class <strong>Doctrine_Collection</strong><br>extends <a href="../doctrine/doctrine_access.html">Doctrine_Access</a>
+
+</p>
+
+<div class="comment" id="overview_description"><p>Doctrine_Collection
+Collection of Doctrine_Record objects.</p></div>
+
+<dl>
+<dt>Subpackage:</dt>
+<dd>Collection</dd>
+<dt>License:</dt>
+<dd>http://www.opensource.org/licenses/lgpl-license.php LGPL</dd>
+<dt>See Also:</dt>
+<dd><code>www.doctrine-project.org</code></dd>
+<dt>Since:</dt>
+<dd>1.0</dd>
+<dt>Version:</dt>
+<dd>$Revision: 7490 $</dd>
+<dt>Author:</dt>
+<dd>Konsta Vesterinen <kvesteri@cc.hut.fi></dd>
+<dt>Category:</dt>
+<dd>Locator</dd>
+</dl>
+<hr>
+
+<table id="summary_field">
+<tr><th colspan="2">Field Summary</th></tr>
+<tr>
+<td class="type">protected  array $_snapshot                a snapshot of the fetched data</td>
+<td class="description"><p class="name"><a href="#_snapshot">$_snapshot</a></p><p class="description">.</p></td>
+</tr>
+<tr>
+<td class="type">protected  Doctrine_Table $table           each collection has only records of specified table</td>
+<td class="description"><p class="name"><a href="#_table">$_table</a></p><p class="description">.</p></td>
+</tr>
+<tr>
+<td class="type">protected  array $data                     an array containing the records of this collection</td>
+<td class="description"><p class="name"><a href="#data">$data</a></p><p class="description">.</p></td>
+</tr>
+<tr>
+<td class="type">protected  string $keyColumn               the name of the column that is used for collection key mapping</td>
+<td class="description"><p class="name"><a href="#keyColumn">$keyColumn</a></p><p class="description">.</p></td>
+</tr>
+<tr>
+<td class="type">protected static  Doctrine_Null $null             used for extremely fast null value testing</td>
+<td class="description"><p class="name"><a href="#null">$null</a></p><p class="description">.</p></td>
+</tr>
+<tr>
+<td class="type">protected  Doctrine_Record $reference      collection can belong to a record</td>
+<td class="description"><p class="name"><a href="#reference">$reference</a></p><p class="description">.</p></td>
+</tr>
+<tr>
+<td class="type">protected  string $referenceField         the reference field of the collection</td>
+<td class="description"><p class="name"><a href="#referenceField">$referenceField</a></p><p class="description">.</p></td>
+</tr>
+<tr>
+<td class="type">protected  Doctrine_Relation               the record this collection is related to, if any</td>
+<td class="description"><p class="name"><a href="#relation">$relation</a></p><p class="description">.</p></td>
+</tr>
+</table>
+
+<table id="summary_constr">
+<tr><th colspan="2">Constructor Summary</th></tr>
+<tr>
+<td class="description"><p class="name"><a href="#Doctrine_Collection()">Doctrine_Collection</a>(Doctrine_Table|string table, mixed keyColumn)</p><p class="description">constructor.</p></td>
+</tr>
+</table>
+
+<table id="summary_method">
+<tr><th colspan="2">Method Summary</th></tr>
+<tr>
+<td class="type"> string</td>
+<td class="description"><p class="name"><a href="#__toString()">__toString</a>()</p><p class="description">Returns a string representation of this object.</p></td>
+</tr>
+<tr>
+<td class="type"> boolean</td>
+<td class="description"><p class="name"><a href="#add()">add</a>(<a href="../doctrine/doctrine_record.html">Doctrine_Record</a> record, string key, mixed value)</p><p class="description">Adds a record to collection.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#clear()">clear</a>()</p><p class="description">Clears the collection..</p></td>
+</tr>
+<tr>
+<td class="type">protected  integer</td>
+<td class="description"><p class="name"><a href="#compareRecords()">compareRecords</a>(<a href="../doctrine/doctrine_record.html">Doctrine_Record</a> a, <a href="../doctrine/doctrine_record.html">Doctrine_Record</a> b)</p><p class="description">Compares two records. </p></td>
+</tr>
+<tr>
+<td class="type"> boolean</td>
+<td class="description"><p class="name"><a href="#contains()">contains</a>(mixed key, mixed offset)</p><p class="description">Whether or not this collection contains a specified element.</p></td>
+</tr>
+<tr>
+<td class="type"> integer</td>
+<td class="description"><p class="name"><a href="#count()">count</a>()</p><p class="description">Gets the number of records in this collection
+This class implements interface countable.</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#create()">create</a>(mixed table, mixed keyColumn, mixed class)</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../doctrine/doctrine_collection.html">Doctrine_Collection</a></td>
+<td class="description"><p class="name"><a href="#delete()">delete</a>(mixed conn, mixed clearColl)</p><p class="description">Deletes all records from this collection.</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../doctrine/doctrine_record.html">Doctrine_Record</a></td>
+<td class="description"><p class="name"><a href="#end()">end</a>()</p><p class="description">Get the last record in the collection.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#exportTo()">exportTo</a>(string type, string deep)</p><p class="description">Export a Doctrine_Collection to one of the supported Doctrine_Parser formats.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#free()">free</a>(mixed deep)</p><p class="description">Frees the resources used by the collection.
+</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#fromArray()">fromArray</a>(string array, mixed deep)</p><p class="description">Populate a Doctrine_Collection from an array of data.</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../doctrine/doctrine_record.html">Doctrine_Record</a></td>
+<td class="description"><p class="name"><a href="#get()">get</a>(mixed key, mixed offset)</p><p class="description">Gets a record for given key.</p></td>
+</tr>
+<tr>
+<td class="type"> array</td>
+<td class="description"><p class="name"><a href="#getData()">getData</a>()</p><p class="description">Get all the records as an array.</p></td>
+</tr>
+<tr>
+<td class="type"> array</td>
+<td class="description"><p class="name"><a href="#getDeleteDiff()">getDeleteDiff</a>()</p><p class="description">Perform a delete diff between the last snapshot and the current data.</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../doctrine/doctrine_record.html">Doctrine_Record</a></td>
+<td class="description"><p class="name"><a href="#getFirst()">getFirst</a>()</p><p class="description">Get the first record in the collection.</p></td>
+</tr>
+<tr>
+<td class="type"> array</td>
+<td class="description"><p class="name"><a href="#getInsertDiff()">getInsertDiff</a>()</p><p class="description">Perform a insert diff between the last snapshot and the current data.</p></td>
+</tr>
+<tr>
+<td class="type"> Iterator</td>
+<td class="description"><p class="name"><a href="#getIterator()">getIterator</a>()</p><p class="description">Get collection data iterator.</p></td>
+</tr>
+<tr>
+<td class="type"> string</td>
+<td class="description"><p class="name"><a href="#getKeyColumn()">getKeyColumn</a>()</p><p class="description">Get the name of the key column.</p></td>
+</tr>
+<tr>
+<td class="type"> array</td>
+<td class="description"><p class="name"><a href="#getKeys()">getKeys</a>()</p><p class="description">Get all keys of the data in the collection.</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../doctrine/doctrine_record.html">Doctrine_Record</a></td>
+<td class="description"><p class="name"><a href="#getLast()">getLast</a>()</p><p class="description">Get the last record in the collection.</p></td>
+</tr>
+<tr>
+<td class="type"> Doctrine_Iterator_Normal</td>
+<td class="description"><p class="name"><a href="#getNormalIterator()">getNormalIterator</a>()</p><p class="description">Get normal iterator - an iterator that will not expand this collection.</p></td>
+</tr>
+<tr>
+<td class="type"> array</td>
+<td class="description"><p class="name"><a href="#getPrimaryKeys()">getPrimaryKeys</a>()</p><p class="description">Get array of primary keys for all the records in the collection.</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../doctrine/doctrine_record.html">Doctrine_Record</a></td>
+<td class="description"><p class="name"><a href="#getReference()">getReference</a>()</p><p class="description">Get reference to Doctrine_Record instance.</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../doctrine/doctrine_relation.html">Doctrine_Relation</a></td>
+<td class="description"><p class="name"><a href="#getRelation()">getRelation</a>()</p><p class="description">Returns the relation object.</p></td>
+</tr>
+<tr>
+<td class="type"> array</td>
+<td class="description"><p class="name"><a href="#getSnapshot()">getSnapshot</a>()</p><p class="description">Gets the data of the last snapshot.</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../doctrine/doctrine_table.html">Doctrine_Table</a></td>
+<td class="description"><p class="name"><a href="#getTable()">getTable</a>()</p><p class="description">Get the table this collection belongs to.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#importFrom()">importFrom</a>(string type, string data)</p><p class="description">Import data to a Doctrine_Collection from one of the supported Doctrine_Parser formats.</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#initNullObject()">initNullObject</a>(<a href="../doctrine/doctrine_null.html">Doctrine_Null</a> null)</p><p class="description">Initializes the null object for this collection.</p></td>
+</tr>
+<tr>
+<td class="type">final  boolean</td>
+<td class="description"><p class="name"><a href="#isModified()">isModified</a>()</p><p class="description">checks if one of the containing records is modified 
+returns true if modified, false otherwise.</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../doctrine/doctrine_record.html">Doctrine_Record</a></td>
+<td class="description"><p class="name"><a href="#key()">key</a>()</p><p class="description">Get the current key.</p></td>
+</tr>
+<tr>
+<td class="type"> boolean</td>
+<td class="description"><p class="name"><a href="#loadRelated()">loadRelated</a>(mixed name)</p><p class="description">Load all relationships or the named relationship passed.</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../doctrine/doctrine_collection.html">Doctrine_Collection</a></td>
+<td class="description"><p class="name"><a href="#merge()">merge</a>(<a href="../doctrine/doctrine_collection.html">Doctrine_Collection</a> coll)</p><p class="description">Merges collection into $this and returns merged collection.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#populateRelated()">populateRelated</a>(string name, <a href="../doctrine/doctrine_collection.html">Doctrine_Collection</a> coll)</p><p class="description">Populate the relationship $name for all records in the passed collection.</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../doctrine/doctrine_collection.html">Doctrine_Collection</a></td>
+<td class="description"><p class="name"><a href="#processDiff()">processDiff</a>()</p><p class="description">Processes the difference of the last snapshot and the current data.</p></td>
+</tr>
+<tr>
+<td class="type"> boolean</td>
+<td class="description"><p class="name"><a href="#remove()">remove</a>(mixed key, mixed offset)</p><p class="description">Removes a specified collection element.</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../doctrine/doctrine_collection.html">Doctrine_Collection</a></td>
+<td class="description"><p class="name"><a href="#save()">save</a>(<a href="../doctrine/doctrine_connection.html">Doctrine_Connection</a> conn, mixed processDiff)</p><p class="description">Saves all records of this collection and processes the 
+difference of the last snapshot and the current data.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#search()">search</a>(mixed record, string Doctrine_Record)</p><p class="description">Search a Doctrine_Record instance.</p></td>
+</tr>
+<tr>
+<td class="type"> array</td>
+<td class="description"><p class="name"><a href="#serialize()">serialize</a>()</p><p class="description">This method is automatically called when this Doctrine_Collection is serialized.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#set()">set</a>(integer key, <a href="../doctrine/doctrine_record.html">Doctrine_Record</a> record, mixed offset, mixed value)</p><p class="description">Set a Doctrine_Record instance to the collection.</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../doctrine/doctrine_collection.html">Doctrine_Collection</a></td>
+<td class="description"><p class="name"><a href="#setData()">setData</a>(array data)</p><p class="description">Set the data for the Doctrin_Collection instance.</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../doctrine/doctrine_collection.html">Doctrine_Collection</a></td>
+<td class="description"><p class="name"><a href="#setKeyColumn()">setKeyColumn</a>(string column)</p><p class="description">Sets the key column for this collection.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#setReference()">setReference</a>(mixed record, mixed relation)</p><p class="description">Sets a reference pointer.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#synchronizeFromArray()">synchronizeFromArray</a>(mixed array)</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#synchronizeWithArray()">synchronizeWithArray</a>(array array)</p><p class="description">synchronizes a Doctrine_Collection with data from an array.</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../doctrine/doctrine_collection.html">Doctrine_Collection</a></td>
+<td class="description"><p class="name"><a href="#takeSnapshot()">takeSnapshot</a>()</p><p class="description">Takes a snapshot from this collection.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#toArray()">toArray</a>(boolean deep, mixed prefixKey)</p><p class="description">Mimics the result of a $query->execute(array(), Doctrine_Core::HYDRATE_ARRAY);.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#toHierarchy()">toHierarchy</a>()</p></td>
+</tr>
+<tr>
+<td class="type"> array</td>
+<td class="description"><p class="name"><a href="#toKeyValueArray()">toKeyValueArray</a>(string key, string value)</p><p class="description">Build an array made up of the values from the 2 specified columns.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#unserialize()">unserialize</a>(mixed serialized)</p><p class="description">This method is automatically called everytime a Doctrine_Collection object is unserialized.</p></td>
+</tr>
+</table>
+
+<table class="inherit">
+<tr><th colspan="2">Methods inherited from Doctrine\Doctrine_Access</th></tr>
+<tr><td><a href="../doctrine/doctrine_access.html#__get()">__get</a>, <a href="../doctrine/doctrine_access.html#__isset()">__isset</a>, <a href="../doctrine/doctrine_access.html#__set()">__set</a>, <a href="../doctrine/doctrine_access.html#__unset()">__unset</a>, <a href="../doctrine/doctrine_access.html#add()">add</a>, <a href="../doctrine/doctrine_access.html#contains()">contains</a>, <a href="../doctrine/doctrine_access.html#get()">get</a>, <a href="../doctrine/doctrine_access.html#offsetExists()">offsetExists</a>, <a href="../doctrine/doctrine_access.html#offsetGet()">offsetGet</a>, <a href="../doctrine/doctrine_access.html#offsetSet()">offsetSet</a>, <a href="../doctrine/doctrine_access.html#offsetUnset()">offsetUnset</a>, <a href="../doctrine/doctrine_access.html#remove()">remove</a>, <a href="../doctrine/doctrine_access.html#set()">set</a>, <a href="../doctrine/doctrine_access.html#setArray()">setArray</a></td></tr></table>
+
+<table class="inherit">
+<tr><th colspan="2">Methods inherited from Doctrine\Doctrine_Locator_Injectable</th></tr>
+<tr><td><a href="../doctrine/doctrine_locator_injectable.html#bind()">bind</a>, <a href="../doctrine/doctrine_locator_injectable.html#getLocator()">getLocator</a>, <a href="../doctrine/doctrine_locator_injectable.html#getNullObject()">getNullObject</a>, <a href="../doctrine/doctrine_locator_injectable.html#initNullObject()">initNullObject</a>, <a href="../doctrine/doctrine_locator_injectable.html#locate()">locate</a>, <a href="../doctrine/doctrine_locator_injectable.html#setLocator()">setLocator</a></td></tr></table>
+
+<h2 id="detail_field">Field Detail</h2>
+<div class="location">/Doctrine/Collection.php at line 49</div>
+<h3 id="_snapshot">_snapshot</h3>
+<code class="signature">protected  array $_snapshot                a snapshot of the fetched data <strong>$_snapshot</strong> = array()</code>
+<div class="details">
+<p></p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Collection.php at line 44</div>
+<h3 id="_table">_table</h3>
+<code class="signature">protected  Doctrine_Table $table           each collection has only records of specified table <strong>$_table</strong></code>
+<div class="details">
+<p></p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Collection.php at line 39</div>
+<h3 id="data">data</h3>
+<code class="signature">protected  array $data                     an array containing the records of this collection <strong>$data</strong> = array()</code>
+<div class="details">
+<p></p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Collection.php at line 69</div>
+<h3 id="keyColumn">keyColumn</h3>
+<code class="signature">protected  string $keyColumn               the name of the column that is used for collection key mapping <strong>$keyColumn</strong></code>
+<div class="details">
+<p></p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Collection.php at line 74</div>
+<h3 id="null">null</h3>
+<code class="signature">protected static  Doctrine_Null $null             used for extremely fast null value testing <strong>$null</strong></code>
+<div class="details">
+<p></p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Collection.php at line 54</div>
+<h3 id="reference">reference</h3>
+<code class="signature">protected  Doctrine_Record $reference      collection can belong to a record <strong>$reference</strong></code>
+<div class="details">
+<p></p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Collection.php at line 59</div>
+<h3 id="referenceField">referenceField</h3>
+<code class="signature">protected  string $referenceField         the reference field of the collection <strong>$referenceField</strong></code>
+<div class="details">
+<p></p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Collection.php at line 64</div>
+<h3 id="relation">relation</h3>
+<code class="signature">protected  Doctrine_Relation               the record this collection is related to, if any <strong>$relation</strong></code>
+<div class="details">
+<p></p></div>
+
+<hr>
+
+<h2 id="detail_constr">Constructor Detail</h2>
+<div class="location">/Doctrine/Collection.php at line 81</div>
+<h3 id="Doctrine_Collection()">Doctrine_Collection</h3>
+<code class="signature">public <strong>Doctrine_Collection</strong>(Doctrine_Table|string table, mixed keyColumn)</code>
+<div class="details">
+<p>constructor</p></div>
+
+<hr>
+
+<h2 id="detail_method">Method Detail</h2>
+<div class="location">/Doctrine/Collection.php at line 1003</div>
+<h3 id="__toString()">__toString</h3>
+<code class="signature">public  string <strong>__toString</strong>()</code>
+<div class="details">
+<p>Returns a string representation of this object</p><dl>
+<dt>Returns:</dt>
+<dd>$string</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Collection.php at line 451</div>
+<h3 id="add()">add</h3>
+<code class="signature">public  boolean <strong>add</strong>(<a href="../doctrine/doctrine_record.html">Doctrine_Record</a> record, string key, mixed value)</code>
+<div class="details">
+<p>Adds a record to collection</p><dl>
+<dt>Parameters:</dt>
+<dd>record - record to be added</dd>
+<dd>key - optional key for the record</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Collection.php at line 959</div>
+<h3 id="clear()">clear</h3>
+<code class="signature">public  void <strong>clear</strong>()</code>
+<div class="details">
+<p>Clears the collection.</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Collection.php at line 878</div>
+<h3 id="compareRecords()">compareRecords</h3>
+<code class="signature">protected  integer <strong>compareRecords</strong>(<a href="../doctrine/doctrine_record.html">Doctrine_Record</a> a, <a href="../doctrine/doctrine_record.html">Doctrine_Record</a> b)</code>
+<div class="details">
+<p>Compares two records. To be used on _snapshot diffs using array_udiff</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Collection.php at line 325</div>
+<h3 id="contains()">contains</h3>
+<code class="signature">public  boolean <strong>contains</strong>(mixed key, mixed offset)</code>
+<div class="details">
+<p>Whether or not this collection contains a specified element</p><dl>
+<dt>Parameters:</dt>
+<dd>key - the key of the element</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Collection.php at line 423</div>
+<h3 id="count()">count</h3>
+<code class="signature">public  integer <strong>count</strong>()</code>
+<div class="details">
+<p>Gets the number of records in this collection
+This class implements interface countable</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Collection.php at line 112</div>
+<h3 id="create()">create</h3>
+<code class="signature">public static  void <strong>create</strong>(mixed table, mixed keyColumn, mixed class)</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Collection.php at line 927</div>
+<h3 id="delete()">delete</h3>
+<code class="signature">public  <a href="../doctrine/doctrine_collection.html">Doctrine_Collection</a> <strong>delete</strong>(mixed conn, mixed clearColl)</code>
+<div class="details">
+<p>Deletes all records from this collection</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Collection.php at line 252</div>
+<h3 id="end()">end</h3>
+<code class="signature">public  <a href="../doctrine/doctrine_record.html">Doctrine_Record</a> <strong>end</strong>()</code>
+<div class="details">
+<p>Get the last record in the collection</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Collection.php at line 826</div>
+<h3 id="exportTo()">exportTo</h3>
+<code class="signature">public  void <strong>exportTo</strong>(string type, string deep)</code>
+<div class="details">
+<p>Export a Doctrine_Collection to one of the supported Doctrine_Parser formats</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Collection.php at line 971</div>
+<h3 id="free()">free</h3>
+<code class="signature">public  void <strong>free</strong>(mixed deep)</code>
+<div class="details">
+<p>Frees the resources used by the collection.
+WARNING: After invoking free() the collection is no longer considered to
+be in a useable state. Subsequent usage may result in unexpected behavior.</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Collection.php at line 780</div>
+<h3 id="fromArray()">fromArray</h3>
+<code class="signature">public  void <strong>fromArray</strong>(string array, mixed deep)</code>
+<div class="details">
+<p>Populate a Doctrine_Collection from an array of data</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Collection.php at line 357</div>
+<h3 id="get()">get</h3>
+<code class="signature">public  <a href="../doctrine/doctrine_record.html">Doctrine_Record</a> <strong>get</strong>(mixed key, mixed offset)</code>
+<div class="details">
+<p>Gets a record for given key</p><p>There are two special cases:</p><p>1. if null is given as a key a new record is created and attached
+at the end of the collection</p><p>2. if given key does not exist, then a new record is create and attached
+to the given key</p><p>Collection also maps referential information to newly created records</p><dl>
+<dt>Parameters:</dt>
+<dd>key - the key of the element</dd>
+<dt>Returns:</dt>
+<dd>return a specified record</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Collection.php at line 222</div>
+<h3 id="getData()">getData</h3>
+<code class="signature">public  array <strong>getData</strong>()</code>
+<div class="details">
+<p>Get all the records as an array</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Collection.php at line 856</div>
+<h3 id="getDeleteDiff()">getDeleteDiff</h3>
+<code class="signature">public  array <strong>getDeleteDiff</strong>()</code>
+<div class="details">
+<p>Perform a delete diff between the last snapshot and the current data</p><dl>
+<dt>Returns:</dt>
+<dd>$diff</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Collection.php at line 232</div>
+<h3 id="getFirst()">getFirst</h3>
+<code class="signature">public  <a href="../doctrine/doctrine_record.html">Doctrine_Record</a> <strong>getFirst</strong>()</code>
+<div class="details">
+<p>Get the first record in the collection</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Collection.php at line 866</div>
+<h3 id="getInsertDiff()">getInsertDiff</h3>
+<code class="signature">public  array <strong>getInsertDiff</strong>()</code>
+<div class="details">
+<p>Perform a insert diff between the last snapshot and the current data</p><dl>
+<dt>Returns:</dt>
+<dd>$diff</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Collection.php at line 992</div>
+<h3 id="getIterator()">getIterator</h3>
+<code class="signature">public  Iterator <strong>getIterator</strong>()</code>
+<div class="details">
+<p>Get collection data iterator</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Collection.php at line 212</div>
+<h3 id="getKeyColumn()">getKeyColumn</h3>
+<code class="signature">public  string <strong>getKeyColumn</strong>()</code>
+<div class="details">
+<p>Get the name of the key column</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Collection.php at line 412</div>
+<h3 id="getKeys()">getKeys</h3>
+<code class="signature">public  array <strong>getKeys</strong>()</code>
+<div class="details">
+<p>Get all keys of the data in the collection</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Collection.php at line 242</div>
+<h3 id="getLast()">getLast</h3>
+<code class="signature">public  <a href="../doctrine/doctrine_record.html">Doctrine_Record</a> <strong>getLast</strong>()</code>
+<div class="details">
+<p>Get the last record in the collection</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Collection.php at line 638</div>
+<h3 id="getNormalIterator()">getNormalIterator</h3>
+<code class="signature">public  Doctrine_Iterator_Normal <strong>getNormalIterator</strong>()</code>
+<div class="details">
+<p>Get normal iterator - an iterator that will not expand this collection</p><dl>
+<dt>Returns:</dt>
+<dd>$iterator</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Collection.php at line 392</div>
+<h3 id="getPrimaryKeys()">getPrimaryKeys</h3>
+<code class="signature">public  array <strong>getPrimaryKeys</strong>()</code>
+<div class="details">
+<p>Get array of primary keys for all the records in the collection</p><dl>
+<dt>Returns:</dt>
+<dd>an array containing all primary keys</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Collection.php at line 300</div>
+<h3 id="getReference()">getReference</h3>
+<code class="signature">public  <a href="../doctrine/doctrine_record.html">Doctrine_Record</a> <strong>getReference</strong>()</code>
+<div class="details">
+<p>Get reference to Doctrine_Record instance</p><dl>
+<dt>Returns:</dt>
+<dd>$reference</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Collection.php at line 1013</div>
+<h3 id="getRelation()">getRelation</h3>
+<code class="signature">public  <a href="../doctrine/doctrine_relation.html">Doctrine_Relation</a> <strong>getRelation</strong>()</code>
+<div class="details">
+<p>Returns the relation object</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Collection.php at line 667</div>
+<h3 id="getSnapshot()">getSnapshot</h3>
+<code class="signature">public  array <strong>getSnapshot</strong>()</code>
+<div class="details">
+<p>Gets the data of the last snapshot</p><dl>
+<dt>Returns:</dt>
+<dd>returns the data in last snapshot</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Collection.php at line 129</div>
+<h3 id="getTable()">getTable</h3>
+<code class="signature">public  <a href="../doctrine/doctrine_table.html">Doctrine_Table</a> <strong>getTable</strong>()</code>
+<div class="details">
+<p>Get the table this collection belongs to</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Collection.php at line 842</div>
+<h3 id="importFrom()">importFrom</h3>
+<code class="signature">public  void <strong>importFrom</strong>(string type, string data)</code>
+<div class="details">
+<p>Import data to a Doctrine_Collection from one of the supported Doctrine_Parser formats</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Collection.php at line 107</div>
+<h3 id="initNullObject()">initNullObject</h3>
+<code class="signature">public static  void <strong>initNullObject</strong>(<a href="../doctrine/doctrine_null.html">Doctrine_Null</a> null)</code>
+<div class="details">
+<p>Initializes the null object for this collection</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Collection.php at line 1024</div>
+<h3 id="isModified()">isModified</h3>
+<code class="signature">public final  boolean <strong>isModified</strong>()</code>
+<div class="details">
+<p>checks if one of the containing records is modified 
+returns true if modified, false otherwise</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Collection.php at line 262</div>
+<h3 id="key()">key</h3>
+<code class="signature">public  <a href="../doctrine/doctrine_record.html">Doctrine_Record</a> <strong>key</strong>()</code>
+<div class="details">
+<p>Get the current key</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Collection.php at line 528</div>
+<h3 id="loadRelated()">loadRelated</h3>
+<code class="signature">public  boolean <strong>loadRelated</strong>(mixed name)</code>
+<div class="details">
+<p>Load all relationships or the named relationship passed</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Collection.php at line 506</div>
+<h3 id="merge()">merge</h3>
+<code class="signature">public  <a href="../doctrine/doctrine_collection.html">Doctrine_Collection</a> <strong>merge</strong>(<a href="../doctrine/doctrine_collection.html">Doctrine_Collection</a> coll)</code>
+<div class="details">
+<p>Merges collection into $this and returns merged collection</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Collection.php at line 581</div>
+<h3 id="populateRelated()">populateRelated</h3>
+<code class="signature">public  void <strong>populateRelated</strong>(string name, <a href="../doctrine/doctrine_collection.html">Doctrine_Collection</a> coll)</code>
+<div class="details">
+<p>Populate the relationship $name for all records in the passed collection</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Collection.php at line 683</div>
+<h3 id="processDiff()">processDiff</h3>
+<code class="signature">public  <a href="../doctrine/doctrine_collection.html">Doctrine_Collection</a> <strong>processDiff</strong>()</code>
+<div class="details">
+<p>Processes the difference of the last snapshot and the current data</p><p>an example:
+Snapshot with the objects 1, 2 and 4
+Current data with objects 2, 3 and 5</p><p>The process would remove object 4</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Collection.php at line 311</div>
+<h3 id="remove()">remove</h3>
+<code class="signature">public  boolean <strong>remove</strong>(mixed key, mixed offset)</code>
+<div class="details">
+<p>Removes a specified collection element</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Collection.php at line 894</div>
+<h3 id="save()">save</h3>
+<code class="signature">public  <a href="../doctrine/doctrine_collection.html">Doctrine_Collection</a> <strong>save</strong>(<a href="../doctrine/doctrine_connection.html">Doctrine_Connection</a> conn, mixed processDiff)</code>
+<div class="details">
+<p>Saves all records of this collection and processes the 
+difference of the last snapshot and the current data</p><dl>
+<dt>Parameters:</dt>
+<dd>conn - optional connection parameter</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Collection.php at line 336</div>
+<h3 id="search()">search</h3>
+<code class="signature">public  void <strong>search</strong>(mixed record, string Doctrine_Record)</code>
+<div class="details">
+<p>Search a Doctrine_Record instance</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Collection.php at line 150</div>
+<h3 id="serialize()">serialize</h3>
+<code class="signature">public  array <strong>serialize</strong>()</code>
+<div class="details">
+<p>This method is automatically called when this Doctrine_Collection is serialized</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Collection.php at line 435</div>
+<h3 id="set()">set</h3>
+<code class="signature">public  void <strong>set</strong>(integer key, <a href="../doctrine/doctrine_record.html">Doctrine_Record</a> record, mixed offset, mixed value)</code>
+<div class="details">
+<p>Set a Doctrine_Record instance to the collection</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Collection.php at line 140</div>
+<h3 id="setData()">setData</h3>
+<code class="signature">public  <a href="../doctrine/doctrine_collection.html">Doctrine_Collection</a> <strong>setData</strong>(array data)</code>
+<div class="details">
+<p>Set the data for the Doctrin_Collection instance</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Collection.php at line 200</div>
+<h3 id="setKeyColumn()">setKeyColumn</h3>
+<code class="signature">public  <a href="../doctrine/doctrine_collection.html">Doctrine_Collection</a> <strong>setKeyColumn</strong>(string column)</code>
+<div class="details">
+<p>Sets the key column for this collection</p><dl>
+<dt>Returns:</dt>
+<dd>$this</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Collection.php at line 272</div>
+<h3 id="setReference()">setReference</h3>
+<code class="signature">public  void <strong>setReference</strong>(mixed record, mixed relation)</code>
+<div class="details">
+<p>Sets a reference pointer</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Collection.php at line 814</div>
+<h3 id="synchronizeFromArray()">synchronizeFromArray</h3>
+<code class="signature">public  void <strong>synchronizeFromArray</strong>(mixed array)</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Collection.php at line 797</div>
+<h3 id="synchronizeWithArray()">synchronizeWithArray</h3>
+<code class="signature">public  void <strong>synchronizeWithArray</strong>(array array)</code>
+<div class="details">
+<p>synchronizes a Doctrine_Collection with data from an array</p><p>it expects an array representation of a Doctrine_Collection similar to the return
+value of the toArray() method. It will create Dectrine_Records that don't exist
+on the collection, update the ones that do and remove the ones missing in the $array</p><dl>
+<dt>Parameters:</dt>
+<dd>array - representation of a Doctrine_Collection</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Collection.php at line 655</div>
+<h3 id="takeSnapshot()">takeSnapshot</h3>
+<code class="signature">public  <a href="../doctrine/doctrine_collection.html">Doctrine_Collection</a> <strong>takeSnapshot</strong>()</code>
+<div class="details">
+<p>Takes a snapshot from this collection</p><p>snapshots are used for diff processing, for example
+when a fetched collection has three elements, then two of those
+are being removed the diff would contain one element</p><p>Doctrine_Collection::save() attaches the diff with the help of last
+snapshot.</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Collection.php at line 697</div>
+<h3 id="toArray()">toArray</h3>
+<code class="signature">public  void <strong>toArray</strong>(boolean deep, mixed prefixKey)</code>
+<div class="details">
+<p>Mimics the result of a $query->execute(array(), Doctrine_Core::HYDRATE_ARRAY);</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Collection.php at line 726</div>
+<h3 id="toHierarchy()">toHierarchy</h3>
+<code class="signature">public  void <strong>toHierarchy</strong>()</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Collection.php at line 717</div>
+<h3 id="toKeyValueArray()">toKeyValueArray</h3>
+<code class="signature">public  array <strong>toKeyValueArray</strong>(string key, string value)</code>
+<div class="details">
+<p>Build an array made up of the values from the 2 specified columns</p><dl>
+<dt>Returns:</dt>
+<dd>$result</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Collection.php at line 171</div>
+<h3 id="unserialize()">unserialize</h3>
+<code class="signature">public  void <strong>unserialize</strong>(mixed serialized)</code>
+<div class="details">
+<p>This method is automatically called everytime a Doctrine_Collection object is unserialized</p></div>
+
+<hr>
+
+<div class="header">
+<h1>Doctrine</h1>
+<ul>
+<li><a href="../overview-summary.html">Overview</a></li>
+<li><a href="../doctrine/package-summary.html">Namespace</a></li>
+<li class="active">Class</li>
+<li><a href="../doctrine/package-tree.html">Tree</a></li>
+<li><a href="../deprecated-list.html">Deprecated</a></li>
+<li><a href="../index-all.html">Index</a></li>
+</ul>
+</div>
+
+<div class="small_links">
+<a href="../index.html" target="_top">Frames</a>
+<a href="../doctrine/doctrine_collection.html" target="_top">No frames</a>
+</div>
+<div class="small_links">
+Summary: <a href="#summary_field">Field</a> | <a href="#summary_method">Method</a> | <a href="#summary_constr">Constr</a>
+Detail: <a href="#detail_field">Field</a> | <a href="#detail_method">Method</a> | <a href="#summary_constr">Constr</a>
+</div>
+<hr>
+
+<p id="footer">This document was generated by <a href="http://peej.github.com/phpdoctor/">PHPDoctor: The PHP Documentation Creator</a></p>
+
+</body>
+
+</html>

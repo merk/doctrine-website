@@ -1,0 +1,17 @@
+default:
+  http_metas:
+    content-type: text/html
+
+  metas:
+    title:        Doctrine - PHP Object Persistence Libraries and More
+    robots:       index, follow
+    description:  Doctrine is a PHP ORM(object relational mapper) for PHP that sits on top of a powerful DBAL(database abstraction layer)
+    keywords:     doctrine, php orm, database, orm, object relational mapper, database abstraction layer
+    language:     en
+
+  stylesheets:    [main, layout]
+
+  javascripts:    []
+
+  has_layout:     true
+  layout:         layout

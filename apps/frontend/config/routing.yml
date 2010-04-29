@@ -1,0 +1,109 @@
+homepage:
+  url:   /
+  param: { module: main, action: index, current_menu_item: home }
+
+projects:
+  url:   /projects
+  param: { module: projects, action: index, current_menu_item: projects }
+
+project:
+  url:   /projects/:slug
+  param: { module: projects, action: view }
+
+documentation:
+  url:   /documentation/*
+  param: { module: documentation, action: global_index, current_menu_item: documentation }
+
+project_api_documentation:
+  url:   /projects/:slug/:version/api
+  param: { module: documentation, action: api }
+  options: { segment_separators: [/] }
+
+project_api_documentation_navigation:
+  url:   /projects/:slug/:version/api/navigation
+  param: { module: documentation, action: api_navigation }
+  options: { segment_separators: [/] }
+
+project_documentation:
+  url:   /projects/:slug/:version/docs/:sf_culture
+  param: { module: documentation, action: index }
+  options: { segment_separators: [/] }
+
+project_documentation_item:
+  url:   /projects/:slug/:version/docs/:item/:sf_culture
+  param: { module: documentation, action: item_index }
+  options: { segment_separators: [/] }
+
+project_documentation_item_chapter:
+  url:   /projects/:slug/:version/docs/:item/:chapter/:sf_culture
+  param: { module: documentation, action: item_chapter }
+  options: { segment_separators: [/] }
+
+download:
+  url:   /projects/:slug/download
+  param: { module: download, action: index }
+
+download_release:
+  url:   /projects/:slug/:version/download/:release
+  param: { module: download, action: version_release }
+  options: { segment_separators: [/] }
+
+create_comment:
+  url:   /comment/create
+  param: { module: comment, action: create, current_menu_item: community }
+
+delete_comment:
+  url:   /comments/:id/delete
+  param: { module: comment, action: delete }
+  class: sfDoctrineRoute
+  options:
+    model: RecordComment
+    type: object
+
+blog_archives:
+  url:   /blog/archives
+  param: { module: blog, action: archives, current_menu_item: blog }
+  class: sfDoctrineRoute
+  options: { model: BlogPost, type: list, method: getArchives}
+
+latest_blog_posts_rss:
+  url:   /blog/feed
+  param: { module: blog, action: feed, current_menu_item: blog }
+  class: sfDoctrineRoute
+  options: { model: BlogPost, type: list, method: getBlogIndex }
+
+blog:
+  url:   /blog
+  param: { module: blog, action: index, current_menu_item: blog }
+  class: sfDoctrineRoute
+  options: { model: BlogPost, type: list, method: getBlogIndex }
+
+blog_tag:
+  url:  /blog/tags/:tag
+  param: { module: blog, action: tag, current_menu_item: blog }
+  class: sfDoctrineRoute
+  options: { model: BlogPost, type: list, method: getBlogTag }
+
+blog_most_popular:
+  url:  /blog/popular
+  param: { module: blog, action: popular, current_menu_item: blog }
+  class: sfDoctrineRoute
+  options: { model: BlogPost, type: list, method: getBlogPopular }
+
+blog_feed:
+  url:   /blog/feed
+  param: { module: blog, action: feed }
+  class: sfDoctrineRoute
+  options: { model: BlogPost, type: list, method: getBlogIndex }
+
+blog_post:
+  url:   /blog/:slug
+  param: { module: blog, action: view, current_menu_item: blog }
+  class: sfDoctrineRoute
+  options: { model: BlogPost, type: object }
+
+about:
+  url:   /about
+  param: { module: main, action: about, current_menu_item: about }
+  class: sfDoctrineRoute
+  options: { model: Contributor, type: list, method: retrieveAboutContributors }

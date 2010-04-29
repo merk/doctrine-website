@@ -1,0 +1,656 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+<head>
+
+<meta name="generator" content="PHPDoctor 2RC4 (http://phpdoctor.sourceforge.net/)">
+<meta name="when" content="Fri, 09 Apr 2010 11:50:25 -0400">
+
+<link rel="stylesheet" type="text/css" href="../stylesheet.css">
+<link rel="start" href="../overview-summary.html">
+
+<title>Doctrine_Migration_Base (Doctrine 1.2 ORM)</title>
+
+</head>
+<body id="definition" onload="parent.document.title=document.title;">
+
+<div class="header">
+<h1>Doctrine</h1>
+<ul>
+<li><a href="../overview-summary.html">Overview</a></li>
+<li><a href="../doctrine/package-summary.html">Namespace</a></li>
+<li class="active">Class</li>
+<li><a href="../doctrine/package-tree.html">Tree</a></li>
+<li><a href="../deprecated-list.html">Deprecated</a></li>
+<li><a href="../index-all.html">Index</a></li>
+</ul>
+</div>
+
+<div class="small_links">
+<a href="../index.html" target="_top">Frames</a>
+<a href="../doctrine/doctrine_migration_base.html" target="_top">No frames</a>
+</div>
+<div class="small_links">
+Summary: <a href="#summary_field">Field</a> | <a href="#summary_method">Method</a> | <a href="#summary_constr">Constr</a>
+Detail: <a href="#detail_field">Field</a> | <a href="#detail_method">Method</a> | <a href="#summary_constr">Constr</a>
+</div>
+<hr>
+
+<div class="qualifiedName">Doctrine\Doctrine_Migration_Base</div>
+<div class="location">/Doctrine/Migration/Base.php at line 33</div>
+
+<h1>Class Doctrine_Migration_Base</h1>
+
+<pre class="tree"><strong>Doctrine_Migration_Base</strong><br /></pre>
+
+<hr>
+
+<p class="signature">public abstract  class <strong>Doctrine_Migration_Base</strong></p>
+
+<div class="comment" id="overview_description"><p>Base migration class. All migration classes must extend from this base class</p></div>
+
+<dl>
+<dt>Subpackage:</dt>
+<dd>Migration</dd>
+<dt>License:</dt>
+<dd>http://www.opensource.org/licenses/lgpl-license.php LGPL</dd>
+<dt>See Also:</dt>
+<dd><code>www.doctrine-project.org</code></dd>
+<dt>Since:</dt>
+<dd>1.1</dd>
+<dt>Version:</dt>
+<dd>$Revision: 1080 $</dd>
+<dt>Author:</dt>
+<dd>Jonathan H. Wage <jonwage@gmail.com></dd>
+</dl>
+<hr>
+
+<table id="summary_field">
+<tr><th colspan="2">Field Summary</th></tr>
+<tr>
+<td class="type">protected  mixed</td>
+<td class="description"><p class="name"><a href="#_changes">$_changes</a></p></td>
+</tr>
+<tr>
+<td class="type">protected static  mixed</td>
+<td class="description"><p class="name"><a href="#_opposites">$_opposites</a></p></td>
+</tr>
+<tr>
+<td class="type">private static  array</td>
+<td class="description"><p class="name"><a href="#defaultTableOptions">$defaultTableOptions</a></p><p class="description">The default options for tables created using Doctrine_Migration_Base::createTable().</p></td>
+</tr>
+</table>
+
+<table id="summary_method">
+<tr><th colspan="2">Method Summary</th></tr>
+<tr>
+<td class="type">protected  void</td>
+<td class="description"><p class="name"><a href="#_addChange()">_addChange</a>(string type, array change)</p><p class="description">Add a change to the stack of changes to execute.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#addColumn()">addColumn</a>(string tableName, string columnName, string type, string length, array options)</p><p class="description">Add a add column change..</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#addIndex()">addIndex</a>(string tableName, string indexName, array definition)</p><p class="description">Add a add index change..</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#changeColumn()">changeColumn</a>(string tableName, string columnName, string type, string length, array options)</p><p class="description">Add a change column change.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#column()">column</a>(string upDown, string tableName, string columnName, string type, string length, array options)</p><p class="description">Add a add or remove column change..</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#constraint()">constraint</a>(string upDown, string tableName, string constraintName, array definition)</p><p class="description">Add a create or drop constraint change..</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#createConstraint()">createConstraint</a>(string tableName, mixed constraintName, array definition, string constraintname)</p><p class="description">Add a create constraint change..</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#createForeignKey()">createForeignKey</a>(string tableName, string name, array definition)</p><p class="description">Add a create foreign key change..</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#createPrimaryKey()">createPrimaryKey</a>(string tableName, string columnNames)</p><p class="description">Convenience method for creating primary keys.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#createTable()">createTable</a>(string tableName, array fields, array options)</p><p class="description">Add a create table change..</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#dropConstraint()">dropConstraint</a>(string tableName, mixed constraintName, mixed primary, string constraintname)</p><p class="description">Add a drop constraint change..</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#dropForeignKey()">dropForeignKey</a>(string tableName, string name)</p><p class="description">Add a drop foreign key change..</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#dropPrimaryKey()">dropPrimaryKey</a>(string tableName, string columnNames)</p><p class="description">Convenience method for dropping primary keys.
+</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#dropTable()">dropTable</a>(string tableName)</p><p class="description">Add a drop table change..</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#foreignKey()">foreignKey</a>(string upDown, string tableName, string name, array definition)</p><p class="description">Add a create or drop foreign key change..</p></td>
+</tr>
+<tr>
+<td class="type"> array</td>
+<td class="description"><p class="name"><a href="#getChanges()">getChanges</a>()</p><p class="description">Get the changes that have been added on this migration class instance.</p></td>
+</tr>
+<tr>
+<td class="type">static  array</td>
+<td class="description"><p class="name"><a href="#getDefaultTableOptions()">getDefaultTableOptions</a>()</p><p class="description">Returns the default options for tables created using Doctrine_Migration_Base::createTable().</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#getNumChanges()">getNumChanges</a>()</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#index()">index</a>(string upDown, string tableName, string indexName, array definition)</p><p class="description">Add a add or remove index change..</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#postDown()">postDown</a>()</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#postUp()">postUp</a>()</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#preDown()">preDown</a>()</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#preUp()">preUp</a>()</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#primaryKey()">primaryKey</a>(string direction, string tableName, string columnNames)</p><p class="description">Convenience method for creating or dropping primary keys..</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#removeColumn()">removeColumn</a>(string tableName, string columnName)</p><p class="description">Add a remove column change..</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#removeIndex()">removeIndex</a>(string tableName, string indexName)</p><p class="description">Add a remove index change..</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#renameColumn()">renameColumn</a>(string tableName, string oldColumnName, string newColumnName)</p><p class="description">Add a rename column change.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#renameTable()">renameTable</a>(string oldTableName, string newTableName)</p><p class="description">Add a rename table change.</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#setDefaultTableOptions()">setDefaultTableOptions</a>(array options)</p><p class="description">Sets the default options for tables created using Doctrine_Migration_Base::createTable().</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#table()">table</a>(string upDown, string tableName, array fields, array options)</p><p class="description">Add a create or drop table change..</p></td>
+</tr>
+</table>
+
+<h2 id="detail_field">Field Detail</h2>
+<div class="location">/Doctrine/Migration/Base.php at line 42</div>
+<h3 id="_changes">_changes</h3>
+<code class="signature">protected  mixed <strong>$_changes</strong> = array()</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Migration/Base.php at line 44</div>
+<h3 id="_opposites">_opposites</h3>
+<code class="signature">protected static  mixed <strong>$_opposites</strong> = array(...)</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Migration/Base.php at line 40</div>
+<h3 id="defaultTableOptions">defaultTableOptions</h3>
+<code class="signature">private static  array <strong>$defaultTableOptions</strong> = array()</code>
+<div class="details">
+<p>The default options for tables created using Doctrine_Migration_Base::createTable()</p></div>
+
+<hr>
+
+<h2 id="detail_method">Method Detail</h2>
+<div class="location">/Doctrine/Migration/Base.php at line 78</div>
+<h3 id="_addChange()">_addChange</h3>
+<code class="signature">protected  void <strong>_addChange</strong>(string type, array change)</code>
+<div class="details">
+<p>Add a change to the stack of changes to execute</p><dl>
+<dt>Parameters:</dt>
+<dd>type - The type of change</dd>
+<dd>change - The array of information for the change</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Migration/Base.php at line 399</div>
+<h3 id="addColumn()">addColumn</h3>
+<code class="signature">public  void <strong>addColumn</strong>(string tableName, string columnName, string type, string length, array options)</code>
+<div class="details">
+<p>Add a add column change.</p><dl>
+<dt>Parameters:</dt>
+<dd>tableName - Name of the table</dd>
+<dd>columnName - Name of the column</dd>
+<dd>type - Type of the column</dd>
+<dd>length - Length of the column</dd>
+<dd>options - Array of options for the column</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Migration/Base.php at line 473</div>
+<h3 id="addIndex()">addIndex</h3>
+<code class="signature">public  void <strong>addIndex</strong>(string tableName, string indexName, array definition)</code>
+<div class="details">
+<p>Add a add index change.</p><dl>
+<dt>Parameters:</dt>
+<dd>tableName - Name of the table</dd>
+<dd>indexName - Name of the index</dd>
+<dd>definition - Array for the index definition</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Migration/Base.php at line 441</div>
+<h3 id="changeColumn()">changeColumn</h3>
+<code class="signature">public  void <strong>changeColumn</strong>(string tableName, string columnName, string type, string length, array options)</code>
+<div class="details">
+<p>Add a change column change</p><dl>
+<dt>Parameters:</dt>
+<dd>tableName - Name of the table to change the column on</dd>
+<dd>columnName - Name of the column to change</dd>
+<dd>type - New type of column</dd>
+<dd>length - The length of the column</dd>
+<dd>options - New options for the column</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Migration/Base.php at line 377</div>
+<h3 id="column()">column</h3>
+<code class="signature">public  void <strong>column</strong>(string upDown, string tableName, string columnName, string type, string length, array options)</code>
+<div class="details">
+<p>Add a add or remove column change.</p><dl>
+<dt>Parameters:</dt>
+<dd>upDown - Whether to add the up(add) or down(remove) column change.</dd>
+<dd>tableName - Name of the table</dd>
+<dd>columnName - Name of the column</dd>
+<dd>type - Type of the column</dd>
+<dd>length - Length of the column</dd>
+<dd>options - Array of options for the column</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Migration/Base.php at line 174</div>
+<h3 id="constraint()">constraint</h3>
+<code class="signature">public  void <strong>constraint</strong>(string upDown, string tableName, string constraintName, array definition)</code>
+<div class="details">
+<p>Add a create or drop constraint change.</p><dl>
+<dt>Parameters:</dt>
+<dd>upDown - Whether to add the up(create) or down(drop) create change.</dd>
+<dd>tableName - Name of the table.</dd>
+<dd>constraintName - Name of the constraint.</dd>
+<dd>definition - Array for the constraint definition.</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Migration/Base.php at line 189</div>
+<h3 id="createConstraint()">createConstraint</h3>
+<code class="signature">public  void <strong>createConstraint</strong>(string tableName, mixed constraintName, array definition, string constraintname)</code>
+<div class="details">
+<p>Add a create constraint change.</p><dl>
+<dt>Parameters:</dt>
+<dd>tableName - Name of the table.</dd>
+<dd>constraintname - Name of the constraint.</dd>
+<dd>definition - Array for the constraint definition.</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Migration/Base.php at line 349</div>
+<h3 id="createForeignKey()">createForeignKey</h3>
+<code class="signature">public  void <strong>createForeignKey</strong>(string tableName, string name, array definition)</code>
+<div class="details">
+<p>Add a create foreign key change.</p><dl>
+<dt>Parameters:</dt>
+<dd>tableName - Name of the table.</dd>
+<dd>name - Name of the foreign key.</dd>
+<dd>definition - Array for the foreign key definition</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Migration/Base.php at line 245</div>
+<h3 id="createPrimaryKey()">createPrimaryKey</h3>
+<code class="signature">public  void <strong>createPrimaryKey</strong>(string tableName, string columnNames)</code>
+<div class="details">
+<p>Convenience method for creating primary keys</p><p>[php]
+$columns = array(
+'id' => array(
+'type' => 'integer
+'autoincrement' => true
+)
+);
+$this->createPrimaryKey('my_table', $columns);</p><p>Equivalent to doing:</p><p>Add new columns (addColumn())
+Create primary constraint on columns (createConstraint())
+Change autoincrement = true field to be autoincrement</p><dl>
+<dt>Parameters:</dt>
+<dd>tableName - Name of the table</dd>
+<dd>columnNames - Array of column names and column definitions</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Migration/Base.php at line 135</div>
+<h3 id="createTable()">createTable</h3>
+<code class="signature">public  void <strong>createTable</strong>(string tableName, array fields, array options)</code>
+<div class="details">
+<p>Add a create table change.</p><dl>
+<dt>Parameters:</dt>
+<dd>tableName - Name of the table</dd>
+<dd>fields - Array of fields for table</dd>
+<dd>options - Array of options for the table</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Migration/Base.php at line 201</div>
+<h3 id="dropConstraint()">dropConstraint</h3>
+<code class="signature">public  void <strong>dropConstraint</strong>(string tableName, mixed constraintName, mixed primary, string constraintname)</code>
+<div class="details">
+<p>Add a drop constraint change.</p><dl>
+<dt>Parameters:</dt>
+<dd>tableName - Name of the table.</dd>
+<dd>constraintname - Name of the constraint.</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Migration/Base.php at line 361</div>
+<h3 id="dropForeignKey()">dropForeignKey</h3>
+<code class="signature">public  void <strong>dropForeignKey</strong>(string tableName, string name)</code>
+<div class="details">
+<p>Add a drop foreign key change.</p><dl>
+<dt>Parameters:</dt>
+<dd>tableName - Name of the table.</dd>
+<dd>name - Name of the foreign key.</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Migration/Base.php at line 304</div>
+<h3 id="dropPrimaryKey()">dropPrimaryKey</h3>
+<code class="signature">public  void <strong>dropPrimaryKey</strong>(string tableName, string columnNames)</code>
+<div class="details">
+<p>Convenience method for dropping primary keys.</p><p>[php]
+$columns = array(
+'id' => array(
+'type' => 'integer
+'autoincrement' => true
+)
+);
+$this->dropPrimaryKey('my_table', $columns);</p><p>Equivalent to doing:</p><p>Change autoincrement column so it's not (changeColumn())
+Remove primary constraint (dropConstraint())
+Removing columns (removeColumn())</p><dl>
+<dt>Parameters:</dt>
+<dd>tableName - Name of the table</dd>
+<dd>columnNames - Array of column names and column definitions</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Migration/Base.php at line 146</div>
+<h3 id="dropTable()">dropTable</h3>
+<code class="signature">public  void <strong>dropTable</strong>(string tableName)</code>
+<div class="details">
+<p>Add a drop table change.</p><dl>
+<dt>Parameters:</dt>
+<dd>tableName - Name of the table</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Migration/Base.php at line 333</div>
+<h3 id="foreignKey()">foreignKey</h3>
+<code class="signature">public  void <strong>foreignKey</strong>(string upDown, string tableName, string name, array definition)</code>
+<div class="details">
+<p>Add a create or drop foreign key change.</p><dl>
+<dt>Parameters:</dt>
+<dd>upDown - Whether to add the up(create) or down(drop) foreign key change.</dd>
+<dd>tableName - Name of the table.</dd>
+<dd>name - Name of the foreign key.</dd>
+<dd>definition - Array for the foreign key definition</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Migration/Base.php at line 61</div>
+<h3 id="getChanges()">getChanges</h3>
+<code class="signature">public  array <strong>getChanges</strong>()</code>
+<div class="details">
+<p>Get the changes that have been added on this migration class instance</p><dl>
+<dt>Returns:</dt>
+<dd>$changes</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Migration/Base.php at line 106</div>
+<h3 id="getDefaultTableOptions()">getDefaultTableOptions</h3>
+<code class="signature">public static  array <strong>getDefaultTableOptions</strong>()</code>
+<div class="details">
+<p>Returns the default options for tables created using Doctrine_Migration_Base::createTable()</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Migration/Base.php at line 66</div>
+<h3 id="getNumChanges()">getNumChanges</h3>
+<code class="signature">public  void <strong>getNumChanges</strong>()</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Migration/Base.php at line 458</div>
+<h3 id="index()">index</h3>
+<code class="signature">public  void <strong>index</strong>(string upDown, string tableName, string indexName, array definition)</code>
+<div class="details">
+<p>Add a add or remove index change.</p><dl>
+<dt>Parameters:</dt>
+<dd>upDown - Whether to add the up(add) or down(remove) index change.</dd>
+<dd>tableName - Name of the table</dd>
+<dd>indexName - Name of the index</dd>
+<dd>definition - Array for the index definition</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Migration/Base.php at line 502</div>
+<h3 id="postDown()">postDown</h3>
+<code class="signature">public  void <strong>postDown</strong>()</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Migration/Base.php at line 494</div>
+<h3 id="postUp()">postUp</h3>
+<code class="signature">public  void <strong>postUp</strong>()</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Migration/Base.php at line 498</div>
+<h3 id="preDown()">preDown</h3>
+<code class="signature">public  void <strong>preDown</strong>()</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Migration/Base.php at line 490</div>
+<h3 id="preUp()">preUp</h3>
+<code class="signature">public  void <strong>preUp</strong>()</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Migration/Base.php at line 214</div>
+<h3 id="primaryKey()">primaryKey</h3>
+<code class="signature">public  void <strong>primaryKey</strong>(string direction, string tableName, string columnNames)</code>
+<div class="details">
+<p>Convenience method for creating or dropping primary keys.</p><dl>
+<dt>Parameters:</dt>
+<dd></dd>
+<dd>tableName - Name of the table</dd>
+<dd>columnNames - Array of column names and column definitions</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Migration/Base.php at line 411</div>
+<h3 id="removeColumn()">removeColumn</h3>
+<code class="signature">public  void <strong>removeColumn</strong>(string tableName, string columnName)</code>
+<div class="details">
+<p>Add a remove column change.</p><dl>
+<dt>Parameters:</dt>
+<dd>tableName - Name of the table</dd>
+<dd>columnName - Name of the column</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Migration/Base.php at line 485</div>
+<h3 id="removeIndex()">removeIndex</h3>
+<code class="signature">public  void <strong>removeIndex</strong>(string tableName, string indexName)</code>
+<div class="details">
+<p>Add a remove index change.</p><dl>
+<dt>Parameters:</dt>
+<dd>tableName - Name of the table</dd>
+<dd>indexName - Name of the index</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Migration/Base.php at line 424</div>
+<h3 id="renameColumn()">renameColumn</h3>
+<code class="signature">public  void <strong>renameColumn</strong>(string tableName, string oldColumnName, string newColumnName)</code>
+<div class="details">
+<p>Add a rename column change</p><dl>
+<dt>Parameters:</dt>
+<dd>tableName - Name of the table to rename the column on</dd>
+<dd>oldColumnName - The old column name</dd>
+<dd>newColumnName - The new column name</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Migration/Base.php at line 158</div>
+<h3 id="renameTable()">renameTable</h3>
+<code class="signature">public  void <strong>renameTable</strong>(string oldTableName, string newTableName)</code>
+<div class="details">
+<p>Add a rename table change</p><dl>
+<dt>Parameters:</dt>
+<dd>oldTableName - Name of the table to change</dd>
+<dd>newTableName - Name to change the table to</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Migration/Base.php at line 96</div>
+<h3 id="setDefaultTableOptions()">setDefaultTableOptions</h3>
+<code class="signature">public static  void <strong>setDefaultTableOptions</strong>(array options)</code>
+<div class="details">
+<p>Sets the default options for tables created using Doctrine_Migration_Base::createTable()</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Migration/Base.php at line 120</div>
+<h3 id="table()">table</h3>
+<code class="signature">public  void <strong>table</strong>(string upDown, string tableName, array fields, array options)</code>
+<div class="details">
+<p>Add a create or drop table change.</p><dl>
+<dt>Parameters:</dt>
+<dd>upDown - Whether to add the up(create) or down(drop) table change.</dd>
+<dd>tableName - Name of the table</dd>
+<dd>fields - Array of fields for table</dd>
+<dd>options - Array of options for the table</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="header">
+<h1>Doctrine</h1>
+<ul>
+<li><a href="../overview-summary.html">Overview</a></li>
+<li><a href="../doctrine/package-summary.html">Namespace</a></li>
+<li class="active">Class</li>
+<li><a href="../doctrine/package-tree.html">Tree</a></li>
+<li><a href="../deprecated-list.html">Deprecated</a></li>
+<li><a href="../index-all.html">Index</a></li>
+</ul>
+</div>
+
+<div class="small_links">
+<a href="../index.html" target="_top">Frames</a>
+<a href="../doctrine/doctrine_migration_base.html" target="_top">No frames</a>
+</div>
+<div class="small_links">
+Summary: <a href="#summary_field">Field</a> | <a href="#summary_method">Method</a> | <a href="#summary_constr">Constr</a>
+Detail: <a href="#detail_field">Field</a> | <a href="#detail_method">Method</a> | <a href="#summary_constr">Constr</a>
+</div>
+<hr>
+
+<p id="footer">This document was generated by <a href="http://peej.github.com/phpdoctor/">PHPDoctor: The PHP Documentation Creator</a></p>
+
+</body>
+
+</html>

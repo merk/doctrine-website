@@ -1,0 +1,313 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+<head>
+
+<meta name="generator" content="PHPDoctor 2RC4 (http://phpdoctor.sourceforge.net/)">
+<meta name="when" content="Fri, 09 Apr 2010 11:50:25 -0400">
+
+<link rel="stylesheet" type="text/css" href="../stylesheet.css">
+<link rel="start" href="../overview-summary.html">
+
+<title>Doctrine_Data (Doctrine 1.2 ORM)</title>
+
+</head>
+<body id="definition" onload="parent.document.title=document.title;">
+
+<div class="header">
+<h1>Doctrine</h1>
+<ul>
+<li><a href="../overview-summary.html">Overview</a></li>
+<li><a href="../doctrine/package-summary.html">Namespace</a></li>
+<li class="active">Class</li>
+<li><a href="../doctrine/package-tree.html">Tree</a></li>
+<li><a href="../deprecated-list.html">Deprecated</a></li>
+<li><a href="../index-all.html">Index</a></li>
+</ul>
+</div>
+
+<div class="small_links">
+<a href="../index.html" target="_top">Frames</a>
+<a href="../doctrine/doctrine_data.html" target="_top">No frames</a>
+</div>
+<div class="small_links">
+Summary: <a href="#summary_field">Field</a> | <a href="#summary_method">Method</a> | <a href="#summary_constr">Constr</a>
+Detail: <a href="#detail_field">Field</a> | <a href="#detail_method">Method</a> | <a href="#summary_constr">Constr</a>
+</div>
+<hr>
+
+<div class="qualifiedName">Doctrine\Doctrine_Data</div>
+<div class="location">/Doctrine/Data.php at line 36</div>
+
+<h1>Class Doctrine_Data</h1>
+
+<pre class="tree"><strong>Doctrine_Data</strong><br /></pre>
+
+<hr>
+
+<p class="signature">public  class <strong>Doctrine_Data</strong></p>
+
+<div class="comment" id="overview_description"><p>Doctrine_Data</p><p>Base Doctrine_Data class for dumping and loading data to and from fixtures files.
+Support formats are based on what formats are available in Doctrine_Parser such as yaml, xml, json, etc.</p></div>
+
+<dl>
+<dt>Subpackage:</dt>
+<dd>Data</dd>
+<dt>Author:</dt>
+<dd>Jonathan H. Wage <jwage@mac.com></dd>
+<dt>License:</dt>
+<dd>http://www.opensource.org/licenses/lgpl-license.php LGPL</dd>
+<dt>See Also:</dt>
+<dd><code>www.doctrine-project.org</code></dd>
+<dt>Since:</dt>
+<dd>1.0</dd>
+<dt>Version:</dt>
+<dd>$Revision: 2552 $</dd>
+</dl>
+<hr>
+
+<table id="summary_field">
+<tr><th colspan="2">Field Summary</th></tr>
+<tr>
+<td class="type">protected  string</td>
+<td class="description"><p class="name"><a href="#_directory">$_directory</a></p><p class="description">directory.</p></td>
+</tr>
+<tr>
+<td class="type">protected  string</td>
+<td class="description"><p class="name"><a href="#_exportIndividualFiles">$_exportIndividualFiles</a></p><p class="description">_exportIndividualFiles.</p></td>
+</tr>
+<tr>
+<td class="type">protected  string</td>
+<td class="description"><p class="name"><a href="#_format">$_format</a></p><p class="description">format.</p></td>
+</tr>
+<tr>
+<td class="type">protected  string</td>
+<td class="description"><p class="name"><a href="#_formats">$_formats</a></p><p class="description">formats.</p></td>
+</tr>
+<tr>
+<td class="type">protected  string</td>
+<td class="description"><p class="name"><a href="#_models">$_models</a></p><p class="description">models.</p></td>
+</tr>
+</table>
+
+<table id="summary_method">
+<tr><th colspan="2">Method Summary</th></tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#exportData()">exportData</a>(string directory, string format, string models, string _exportIndividualFiles)</p><p class="description">exportData.</p></td>
+</tr>
+<tr>
+<td class="type"> bool</td>
+<td class="description"><p class="name"><a href="#exportIndividualFiles()">exportIndividualFiles</a>(mixed bool)</p><p class="description">_exportIndividualFiles .</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#getDirectory()">getDirectory</a>()</p><p class="description">getDirectory.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#getFormat()">getFormat</a>()</p><p class="description">getFormat.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#getFormats()">getFormats</a>()</p><p class="description">getFormats .</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#getModels()">getModels</a>()</p><p class="description">getModels.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#importData()">importData</a>(string directory, string format, string models)</p><p class="description">importData.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#isRelation()">isRelation</a>(mixed record, string fieldName, string Doctrine_Record)</p><p class="description">isRelation.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#purge()">purge</a>(string models)</p><p class="description">purge.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#setDirectory()">setDirectory</a>(mixed directory)</p><p class="description">setDirectory.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#setFormat()">setFormat</a>(string format)</p><p class="description">setFormat.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#setModels()">setModels</a>(string models)</p><p class="description">setModels.</p></td>
+</tr>
+</table>
+
+<h2 id="detail_field">Field Detail</h2>
+<div class="location">/Doctrine/Data.php at line 63</div>
+<h3 id="_directory">_directory</h3>
+<code class="signature">protected  string <strong>$_directory</strong> = null</code>
+<div class="details">
+<p>directory</p><p>array of directory/yml paths or single directory/yml file</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Data.php at line 81</div>
+<h3 id="_exportIndividualFiles">_exportIndividualFiles</h3>
+<code class="signature">protected  string <strong>$_exportIndividualFiles</strong> = false</code>
+<div class="details">
+<p>_exportIndividualFiles</p><p>whether or not to export data to individual files instead of 1</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Data.php at line 54</div>
+<h3 id="_format">_format</h3>
+<code class="signature">protected  string <strong>$_format</strong> = 'yml'</code>
+<div class="details">
+<p>format</p><p>the default and current format we are working with</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Data.php at line 45</div>
+<h3 id="_formats">_formats</h3>
+<code class="signature">protected  string <strong>$_formats</strong> = array('csv', 'yml', 'xml')</code>
+<div class="details">
+<p>formats</p><p>array of formats data can be in</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Data.php at line 72</div>
+<h3 id="_models">_models</h3>
+<code class="signature">protected  string <strong>$_models</strong> = array()</code>
+<div class="details">
+<p>models</p><p>specified array of models to use</p></div>
+
+<hr>
+
+<h2 id="detail_method">Method Detail</h2>
+<div class="location">/Doctrine/Data.php at line 196</div>
+<h3 id="exportData()">exportData</h3>
+<code class="signature">public  void <strong>exportData</strong>(string directory, string format, string models, string _exportIndividualFiles)</code>
+<div class="details">
+<p>exportData</p><p>Interface for exporting data to fixtures files from Doctrine models</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Data.php at line 176</div>
+<h3 id="exportIndividualFiles()">exportIndividualFiles</h3>
+<code class="signature">public  bool <strong>exportIndividualFiles</strong>(mixed bool)</code>
+<div class="details">
+<p>_exportIndividualFiles </p><p>Set/Get whether or not to export individual files</p><dl>
+<dt>Returns:</dt>
+<dd>$_exportIndividualFiles</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Data.php at line 139</div>
+<h3 id="getDirectory()">getDirectory</h3>
+<code class="signature">public  void <strong>getDirectory</strong>()</code>
+<div class="details">
+<p>getDirectory</p><p>Get directory for dumping/loading data from and to</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Data.php at line 103</div>
+<h3 id="getFormat()">getFormat</h3>
+<code class="signature">public  void <strong>getFormat</strong>()</code>
+<div class="details">
+<p>getFormat</p><p>Get the current format we are working with</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Data.php at line 115</div>
+<h3 id="getFormats()">getFormats</h3>
+<code class="signature">public  void <strong>getFormats</strong>()</code>
+<div class="details">
+<p>getFormats </p><p>Get array of available formats</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Data.php at line 164</div>
+<h3 id="getModels()">getModels</h3>
+<code class="signature">public  void <strong>getModels</strong>()</code>
+<div class="details">
+<p>getModels</p><p>Get the array of specified models to work with</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Data.php at line 216</div>
+<h3 id="importData()">importData</h3>
+<code class="signature">public  void <strong>importData</strong>(string directory, string format, string models)</code>
+<div class="details">
+<p>importData</p><p>Interface for importing data from fixture files to Doctrine models</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Data.php at line 234</div>
+<h3 id="isRelation()">isRelation</h3>
+<code class="signature">public  void <strong>isRelation</strong>(mixed record, string fieldName, string Doctrine_Record)</code>
+<div class="details">
+<p>isRelation</p><p>Check if a fieldName on a Doctrine_Record is a relation, if it is we return that relationData</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Data.php at line 258</div>
+<h3 id="purge()">purge</h3>
+<code class="signature">public  void <strong>purge</strong>(string models)</code>
+<div class="details">
+<p>purge</p><p>Purge all data for loaded models or for the passed array of Doctrine_Records</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Data.php at line 127</div>
+<h3 id="setDirectory()">setDirectory</h3>
+<code class="signature">public  void <strong>setDirectory</strong>(mixed directory)</code>
+<div class="details">
+<p>setDirectory</p><p>Set the array/string of directories or yml file paths</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Data.php at line 91</div>
+<h3 id="setFormat()">setFormat</h3>
+<code class="signature">public  void <strong>setFormat</strong>(string format)</code>
+<div class="details">
+<p>setFormat</p><p>Set the current format we are working with</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Data.php at line 152</div>
+<h3 id="setModels()">setModels</h3>
+<code class="signature">public  void <strong>setModels</strong>(string models)</code>
+<div class="details">
+<p>setModels</p><p>Set the array of specified models to work with</p></div>
+
+<hr>
+
+<div class="header">
+<h1>Doctrine</h1>
+<ul>
+<li><a href="../overview-summary.html">Overview</a></li>
+<li><a href="../doctrine/package-summary.html">Namespace</a></li>
+<li class="active">Class</li>
+<li><a href="../doctrine/package-tree.html">Tree</a></li>
+<li><a href="../deprecated-list.html">Deprecated</a></li>
+<li><a href="../index-all.html">Index</a></li>
+</ul>
+</div>
+
+<div class="small_links">
+<a href="../index.html" target="_top">Frames</a>
+<a href="../doctrine/doctrine_data.html" target="_top">No frames</a>
+</div>
+<div class="small_links">
+Summary: <a href="#summary_field">Field</a> | <a href="#summary_method">Method</a> | <a href="#summary_constr">Constr</a>
+Detail: <a href="#detail_field">Field</a> | <a href="#detail_method">Method</a> | <a href="#summary_constr">Constr</a>
+</div>
+<hr>
+
+<p id="footer">This document was generated by <a href="http://peej.github.com/phpdoctor/">PHPDoctor: The PHP Documentation Creator</a></p>
+
+</body>
+
+</html>

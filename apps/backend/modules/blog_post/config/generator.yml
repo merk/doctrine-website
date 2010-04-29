@@ -1,0 +1,24 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           BlogPost
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          blog_posts
+    with_doctrine_route:     1
+
+    config:
+      actions: ~
+      fields:  ~
+      list:
+        display:  [=name, is_published]
+        sort: [created_at, desc]
+      filter:
+        class:    false
+      form:
+        display: [sf_guard_user_id, name, body, is_published, slug, created_at, tags_list, _preview]
+      edit:    ~
+      new:     ~

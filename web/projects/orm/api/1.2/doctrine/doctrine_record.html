@@ -1,0 +1,2388 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+<head>
+
+<meta name="generator" content="PHPDoctor 2RC4 (http://phpdoctor.sourceforge.net/)">
+<meta name="when" content="Fri, 09 Apr 2010 11:50:26 -0400">
+
+<link rel="stylesheet" type="text/css" href="../stylesheet.css">
+<link rel="start" href="../overview-summary.html">
+
+<title>Doctrine_Record (Doctrine 1.2 ORM)</title>
+
+</head>
+<body id="definition" onload="parent.document.title=document.title;">
+
+<div class="header">
+<h1>Doctrine</h1>
+<ul>
+<li><a href="../overview-summary.html">Overview</a></li>
+<li><a href="../doctrine/package-summary.html">Namespace</a></li>
+<li class="active">Class</li>
+<li><a href="../doctrine/package-tree.html">Tree</a></li>
+<li><a href="../deprecated-list.html">Deprecated</a></li>
+<li><a href="../index-all.html">Index</a></li>
+</ul>
+</div>
+
+<div class="small_links">
+<a href="../index.html" target="_top">Frames</a>
+<a href="../doctrine/doctrine_record.html" target="_top">No frames</a>
+</div>
+<div class="small_links">
+Summary: <a href="#summary_field">Field</a> | <a href="#summary_method">Method</a> | <a href="#summary_constr">Constr</a>
+Detail: <a href="#detail_field">Field</a> | <a href="#detail_method">Method</a> | <a href="#summary_constr">Constr</a>
+</div>
+<hr>
+
+<div class="qualifiedName">Doctrine\Doctrine_Record</div>
+<div class="location">/Doctrine/Record.php at line 34</div>
+
+<h1>Class Doctrine_Record</h1>
+
+<pre class="tree">Class:Doctrine_Record - Superclass: Doctrine_Record_Abstract
+Class:Doctrine_Record_Abstract - Superclass: Doctrine_Access
+Class:Doctrine_Access - Superclass: Doctrine_Locator_Injectable
+<a href="../doctrine/doctrine_locator_injectable.html">Doctrine_Locator_Injectable</a><br>   &lfloor;&nbsp;<a href="../doctrine/doctrine_access.html">Doctrine_Access</a><br>      &lfloor;&nbsp;<a href="../doctrine/doctrine_record_abstract.html">Doctrine_Record_Abstract</a><br>         &lfloor;&nbsp;<strong>Doctrine_Record</strong><br /></pre>
+
+<hr>
+
+<p class="signature">public abstract  class <strong>Doctrine_Record</strong><br>extends <a href="../doctrine/doctrine_record_abstract.html">Doctrine_Record_Abstract</a>
+
+</p>
+
+<div class="comment" id="overview_description"><p>Doctrine_Record
+All record classes should inherit this super class</p></div>
+
+<dl>
+<dt>Subpackage:</dt>
+<dd>Record</dd>
+<dt>Author:</dt>
+<dd>Konsta Vesterinen <kvesteri@cc.hut.fi></dd>
+<dt>License:</dt>
+<dd>http://www.opensource.org/licenses/lgpl-license.php LGPL</dd>
+<dt>See Also:</dt>
+<dd><code>www.doctrine-project.org</code></dd>
+<dt>Since:</dt>
+<dd>1.0</dd>
+<dt>Version:</dt>
+<dd>$Revision: 7496 $</dd>
+<dt>Category:</dt>
+<dd>Locator</dd>
+</dl>
+<hr>
+
+<table id="summary_field">
+<tr><th colspan="2">Field Summary</th></tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#STATE_CLEAN">STATE_CLEAN</a></p><p class="description">CLEAN STATE
+a Doctrine_Record is in clean state when all of its properties are loaded from the database
+and none of its properties are changed.</p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#STATE_DIRTY">STATE_DIRTY</a></p><p class="description">DIRTY STATE
+a Doctrine_Record is in dirty state when its properties are changed.</p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#STATE_LOCKED">STATE_LOCKED</a></p><p class="description">LOCKED STATE
+a Doctrine_Record is temporarily locked during deletes and saves.</p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#STATE_PROXY">STATE_PROXY</a></p><p class="description">PROXY STATE
+a Doctrine_Record is in proxy state when its properties are not fully loaded.</p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#STATE_TCLEAN">STATE_TCLEAN</a></p><p class="description">NEW TCLEAN
+a Doctrine_Record is in transient clean state when it is created and none of its fields are modified.</p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#STATE_TDIRTY">STATE_TDIRTY</a></p><p class="description">TDIRTY STATE
+a Doctrine_Record is in transient dirty state when it is created
+and some of its fields are modified but it is NOT yet persisted into database.</p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#STATE_TLOCKED">STATE_TLOCKED</a></p><p class="description">TLOCKED STATE
+a Doctrine_Record is temporarily locked (and transient) during deletes and saves.</p></td>
+</tr>
+<tr>
+<td class="type">protected static  array</td>
+<td class="description"><p class="name"><a href="#_customAccessors">$_customAccessors</a></p><p class="description">Array of custom accessors for cache.</p></td>
+</tr>
+<tr>
+<td class="type">protected static  array</td>
+<td class="description"><p class="name"><a href="#_customMutators">$_customMutators</a></p><p class="description">Array of custom mutators for cache.</p></td>
+</tr>
+<tr>
+<td class="type">protected  array $_data                    the record data</td>
+<td class="description"><p class="name"><a href="#_data">$_data</a></p><p class="description">each element is one of 3 following types:
+- simple type (int, string) - field has a scalar value
+- null - field has NULL value in DB
+- Doctrine_Null - field value is unknown, it wasn't loaded yet.</p></td>
+</tr>
+<tr>
+<td class="type">protected  Doctrine_Validator_ErrorStack   error stack object</td>
+<td class="description"><p class="name"><a href="#_errorStack">$_errorStack</a></p><p class="description">.</p></td>
+</tr>
+<tr>
+<td class="type">protected  integer $_id                    the primary keys of this object</td>
+<td class="description"><p class="name"><a href="#_id">$_id</a></p><p class="description">.</p></td>
+</tr>
+<tr>
+<td class="type">private static  integer $index                  this index is used for creating object identifiers</td>
+<td class="description"><p class="name"><a href="#_index">$_index</a></p><p class="description">.</p></td>
+</tr>
+<tr>
+<td class="type">protected  array</td>
+<td class="description"><p class="name"><a href="#_invokedSaveHooks">$_invokedSaveHooks</a></p><p class="description">Array containing the save hooks and events that have been invoked.</p></td>
+</tr>
+<tr>
+<td class="type">protected  array $_lastModified             an array containing field names that were modified in the previous transaction</td>
+<td class="description"><p class="name"><a href="#_lastModified">$_lastModified</a></p><p class="description">.</p></td>
+</tr>
+<tr>
+<td class="type">protected  array $_modified                an array containing field names that have been modified</td>
+<td class="description"><p class="name"><a href="#_modified">$_modified</a></p><p class="description">.</p></td>
+</tr>
+<tr>
+<td class="type">protected  Doctrine_Node_<TreeImpl>        node object</td>
+<td class="description"><p class="name"><a href="#_node">$_node</a></p><p class="description">.</p></td>
+</tr>
+<tr>
+<td class="type">private  integer $oid                    object identifier, each Record object has a unique object identifier</td>
+<td class="description"><p class="name"><a href="#_oid">$_oid</a></p><p class="description">.</p></td>
+</tr>
+<tr>
+<td class="type">protected  array $_oldValues               an array of the old values from set properties</td>
+<td class="description"><p class="name"><a href="#_oldValues">$_oldValues</a></p><p class="description">.</p></td>
+</tr>
+<tr>
+<td class="type">protected  string</td>
+<td class="description"><p class="name"><a href="#_pendingDeletes">$_pendingDeletes</a></p><p class="description">Doctrine_Collection of objects needing to be deleted on save.</p></td>
+</tr>
+<tr>
+<td class="type">protected  array $_pendingUnlinks</td>
+<td class="description"><p class="name"><a href="#_pendingUnlinks">$_pendingUnlinks</a></p><p class="description">Array of pending un links in format alias => keys to be executed after save.</p></td>
+</tr>
+<tr>
+<td class="type">protected  array $_references              an array containing all the references</td>
+<td class="description"><p class="name"><a href="#_references">$_references</a></p><p class="description">.</p></td>
+</tr>
+<tr>
+<td class="type">protected  boolean</td>
+<td class="description"><p class="name"><a href="#_serializeReferences">$_serializeReferences</a></p><p class="description">Whether or not to serialize references when a Doctrine_Record is serialized.</p></td>
+</tr>
+<tr>
+<td class="type">protected  integer $_state                 the state of this record</td>
+<td class="description"><p class="name"><a href="#_state">$_state</a></p><p class="description">.</p></td>
+</tr>
+<tr>
+<td class="type">protected  array $_values                  the values array, aggregate values and such are mapped into this array</td>
+<td class="description"><p class="name"><a href="#_values">$_values</a></p><p class="description">.</p></td>
+</tr>
+</table>
+
+<table class="inherit">
+<tr><th colspan="2">Fields inherited from Doctrine\Doctrine_Record_Abstract</th></tr>
+<tr><td><a href="../doctrine/doctrine_record_abstract.html#_table">_table</a></td></tr></table>
+
+<table id="summary_constr">
+<tr><th colspan="2">Constructor Summary</th></tr>
+<tr>
+<td class="description"><p class="name"><a href="#Doctrine_Record()">Doctrine_Record</a>(Doctrine_Table|null table, boolean isNewEntry)</p><p class="description">constructor.</p></td>
+</tr>
+</table>
+
+<table id="summary_method">
+<tr><th colspan="2">Method Summary</th></tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#__call()">__call</a>(string method, array args)</p><p class="description">magic method used for method overloading.</p></td>
+</tr>
+<tr>
+<td class="type"> string</td>
+<td class="description"><p class="name"><a href="#__toString()">__toString</a>()</p><p class="description">magic method.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#__unset()">__unset</a>(string name)</p><p class="description">deletes a column or a related component..</p></td>
+</tr>
+<tr>
+<td class="type">protected  void</td>
+<td class="description"><p class="name"><a href="#_get()">_get</a>(mixed fieldName, mixed load)</p></td>
+</tr>
+<tr>
+<td class="type">static  integer</td>
+<td class="description"><p class="name"><a href="#_index()">_index</a>()</p><p class="description">the current instance counter used to generate unique ids for php objects. </p></td>
+</tr>
+<tr>
+<td class="type">protected  boolean</td>
+<td class="description"><p class="name"><a href="#_isValueModified()">_isValueModified</a>(string type, string old, string new)</p><p class="description">Check if a value has changed according to Doctrine
+Doctrine is loose with type checking in the same ways PHP is for consistancy of behavior.</p></td>
+</tr>
+<tr>
+<td class="type">protected  void</td>
+<td class="description"><p class="name"><a href="#_resetModified()">_resetModified</a>()</p><p class="description">Reset the modified array and store the old array in lastModified so it 
+can be accessed by users after saving a record, since the modified array 
+is reset after the object is saved..</p></td>
+</tr>
+<tr>
+<td class="type">protected  void</td>
+<td class="description"><p class="name"><a href="#_set()">_set</a>(mixed fieldName, mixed value, mixed load)</p></td>
+</tr>
+<tr>
+<td class="type"> boolean</td>
+<td class="description"><p class="name"><a href="#assignDefaultValues()">assignDefaultValues</a>(boolean overwrite)</p><p class="description">setDefaultValues
+sets the default values for records internal data.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#assignIdentifier()">assignIdentifier</a>(mixed id)</p><p class="description">assigns an identifier to the instance, for database storage.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#assignInheritanceValues()">assignInheritanceValues</a>()</p><p class="description">Assign the inheritance column values.</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../doctrine/doctrine_record.html">Doctrine_Record</a></td>
+<td class="description"><p class="name"><a href="#call()">call</a>(string|array callback, string column, mixed arg1)</p><p class="description">call.</p></td>
+</tr>
+<tr>
+<td class="type"> array</td>
+<td class="description"><p class="name"><a href="#cleanData()">cleanData</a>(array data)</p><p class="description">cleanData
+leaves the $data array only with values whose key is a field inside this
+record and returns the values that were removed from $data. </p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#clearAccessor()">clearAccessor</a>(string fieldName)</p><p class="description">clears the accessor for a field name.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#clearInvokedSaveHooks()">clearInvokedSaveHooks</a>()</p><p class="description">makes all the already used save hooks available again.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#clearMutator()">clearMutator</a>(string fieldName)</p><p class="description">clears the custom mutator for a field name.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#clearRelated()">clearRelated</a>(string name)</p><p class="description">Clear a related reference or all references.</p></td>
+</tr>
+<tr>
+<td class="type"> integer</td>
+<td class="description"><p class="name"><a href="#columnCount()">columnCount</a>()</p><p class="description">alias for @see count().</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#construct()">construct</a>()</p><p class="description">construct
+Empty template method to provide concrete Record classes with the possibility
+to hook into the constructor procedure.</p></td>
+</tr>
+<tr>
+<td class="type"> boolean</td>
+<td class="description"><p class="name"><a href="#contains()">contains</a>(string fieldName, mixed offset)</p><p class="description">test whether a field (column, mapped value, related component, accessor) is accessible by @see get().</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../doctrine/doctrine_record.html">Doctrine_Record</a></td>
+<td class="description"><p class="name"><a href="#copy()">copy</a>(boolean deep)</p><p class="description">generates a copy of this object. </p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#coreSetRelated()">coreSetRelated</a>(string name, Doctrine_Record|Doctrine_Collection value)</p><p class="description">Places a related component in the object graph.
+</p></td>
+</tr>
+<tr>
+<td class="type"> integer</td>
+<td class="description"><p class="name"><a href="#count()">count</a>()</p><p class="description">implements Countable interface.</p></td>
+</tr>
+<tr>
+<td class="type"> boolean</td>
+<td class="description"><p class="name"><a href="#delete()">delete</a>(mixed conn)</p><p class="description">deletes this data access object and all the related composites
+this operation is isolated by a transaction.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#deleteNode()">deleteNode</a>()</p><p class="description">used to delete node from tree - MUST BE USE TO DELETE RECORD IF TABLE ACTS AS TREE.</p></td>
+</tr>
+<tr>
+<td class="type"> void|Doctrine_Validator_ErrorStack</td>
+<td class="description"><p class="name"><a href="#errorStack()">errorStack</a>(mixed stack, <a href="../doctrine/doctrine_validator_errorstack.html">Doctrine_Validator_ErrorStack</a> errorStack)</p><p class="description">assigns the ErrorStack or returns it if called without parameters.</p></td>
+</tr>
+<tr>
+<td class="type"> boolean</td>
+<td class="description"><p class="name"><a href="#exists()">exists</a>()</p><p class="description">returns true if this record is saved in the database, otherwise false (it is transient).</p></td>
+</tr>
+<tr>
+<td class="type"> string</td>
+<td class="description"><p class="name"><a href="#exportTo()">exportTo</a>(string type, string deep)</p><p class="description">exports instance to a chosen format.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#free()">free</a>(boolean deep)</p><p class="description">Helps freeing the memory occupied by the entity.
+</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#fromArray()">fromArray</a>(string array, bool deep)</p><p class="description">imports data from a php array.</p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#get()">get</a>(mixed fieldName, boolean load, mixed offset)</p><p class="description">returns a value of a property or a related component.</p></td>
+</tr>
+<tr>
+<td class="type"> string</td>
+<td class="description"><p class="name"><a href="#getAccessor()">getAccessor</a>(string fieldName)</p><p class="description">gets the custom accessor for a field name.</p></td>
+</tr>
+<tr>
+<td class="type"> array</td>
+<td class="description"><p class="name"><a href="#getAccessors()">getAccessors</a>()</p><p class="description">gets all accessors for this component instance.</p></td>
+</tr>
+<tr>
+<td class="type"> array</td>
+<td class="description"><p class="name"><a href="#getData()">getData</a>()</p><p class="description">return all the internal data (columns).</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../doctrine/doctrine_validator_errorstack.html">Doctrine_Validator_ErrorStack</a></td>
+<td class="description"><p class="name"><a href="#getErrorStack()">getErrorStack</a>()</p><p class="description">retrieves the ErrorStack. </p></td>
+</tr>
+<tr>
+<td class="type"> string</td>
+<td class="description"><p class="name"><a href="#getErrorStackAsString()">getErrorStackAsString</a>()</p><p class="description">Get the record error stack as a human readable string.
+</p></td>
+</tr>
+<tr>
+<td class="type">final  integer</td>
+<td class="description"><p class="name"><a href="#getIncremented()">getIncremented</a>()</p><p class="description">returns the value of autoincremented primary key of this object (if any).</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../doctrine/doctrine_record_iterator.html">Doctrine_Record_Iterator</a></td>
+<td class="description"><p class="name"><a href="#getIterator()">getIterator</a>()</p><p class="description">implements IteratorAggregate interface.</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../doctrine/doctrine_record.html">Doctrine_Record</a></td>
+<td class="description"><p class="name"><a href="#getLast()">getLast</a>()</p><p class="description">getLast
+this method is used internally by Doctrine_Query
+it is needed to provide compatibility between
+records and collections.</p></td>
+</tr>
+<tr>
+<td class="type"> array</td>
+<td class="description"><p class="name"><a href="#getLastModified()">getLastModified</a>(boolean old)</p><p class="description">returns an array of the modified fields from the last transaction..</p></td>
+</tr>
+<tr>
+<td class="type"> array</td>
+<td class="description"><p class="name"><a href="#getModified()">getModified</a>(boolean old, boolean last)</p><p class="description">retrieves an array of modified fields and associated new values..</p></td>
+</tr>
+<tr>
+<td class="type"> string</td>
+<td class="description"><p class="name"><a href="#getMutator()">getMutator</a>(mixed fieldName, string fieldname)</p><p class="description">gets the custom mutator for a field name.</p></td>
+</tr>
+<tr>
+<td class="type"> array</td>
+<td class="description"><p class="name"><a href="#getMutators()">getMutators</a>()</p><p class="description">gets all custom mutators for this component instance.</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../doctrine/doctrine_node.html">Doctrine_Node</a></td>
+<td class="description"><p class="name"><a href="#getNode()">getNode</a>()</p><p class="description">getter for node associated with this record.</p></td>
+</tr>
+<tr>
+<td class="type"> integer</td>
+<td class="description"><p class="name"><a href="#getOid()">getOid</a>()</p><p class="description">.</p></td>
+</tr>
+<tr>
+<td class="type"> array</td>
+<td class="description"><p class="name"><a href="#getPendingDeletes()">getPendingDeletes</a>()</p><p class="description">returns Doctrine_Record instances which need to be deleted on save.</p></td>
+</tr>
+<tr>
+<td class="type"> array</td>
+<td class="description"><p class="name"><a href="#getPendingUnlinks()">getPendingUnlinks</a>()</p><p class="description">returns Doctrine_Record instances which need to be unlinked (deleting the relation) on save.</p></td>
+</tr>
+<tr>
+<td class="type"> array</td>
+<td class="description"><p class="name"><a href="#getPrepared()">getPrepared</a>(array array)</p><p class="description">Retrieves data prepared for a sql transaction.
+</p></td>
+</tr>
+<tr>
+<td class="type"> array</td>
+<td class="description"><p class="name"><a href="#getReferences()">getReferences</a>()</p><p class="description">get all related components.</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../doctrine/doctrine_table.html">Doctrine_Table</a></td>
+<td class="description"><p class="name"><a href="#getTable()">getTable</a>()</p><p class="description">returns the table object for this record..</p></td>
+</tr>
+<tr>
+<td class="type"> boolean</td>
+<td class="description"><p class="name"><a href="#hasAccessor()">hasAccessor</a>(string fieldName, string accessor)</p><p class="description">sets a fieldname to have a custom accessor or check if a field has a custom
+accessor defined (when called without $accessor parameter)..</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#hasAccessorMutator()">hasAccessorMutator</a>(mixed fieldName, string accessor, string mutator, string fieldname)</p><p class="description">Set a fieldname to have a custom accessor and mutator.</p></td>
+</tr>
+<tr>
+<td class="type"> boolean</td>
+<td class="description"><p class="name"><a href="#hasMappedValue()">hasMappedValue</a>(string name)</p><p class="description">Tests whether a mapped value exists.</p></td>
+</tr>
+<tr>
+<td class="type"> boolean</td>
+<td class="description"><p class="name"><a href="#hasMutator()">hasMutator</a>(string fieldName, string mutator)</p><p class="description">sets a fieldname to have a custom mutator or check if a field has a custom
+mutator defined (when called without the $mutator parameter).</p></td>
+</tr>
+<tr>
+<td class="type"> boolean</td>
+<td class="description"><p class="name"><a href="#hasReference()">hasReference</a>(string name)</p><p class="description">tests whether a relation is set.</p></td>
+</tr>
+<tr>
+<td class="type"> boolean</td>
+<td class="description"><p class="name"><a href="#hasRelation()">hasRelation</a>(mixed fieldName)</p><p class="description">checks existence of properties and related components.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#hydrate()">hydrate</a>(array data, boolean overwriteLocalChanges)</p><p class="description">hydrate
+hydrates this object from given array.</p></td>
+</tr>
+<tr>
+<td class="type"> array</td>
+<td class="description"><p class="name"><a href="#identifier()">identifier</a>()</p><p class="description">returns the primary keys of this object.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#importFrom()">importFrom</a>(string type, string data, mixed deep)</p><p class="description">imports data from a chosen format in the current instance.</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../doctrine/doctrine_event.html">Doctrine_Event</a></td>
+<td class="description"><p class="name"><a href="#invokeSaveHooks()">invokeSaveHooks</a>(string when, string type, <a href="../doctrine/doctrine_event.html">Doctrine_Event</a> event)</p><p class="description">calls a subclass hook. </p></td>
+</tr>
+<tr>
+<td class="type"> boolean</td>
+<td class="description"><p class="name"><a href="#isInProxyState()">isInProxyState</a>()</p><p class="description">indicates whether record has any not loaded fields.</p></td>
+</tr>
+<tr>
+<td class="type"> boolean</td>
+<td class="description"><p class="name"><a href="#isModified()">isModified</a>(boolean deep)</p><p class="description">returns true if this record was modified, otherwise false.</p></td>
+</tr>
+<tr>
+<td class="type"> boolean</td>
+<td class="description"><p class="name"><a href="#isValid()">isValid</a>(boolean deep, boolean hooks)</p><p class="description">tests validity of the record using the current data..</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../doctrine/doctrine_record.html">Doctrine_Record</a></td>
+<td class="description"><p class="name"><a href="#link()">link</a>(string alias, array ids, boolean now)</p><p class="description">creates links from this record to given records.</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../doctrine/doctrine_record.html">Doctrine_Record</a></td>
+<td class="description"><p class="name"><a href="#linkInDb()">linkInDb</a>(string alias, array ids)</p><p class="description">creates links from this record to given records now, querying the db.</p></td>
+</tr>
+<tr>
+<td class="type"> boolean</td>
+<td class="description"><p class="name"><a href="#load()">load</a>(array data)</p><p class="description">loads all the uninitialized properties from the database.
+</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#loadReference()">loadReference</a>(string name)</p><p class="description">loadReference
+loads a related component.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#mapValue()">mapValue</a>(string name, mixed value)</p><p class="description">sets a value that will be managed as if it were a field by magic accessor and mutators, @see get() and @see set().
+</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#merge()">merge</a>(mixed data, bool deep, string array)</p><p class="description">merges this record with an array of values
+or with another existing instance of this object.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#obtainReference()">obtainReference</a>(string name)</p><p class="description">gets a related component and fails if it does not exist.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#oid()">oid</a>()</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#postDelete()">postDelete</a>(mixed event)</p><p class="description">Empty template method to provide concrete Record classes with the possibility
+to hook into the deletion procedure..</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#postHydrate()">postHydrate</a>(mixed event)</p><p class="description">Empty template method to provide Record classes with the ability to alter hydration 
+after it runs.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#postInsert()">postInsert</a>(mixed event)</p><p class="description">Empty template method to provide concrete Record classes with the possibility
+to hook into the saving procedure only when the record is going to be
+inserted into the data store the first time..</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#postSave()">postSave</a>(mixed event)</p><p class="description">Empty template method to provide concrete Record classes with the possibility
+to hook into the saving procedure..</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#postSerialize()">postSerialize</a>(mixed event)</p><p class="description">Empty template method to provide concrete Record classes with the possibility
+to hook into the serializing procedure..</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#postUnserialize()">postUnserialize</a>(mixed event)</p><p class="description">Empty template method to provide concrete Record classes with the possibility
+to hook into the serializing procedure..</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#postUpdate()">postUpdate</a>(mixed event)</p><p class="description">Empty template method to provide concrete Record classes with the possibility
+to hook into the saving procedure only when the record is going to be
+updated..</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#postValidate()">postValidate</a>(mixed event)</p><p class="description">Empty template method to provide concrete Record classes with the possibility
+to hook into the validation procedure..</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#preDelete()">preDelete</a>(mixed event)</p><p class="description">Empty template method to provide concrete Record classes with the possibility
+to hook into the deletion procedure..</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#preDqlDelete()">preDqlDelete</a>(mixed event)</p><p class="description">Empty template method to provide Record classes with the ability to alter DQL delete
+queries at runtime.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#preDqlSelect()">preDqlSelect</a>(mixed event)</p><p class="description">Empty template method to provide Record classes with the ability to alter DQL select
+queries at runtime.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#preDqlUpdate()">preDqlUpdate</a>(mixed event)</p><p class="description">Empty template method to provide Record classes with the ability to alter DQL update
+queries at runtime.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#preHydrate()">preHydrate</a>(mixed event)</p><p class="description">Empty template method to provide Record classes with the ability to alter hydration 
+before it runs.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#preInsert()">preInsert</a>(mixed event)</p><p class="description">Empty template method to provide concrete Record classes with the possibility
+to hook into the saving procedure only when the record is going to be
+inserted into the data store the first time..</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#preSave()">preSave</a>(mixed event)</p><p class="description">Empty template method to provide concrete Record classes with the possibility
+to hook into the saving procedure..</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#preSerialize()">preSerialize</a>(mixed event)</p><p class="description">Empty template method to provide concrete Record classes with the possibility
+to hook into the serializing procedure..</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#preUnserialize()">preUnserialize</a>(mixed event)</p><p class="description">Empty template method to provide concrete Record classes with the possibility
+to hook into the serializing procedure..</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#preUpdate()">preUpdate</a>(mixed event)</p><p class="description">Empty template method to provide concrete Record classes with the possibility
+to hook into the saving procedure only when the record is going to be
+updated..</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#preValidate()">preValidate</a>(mixed event)</p><p class="description">Empty template method to provide concrete Record classes with the possibility
+to hook into the validation procedure. </p></td>
+</tr>
+<tr>
+<td class="type">private  void</td>
+<td class="description"><p class="name"><a href="#prepareIdentifiers()">prepareIdentifiers</a>(boolean exists)</p><p class="description">prepareIdentifiers
+prepares identifiers for later use.</p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#rawGet()">rawGet</a>(mixed fieldName, $name name)</p><p class="description">returns the value of a property (column). </p></td>
+</tr>
+<tr>
+<td class="type"> Doctrine_Record|Doctrine_Collection</td>
+<td class="description"><p class="name"><a href="#reference()">reference</a>(string name)</p><p class="description">gets a related component.</p></td>
+</tr>
+<tr>
+<td class="type"> boolean</td>
+<td class="description"><p class="name"><a href="#refresh()">refresh</a>(bool deep)</p><p class="description">refresh
+refresh internal data from the database.</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../doctrine/doctrine_record.html">Doctrine_Record</a></td>
+<td class="description"><p class="name"><a href="#refreshRelated()">refreshRelated</a>(string name)</p><p class="description">refresh
+refresh data of related objects from the database.</p></td>
+</tr>
+<tr>
+<td class="type"> boolean</td>
+<td class="description"><p class="name"><a href="#relatedExists()">relatedExists</a>(string name)</p><p class="description">Check if a related relationship exists. </p></td>
+</tr>
+<tr>
+<td class="type"> integer</td>
+<td class="description"><p class="name"><a href="#replace()">replace</a>(<a href="../doctrine/doctrine_connection.html">Doctrine_Connection</a> conn)</p><p class="description">executes a SQL REPLACE query. </p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#resetPendingUnlinks()">resetPendingUnlinks</a>()</p><p class="description">resets pending record unlinks.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#save()">save</a>(<a href="../doctrine/doctrine_connection.html">Doctrine_Connection</a> conn)</p><p class="description">applies the changes made to this object into database
+this method is smart enough to know if any changes are made
+and whether to use INSERT or UPDATE statement.</p></td>
+</tr>
+<tr>
+<td class="type"> string</td>
+<td class="description"><p class="name"><a href="#serialize()">serialize</a>()</p><p class="description">serialize
+this method is automatically called when an instance of Doctrine_Record is serialized.</p></td>
+</tr>
+<tr>
+<td class="type"> boolean</td>
+<td class="description"><p class="name"><a href="#serializeReferences()">serializeReferences</a>(boolean bool)</p><p class="description">Set whether or not to serialize references.
+</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../doctrine/doctrine_record.html">Doctrine_Record</a></td>
+<td class="description"><p class="name"><a href="#set()">set</a>(mixed fieldName, mixed value, boolean load, mixed name, mixed offset)</p><p class="description">alters mapped values, properties and related components..</p></td>
+</tr>
+<tr>
+<td class="type">final  void</td>
+<td class="description"><p class="name"><a href="#setRelated()">setRelated</a>(string alias, <a href="../doctrine/doctrine_access.html">Doctrine_Access</a> coll)</p><p class="description">set a related component.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#setUp()">setUp</a>()</p><p class="description">setUp
+this method is used for setting up relations and attributes
+it should be implemented by child classes.</p></td>
+</tr>
+<tr>
+<td class="type"> null|integer</td>
+<td class="description"><p class="name"><a href="#state()">state</a>(integer|string state)</p><p class="description">assigns the state of this record or returns it if called without parameters.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#synchronizeWithArray()">synchronizeWithArray</a>(array array, bool deep)</p><p class="description">synchronizes a Doctrine_Record instance and its relations with data from an array.</p></td>
+</tr>
+<tr>
+<td class="type"> array</td>
+<td class="description"><p class="name"><a href="#toArray()">toArray</a>(boolean deep, boolean prefixKey)</p><p class="description">returns the record representation as an array.</p></td>
+</tr>
+<tr>
+<td class="type"> string</td>
+<td class="description"><p class="name"><a href="#toString()">toString</a>()</p><p class="description">__toString alias.</p></td>
+</tr>
+<tr>
+<td class="type"> TRUE</td>
+<td class="description"><p class="name"><a href="#trySave()">trySave</a>(<a href="../doctrine/doctrine_connection.html">Doctrine_Connection</a> conn)</p><p class="description">tries to save the object and all its related components.
+</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../doctrine/doctrine_record.html">Doctrine_Record</a></td>
+<td class="description"><p class="name"><a href="#unlink()">unlink</a>(string alias, array ids, boolean now)</p><p class="description">unlink
+removes links from this record to given records
+if no ids are given, it removes all links.</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../doctrine/doctrine_record.html">Doctrine_Record</a></td>
+<td class="description"><p class="name"><a href="#unlinkInDb()">unlinkInDb</a>(string alias, array ids)</p><p class="description">unlink now the related components, querying the db.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#unserialize()">unserialize</a>(string serialized)</p><p class="description">this method is automatically called everytime an instance is unserialized.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#unshiftFilter()">unshiftFilter</a>(mixed filter)</p></td>
+</tr>
+<tr>
+<td class="type">protected  void</td>
+<td class="description"><p class="name"><a href="#validate()">validate</a>()</p><p class="description">Empty template method to provide concrete Record classes with the possibility
+to hook into the validation procedure, doing any custom / specialized
+validations that are neccessary..</p></td>
+</tr>
+<tr>
+<td class="type">protected  void</td>
+<td class="description"><p class="name"><a href="#validateOnInsert()">validateOnInsert</a>()</p><p class="description">Empty template method to provide concrete Record classes with the possibility
+to hook into the validation procedure only when the record is going to be
+inserted into the data store the first time..</p></td>
+</tr>
+<tr>
+<td class="type">protected  void</td>
+<td class="description"><p class="name"><a href="#validateOnUpdate()">validateOnUpdate</a>()</p><p class="description">Empty template method to provide concrete Record classes with the possibility
+to hook into the validation procedure only when the record is going to be
+updated..</p></td>
+</tr>
+</table>
+
+<table class="inherit">
+<tr><th colspan="2">Methods inherited from Doctrine\Doctrine_Record_Abstract</th></tr>
+<tr><td><a href="../doctrine/doctrine_record_abstract.html#actAs()">actAs</a>, <a href="../doctrine/doctrine_record_abstract.html#addListener()">addListener</a>, <a href="../doctrine/doctrine_record_abstract.html#attribute()">attribute</a>, <a href="../doctrine/doctrine_record_abstract.html#bindQueryParts()">bindQueryParts</a>, <a href="../doctrine/doctrine_record_abstract.html#check()">check</a>, <a href="../doctrine/doctrine_record_abstract.html#getListener()">getListener</a>, <a href="../doctrine/doctrine_record_abstract.html#getTable()">getTable</a>, <a href="../doctrine/doctrine_record_abstract.html#hasColumn()">hasColumn</a>, <a href="../doctrine/doctrine_record_abstract.html#hasColumns()">hasColumns</a>, <a href="../doctrine/doctrine_record_abstract.html#hasMany()">hasMany</a>, <a href="../doctrine/doctrine_record_abstract.html#hasOne()">hasOne</a>, <a href="../doctrine/doctrine_record_abstract.html#index()">index</a>, <a href="../doctrine/doctrine_record_abstract.html#loadGenerator()">loadGenerator</a>, <a href="../doctrine/doctrine_record_abstract.html#option()">option</a>, <a href="../doctrine/doctrine_record_abstract.html#setAttribute()">setAttribute</a>, <a href="../doctrine/doctrine_record_abstract.html#setColumnOption()">setColumnOption</a>, <a href="../doctrine/doctrine_record_abstract.html#setColumnOptions()">setColumnOptions</a>, <a href="../doctrine/doctrine_record_abstract.html#setInheritanceMap()">setInheritanceMap</a>, <a href="../doctrine/doctrine_record_abstract.html#setListener()">setListener</a>, <a href="../doctrine/doctrine_record_abstract.html#setSubclasses()">setSubclasses</a>, <a href="../doctrine/doctrine_record_abstract.html#setTableDefinition()">setTableDefinition</a>, <a href="../doctrine/doctrine_record_abstract.html#setTableName()">setTableName</a>, <a href="../doctrine/doctrine_record_abstract.html#setUp()">setUp</a>, <a href="../doctrine/doctrine_record_abstract.html#unique()">unique</a></td></tr></table>
+
+<table class="inherit">
+<tr><th colspan="2">Methods inherited from Doctrine\Doctrine_Access</th></tr>
+<tr><td><a href="../doctrine/doctrine_access.html#__get()">__get</a>, <a href="../doctrine/doctrine_access.html#__isset()">__isset</a>, <a href="../doctrine/doctrine_access.html#__set()">__set</a>, <a href="../doctrine/doctrine_access.html#__unset()">__unset</a>, <a href="../doctrine/doctrine_access.html#add()">add</a>, <a href="../doctrine/doctrine_access.html#contains()">contains</a>, <a href="../doctrine/doctrine_access.html#get()">get</a>, <a href="../doctrine/doctrine_access.html#offsetExists()">offsetExists</a>, <a href="../doctrine/doctrine_access.html#offsetGet()">offsetGet</a>, <a href="../doctrine/doctrine_access.html#offsetSet()">offsetSet</a>, <a href="../doctrine/doctrine_access.html#offsetUnset()">offsetUnset</a>, <a href="../doctrine/doctrine_access.html#remove()">remove</a>, <a href="../doctrine/doctrine_access.html#set()">set</a>, <a href="../doctrine/doctrine_access.html#setArray()">setArray</a></td></tr></table>
+
+<table class="inherit">
+<tr><th colspan="2">Methods inherited from Doctrine\Doctrine_Locator_Injectable</th></tr>
+<tr><td><a href="../doctrine/doctrine_locator_injectable.html#bind()">bind</a>, <a href="../doctrine/doctrine_locator_injectable.html#getLocator()">getLocator</a>, <a href="../doctrine/doctrine_locator_injectable.html#getNullObject()">getNullObject</a>, <a href="../doctrine/doctrine_locator_injectable.html#initNullObject()">initNullObject</a>, <a href="../doctrine/doctrine_locator_injectable.html#locate()">locate</a>, <a href="../doctrine/doctrine_locator_injectable.html#setLocator()">setLocator</a></td></tr></table>
+
+<h2 id="detail_field">Field Detail</h2>
+<div class="location">/Doctrine/Record.php at line 58</div>
+<h3 id="STATE_CLEAN">STATE_CLEAN</h3>
+<code class="signature">public final  int <strong>STATE_CLEAN</strong> = 3</code>
+<div class="details">
+<p>CLEAN STATE
+a Doctrine_Record is in clean state when all of its properties are loaded from the database
+and none of its properties are changed</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 44</div>
+<h3 id="STATE_DIRTY">STATE_DIRTY</h3>
+<code class="signature">public final  int <strong>STATE_DIRTY</strong> = 1</code>
+<div class="details">
+<p>DIRTY STATE
+a Doctrine_Record is in dirty state when its properties are changed</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 79</div>
+<h3 id="STATE_LOCKED">STATE_LOCKED</h3>
+<code class="signature">public final  int <strong>STATE_LOCKED</strong> = 6</code>
+<div class="details">
+<p>LOCKED STATE
+a Doctrine_Record is temporarily locked during deletes and saves</p><p>This state is used internally to ensure that circular deletes
+and saves will not cause infinite loops</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 64</div>
+<h3 id="STATE_PROXY">STATE_PROXY</h3>
+<code class="signature">public final  int <strong>STATE_PROXY</strong> = 4</code>
+<div class="details">
+<p>PROXY STATE
+a Doctrine_Record is in proxy state when its properties are not fully loaded</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 70</div>
+<h3 id="STATE_TCLEAN">STATE_TCLEAN</h3>
+<code class="signature">public final  int <strong>STATE_TCLEAN</strong> = 5</code>
+<div class="details">
+<p>NEW TCLEAN
+a Doctrine_Record is in transient clean state when it is created and none of its fields are modified</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 51</div>
+<h3 id="STATE_TDIRTY">STATE_TDIRTY</h3>
+<code class="signature">public final  int <strong>STATE_TDIRTY</strong> = 2</code>
+<div class="details">
+<p>TDIRTY STATE
+a Doctrine_Record is in transient dirty state when it is created
+and some of its fields are modified but it is NOT yet persisted into database</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 88</div>
+<h3 id="STATE_TLOCKED">STATE_TLOCKED</h3>
+<code class="signature">public final  int <strong>STATE_TLOCKED</strong> = 7</code>
+<div class="details">
+<p>TLOCKED STATE
+a Doctrine_Record is temporarily locked (and transient) during deletes and saves</p><p>This state is used internally to ensure that circular deletes
+and saves will not cause infinite loops</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 167</div>
+<h3 id="_customAccessors">_customAccessors</h3>
+<code class="signature">protected static  array <strong>$_customAccessors</strong> = array()</code>
+<div class="details">
+<p>Array of custom accessors for cache</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 174</div>
+<h3 id="_customMutators">_customMutators</h3>
+<code class="signature">protected static  array <strong>$_customMutators</strong> = array()</code>
+<div class="details">
+<p>Array of custom mutators for cache</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 109</div>
+<h3 id="_data">_data</h3>
+<code class="signature">protected  array $_data                    the record data <strong>$_data</strong> = array()</code>
+<div class="details">
+<p>each element is one of 3 following types:
+- simple type (int, string) - field has a scalar value
+- null - field has NULL value in DB
+- Doctrine_Null - field value is unknown, it wasn't loaded yet</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 141</div>
+<h3 id="_errorStack">_errorStack</h3>
+<code class="signature">protected  Doctrine_Validator_ErrorStack   error stack object <strong>$_errorStack</strong></code>
+<div class="details">
+<p></p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 99</div>
+<h3 id="_id">_id</h3>
+<code class="signature">protected  integer $_id                    the primary keys of this object <strong>$_id</strong> = array()</code>
+<div class="details">
+<p></p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 193</div>
+<h3 id="_index">_index</h3>
+<code class="signature">private static  integer $index                  this index is used for creating object identifiers <strong>$_index</strong> = 1</code>
+<div class="details">
+<p></p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 188</div>
+<h3 id="_invokedSaveHooks">_invokedSaveHooks</h3>
+<code class="signature">protected  array <strong>$_invokedSaveHooks</strong> = false</code>
+<div class="details">
+<p>Array containing the save hooks and events that have been invoked</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 125</div>
+<h3 id="_lastModified">_lastModified</h3>
+<code class="signature">protected  array $_lastModified             an array containing field names that were modified in the previous transaction <strong>$_lastModified</strong> = array()</code>
+<div class="details">
+<p></p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 131</div>
+<h3 id="_modified">_modified</h3>
+<code class="signature">protected  array $_modified                an array containing field names that have been modified <strong>$_modified</strong> = array()</code>
+<div class="details">
+<p></p><dl>
+<dt>Todo:</dt>
+<dd>Better name? $_modifiedFields?</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 94</div>
+<h3 id="_node">_node</h3>
+<code class="signature">protected  Doctrine_Node_<TreeImpl>        node object <strong>$_node</strong></code>
+<div class="details">
+<p></p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 198</div>
+<h3 id="_oid">_oid</h3>
+<code class="signature">private  integer $oid                    object identifier, each Record object has a unique object identifier <strong>$_oid</strong></code>
+<div class="details">
+<p></p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 136</div>
+<h3 id="_oldValues">_oldValues</h3>
+<code class="signature">protected  array $_oldValues               an array of the old values from set properties <strong>$_oldValues</strong> = array()</code>
+<div class="details">
+<p></p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 153</div>
+<h3 id="_pendingDeletes">_pendingDeletes</h3>
+<code class="signature">protected  string <strong>$_pendingDeletes</strong> = array()</code>
+<div class="details">
+<p>Doctrine_Collection of objects needing to be deleted on save</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 160</div>
+<h3 id="_pendingUnlinks">_pendingUnlinks</h3>
+<code class="signature">protected  array $_pendingUnlinks <strong>$_pendingUnlinks</strong> = array()</code>
+<div class="details">
+<p>Array of pending un links in format alias => keys to be executed after save</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 146</div>
+<h3 id="_references">_references</h3>
+<code class="signature">protected  array $_references              an array containing all the references <strong>$_references</strong> = array()</code>
+<div class="details">
+<p></p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 181</div>
+<h3 id="_serializeReferences">_serializeReferences</h3>
+<code class="signature">protected  boolean <strong>$_serializeReferences</strong> = false</code>
+<div class="details">
+<p>Whether or not to serialize references when a Doctrine_Record is serialized</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 120</div>
+<h3 id="_state">_state</h3>
+<code class="signature">protected  integer $_state                 the state of this record <strong>$_state</strong></code>
+<div class="details">
+<p></p><dl>
+<dt>See Also:</dt>
+<dd>constants</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 114</div>
+<h3 id="_values">_values</h3>
+<code class="signature">protected  array $_values                  the values array, aggregate values and such are mapped into this array <strong>$_values</strong> = array()</code>
+<div class="details">
+<p></p></div>
+
+<hr>
+
+<h2 id="detail_constr">Constructor Detail</h2>
+<div class="location">/Doctrine/Record.php at line 211</div>
+<h3 id="Doctrine_Record()">Doctrine_Record</h3>
+<code class="signature">public <strong>Doctrine_Record</strong>(Doctrine_Table|null table, boolean isNewEntry)</code>
+<div class="details">
+<p>constructor</p><dl>
+<dt>Parameters:</dt>
+<dd>table - a Doctrine_Table object or null, if null the table object is retrieved from current connection</dd>
+<dd>isNewEntry - whether or not this record is transient</dd>
+<dt>Throws:</dt>
+<dd>if object is created using the new operator and there are no open connections</dd>
+<dd>if the cleanData operation fails somehow</dd>
+</dl>
+</div>
+
+<hr>
+
+<h2 id="detail_method">Method Detail</h2>
+<div class="location">/Doctrine/Record.php at line 2625</div>
+<h3 id="__call()">__call</h3>
+<code class="signature">public  mixed <strong>__call</strong>(string method, array args)</code>
+<div class="details">
+<p>magic method used for method overloading</p><p>the function of this method is to try to find a given method from the templates (behaviors)
+the record is using, and if found, execute it. Note that already existing methods would not be
+overloaded.</p><p>So, in sense, this method replicates the usage of mixins (as seen in some programming languages)</p><dl>
+<dt>Parameters:</dt>
+<dd>method - name of the method</dd>
+<dd>args - method arguments</dd>
+<dt>Returns:</dt>
+<dd>the return value of the given method</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 2697</div>
+<h3 id="__toString()">__toString</h3>
+<code class="signature">public  string <strong>__toString</strong>()</code>
+<div class="details">
+<p>magic method</p><dl>
+<dt>Returns:</dt>
+<dd>representation of this object</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 1645</div>
+<h3 id="__unset()">__unset</h3>
+<code class="signature">public  void <strong>__unset</strong>(string name)</code>
+<div class="details">
+<p>deletes a column or a related component.</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 1341</div>
+<h3 id="_get()">_get</h3>
+<code class="signature">protected  void <strong>_get</strong>(mixed fieldName, mixed load)</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 292</div>
+<h3 id="_index()">_index</h3>
+<code class="signature">public static  integer <strong>_index</strong>()</code>
+<div class="details">
+<p>the current instance counter used to generate unique ids for php objects. Contains the next identifier.</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 1522</div>
+<h3 id="_isValueModified()">_isValueModified</h3>
+<code class="signature">protected  boolean <strong>_isValueModified</strong>(string type, string old, string new)</code>
+<div class="details">
+<p>Check if a value has changed according to Doctrine
+Doctrine is loose with type checking in the same ways PHP is for consistancy of behavior</p><p>This function basically says if what is being set is of Doctrine type boolean and something
+like current_value == 1 && new_value = true would not be considered modified</p><p>Simply doing $old !== $new will return false for boolean columns would mark the field as modified
+and change it in the database when it is not necessary</p><dl>
+<dt>Parameters:</dt>
+<dd>type - Doctrine type of the column</dd>
+<dd>old - Old value</dd>
+<dd>new - New value</dd>
+<dt>Returns:</dt>
+<dd>$modified Whether or not Doctrine considers the value modified</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 2604</div>
+<h3 id="_resetModified()">_resetModified</h3>
+<code class="signature">protected  void <strong>_resetModified</strong>()</code>
+<div class="details">
+<p>Reset the modified array and store the old array in lastModified so it 
+can be accessed by users after saving a record, since the modified array 
+is reset after the object is saved.</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 1447</div>
+<h3 id="_set()">_set</h3>
+<code class="signature">protected  void <strong>_set</strong>(mixed fieldName, mixed value, mixed load)</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 683</div>
+<h3 id="assignDefaultValues()">assignDefaultValues</h3>
+<code class="signature">public  boolean <strong>assignDefaultValues</strong>(boolean overwrite)</code>
+<div class="details">
+<p>setDefaultValues
+sets the default values for records internal data</p><dl>
+<dt>Parameters:</dt>
+<dd>overwrite - whether or not to overwrite the already set values</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 2218</div>
+<h3 id="assignIdentifier()">assignIdentifier</h3>
+<code class="signature">public  void <strong>assignIdentifier</strong>(mixed id)</code>
+<div class="details">
+<p>assigns an identifier to the instance, for database storage</p><dl>
+<dt>Parameters:</dt>
+<dd>id - a key value or an array of keys</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 663</div>
+<h3 id="assignInheritanceValues()">assignInheritanceValues</h3>
+<code class="signature">public  void <strong>assignInheritanceValues</strong>()</code>
+<div class="details">
+<p>Assign the inheritance column values</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 2363</div>
+<h3 id="call()">call</h3>
+<code class="signature">public  <a href="../doctrine/doctrine_record.html">Doctrine_Record</a> <strong>call</strong>(string|array callback, string column, mixed arg1)</code>
+<div class="details">
+<p>call</p><dl>
+<dt>Parameters:</dt>
+<dd>callback - valid callback</dd>
+<dd>column - column name</dd>
+<dd>arg1 - ... argN optional callback arguments</dd>
+<dt>Returns:</dt>
+<dd>provides a fluent interface</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 712</div>
+<h3 id="cleanData()">cleanData</h3>
+<code class="signature">public  array <strong>cleanData</strong>(array data)</code>
+<div class="details">
+<p>cleanData
+leaves the $data array only with values whose key is a field inside this
+record and returns the values that were removed from $data.  Also converts
+any values of 'null' to objects of type Doctrine_Null.</p><dl>
+<dt>Parameters:</dt>
+<dd>data - data array to be cleaned</dd>
+<dt>Returns:</dt>
+<dd>values cleaned from data</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 1217</div>
+<h3 id="clearAccessor()">clearAccessor</h3>
+<code class="signature">public  void <strong>clearAccessor</strong>(string fieldName)</code>
+<div class="details">
+<p>clears the accessor for a field name</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 368</div>
+<h3 id="clearInvokedSaveHooks()">clearInvokedSaveHooks</h3>
+<code class="signature">public  void <strong>clearInvokedSaveHooks</strong>()</code>
+<div class="details">
+<p>makes all the already used save hooks available again</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 1286</div>
+<h3 id="clearMutator()">clearMutator</h3>
+<code class="signature">public  void <strong>clearMutator</strong>(string fieldName)</code>
+<div class="details">
+<p>clears the custom mutator for a field name</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 1048</div>
+<h3 id="clearRelated()">clearRelated</h3>
+<code class="signature">public  void <strong>clearRelated</strong>(string name)</code>
+<div class="details">
+<p>Clear a related reference or all references</p><dl>
+<dt>Parameters:</dt>
+<dd>name - The relationship reference to clear</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 1867</div>
+<h3 id="columnCount()">columnCount</h3>
+<code class="signature">public  integer <strong>columnCount</strong>()</code>
+<div class="details">
+<p>alias for @see count()</p><dl>
+<dt>Returns:</dt>
+<dd>the number of columns in this record</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 313</div>
+<h3 id="construct()">construct</h3>
+<code class="signature">public  void <strong>construct</strong>()</code>
+<div class="details">
+<p>construct
+Empty template method to provide concrete Record classes with the possibility
+to hook into the constructor procedure</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 1619</div>
+<h3 id="contains()">contains</h3>
+<code class="signature">public  boolean <strong>contains</strong>(string fieldName, mixed offset)</code>
+<div class="details">
+<p>test whether a field (column, mapped value, related component, accessor) is accessible by @see get()</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 2178</div>
+<h3 id="copy()">copy</h3>
+<code class="signature">public  <a href="../doctrine/doctrine_record.html">Doctrine_Record</a> <strong>copy</strong>(boolean deep)</code>
+<div class="details">
+<p>generates a copy of this object. Returns an instance of the same class of $this.</p><dl>
+<dt>Parameters:</dt>
+<dd>deep - whether to duplicates the objects targeted by the relations</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 1557</div>
+<h3 id="coreSetRelated()">coreSetRelated</h3>
+<code class="signature">public  void <strong>coreSetRelated</strong>(string name, Doctrine_Record|Doctrine_Collection value)</code>
+<div class="details">
+<p>Places a related component in the object graph.</p><p>This method inserts a related component instance in this record 
+relations, populating the foreign keys accordingly.</p><dl>
+<dt>Parameters:</dt>
+<dd>name - related component alias in the relation</dd>
+<dd>value - object to be linked as a related component</dd>
+<dt>Todo:</dt>
+<dd>Refactor. What about composite keys?</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 1857</div>
+<h3 id="count()">count</h3>
+<code class="signature">public  integer <strong>count</strong>()</code>
+<div class="details">
+<p>implements Countable interface</p><dl>
+<dt>Returns:</dt>
+<dd>the number of columns in this record</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 2164</div>
+<h3 id="delete()">delete</h3>
+<code class="signature">public  boolean <strong>delete</strong>(mixed conn)</code>
+<div class="details">
+<p>deletes this data access object and all the related composites
+this operation is isolated by a transaction</p><p>this event can be listened by the onPreDelete and onDelete listeners</p><dl>
+<dt>Returns:</dt>
+<dd>true if successful</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 2648</div>
+<h3 id="deleteNode()">deleteNode</h3>
+<code class="signature">public  void <strong>deleteNode</strong>()</code>
+<div class="details">
+<p>used to delete node from tree - MUST BE USE TO DELETE RECORD IF TABLE ACTS AS TREE</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 646</div>
+<h3 id="errorStack()">errorStack</h3>
+<code class="signature">public  void|Doctrine_Validator_ErrorStack <strong>errorStack</strong>(mixed stack, <a href="../doctrine/doctrine_validator_errorstack.html">Doctrine_Validator_ErrorStack</a> errorStack)</code>
+<div class="details">
+<p>assigns the ErrorStack or returns it if called without parameters</p><dl>
+<dt>Parameters:</dt>
+<dd>errorStack - to be assigned for this record</dd>
+<dt>Returns:</dt>
+<dd>returns the errorStack associated with this record</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 2090</div>
+<h3 id="exists()">exists</h3>
+<code class="signature">public  boolean <strong>exists</strong>()</code>
+<div class="details">
+<p>returns true if this record is saved in the database, otherwise false (it is transient)</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 2060</div>
+<h3 id="exportTo()">exportTo</h3>
+<code class="signature">public  string <strong>exportTo</strong>(string type, string deep)</code>
+<div class="details">
+<p>exports instance to a chosen format</p><dl>
+<dt>Parameters:</dt>
+<dd>type - format type: array, xml, yml, json</dd>
+<dd>deep - whether or not to export all relationships</dd>
+<dt>Returns:</dt>
+<dd>representation as $type format. Array is $type is array</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 2661</div>
+<h3 id="free()">free</h3>
+<code class="signature">public  void <strong>free</strong>(boolean deep)</code>
+<div class="details">
+<p>Helps freeing the memory occupied by the entity.
+Cuts all references the entity has to other entities and removes the entity
+from the instance pool.
+Note: The entity is no longer useable after free() has been called. Any operations
+done with the entity afterwards can lead to unpredictable results.</p><dl>
+<dt>Parameters:</dt>
+<dd>deep - whether to free also the related components</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 1958</div>
+<h3 id="fromArray()">fromArray</h3>
+<code class="signature">public  void <strong>fromArray</strong>(string array, bool deep)</code>
+<div class="details">
+<p>imports data from a php array</p><dl>
+<dt>See Also:</dt>
+<dd><code><a href="http://www.doctrine-project.org/documentation/manual/1_1/en/working-with-models">http://www.doctrine-project.org/documentation/manual/1_1/en/working-with-models</a></code></dd>
+<dt>Parameters:</dt>
+<dd>array - array of data, see link for documentation</dd>
+<dd>deep - whether or not to act on relations</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 1324</div>
+<h3 id="get()">get</h3>
+<code class="signature">public  mixed <strong>get</strong>(mixed fieldName, boolean load, mixed offset)</code>
+<div class="details">
+<p>returns a value of a property or a related component</p><dl>
+<dt>Parameters:</dt>
+<dd>fieldName - name of the property or related component</dd>
+<dd>load - whether or not to invoke the loading procedure</dd>
+<dt>Throws:</dt>
+<dd>if trying to get a value of unknown property / related component</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 1229</div>
+<h3 id="getAccessor()">getAccessor</h3>
+<code class="signature">public  string <strong>getAccessor</strong>(string fieldName)</code>
+<div class="details">
+<p>gets the custom accessor for a field name</p><dl>
+<dt>Returns:</dt>
+<dd>$accessor</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 1242</div>
+<h3 id="getAccessors()">getAccessors</h3>
+<code class="signature">public  array <strong>getAccessors</strong>()</code>
+<div class="details">
+<p>gets all accessors for this component instance</p><dl>
+<dt>Returns:</dt>
+<dd>$accessors</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 1105</div>
+<h3 id="getData()">getData</h3>
+<code class="signature">public  array <strong>getData</strong>()</code>
+<div class="details">
+<p>return all the internal data (columns)</p><dl>
+<dt>Returns:</dt>
+<dd>an array containing all the properties</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 631</div>
+<h3 id="getErrorStack()">getErrorStack</h3>
+<code class="signature">public  <a href="../doctrine/doctrine_validator_errorstack.html">Doctrine_Validator_ErrorStack</a> <strong>getErrorStack</strong>()</code>
+<div class="details">
+<p>retrieves the ErrorStack. To be called after a failed validation attempt (@see isValid()).</p><dl>
+<dt>Returns:</dt>
+<dd>returns the errorStack associated with this record</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 609</div>
+<h3 id="getErrorStackAsString()">getErrorStackAsString</h3>
+<code class="signature">public  string <strong>getErrorStackAsString</strong>()</code>
+<div class="details">
+<p>Get the record error stack as a human readable string.
+Useful for outputting errors to user via web browser</p><dl>
+<dt>Returns:</dt>
+<dd>$message</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 2261</div>
+<h3 id="getIncremented()">getIncremented</h3>
+<code class="signature">public final  integer <strong>getIncremented</strong>()</code>
+<div class="details">
+<p>returns the value of autoincremented primary key of this object (if any)</p><dl>
+<dt>Todo:</dt>
+<dd>Better name?</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 2151</div>
+<h3 id="getIterator()">getIterator</h3>
+<code class="signature">public  <a href="../doctrine/doctrine_record_iterator.html">Doctrine_Record_Iterator</a> <strong>getIterator</strong>()</code>
+<div class="details">
+<p>implements IteratorAggregate interface</p><dl>
+<dt>Returns:</dt>
+<dd>iterator through data</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 2279</div>
+<h3 id="getLast()">getLast</h3>
+<code class="signature">public  <a href="../doctrine/doctrine_record.html">Doctrine_Record</a> <strong>getLast</strong>()</code>
+<div class="details">
+<p>getLast
+this method is used internally by Doctrine_Query
+it is needed to provide compatibility between
+records and collections</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 1782</div>
+<h3 id="getLastModified()">getLastModified</h3>
+<code class="signature">public  array <strong>getLastModified</strong>(boolean old)</code>
+<div class="details">
+<p>returns an array of the modified fields from the last transaction.</p><dl>
+<dt>Parameters:</dt>
+<dd>old - pick the old values (instead of the new ones)</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 1759</div>
+<h3 id="getModified()">getModified</h3>
+<code class="signature">public  array <strong>getModified</strong>(boolean old, boolean last)</code>
+<div class="details">
+<p>retrieves an array of modified fields and associated new values.</p><dl>
+<dt>Parameters:</dt>
+<dd>old - pick the old values (instead of the new ones)</dd>
+<dd>last - pick only lastModified values (@see getLastModified())</dd>
+<dt>Returns:</dt>
+<dd>$a</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 1272</div>
+<h3 id="getMutator()">getMutator</h3>
+<code class="signature">public  string <strong>getMutator</strong>(mixed fieldName, string fieldname)</code>
+<div class="details">
+<p>gets the custom mutator for a field name</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 1297</div>
+<h3 id="getMutators()">getMutators</h3>
+<code class="signature">public  array <strong>getMutators</strong>()</code>
+<div class="details">
+<p>gets all custom mutators for this component instance</p><dl>
+<dt>Returns:</dt>
+<dd>$mutators</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 2384</div>
+<h3 id="getNode()">getNode</h3>
+<code class="signature">public  <a href="../doctrine/doctrine_node.html">Doctrine_Node</a> <strong>getNode</strong>()</code>
+<div class="details">
+<p>getter for node associated with this record</p><dl>
+<dt>Returns:</dt>
+<dd>false if component is not a Tree</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 321</div>
+<h3 id="getOid()">getOid</h3>
+<code class="signature">public  integer <strong>getOid</strong>()</code>
+<div class="details">
+<p></p><dl>
+<dt>See Also:</dt>
+<dd>$_oid;</dd>
+<dt>Returns:</dt>
+<dd>the object identifier</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 1665</div>
+<h3 id="getPendingDeletes()">getPendingDeletes</h3>
+<code class="signature">public  array <strong>getPendingDeletes</strong>()</code>
+<div class="details">
+<p>returns Doctrine_Record instances which need to be deleted on save</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 1675</div>
+<h3 id="getPendingUnlinks()">getPendingUnlinks</h3>
+<code class="signature">public  array <strong>getPendingUnlinks</strong>()</code>
+<div class="details">
+<p>returns Doctrine_Record instances which need to be unlinked (deleting the relation) on save</p><dl>
+<dt>Returns:</dt>
+<dd>$pendingUnlinks</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 1798</div>
+<h3 id="getPrepared()">getPrepared</h3>
+<code class="signature">public  array <strong>getPrepared</strong>(array array)</code>
+<div class="details">
+<p>Retrieves data prepared for a sql transaction.</p><p>Returns an array of modified fields and values with data preparation;
+adds column aggregation inheritance and converts Records into primary 
+key values.</p><dl>
+<dt>Todo:</dt>
+<dd>What about a little bit more expressive name? getPreparedData?</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 2325</div>
+<h3 id="getReferences()">getReferences</h3>
+<code class="signature">public  array <strong>getReferences</strong>()</code>
+<div class="details">
+<p>get all related components</p><dl>
+<dt>Returns:</dt>
+<dd>various Doctrine_Collection or Doctrine_Record instances</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 1095</div>
+<h3 id="getTable()">getTable</h3>
+<code class="signature">public  <a href="../doctrine/doctrine_table.html">Doctrine_Table</a> <strong>getTable</strong>()</code>
+<div class="details">
+<p>returns the table object for this record.</p><dl>
+<dt>Returns:</dt>
+<dd>a Doctrine_Table object</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 1201</div>
+<h3 id="hasAccessor()">hasAccessor</h3>
+<code class="signature">public  boolean <strong>hasAccessor</strong>(string fieldName, string accessor)</code>
+<div class="details">
+<p>sets a fieldname to have a custom accessor or check if a field has a custom
+accessor defined (when called without $accessor parameter).</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 1310</div>
+<h3 id="hasAccessorMutator()">hasAccessorMutator</h3>
+<code class="signature">public  void <strong>hasAccessorMutator</strong>(mixed fieldName, string accessor, string mutator, string fieldname)</code>
+<div class="details">
+<p>Set a fieldname to have a custom accessor and mutator</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 1414</div>
+<h3 id="hasMappedValue()">hasMappedValue</h3>
+<code class="signature">public  boolean <strong>hasMappedValue</strong>(string name)</code>
+<div class="details">
+<p>Tests whether a mapped value exists</p><dl>
+<dt>Parameters:</dt>
+<dd>name - the name of the property</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 1256</div>
+<h3 id="hasMutator()">hasMutator</h3>
+<code class="signature">public  boolean <strong>hasMutator</strong>(string fieldName, string mutator)</code>
+<div class="details">
+<p>sets a fieldname to have a custom mutator or check if a field has a custom
+mutator defined (when called without the $mutator parameter)</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 2289</div>
+<h3 id="hasReference()">hasReference</h3>
+<code class="signature">public  boolean <strong>hasReference</strong>(string name)</code>
+<div class="details">
+<p>tests whether a relation is set</p><dl>
+<dt>Parameters:</dt>
+<dd>name - relation alias</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 2139</div>
+<h3 id="hasRelation()">hasRelation</h3>
+<code class="signature">public  boolean <strong>hasRelation</strong>(mixed fieldName)</code>
+<div class="details">
+<p>checks existence of properties and related components</p><dl>
+<dt>Parameters:</dt>
+<dd>fieldName - name of the property or reference</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 739</div>
+<h3 id="hydrate()">hydrate</h3>
+<code class="signature">public  void <strong>hydrate</strong>(array data, boolean overwriteLocalChanges)</code>
+<div class="details">
+<p>hydrate
+hydrates this object from given array</p><dl>
+<dt>Parameters:</dt>
+<dd></dd>
+<dd>overwriteLocalChanges - whether to overwrite the unsaved (dirty) data</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 2250</div>
+<h3 id="identifier()">identifier</h3>
+<code class="signature">public  array <strong>identifier</strong>()</code>
+<div class="details">
+<p>returns the primary keys of this object</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 2076</div>
+<h3 id="importFrom()">importFrom</h3>
+<code class="signature">public  void <strong>importFrom</strong>(string type, string data, mixed deep)</code>
+<div class="details">
+<p>imports data from a chosen format in the current instance</p><dl>
+<dt>Parameters:</dt>
+<dd>type - Format type: xml, yml, json</dd>
+<dd>data - Data to be parsed and imported</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 343</div>
+<h3 id="invokeSaveHooks()">invokeSaveHooks</h3>
+<code class="signature">public  <a href="../doctrine/doctrine_event.html">Doctrine_Event</a> <strong>invokeSaveHooks</strong>(string when, string type, <a href="../doctrine/doctrine_event.html">Doctrine_Event</a> event)</code>
+<div class="details">
+<p>calls a subclass hook. Idempotent until @see clearInvokedSaveHooks() is called.</p><p><code>
+$this->invokeSaveHooks('pre', 'save');
+</code></p><dl>
+<dt>Parameters:</dt>
+<dd>when - 'post' or 'pre'</dd>
+<dd>type - serialize, unserialize, save, delete, update, insert, validate, dqlSelect, dqlDelete, hydrate</dd>
+<dd>event - event raised</dd>
+<dt>Returns:</dt>
+<dd>the event generated using the type, if not specified</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 1179</div>
+<h3 id="isInProxyState()">isInProxyState</h3>
+<code class="signature">public  boolean <strong>isInProxyState</strong>()</code>
+<div class="details">
+<p>indicates whether record has any not loaded fields</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 2104</div>
+<h3 id="isModified()">isModified</h3>
+<code class="signature">public  boolean <strong>isModified</strong>(boolean deep)</code>
+<div class="details">
+<p>returns true if this record was modified, otherwise false</p><dl>
+<dt>Parameters:</dt>
+<dd>deep - whether to process also the relations for changes</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 380</div>
+<h3 id="isValid()">isValid</h3>
+<code class="signature">public  boolean <strong>isValid</strong>(boolean deep, boolean hooks)</code>
+<div class="details">
+<p>tests validity of the record using the current data.</p><dl>
+<dt>Parameters:</dt>
+<dd>deep - run the validation process on the relations</dd>
+<dd>hooks - invoke save hooks before start</dd>
+<dt>Returns:</dt>
+<dd>whether or not this record is valid</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 2498</div>
+<h3 id="link()">link</h3>
+<code class="signature">public  <a href="../doctrine/doctrine_record.html">Doctrine_Record</a> <strong>link</strong>(string alias, array ids, boolean now)</code>
+<div class="details">
+<p>creates links from this record to given records</p><dl>
+<dt>Parameters:</dt>
+<dd>alias - related component alias</dd>
+<dd>ids - the identifiers of the related records</dd>
+<dd>now - wether or not to execute now or set pending</dd>
+<dt>Returns:</dt>
+<dd>this object (fluent interface)</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 2539</div>
+<h3 id="linkInDb()">linkInDb</h3>
+<code class="signature">public  <a href="../doctrine/doctrine_record.html">Doctrine_Record</a> <strong>linkInDb</strong>(string alias, array ids)</code>
+<div class="details">
+<p>creates links from this record to given records now, querying the db</p><dl>
+<dt>Parameters:</dt>
+<dd>alias - related component alias</dd>
+<dd>ids - the identifiers of the related records</dd>
+<dt>Returns:</dt>
+<dd>this object (fluent interface)</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 1137</div>
+<h3 id="load()">load</h3>
+<code class="signature">public  boolean <strong>load</strong>(array data)</code>
+<div class="details">
+<p>loads all the uninitialized properties from the database.
+Used to move a record from PROXY to CLEAN/DIRTY state.</p><dl>
+<dt>Parameters:</dt>
+<dd>data - overwriting data to load in the record. Instance is hydrated from the table if not specified.</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 2349</div>
+<h3 id="loadReference()">loadReference</h3>
+<code class="signature">public  void <strong>loadReference</strong>(string name)</code>
+<div class="details">
+<p>loadReference
+loads a related component</p><dl>
+<dt>Throws:</dt>
+<dd>if trying to load an unknown related component</dd>
+<dt>Parameters:</dt>
+<dd>name - alias of the relation</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 1403</div>
+<h3 id="mapValue()">mapValue</h3>
+<code class="signature">public  void <strong>mapValue</strong>(string name, mixed value)</code>
+<div class="details">
+<p>sets a value that will be managed as if it were a field by magic accessor and mutators, @see get() and @see set().
+Normally used by Doctrine for the mapping of aggregate values.</p><dl>
+<dt>Parameters:</dt>
+<dd>name - the name of the mapped value</dd>
+<dd>value - mixed value to be mapped</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 1939</div>
+<h3 id="merge()">merge</h3>
+<code class="signature">public  void <strong>merge</strong>(mixed data, bool deep, string array)</code>
+<div class="details">
+<p>merges this record with an array of values
+or with another existing instance of this object</p><dl>
+<dt>See Also:</dt>
+<dd><a href="../doctrine/doctrine_collection.html#fromArray()">fromArray()</a></dd>
+<dt>See Also:</dt>
+<dd><code><a href="http://www.doctrine-project.org/documentation/manual/1_1/en/working-with-models">http://www.doctrine-project.org/documentation/manual/1_1/en/working-with-models</a></code></dd>
+<dt>Parameters:</dt>
+<dd>array - array of data to merge, see link for documentation</dd>
+<dd>deep - whether or not to merge relations</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 2313</div>
+<h3 id="obtainReference()">obtainReference</h3>
+<code class="signature">public  void <strong>obtainReference</strong>(string name)</code>
+<div class="details">
+<p>gets a related component and fails if it does not exist</p><dl>
+<dt>Throws:</dt>
+<dd>if trying to get an unknown related component</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 326</div>
+<h3 id="oid()">oid</h3>
+<code class="signature">public  void <strong>oid</strong>()</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 519</div>
+<h3 id="postDelete()">postDelete</h3>
+<code class="signature">public  void <strong>postDelete</strong>(mixed event)</code>
+<div class="details">
+<p>Empty template method to provide concrete Record classes with the possibility
+to hook into the deletion procedure.</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 600</div>
+<h3 id="postHydrate()">postHydrate</h3>
+<code class="signature">public  void <strong>postHydrate</strong>(mixed event)</code>
+<div class="details">
+<p>Empty template method to provide Record classes with the ability to alter hydration 
+after it runs</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 551</div>
+<h3 id="postInsert()">postInsert</h3>
+<code class="signature">public  void <strong>postInsert</strong>(mixed event)</code>
+<div class="details">
+<p>Empty template method to provide concrete Record classes with the possibility
+to hook into the saving procedure only when the record is going to be
+inserted into the data store the first time.</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 505</div>
+<h3 id="postSave()">postSave</h3>
+<code class="signature">public  void <strong>postSave</strong>(mixed event)</code>
+<div class="details">
+<p>Empty template method to provide concrete Record classes with the possibility
+to hook into the saving procedure.</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 477</div>
+<h3 id="postSerialize()">postSerialize</h3>
+<code class="signature">public  void <strong>postSerialize</strong>(mixed event)</code>
+<div class="details">
+<p>Empty template method to provide concrete Record classes with the possibility
+to hook into the serializing procedure.</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 491</div>
+<h3 id="postUnserialize()">postUnserialize</h3>
+<code class="signature">public  void <strong>postUnserialize</strong>(mixed event)</code>
+<div class="details">
+<p>Empty template method to provide concrete Record classes with the possibility
+to hook into the serializing procedure.</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 535</div>
+<h3 id="postUpdate()">postUpdate</h3>
+<code class="signature">public  void <strong>postUpdate</strong>(mixed event)</code>
+<div class="details">
+<p>Empty template method to provide concrete Record classes with the possibility
+to hook into the saving procedure only when the record is going to be
+updated.</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 565</div>
+<h3 id="postValidate()">postValidate</h3>
+<code class="signature">public  void <strong>postValidate</strong>(mixed event)</code>
+<div class="details">
+<p>Empty template method to provide concrete Record classes with the possibility
+to hook into the validation procedure.</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 512</div>
+<h3 id="preDelete()">preDelete</h3>
+<code class="signature">public  void <strong>preDelete</strong>(mixed event)</code>
+<div class="details">
+<p>Empty template method to provide concrete Record classes with the possibility
+to hook into the deletion procedure.</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 586</div>
+<h3 id="preDqlDelete()">preDqlDelete</h3>
+<code class="signature">public  void <strong>preDqlDelete</strong>(mixed event)</code>
+<div class="details">
+<p>Empty template method to provide Record classes with the ability to alter DQL delete
+queries at runtime</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 572</div>
+<h3 id="preDqlSelect()">preDqlSelect</h3>
+<code class="signature">public  void <strong>preDqlSelect</strong>(mixed event)</code>
+<div class="details">
+<p>Empty template method to provide Record classes with the ability to alter DQL select
+queries at runtime</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 579</div>
+<h3 id="preDqlUpdate()">preDqlUpdate</h3>
+<code class="signature">public  void <strong>preDqlUpdate</strong>(mixed event)</code>
+<div class="details">
+<p>Empty template method to provide Record classes with the ability to alter DQL update
+queries at runtime</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 593</div>
+<h3 id="preHydrate()">preHydrate</h3>
+<code class="signature">public  void <strong>preHydrate</strong>(mixed event)</code>
+<div class="details">
+<p>Empty template method to provide Record classes with the ability to alter hydration 
+before it runs</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 543</div>
+<h3 id="preInsert()">preInsert</h3>
+<code class="signature">public  void <strong>preInsert</strong>(mixed event)</code>
+<div class="details">
+<p>Empty template method to provide concrete Record classes with the possibility
+to hook into the saving procedure only when the record is going to be
+inserted into the data store the first time.</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 498</div>
+<h3 id="preSave()">preSave</h3>
+<code class="signature">public  void <strong>preSave</strong>(mixed event)</code>
+<div class="details">
+<p>Empty template method to provide concrete Record classes with the possibility
+to hook into the saving procedure.</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 470</div>
+<h3 id="preSerialize()">preSerialize</h3>
+<code class="signature">public  void <strong>preSerialize</strong>(mixed event)</code>
+<div class="details">
+<p>Empty template method to provide concrete Record classes with the possibility
+to hook into the serializing procedure.</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 484</div>
+<h3 id="preUnserialize()">preUnserialize</h3>
+<code class="signature">public  void <strong>preUnserialize</strong>(mixed event)</code>
+<div class="details">
+<p>Empty template method to provide concrete Record classes with the possibility
+to hook into the serializing procedure.</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 527</div>
+<h3 id="preUpdate()">preUpdate</h3>
+<code class="signature">public  void <strong>preUpdate</strong>(mixed event)</code>
+<div class="details">
+<p>Empty template method to provide concrete Record classes with the possibility
+to hook into the saving procedure only when the record is going to be
+updated.</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 559</div>
+<h3 id="preValidate()">preValidate</h3>
+<code class="signature">public  void <strong>preValidate</strong>(mixed event)</code>
+<div class="details">
+<p>Empty template method to provide concrete Record classes with the possibility
+to hook into the validation procedure. Useful for cleaning up data before 
+validating it.</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 763</div>
+<h3 id="prepareIdentifiers()">prepareIdentifiers</h3>
+<code class="signature">private  void <strong>prepareIdentifiers</strong>(boolean exists)</code>
+<div class="details">
+<p>prepareIdentifiers
+prepares identifiers for later use</p><dl>
+<dt>Parameters:</dt>
+<dd>exists - whether or not this record exists in persistent data store</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 1118</div>
+<h3 id="rawGet()">rawGet</h3>
+<code class="signature">public  mixed <strong>rawGet</strong>(mixed fieldName, $name name)</code>
+<div class="details">
+<p>returns the value of a property (column). If the property is not yet loaded
+this method does NOT load it.</p><dl>
+<dt>Parameters:</dt>
+<dd>name - of the property</dd>
+<dt>Throws:</dt>
+<dd>if trying to get an unknown property</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 2300</div>
+<h3 id="reference()">reference</h3>
+<code class="signature">public  Doctrine_Record|Doctrine_Collection <strong>reference</strong>(string name)</code>
+<div class="details">
+<p>gets a related component</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 955</div>
+<h3 id="refresh()">refresh</h3>
+<code class="signature">public  boolean <strong>refresh</strong>(bool deep)</code>
+<div class="details">
+<p>refresh
+refresh internal data from the database</p><dl>
+<dt>Parameters:</dt>
+<dd>deep - If true, fetch also current relations. Caution: this deletes any aggregated values you may have queried beforee</dd>
+<dt>Throws:</dt>
+<dd>When the refresh operation fails (when the database row this record represents does not exist anymore)</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 1009</div>
+<h3 id="refreshRelated()">refreshRelated</h3>
+<code class="signature">public  <a href="../doctrine/doctrine_record.html">Doctrine_Record</a> <strong>refreshRelated</strong>(string name)</code>
+<div class="details">
+<p>refresh
+refresh data of related objects from the database</p><dl>
+<dt>Parameters:</dt>
+<dd>name - name of a related component. if set, this method only refreshes the specified related component</dd>
+<dt>Returns:</dt>
+<dd>this object</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 1065</div>
+<h3 id="relatedExists()">relatedExists</h3>
+<code class="signature">public  boolean <strong>relatedExists</strong>(string name)</code>
+<div class="details">
+<p>Check if a related relationship exists. Will lazily load the relationship
+in order to check. If the reference didn't already exist and it doesn't
+exist in the database, the related reference will be cleared immediately.</p><dl>
+<dt>Returns:</dt>
+<dd>Whether or not the related relationship exists</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 1744</div>
+<h3 id="replace()">replace</h3>
+<code class="signature">public  integer <strong>replace</strong>(<a href="../doctrine/doctrine_connection.html">Doctrine_Connection</a> conn)</code>
+<div class="details">
+<p>executes a SQL REPLACE query. A REPLACE query is identical to a INSERT
+query, except that if there is already a row in the table with the same
+key field values, the REPLACE query just updates its values instead of
+inserting a new row.</p><p>The REPLACE type of query does not make part of the SQL standards. Since
+practically only MySQL and SQLIte implement it natively, this type of
+query isemulated through this method for other DBMS using standard types
+of queries inside a transaction to assure the atomicity of the operation.</p><dl>
+<dt>Parameters:</dt>
+<dd>conn - optional connection parameter</dd>
+<dt>Throws:</dt>
+<dd>if some of the key values was null</dd>
+<dd>if there were no key fields</dd>
+<dd>if something fails at database level</dd>
+<dt>Returns:</dt>
+<dd>number of rows affected</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 1685</div>
+<h3 id="resetPendingUnlinks()">resetPendingUnlinks</h3>
+<code class="signature">public  void <strong>resetPendingUnlinks</strong>()</code>
+<div class="details">
+<p>resets pending record unlinks</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 1701</div>
+<h3 id="save()">save</h3>
+<code class="signature">public  void <strong>save</strong>(<a href="../doctrine/doctrine_connection.html">Doctrine_Connection</a> conn)</code>
+<div class="details">
+<p>applies the changes made to this object into database
+this method is smart enough to know if any changes are made
+and whether to use INSERT or UPDATE statement</p><p>this method also saves the related components</p><dl>
+<dt>Parameters:</dt>
+<dd>conn - optional connection parameter</dd>
+<dt>Throws:</dt>
+<dd>if record is not valid and validation is active</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 799</div>
+<h3 id="serialize()">serialize</h3>
+<code class="signature">public  string <strong>serialize</strong>()</code>
+<div class="details">
+<p>serialize
+this method is automatically called when an instance of Doctrine_Record is serialized</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 279</div>
+<h3 id="serializeReferences()">serializeReferences</h3>
+<code class="signature">public  boolean <strong>serializeReferences</strong>(boolean bool)</code>
+<div class="details">
+<p>Set whether or not to serialize references.
+This is used by caching since we want to serialize references when caching
+but not when just normally serializing a instance</p><dl>
+<dt>Returns:</dt>
+<dd>$bool</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 1431</div>
+<h3 id="set()">set</h3>
+<code class="signature">public  <a href="../doctrine/doctrine_record.html">Doctrine_Record</a> <strong>set</strong>(mixed fieldName, mixed value, boolean load, mixed name, mixed offset)</code>
+<div class="details">
+<p>alters mapped values, properties and related components.</p><dl>
+<dt>Parameters:</dt>
+<dd>name - name of the property or reference</dd>
+<dd>value - value of the property or reference</dd>
+<dd>load - whether or not to refresh / load the uninitialized record data</dd>
+<dt>Throws:</dt>
+<dd>if trying to set a value for unknown property / related component</dd>
+<dd>if trying to set a value of wrong type for related component</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 2336</div>
+<h3 id="setRelated()">setRelated</h3>
+<code class="signature">public final  void <strong>setRelated</strong>(string alias, <a href="../doctrine/doctrine_access.html">Doctrine_Access</a> coll)</code>
+<div class="details">
+<p>set a related component</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 304</div>
+<h3 id="setUp()">setUp</h3>
+<code class="signature">public  void <strong>setUp</strong>()</code>
+<div class="details">
+<p>setUp
+this method is used for setting up relations and attributes
+it should be implemented by child classes</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 910</div>
+<h3 id="state()">state</h3>
+<code class="signature">public  null|integer <strong>state</strong>(integer|string state)</code>
+<div class="details">
+<p>assigns the state of this record or returns it if called without parameters</p><dl>
+<dt>Parameters:</dt>
+<dd>state - if set, this method tries to set the record state to $state</dd>
+<dt>See Also:</dt>
+<dd>constants</dd>
+<dt>Throws:</dt>
+<dd>if trying to set an unknown state</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 2011</div>
+<h3 id="synchronizeWithArray()">synchronizeWithArray</h3>
+<code class="signature">public  void <strong>synchronizeWithArray</strong>(array array, bool deep)</code>
+<div class="details">
+<p>synchronizes a Doctrine_Record instance and its relations with data from an array</p><p>it expects an array representation of a Doctrine_Record similar to the return
+value of the toArray() method. If the array contains relations it will create
+those that don't exist, update the ones that do, and delete the ones missing
+on the array but available on the Doctrine_Record (unlike @see fromArray() that
+does not touch what it is not in $array)</p><dl>
+<dt>Parameters:</dt>
+<dd>array - representation of a Doctrine_Record</dd>
+<dd>deep - whether or not to act on relations</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 1880</div>
+<h3 id="toArray()">toArray</h3>
+<code class="signature">public  array <strong>toArray</strong>(boolean deep, boolean prefixKey)</code>
+<div class="details">
+<p>returns the record representation as an array</p><dl>
+<dt>See Also:</dt>
+<dd><code><a href="http://www.doctrine-project.org/documentation/manual/1_1/en/working-with-models">http://www.doctrine-project.org/documentation/manual/1_1/en/working-with-models</a></code></dd>
+<dt>Parameters:</dt>
+<dd>deep - whether to include relations</dd>
+<dd>prefixKey - not used</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 2688</div>
+<h3 id="toString()">toString</h3>
+<code class="signature">public  string <strong>toString</strong>()</code>
+<div class="details">
+<p>__toString alias</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 1718</div>
+<h3 id="trySave()">trySave</h3>
+<code class="signature">public  TRUE <strong>trySave</strong>(<a href="../doctrine/doctrine_connection.html">Doctrine_Connection</a> conn)</code>
+<div class="details">
+<p>tries to save the object and all its related components.
+In contrast to Doctrine_Record::save(), this method does not
+throw an exception when validation fails but returns TRUE on
+success or FALSE on failure.</p><dl>
+<dt>Parameters:</dt>
+<dd>conn - optional connection parameter</dd>
+<dt>Returns:</dt>
+<dd>if the record was saved sucessfully without errors, FALSE otherwise.</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 2415</div>
+<h3 id="unlink()">unlink</h3>
+<code class="signature">public  <a href="../doctrine/doctrine_record.html">Doctrine_Record</a> <strong>unlink</strong>(string alias, array ids, boolean now)</code>
+<div class="details">
+<p>unlink
+removes links from this record to given records
+if no ids are given, it removes all links</p><dl>
+<dt>Parameters:</dt>
+<dd>alias - related component alias</dd>
+<dd>ids - the identifiers of the related records</dd>
+<dd>now - whether or not to execute now or set as pending unlinks</dd>
+<dt>Returns:</dt>
+<dd>this object (fluent interface)</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 2460</div>
+<h3 id="unlinkInDb()">unlinkInDb</h3>
+<code class="signature">public  <a href="../doctrine/doctrine_record.html">Doctrine_Record</a> <strong>unlinkInDb</strong>(string alias, array ids)</code>
+<div class="details">
+<p>unlink now the related components, querying the db</p><dl>
+<dt>Parameters:</dt>
+<dd>alias - related component alias</dd>
+<dd>ids - the identifiers of the related records</dd>
+<dt>Returns:</dt>
+<dd>this object (fluent interface)</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 854</div>
+<h3 id="unserialize()">unserialize</h3>
+<code class="signature">public  void <strong>unserialize</strong>(string serialized)</code>
+<div class="details">
+<p>this method is automatically called everytime an instance is unserialized</p><dl>
+<dt>Parameters:</dt>
+<dd>serialized - Doctrine_Record as serialized string</dd>
+<dt>Throws:</dt>
+<dd>if the cleanData operation fails somehow</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 2400</div>
+<h3 id="unshiftFilter()">unshiftFilter</h3>
+<code class="signature">public  void <strong>unshiftFilter</strong>(mixed filter)</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 447</div>
+<h3 id="validate()">validate</h3>
+<code class="signature">protected  void <strong>validate</strong>()</code>
+<div class="details">
+<p>Empty template method to provide concrete Record classes with the possibility
+to hook into the validation procedure, doing any custom / specialized
+validations that are neccessary.</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 463</div>
+<h3 id="validateOnInsert()">validateOnInsert</h3>
+<code class="signature">protected  void <strong>validateOnInsert</strong>()</code>
+<div class="details">
+<p>Empty template method to provide concrete Record classes with the possibility
+to hook into the validation procedure only when the record is going to be
+inserted into the data store the first time.</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Record.php at line 455</div>
+<h3 id="validateOnUpdate()">validateOnUpdate</h3>
+<code class="signature">protected  void <strong>validateOnUpdate</strong>()</code>
+<div class="details">
+<p>Empty template method to provide concrete Record classes with the possibility
+to hook into the validation procedure only when the record is going to be
+updated.</p></div>
+
+<hr>
+
+<div class="header">
+<h1>Doctrine</h1>
+<ul>
+<li><a href="../overview-summary.html">Overview</a></li>
+<li><a href="../doctrine/package-summary.html">Namespace</a></li>
+<li class="active">Class</li>
+<li><a href="../doctrine/package-tree.html">Tree</a></li>
+<li><a href="../deprecated-list.html">Deprecated</a></li>
+<li><a href="../index-all.html">Index</a></li>
+</ul>
+</div>
+
+<div class="small_links">
+<a href="../index.html" target="_top">Frames</a>
+<a href="../doctrine/doctrine_record.html" target="_top">No frames</a>
+</div>
+<div class="small_links">
+Summary: <a href="#summary_field">Field</a> | <a href="#summary_method">Method</a> | <a href="#summary_constr">Constr</a>
+Detail: <a href="#detail_field">Field</a> | <a href="#detail_method">Method</a> | <a href="#summary_constr">Constr</a>
+</div>
+<hr>
+
+<p id="footer">This document was generated by <a href="http://peej.github.com/phpdoctor/">PHPDoctor: The PHP Documentation Creator</a></p>
+
+</body>
+
+</html>

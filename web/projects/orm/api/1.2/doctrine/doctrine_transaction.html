@@ -1,0 +1,565 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+<head>
+
+<meta name="generator" content="PHPDoctor 2RC4 (http://phpdoctor.sourceforge.net/)">
+<meta name="when" content="Fri, 09 Apr 2010 11:50:26 -0400">
+
+<link rel="stylesheet" type="text/css" href="../stylesheet.css">
+<link rel="start" href="../overview-summary.html">
+
+<title>Doctrine_Transaction (Doctrine 1.2 ORM)</title>
+
+</head>
+<body id="definition" onload="parent.document.title=document.title;">
+
+<div class="header">
+<h1>Doctrine</h1>
+<ul>
+<li><a href="../overview-summary.html">Overview</a></li>
+<li><a href="../doctrine/package-summary.html">Namespace</a></li>
+<li class="active">Class</li>
+<li><a href="../doctrine/package-tree.html">Tree</a></li>
+<li><a href="../deprecated-list.html">Deprecated</a></li>
+<li><a href="../index-all.html">Index</a></li>
+</ul>
+</div>
+
+<div class="small_links">
+<a href="../index.html" target="_top">Frames</a>
+<a href="../doctrine/doctrine_transaction.html" target="_top">No frames</a>
+</div>
+<div class="small_links">
+Summary: <a href="#summary_field">Field</a> | <a href="#summary_method">Method</a> | <a href="#summary_constr">Constr</a>
+Detail: <a href="#detail_field">Field</a> | <a href="#detail_method">Method</a> | <a href="#summary_constr">Constr</a>
+</div>
+<hr>
+
+<div class="qualifiedName">Doctrine\Doctrine_Transaction</div>
+<div class="location">/Doctrine/Transaction.php at line 35</div>
+
+<h1>Class Doctrine_Transaction</h1>
+
+<pre class="tree">Class:Doctrine_Transaction - Superclass: Doctrine_Connection_Module
+<a href="../doctrine/doctrine_connection_module.html">Doctrine_Connection_Module</a><br>   &lfloor;&nbsp;<strong>Doctrine_Transaction</strong><br /></pre>
+
+<hr>
+
+<p class="signature">public  class <strong>Doctrine_Transaction</strong><br>extends <a href="../doctrine/doctrine_connection_module.html">Doctrine_Connection_Module</a>
+
+</p>
+
+<div class="comment" id="overview_description"><p>Doctrine_Transaction
+Handles transaction savepoint and isolation abstraction</p></div>
+
+<dl>
+<dt>Author:</dt>
+<dd>Konsta Vesterinen <kvesteri@cc.hut.fi></dd>
+<dd>Lukas Smith <smith@pooteeweet.org> (PEAR MDB2 library)</dd>
+<dt>License:</dt>
+<dd>http://www.opensource.org/licenses/lgpl-license.php LGPL</dd>
+<dt>Subpackage:</dt>
+<dd>Transaction</dd>
+<dt>See Also:</dt>
+<dd><code>www.doctrine-project.org</code></dd>
+<dt>Since:</dt>
+<dd>1.0</dd>
+<dt>Version:</dt>
+<dd>$Revision: 7490 $</dd>
+</dl>
+<hr>
+
+<table id="summary_field">
+<tr><th colspan="2">Field Summary</th></tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#STATE_ACTIVE">STATE_ACTIVE</a></p><p class="description">Doctrine_Transaction is in active state when it has one active transaction.</p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#STATE_BUSY">STATE_BUSY</a></p><p class="description">Doctrine_Transaction is in busy state when it has multiple active transactions.</p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#STATE_SLEEP">$STATE_SLEEP</a></p><p class="description">Doctrine_Transaction is in sleep state when it has no active transactions.</p></td>
+</tr>
+<tr>
+<td class="type">protected  array $_collections             an array of Doctrine_Collection objects that were affected during the Transaction</td>
+<td class="description"><p class="name"><a href="#_collections">$_collections</a></p><p class="description">.</p></td>
+</tr>
+<tr>
+<td class="type">protected  integer $_internalNestingLevel  The current internal nesting level of this transaction. "Internal" means transactions started by Doctrine itself. Therefore the internal nesting level is always lower or equal to the overall nesting level. A level of 0 means there is currently no active transaction that was initiated by Doctrine itself.</td>
+<td class="description"><p class="name"><a href="#_internalNestingLevel">$_internalNestingLevel</a></p><p class="description">.</p></td>
+</tr>
+<tr>
+<td class="type">protected  integer $_nestingLevel      The current nesting level of this transaction. A nesting level of 0 means there is currently no active transaction.</td>
+<td class="description"><p class="name"><a href="#_nestingLevel">$_nestingLevel</a></p><p class="description">.</p></td>
+</tr>
+<tr>
+<td class="type">protected  array $invalid                  an array containing all invalid records within this transaction</td>
+<td class="description"><p class="name"><a href="#invalid">$invalid</a></p><p class="description">.</p></td>
+</tr>
+<tr>
+<td class="type">protected  array $savepoints               an array containing all savepoints</td>
+<td class="description"><p class="name"><a href="#savePoints">$savePoints</a></p><p class="description">.</p></td>
+</tr>
+</table>
+
+<table class="inherit">
+<tr><th colspan="2">Fields inherited from Doctrine\Doctrine_Connection_Module</th></tr>
+<tr><td><a href="../doctrine/doctrine_connection_module.html#conn">conn</a>, <a href="../doctrine/doctrine_connection_module.html#moduleName">moduleName</a></td></tr></table>
+
+<table id="summary_method">
+<tr><th colspan="2">Method Summary</th></tr>
+<tr>
+<td class="type">protected  void</td>
+<td class="description"><p class="name"><a href="#_doBeginTransaction()">_doBeginTransaction</a>()</p><p class="description">Begins a database transaction..</p></td>
+</tr>
+<tr>
+<td class="type">protected  void</td>
+<td class="description"><p class="name"><a href="#_doCommit()">_doCommit</a>()</p><p class="description">Performs the commit..</p></td>
+</tr>
+<tr>
+<td class="type">protected  void</td>
+<td class="description"><p class="name"><a href="#_doRollback()">_doRollback</a>()</p><p class="description">Performs the rollback..</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../doctrine/doctrine_transaction.html">Doctrine_Transaction</a></td>
+<td class="description"><p class="name"><a href="#addCollection()">addCollection</a>(<a href="../doctrine/doctrine_collection.html">Doctrine_Collection</a> coll)</p><p class="description">addCollection
+adds a collection in the internal array of collections.</p></td>
+</tr>
+<tr>
+<td class="type"> boolean</td>
+<td class="description"><p class="name"><a href="#addInvalid()">addInvalid</a>(<a href="../doctrine/doctrine_record.html">Doctrine_Record</a> record)</p><p class="description">addInvalid
+adds record into invalid records list.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#beginInternalTransaction()">beginInternalTransaction</a>(mixed savepoint)</p><p class="description">Initiates a transaction.
+</p></td>
+</tr>
+<tr>
+<td class="type"> integer</td>
+<td class="description"><p class="name"><a href="#beginTransaction()">beginTransaction</a>(string savepoint)</p><p class="description">beginTransaction
+Start a transaction or set a savepoint.
+</p></td>
+</tr>
+<tr>
+<td class="type"> boolean</td>
+<td class="description"><p class="name"><a href="#commit()">commit</a>(string savepoint)</p><p class="description">Commit the database changes done during a transaction that is in
+progress or release a savepoint. </p></td>
+</tr>
+<tr>
+<td class="type">protected  void</td>
+<td class="description"><p class="name"><a href="#createSavePoint()">createSavePoint</a>(string savepoint)</p><p class="description">releaseSavePoint
+creates a new savepoint.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#getInternalTransactionLevel()">getInternalTransactionLevel</a>()</p></td>
+</tr>
+<tr>
+<td class="type"> array</td>
+<td class="description"><p class="name"><a href="#getInvalid()">getInvalid</a>()</p><p class="description">Return the invalid records.</p></td>
+</tr>
+<tr>
+<td class="type"> string</td>
+<td class="description"><p class="name"><a href="#getIsolation()">getIsolation</a>()</p><p class="description">getTransactionIsolation.</p></td>
+</tr>
+<tr>
+<td class="type"> integer</td>
+<td class="description"><p class="name"><a href="#getState()">getState</a>()</p><p class="description">getState
+returns the state of this transaction module..</p></td>
+</tr>
+<tr>
+<td class="type"> integer</td>
+<td class="description"><p class="name"><a href="#getTransactionLevel()">getTransactionLevel</a>()</p><p class="description">getTransactionLevel
+get the current transaction nesting level.</p></td>
+</tr>
+<tr>
+<td class="type">protected  void</td>
+<td class="description"><p class="name"><a href="#releaseSavePoint()">releaseSavePoint</a>(string savepoint)</p><p class="description">releaseSavePoint
+releases given savepoint.</p></td>
+</tr>
+<tr>
+<td class="type">private  integer</td>
+<td class="description"><p class="name"><a href="#removeSavePoints()">removeSavePoints</a>(sring savepoint)</p><p class="description">removeSavePoints
+removes a savepoint from the internal savePoints array of this transaction object
+and all its children savepoints.</p></td>
+</tr>
+<tr>
+<td class="type"> boolean</td>
+<td class="description"><p class="name"><a href="#rollback()">rollback</a>(string savepoint)</p><p class="description">rollback
+Cancel any database changes done during a transaction or since a specific
+savepoint that is in progress. </p></td>
+</tr>
+<tr>
+<td class="type">protected  void</td>
+<td class="description"><p class="name"><a href="#rollbackSavePoint()">rollbackSavePoint</a>(string savepoint)</p><p class="description">rollbackSavePoint
+releases given savepoint.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#setIsolation()">setIsolation</a>(mixed isolation, string standard)</p><p class="description">setIsolation.</p></td>
+</tr>
+</table>
+
+<table class="inherit">
+<tr><th colspan="2">Methods inherited from Doctrine\Doctrine_Connection_Module</th></tr>
+<tr><td><a href="../doctrine/doctrine_connection_module.html#getConnection()">getConnection</a>, <a href="../doctrine/doctrine_connection_module.html#getModuleName()">getModuleName</a></td></tr></table>
+
+<h2 id="detail_field">Field Detail</h2>
+<div class="location">/Doctrine/Transaction.php at line 45</div>
+<h3 id="STATE_ACTIVE">STATE_ACTIVE</h3>
+<code class="signature">public final  int <strong>STATE_ACTIVE</strong> = 1</code>
+<div class="details">
+<p>Doctrine_Transaction is in active state when it has one active transaction</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Transaction.php at line 50</div>
+<h3 id="STATE_BUSY">STATE_BUSY</h3>
+<code class="signature">public final  int <strong>STATE_BUSY</strong> = 2</code>
+<div class="details">
+<p>Doctrine_Transaction is in busy state when it has multiple active transactions</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Transaction.php at line 40</div>
+<h3 id="STATE_SLEEP">STATE_SLEEP</h3>
+<code class="signature">public final  int <strong>$STATE_SLEEP</strong></code>
+<div class="details">
+<p>Doctrine_Transaction is in sleep state when it has no active transactions</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Transaction.php at line 83</div>
+<h3 id="_collections">_collections</h3>
+<code class="signature">protected  array $_collections             an array of Doctrine_Collection objects that were affected during the Transaction <strong>$_collections</strong> = array()</code>
+<div class="details">
+<p></p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Transaction.php at line 67</div>
+<h3 id="_internalNestingLevel">_internalNestingLevel</h3>
+<code class="signature">protected  integer $_internalNestingLevel  The current internal nesting level of this transaction. "Internal" means transactions started by Doctrine itself. Therefore the internal nesting level is always lower or equal to the overall nesting level. A level of 0 means there is currently no active transaction that was initiated by Doctrine itself. <strong>$_internalNestingLevel</strong></code>
+<div class="details">
+<p></p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Transaction.php at line 57</div>
+<h3 id="_nestingLevel">_nestingLevel</h3>
+<code class="signature">protected  integer $_nestingLevel      The current nesting level of this transaction. A nesting level of 0 means there is currently no active transaction. <strong>$_nestingLevel</strong></code>
+<div class="details">
+<p></p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Transaction.php at line 73</div>
+<h3 id="invalid">invalid</h3>
+<code class="signature">protected  array $invalid                  an array containing all invalid records within this transaction <strong>$invalid</strong> = array()</code>
+<div class="details">
+<p></p><dl>
+<dt>Todo:</dt>
+<dd>What about a more verbose name? $invalidRecords?</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Transaction.php at line 78</div>
+<h3 id="savePoints">savePoints</h3>
+<code class="signature">protected  array $savepoints               an array containing all savepoints <strong>$savePoints</strong> = array()</code>
+<div class="details">
+<p></p></div>
+
+<hr>
+
+<h2 id="detail_method">Method Detail</h2>
+<div class="location">/Doctrine/Transaction.php at line 423</div>
+<h3 id="_doBeginTransaction()">_doBeginTransaction</h3>
+<code class="signature">protected  void <strong>_doBeginTransaction</strong>()</code>
+<div class="details">
+<p>Begins a database transaction.</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Transaction.php at line 415</div>
+<h3 id="_doCommit()">_doCommit</h3>
+<code class="signature">protected  void <strong>_doCommit</strong>()</code>
+<div class="details">
+<p>Performs the commit.</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Transaction.php at line 407</div>
+<h3 id="_doRollback()">_doRollback</h3>
+<code class="signature">protected  void <strong>_doRollback</strong>()</code>
+<div class="details">
+<p>Performs the rollback.</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Transaction.php at line 96</div>
+<h3 id="addCollection()">addCollection</h3>
+<code class="signature">public  <a href="../doctrine/doctrine_transaction.html">Doctrine_Transaction</a> <strong>addCollection</strong>(<a href="../doctrine/doctrine_collection.html">Doctrine_Collection</a> coll)</code>
+<div class="details">
+<p>addCollection
+adds a collection in the internal array of collections</p><p>at the end of each commit this array is looped over and
+of every collection Doctrine then takes a snapshot in order
+to keep the collections up to date with the database</p><dl>
+<dt>Parameters:</dt>
+<dd>coll - a collection to be added</dd>
+<dt>Returns:</dt>
+<dd>this object</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Transaction.php at line 132</div>
+<h3 id="addInvalid()">addInvalid</h3>
+<code class="signature">public  boolean <strong>addInvalid</strong>(<a href="../doctrine/doctrine_record.html">Doctrine_Record</a> record)</code>
+<div class="details">
+<p>addInvalid
+adds record into invalid records list</p><dl>
+<dt>Returns:</dt>
+<dd>false if record already existed in invalid records list, otherwise true</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Transaction.php at line 508</div>
+<h3 id="beginInternalTransaction()">beginInternalTransaction</h3>
+<code class="signature">public  void <strong>beginInternalTransaction</strong>(mixed savepoint)</code>
+<div class="details">
+<p>Initiates a transaction.</p><p>This method must only be used by Doctrine itself to initiate transactions.
+Userland-code must use <code><a href="../doctrine/doctrine_adapter_interface.html#beginTransaction()">beginTransaction()</a></code>.</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Transaction.php at line 184</div>
+<h3 id="beginTransaction()">beginTransaction</h3>
+<code class="signature">public  integer <strong>beginTransaction</strong>(string savepoint)</code>
+<div class="details">
+<p>beginTransaction
+Start a transaction or set a savepoint.</p><p>if trying to set a savepoint and there is no active transaction
+a new transaction is being started</p><p>This method should only be used by userland-code to initiate transactions.
+To initiate a transaction from inside Doctrine use <code><a href="../doctrine/doctrine_connection.html#beginInternalTransaction()">beginInternalTransaction()</a></code>.</p><p>Listeners: onPreTransactionBegin, onTransactionBegin</p><dl>
+<dt>Parameters:</dt>
+<dd>savepoint - name of a savepoint to set</dd>
+<dt>Throws:</dt>
+<dd>if the transaction fails at database level</dd>
+<dt>Returns:</dt>
+<dd>current transaction nesting level</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Transaction.php at line 236</div>
+<h3 id="commit()">commit</h3>
+<code class="signature">public  boolean <strong>commit</strong>(string savepoint)</code>
+<div class="details">
+<p>Commit the database changes done during a transaction that is in
+progress or release a savepoint. This function may only be called when
+auto-committing is disabled, otherwise it will fail.</p><p>Listeners: preTransactionCommit, postTransactionCommit</p><dl>
+<dt>Parameters:</dt>
+<dd>savepoint - name of a savepoint to release</dd>
+<dt>Throws:</dt>
+<dd>if the transaction fails at database level</dd>
+<dd>if the transaction fails due to record validations</dd>
+<dt>Returns:</dt>
+<dd>false if commit couldn't be performed, true otherwise</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Transaction.php at line 375</div>
+<h3 id="createSavePoint()">createSavePoint</h3>
+<code class="signature">protected  void <strong>createSavePoint</strong>(string savepoint)</code>
+<div class="details">
+<p>releaseSavePoint
+creates a new savepoint</p><dl>
+<dt>Parameters:</dt>
+<dd>savepoint - name of a savepoint to create</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Transaction.php at line 163</div>
+<h3 id="getInternalTransactionLevel()">getInternalTransactionLevel</h3>
+<code class="signature">public  void <strong>getInternalTransactionLevel</strong>()</code>
+<div class="details">
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Transaction.php at line 147</div>
+<h3 id="getInvalid()">getInvalid</h3>
+<code class="signature">public  array <strong>getInvalid</strong>()</code>
+<div class="details">
+<p>Return the invalid records</p><dl>
+<dt>Returns:</dt>
+<dd>An array of invalid records</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Transaction.php at line 497</div>
+<h3 id="getIsolation()">getIsolation</h3>
+<code class="signature">public  string <strong>getIsolation</strong>()</code>
+<div class="details">
+<p>getTransactionIsolation</p><p>fetches the current session transaction isolation level</p><p>note: some drivers may support setting the transaction isolation level
+but not fetching it</p><dl>
+<dt>Throws:</dt>
+<dd>if the feature is not supported by the driver</dd>
+<dd>if something fails at the PDO level</dd>
+<dt>Returns:</dt>
+<dd>returns the current session transaction isolation level</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Transaction.php at line 110</div>
+<h3 id="getState()">getState</h3>
+<code class="signature">public  integer <strong>getState</strong>()</code>
+<div class="details">
+<p>getState
+returns the state of this transaction module.</p><dl>
+<dt>See Also:</dt>
+<dd>constants</dd>
+<dt>Returns:</dt>
+<dd>the connection state</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Transaction.php at line 158</div>
+<h3 id="getTransactionLevel()">getTransactionLevel</h3>
+<code class="signature">public  integer <strong>getTransactionLevel</strong>()</code>
+<div class="details">
+<p>getTransactionLevel
+get the current transaction nesting level</p></div>
+
+<hr>
+
+<div class="location">/Doctrine/Transaction.php at line 387</div>
+<h3 id="releaseSavePoint()">releaseSavePoint</h3>
+<code class="signature">protected  void <strong>releaseSavePoint</strong>(string savepoint)</code>
+<div class="details">
+<p>releaseSavePoint
+releases given savepoint</p><dl>
+<dt>Parameters:</dt>
+<dd>savepoint - name of a savepoint to release</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Transaction.php at line 436</div>
+<h3 id="removeSavePoints()">removeSavePoints</h3>
+<code class="signature">private  integer <strong>removeSavePoints</strong>(sring savepoint)</code>
+<div class="details">
+<p>removeSavePoints
+removes a savepoint from the internal savePoints array of this transaction object
+and all its children savepoints</p><dl>
+<dt>Parameters:</dt>
+<dd>savepoint - name of the savepoint to remove</dd>
+<dt>Returns:</dt>
+<dd>removed savepoints</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Transaction.php at line 316</div>
+<h3 id="rollback()">rollback</h3>
+<code class="signature">public  boolean <strong>rollback</strong>(string savepoint)</code>
+<div class="details">
+<p>rollback
+Cancel any database changes done during a transaction or since a specific
+savepoint that is in progress. This function may only be called when
+auto-committing is disabled, otherwise it will fail. Therefore, a new
+transaction is implicitly started after canceling the pending changes.</p><p>this method can be listened with onPreTransactionRollback and onTransactionRollback
+eventlistener methods</p><dl>
+<dt>Parameters:</dt>
+<dd>savepoint - name of a savepoint to rollback to</dd>
+<dt>Throws:</dt>
+<dd>if the rollback operation fails at database level</dd>
+<dt>Returns:</dt>
+<dd>false if rollback couldn't be performed, true otherwise</dd>
+<dt>Todo:</dt>
+<dd>Shouldnt this method only commit a rollback if the transactionLevel is 1 (STATE_ACTIVE)? Explanation: Otherwise a rollback that is triggered from inside doctrine in an (emulated) nested transaction would lead to a complete database level rollback even though the client code did not yet want to do that. In other words: if the user starts a transaction doctrine shouldnt roll it back. Doctrine should only roll back transactions started by doctrine. Thoughts?</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Transaction.php at line 399</div>
+<h3 id="rollbackSavePoint()">rollbackSavePoint</h3>
+<code class="signature">protected  void <strong>rollbackSavePoint</strong>(string savepoint)</code>
+<div class="details">
+<p>rollbackSavePoint
+releases given savepoint</p><dl>
+<dt>Parameters:</dt>
+<dd>savepoint - name of a savepoint to rollback to</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="location">/Doctrine/Transaction.php at line 480</div>
+<h3 id="setIsolation()">setIsolation</h3>
+<code class="signature">public  void <strong>setIsolation</strong>(mixed isolation, string standard)</code>
+<div class="details">
+<p>setIsolation</p><p>Set the transacton isolation level.
+(implemented by the connection drivers)</p><p>example:</p><p><code>
+$tx->setIsolation('READ UNCOMMITTED');
+</code></p><dl>
+<dt>Parameters:</dt>
+<dd>standard - isolation level READ UNCOMMITTED (allows dirty reads) READ COMMITTED (prevents dirty reads) REPEATABLE READ (prevents nonrepeatable reads) SERIALIZABLE (prevents phantom reads)</dd>
+<dt>Throws:</dt>
+<dd>if the feature is not supported by the driver</dd>
+<dd>if something fails at the PDO level</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="header">
+<h1>Doctrine</h1>
+<ul>
+<li><a href="../overview-summary.html">Overview</a></li>
+<li><a href="../doctrine/package-summary.html">Namespace</a></li>
+<li class="active">Class</li>
+<li><a href="../doctrine/package-tree.html">Tree</a></li>
+<li><a href="../deprecated-list.html">Deprecated</a></li>
+<li><a href="../index-all.html">Index</a></li>
+</ul>
+</div>
+
+<div class="small_links">
+<a href="../index.html" target="_top">Frames</a>
+<a href="../doctrine/doctrine_transaction.html" target="_top">No frames</a>
+</div>
+<div class="small_links">
+Summary: <a href="#summary_field">Field</a> | <a href="#summary_method">Method</a> | <a href="#summary_constr">Constr</a>
+Detail: <a href="#detail_field">Field</a> | <a href="#detail_method">Method</a> | <a href="#summary_constr">Constr</a>
+</div>
+<hr>
+
+<p id="footer">This document was generated by <a href="http://peej.github.com/phpdoctor/">PHPDoctor: The PHP Documentation Creator</a></p>
+
+</body>
+
+</html>

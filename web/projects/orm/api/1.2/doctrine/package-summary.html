@@ -1,0 +1,449 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+<head>
+
+<meta name="generator" content="PHPDoctor 2RC4 (http://phpdoctor.sourceforge.net/)">
+<meta name="when" content="Fri, 09 Apr 2010 11:50:24 -0400">
+
+<link rel="stylesheet" type="text/css" href="../stylesheet.css">
+<link rel="start" href="../overview-summary.html">
+
+<title>Doctrine (Doctrine 1.2 ORM)</title>
+
+</head>
+<body id="package" onload="parent.document.title=document.title;">
+
+<div class="header">
+<h1>Doctrine</h1>
+<ul>
+<li><a href="../overview-summary.html">Overview</a></li>
+<li class="active">Namespace</li>
+<li>Class</li><li><a href="../doctrine/package-tree.html">Tree</a></li>
+<li><a href="../deprecated-list.html">Deprecated</a></li>
+<li><a href="../index-all.html">Index</a></li>
+</ul>
+</div>
+
+<div class="small_links">
+<a href="../index.html" target="_top">Frames</a>
+<a href="../doctrine/package-summary.html" target="_top">No frames</a>
+</div>
+<hr>
+
+<h1>Namespace Doctrine</h1>
+
+<table class="title">
+<tr><th colspan="2" class="title">Class Summary</th></tr>
+<tr><td class="name"><a href="../doctrine/doctrine.html">Doctrine</a></td><td class="description">This class only exists for backwards compatability. </td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_access.html">Doctrine_Access</a></td><td class="description">Provides array access and property overload interface for Doctrine subclasses.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_adapter_exception.html">Doctrine_Adapter_Exception</a></td><td class="description">Doctrine_Adapter exception class.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_adapter_mock.html">Doctrine_Adapter_Mock</a></td><td class="description">Doctrine mock connection adapter. </td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_adapter_oracle.html">Doctrine_Adapter_Oracle</a></td><td class="description">Custom Doctrine connection adapter for oracle.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_adapter_statement.html">Doctrine_Adapter_Statement</a></td><td class="description">Doctrine_Adapter_Statement.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_adapter_statement_mock.html">Doctrine_Adapter_Statement_Mock</a></td><td class="description">Mock connection adapter statement class. </td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_adapter_statement_oracle.html">Doctrine_Adapter_Statement_Oracle</a></td><td class="description">Oracle connection adapter statement class..</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_auditlog.html">Doctrine_AuditLog</a></td><td class="description">Doctrine_AuditLog.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_auditlog_listener.html">Doctrine_AuditLog_Listener</a></td><td class="description">Doctrine_AuditLog_Listener.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_auditlog_listener_microtime.html">Doctrine_AuditLog_Listener_Microtime</a></td><td class="description">Doctrine_AuditLog_Listener.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_builder.html">Doctrine_Builder</a></td><td class="description">Base class for any code builders/generators for Doctrine.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_cache_apc.html">Doctrine_Cache_Apc</a></td><td class="description">APC Cache Driver.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_cache_array.html">Doctrine_Cache_Array</a></td><td class="description">Array cache driver.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_cache_db.html">Doctrine_Cache_Db</a></td><td class="description">Database cache driver.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_cache_driver.html">Doctrine_Cache_Driver</a></td><td class="description">Abstract cache driver class.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_cache_exception.html">Doctrine_Cache_Exception</a></td><td class="description">Doctrine cache exception class.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_cache_memcache.html">Doctrine_Cache_Memcache</a></td><td class="description">Memcache cache driver.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_cache_xcache.html">Doctrine_Cache_Xcache</a></td><td class="description">Xcache cache driver.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_cli.html">Doctrine_Cli</a></td><td class="description">Command line interface class.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_cli_ansicolorformatter.html">Doctrine_Cli_AnsiColorFormatter</a></td><td class="description">Doctrine_AnsiColorFormatter provides methods to colorize text to be displayed on a console.
+</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_cli_exception.html">Doctrine_Cli_Exception</a></td><td class="description">Cli exception class.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_cli_formatter.html">Doctrine_Cli_Formatter</a></td><td class="description">Doctrine_Cli_Formatter provides methods to format text to be displayed on a console.
+</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_collection.html">Doctrine_Collection</a></td><td class="description">Doctrine_Collection
+Collection of Doctrine_Record objects..</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_collection_exception.html">Doctrine_Collection_Exception</a></td><td class="description">Collection exception class.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_collection_iterator.html">Doctrine_Collection_Iterator</a></td><td class="description">Doctrine_Collection_Iterator
+iterates through Doctrine_Collection.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_collection_iterator_expandable.html">Doctrine_Collection_Iterator_Expandable</a></td><td class="description">Expandable collection iterator class.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_collection_iterator_normal.html">Doctrine_Collection_Iterator_Normal</a></td><td class="description">Doctrine_Collection_Iterator_Normal.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_collection_iterator_offset.html">Doctrine_Collection_Iterator_Offset</a></td><td class="description">Doctrine_Collection_Iterator_Normal.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_collection_offset.html">Doctrine_Collection_Offset</a></td><td class="description">Doctrine_Collection_Offset
+Collection of Doctrine_Record objects..</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_collection_ondemand.html">Doctrine_Collection_OnDemand</a></td><td class="description">Doctrine_Collection_OnDemand
+iterates through Doctrine_Records hydrating one at a time.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_column.html">Doctrine_Column</a></td><td class="description">Doctrine_Column
+This class represents a database column.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_compiler.html">Doctrine_Compiler</a></td><td class="description">Doctrine_Compiler
+This class can be used for compiling the entire Doctrine framework into a single file.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_compiler_exception.html">Doctrine_Compiler_Exception</a></td><td class="description">Doctrine_Compiler_Exception.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_configurable.html">Doctrine_Configurable</a></td><td class="description">Doctrine_Configurable
+the base for Doctrine_Table, Doctrine_Manager and Doctrine_Connection.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_connection.html">Doctrine_Connection</a></td><td class="description">Doctrine_Connection.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_connection_common.html">Doctrine_Connection_Common</a></td><td class="description">standard connection, the parent of pgsql, mysql and sqlite.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_connection_db2.html">Doctrine_Connection_Db2</a></td><td class="description">Doctrine_Connection_Db2.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_connection_exception.html">Doctrine_Connection_Exception</a></td><td class="description">Doctrine_Exception.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_connection_mock.html">Doctrine_Connection_Mock</a></td><td class="description">Doctrine_Connection_Mysql.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_connection_module.html">Doctrine_Connection_Module</a></td><td class="description">Doctrine_Connection_Module.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_connection_mssql.html">Doctrine_Connection_Mssql</a></td><td class="description">Doctrine_Connection_Mssql.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_connection_mssql_exception.html">Doctrine_Connection_Mssql_Exception</a></td><td class="description">Doctrine_Connection_Mssql_Exception.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_connection_mysql.html">Doctrine_Connection_Mysql</a></td><td class="description">Doctrine_Connection_Mysql.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_connection_mysql_exception.html">Doctrine_Connection_Mysql_Exception</a></td><td class="description">Doctrine_Connection_Mysql_Exception.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_connection_oracle.html">Doctrine_Connection_Oracle</a></td><td class="description">Doctrine_Connection_Oracle.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_connection_oracle_exception.html">Doctrine_Connection_Oracle_Exception</a></td><td class="description">Doctrine_Connection_Oracle_Exception.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_connection_pgsql.html">Doctrine_Connection_Pgsql</a></td><td class="description">Doctrine_Connection_Pgsql.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_connection_pgsql_exception.html">Doctrine_Connection_Pgsql_Exception</a></td><td class="description">Doctrine_Connection_Pgsql_Exception.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_connection_profiler.html">Doctrine_Connection_Profiler</a></td><td class="description">Doctrine_Connection_Profiler.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_connection_profiler_exception.html">Doctrine_Connection_Profiler_Exception</a></td><td class="description">Doctrine_Connection_Profiler_Exception.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_connection_sqlite.html">Doctrine_Connection_Sqlite</a></td><td class="description">Doctrine_Connection_Sqlite.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_connection_sqlite_exception.html">Doctrine_Connection_Sqlite_Exception</a></td><td class="description">Doctrine_Connection_Sqlite_Exception.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_connection_statement.html">Doctrine_Connection_Statement</a></td><td class="description">Doctrine_Connection_Statement.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_connection_unitofwork.html">Doctrine_Connection_UnitOfWork</a></td><td class="description">Doctrine_Connection_UnitOfWork.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_core.html">Doctrine_Core</a></td><td class="description">The base core class of Doctrine.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_data.html">Doctrine_Data</a></td><td class="description">Doctrine_Data.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_datadict.html">Doctrine_DataDict</a></td><td class="description">Doctrine_DataDict.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_datadict_exception.html">Doctrine_DataDict_Exception</a></td><td class="description">Doctrine_DataDict_Exception.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_datadict_mssql.html">Doctrine_DataDict_Mssql</a></td><td class="description">.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_datadict_mysql.html">Doctrine_DataDict_Mysql</a></td><td class="description">.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_datadict_oracle.html">Doctrine_DataDict_Oracle</a></td><td class="description">.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_datadict_pgsql.html">Doctrine_DataDict_Pgsql</a></td><td class="description">.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_datadict_sqlite.html">Doctrine_DataDict_Sqlite</a></td><td class="description">.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_data_exception.html">Doctrine_Data_Exception</a></td><td class="description">Doctrine_Data_Exception.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_data_export.html">Doctrine_Data_Export</a></td><td class="description">Doctrine_Data_Export.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_data_import.html">Doctrine_Data_Import</a></td><td class="description">Doctrine_Data_Import.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_event.html">Doctrine_Event</a></td><td class="description">Doctrine_Event.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_eventlistener.html">Doctrine_EventListener</a></td><td class="description">Doctrine_EventListener     all event listeners extend this base class
+the empty methods allow child classes to only implement the methods they need to implement.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_eventlistener_chain.html">Doctrine_EventListener_Chain</a></td><td class="description">Doctrine_EventListener_Chain
+this class represents a chain of different listeners,
+useful for having multiple listeners listening the events at the same time.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_eventlistener_exception.html">Doctrine_EventListener_Exception</a></td><td class="description">Doctrine_EventListener_Exception.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_export.html">Doctrine_Export</a></td><td class="description">Doctrine_Export.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_export_exception.html">Doctrine_Export_Exception</a></td><td class="description">Doctrine_Export_Exception.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_export_mssql.html">Doctrine_Export_Mssql</a></td><td class="description">Doctrine_Export_Mssql.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_export_mysql.html">Doctrine_Export_Mysql</a></td><td class="description">Doctrine_Export_Mysql.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_export_oracle.html">Doctrine_Export_Oracle</a></td><td class="description">Doctrine_Export_Oracle.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_export_pgsql.html">Doctrine_Export_Pgsql</a></td><td class="description">Doctrine_Export_Pgsql.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_export_reporter.html">Doctrine_Export_Reporter</a></td><td class="description">Doctrine_Export_Reporter.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_export_schema.html">Doctrine_Export_Schema</a></td><td class="description">Doctrine_Export_Schema.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_export_sqlite.html">Doctrine_Export_Sqlite</a></td><td class="description">Doctrine_Export_Sqlite.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_expression.html">Doctrine_Expression</a></td><td class="description">Doctrine_Expression memorizes a dql expression that use a db function.
+</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_expression_driver.html">Doctrine_Expression_Driver</a></td><td class="description">Doctrine_Expression_Driver.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_expression_exception.html">Doctrine_Expression_Exception</a></td><td class="description">Doctrine_Expression_Exception.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_expression_mock.html">Doctrine_Expression_Mock</a></td><td class="description">Doctrine_Expression_Mock
+Mock driver that is used for testing purposes.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_expression_mssql.html">Doctrine_Expression_Mssql</a></td><td class="description">Doctrine_Expression_Mssql.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_expression_mysql.html">Doctrine_Expression_Mysql</a></td><td class="description">Doctrine_Expression_Mysql.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_expression_oracle.html">Doctrine_Expression_Oracle</a></td><td class="description">Doctrine_Expression_Sqlite.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_expression_pgsql.html">Doctrine_Expression_Pgsql</a></td><td class="description">Doctrine_Expression_Pgsql.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_expression_sqlite.html">Doctrine_Expression_Sqlite</a></td><td class="description">Doctrine_Expression_Sqlite.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_file.html">Doctrine_File</a></td><td class="description">Doctrine_File.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_file_index.html">Doctrine_File_Index</a></td><td class="description">Doctrine_File_Index.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_formatter.html">Doctrine_Formatter</a></td><td class="description">Doctrine_Formatter.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_hook.html">Doctrine_Hook</a></td><td class="description">Doctrine_Hook.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_hook_equal.html">Doctrine_Hook_Equal</a></td><td class="description">Doctrine_Hook_Equal.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_hook_integer.html">Doctrine_Hook_Integer</a></td><td class="description">Doctrine_Hook_Integer.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_hook_parser.html">Doctrine_Hook_Parser</a></td><td class="description">Doctrine_Hook_Parser.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_hook_parser_complex.html">Doctrine_Hook_Parser_Complex</a></td><td class="description">Doctrine_Hook_Parser_Complex.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_hook_wordlike.html">Doctrine_Hook_WordLike</a></td><td class="description">Doctrine_Hook_WordLike.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_hydrator.html">Doctrine_Hydrator</a></td><td class="description">Its purpose is to populate object graphs..</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_hydrator_abstract.html">Doctrine_Hydrator_Abstract</a></td><td class="description">Doctrine_Hydrator_Abstract.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_hydrator_arraydriver.html">Doctrine_Hydrator_ArrayDriver</a></td><td class="description">Builds result sets in to the object graph using php arrays.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_hydrator_arrayhierarchydriver.html">Doctrine_Hydrator_ArrayHierarchyDriver</a></td><td class="description">Builds result sets in to the hierarchy graph using php arrays.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_hydrator_exception.html">Doctrine_Hydrator_Exception</a></td><td class="description">Doctrine_Hydrator_Exception.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_hydrator_graph.html">Doctrine_Hydrator_Graph</a></td><td class="description">Abstract base class for child drivers to hydrate the object graph in to
+various data types. </td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_hydrator_nonedriver.html">Doctrine_Hydrator_NoneDriver</a></td><td class="description">Get results directly and skip hydration. </td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_hydrator_recorddriver.html">Doctrine_Hydrator_RecordDriver</a></td><td class="description">Builds result sets in to the object graph using Doctrine_Record instances.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_hydrator_recordhierarchydriver.html">Doctrine_Hydrator_RecordHierarchyDriver</a></td><td class="description">Builds result sets in to the hierarchy graph using php arrays.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_hydrator_scalardriver.html">Doctrine_Hydrator_ScalarDriver</a></td><td class="description">Builds result sets in to a scalar php array.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_hydrator_singlescalardriver.html">Doctrine_Hydrator_SingleScalarDriver</a></td><td class="description">Returns the first row and first column single scalar value.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_i18n.html">Doctrine_I18n</a></td><td class="description">Doctrine_I18n.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_i18n_exception.html">Doctrine_I18n_Exception</a></td><td class="description">Doctrine_I18n_Exception.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_import.html">Doctrine_Import</a></td><td class="description">class Doctrine_Import
+Main responsible of performing import operation. </td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_import_builder.html">Doctrine_Import_Builder</a></td><td class="description">Doctrine_Import_Builder.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_import_builder_exception.html">Doctrine_Import_Builder_Exception</a></td><td class="description">Doctrine_Import_Builder_Exception.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_import_exception.html">Doctrine_Import_Exception</a></td><td class="description">class Doctrine_Import_Exception.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_import_mssql.html">Doctrine_Import_Mssql</a></td><td class="description">.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_import_mysql.html">Doctrine_Import_Mysql</a></td><td class="description">.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_import_oracle.html">Doctrine_Import_Oracle</a></td><td class="description">.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_import_pgsql.html">Doctrine_Import_Pgsql</a></td><td class="description">.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_import_schema.html">Doctrine_Import_Schema</a></td><td class="description">Doctrine_Import_Schema.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_import_sqlite.html">Doctrine_Import_Sqlite</a></td><td class="description">.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_inflector.html">Doctrine_Inflector</a></td><td class="description">Doctrine inflector has static methods for inflecting text.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_integritymapper.html">Doctrine_IntegrityMapper</a></td><td class="description">Doctrine_IntegrityMapper.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_lib.html">Doctrine_Lib</a></td><td class="description">Doctrine_Lib has not commonly used static functions, mostly for debugging purposes.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_locator.html">Doctrine_Locator</a></td><td class="description">Doctrine_Locator.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_locator_exception.html">Doctrine_Locator_Exception</a></td><td class="description">Doctrine_Locator_Exception.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_locator_injectable.html">Doctrine_Locator_Injectable</a></td><td class="description">Doctrine_Locator_Injectable.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_locking_exception.html">Doctrine_Locking_Exception</a></td><td class="description">Locking exception class.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_locking_manager_pessimistic.html">Doctrine_Locking_Manager_Pessimistic</a></td><td class="description">Offline locking of records comes in handy where you need to make sure that
+a time-consuming task on a record or many records, which is spread over several
+page requests can't be interfered by other users..</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_manager.html">Doctrine_Manager</a></td><td class="description">Doctrine_Manager is the base component of all doctrine based projects.
+</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_manager_exception.html">Doctrine_Manager_Exception</a></td><td class="description">Doctrine_Manager_Exception.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_migration.html">Doctrine_Migration</a></td><td class="description">Doctrine_Migration.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_migration_base.html">Doctrine_Migration_Base</a></td><td class="description">Base migration class. </td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_migration_builder.html">Doctrine_Migration_Builder</a></td><td class="description">Doctrine_Migration_Builder.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_migration_diff.html">Doctrine_Migration_Diff</a></td><td class="description">Doctrine_Migration_Diff - class used for generating differences and migration
+classes from 'from' and 'to' schema information..</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_migration_exception.html">Doctrine_Migration_Exception</a></td><td class="description">Doctrine_Migration_Exception.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_migration_irreversiblemigrationexception.html">Doctrine_Migration_IrreversibleMigrationException</a></td><td class="description">Doctrine_Migration_IrreversibleMigration.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_migration_process.html">Doctrine_Migration_Process</a></td><td class="description">Doctrine_Migration_Process.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_node.html">Doctrine_Node</a></td><td class="description">Doctrine_Node.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_node_adjacencylist.html">Doctrine_Node_AdjacencyList</a></td><td class="description">Doctrine_Node_AdjacencyList.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_node_adjacencylist_levelorderiterator.html">Doctrine_Node_AdjacencyList_LevelOrderIterator</a></td><td class="description">Doctrine_Node_AdjacencyList_LevelOrderIterator.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_node_adjacencylist_postorderiterator.html">Doctrine_Node_AdjacencyList_PostOrderIterator</a></td><td class="description">Doctrine_Node_AdjacencyList_PostOrderIterator.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_node_adjacencylist_preorderiterator.html">Doctrine_Node_AdjacencyList_PreOrderIterator</a></td><td class="description">Doctrine_Node_AdjacencyList_PreOrderIterator.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_node_exception.html">Doctrine_Node_Exception</a></td><td class="description">Doctrine_Node_Exception.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_node_materializedpath.html">Doctrine_Node_MaterializedPath</a></td><td class="description">Doctrine_Node_MaterializedPath.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_node_materializedpath_levelorderiterator.html">Doctrine_Node_MaterializedPath_LevelOrderIterator</a></td><td class="description">Doctrine_Node_MaterializedPath_LevelOrderIterator.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_node_materializedpath_postorderiterator.html">Doctrine_Node_MaterializedPath_PostOrderIterator</a></td><td class="description">Doctrine_Node_MaterializedPath_PostOrderIterator.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_node_materializedpath_preorderiterator.html">Doctrine_Node_MaterializedPath_PreOrderIterator</a></td><td class="description">Doctrine_Node_MaterializedPath_PreOrderIterator.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_node_nestedset.html">Doctrine_Node_NestedSet</a></td><td class="description">Doctrine_Node_NestedSet.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_node_nestedset_levelorderiterator.html">Doctrine_Node_NestedSet_LevelOrderIterator</a></td><td class="description">Doctrine_Node_NestedSet_LevelOrderIterator.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_node_nestedset_postorderiterator.html">Doctrine_Node_NestedSet_PostOrderIterator</a></td><td class="description">Doctrine_Node_NestedSet_PostOrderIterator.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_node_nestedset_preorderiterator.html">Doctrine_Node_NestedSet_PreOrderIterator</a></td><td class="description">Doctrine_Node_NestedSet_PreOrderIterator.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_null.html">Doctrine_Null</a></td><td class="description">Doctrine_Null.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_pager.html">Doctrine_Pager</a></td><td class="description">Doctrine_Pager.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_pager_exception.html">Doctrine_Pager_Exception</a></td><td class="description">Doctrine_Pager_Exception.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_pager_layout.html">Doctrine_Pager_Layout</a></td><td class="description">Doctrine_Pager_Layout.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_pager_range.html">Doctrine_Pager_Range</a></td><td class="description">Doctrine_Pager_Range.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_pager_range_jumping.html">Doctrine_Pager_Range_Jumping</a></td><td class="description">Doctrine_Pager_Range_Jumping.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_pager_range_sliding.html">Doctrine_Pager_Range_Sliding</a></td><td class="description">Doctrine_Pager_Range_Sliding.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_parser.html">Doctrine_Parser</a></td><td class="description">Doctrine_Parser.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_parser_exception.html">Doctrine_Parser_Exception</a></td><td class="description">Doctrine_Parser_Exception.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_parser_json.html">Doctrine_Parser_Json</a></td><td class="description">Doctrine_Parser_Json.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_parser_serialize.html">Doctrine_Parser_Serialize</a></td><td class="description">Doctrine_Parser_Serialize.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_parser_xml.html">Doctrine_Parser_Xml</a></td><td class="description">Doctrine_Parser_Xml.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_parser_yml.html">Doctrine_Parser_Yml</a></td><td class="description">Doctrine_Parser_Yml.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_query.html">Doctrine_Query</a></td><td class="description">Doctrine_Query
+A Doctrine_Query object represents a DQL query. </td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_query_abstract.html">Doctrine_Query_Abstract</a></td><td class="description">Doctrine_Query_Abstract.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_query_check.html">Doctrine_Query_Check</a></td><td class="description">Doctrine_Query_Check.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_query_condition.html">Doctrine_Query_Condition</a></td><td class="description">Doctrine_Query_Condition.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_query_exception.html">Doctrine_Query_Exception</a></td><td class="description">Doctrine_Query_Exception.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_query_filter.html">Doctrine_Query_Filter</a></td><td class="description">Doctrine_Query_Filter.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_query_filter_chain.html">Doctrine_Query_Filter_Chain</a></td><td class="description">Doctrine_Query_Filter_Chain.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_query_forupdate.html">Doctrine_Query_Forupdate</a></td><td class="description">Doctrine_Query_Forupdate.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_query_from.html">Doctrine_Query_From</a></td><td class="description">Doctrine_Query_From.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_query_groupby.html">Doctrine_Query_Groupby</a></td><td class="description">Doctrine_Query_Groupby.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_query_having.html">Doctrine_Query_Having</a></td><td class="description">Doctrine_Query_Having.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_query_joincondition.html">Doctrine_Query_JoinCondition</a></td><td class="description">Doctrine_Query_JoinCondition.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_query_limit.html">Doctrine_Query_Limit</a></td><td class="description">Doctrine_Query_Limit.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_query_offset.html">Doctrine_Query_Offset</a></td><td class="description">Doctrine_Query_Offset.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_query_orderby.html">Doctrine_Query_Orderby</a></td><td class="description">Doctrine_Query_Orderby.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_query_parser.html">Doctrine_Query_Parser</a></td><td class="description">Doctrine_Query_Parser.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_query_part.html">Doctrine_Query_Part</a></td><td class="description">Doctrine_Query_Part.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_query_registry.html">Doctrine_Query_Registry</a></td><td class="description">Doctrine_Query_Registry.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_query_registry_exception.html">Doctrine_Query_Registry_Exception</a></td><td class="description">Doctrine_Query_Exception.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_query_select.html">Doctrine_Query_Select</a></td><td class="description">Doctrine_Query_Select.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_query_set.html">Doctrine_Query_Set</a></td><td class="description">Doctrine_Query.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_query_tokenizer.html">Doctrine_Query_Tokenizer</a></td><td class="description">Doctrine_Query_Tokenizer.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_query_tokenizer_exception.html">Doctrine_Query_Tokenizer_Exception</a></td><td class="description">Doctrine_Query_Exception.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_query_where.html">Doctrine_Query_Where</a></td><td class="description">Doctrine_Query_Where.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_rawsql.html">Doctrine_RawSql</a></td><td class="description">Doctrine_RawSql.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_rawsql_exception.html">Doctrine_RawSql_Exception</a></td><td class="description">Doctrine_RawSql_Exception.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_record.html">Doctrine_Record</a></td><td class="description">Doctrine_Record
+All record classes should inherit this super class.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_record_abstract.html">Doctrine_Record_Abstract</a></td><td class="description">Doctrine_Record_Abstract.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_record_exception.html">Doctrine_Record_Exception</a></td><td class="description">Doctrine_Exception.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_record_filter.html">Doctrine_Record_Filter</a></td><td class="description">Doctrine_Record_Filter
+Filters the record getters and setters.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_record_filter_compound.html">Doctrine_Record_Filter_Compound</a></td><td class="description">Doctrine_Record_Filter_Compound.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_record_filter_standard.html">Doctrine_Record_Filter_Standard</a></td><td class="description">Doctrine_Record_Filter_Standard
+Filters the record getters and setters.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_record_generator.html">Doctrine_Record_Generator</a></td><td class="description">Doctrine_Record_Generator.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_record_iterator.html">Doctrine_Record_Iterator</a></td><td class="description">Doctrine_Record_Iterator.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_record_listener.html">Doctrine_Record_Listener</a></td><td class="description">Doctrine_Record_Listener.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_record_listener_chain.html">Doctrine_Record_Listener_Chain</a></td><td class="description">Doctrine_Record_Listener_Chain
+this class represents a chain of different listeners,
+useful for having multiple listeners listening the events at the same time.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_record_state_exception.html">Doctrine_Record_State_Exception</a></td><td class="description">Doctrine_Exception.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_record_unknownpropertyexception.html">Doctrine_Record_UnknownPropertyException</a></td><td class="description">Doctrine_Record_UnknownPropertyException.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_relation.html">Doctrine_Relation</a></td><td class="description">Doctrine_Relation
+This class represents a relation between components.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_relation_association.html">Doctrine_Relation_Association</a></td><td class="description">Doctrine_Relation_Association    this class takes care of association mapping
+(= many-to-many relationships, where the relationship is handled with an additional relational table
+which holds 2 foreign keys).</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_relation_association_self.html">Doctrine_Relation_Association_Self</a></td><td class="description">Doctrine_Relation_Association_Self.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_relation_exception.html">Doctrine_Relation_Exception</a></td><td class="description">Doctrine_Relation_Exception.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_relation_foreignkey.html">Doctrine_Relation_ForeignKey</a></td><td class="description">Doctrine_Relation_ForeignKey
+This class represents a foreign key relation.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_relation_localkey.html">Doctrine_Relation_LocalKey</a></td><td class="description">Doctrine_Relation_LocalKey
+This class represents a local key relation.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_relation_nest.html">Doctrine_Relation_Nest</a></td><td class="description">Doctrine_Relation_Association_Self.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_relation_parser.html">Doctrine_Relation_Parser</a></td><td class="description">Doctrine_Relation_Parser.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_relation_parser_exception.html">Doctrine_Relation_Parser_Exception</a></td><td class="description">Doctrine_Relation_Parser_Exception.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_search.html">Doctrine_Search</a></td><td class="description">Doctrine_Search.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_search_analyzer.html">Doctrine_Search_Analyzer</a></td><td class="description">Doctrine_Search_Analyzer.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_search_analyzer_exception.html">Doctrine_Search_Analyzer_Exception</a></td><td class="description">Doctrine_Search_Analyzer_Exception.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_search_analyzer_standard.html">Doctrine_Search_Analyzer_Standard</a></td><td class="description">Doctrine_Search_Analyzer_Standard.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_search_analyzer_utf8.html">Doctrine_Search_Analyzer_Utf8</a></td><td class="description">Doctrine_Search_Analyzer_Utf8.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_search_exception.html">Doctrine_Search_Exception</a></td><td class="description">Doctrine_Search_Exception.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_search_file.html">Doctrine_Search_File</a></td><td class="description">Doctrine_Search.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_search_indexer.html">Doctrine_Search_Indexer</a></td><td class="description">Doctrine_Search_Indexer.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_search_indexer_dir.html">Doctrine_Search_Indexer_Dir</a></td><td class="description">Doctrine_Search_Indexer_Dir.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_search_indexer_exception.html">Doctrine_Search_Indexer_Exception</a></td><td class="description">Doctrine_Search_Indexer.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_search_listener.html">Doctrine_Search_Listener</a></td><td class="description">Doctrine_Search_Listener.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_search_parser.html">Doctrine_Search_Parser</a></td><td class="description">Doctrine_Search_Parser_Standard.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_search_query.html">Doctrine_Search_Query</a></td><td class="description">Doctrine_Search_Query.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_search_record.html">Doctrine_Search_Record</a></td><td class="description">Doctrine_Search_Record.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_sequence.html">Doctrine_Sequence</a></td><td class="description">Doctrine_Sequence
+The base class for sequence handling drivers..</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_sequence_db2.html">Doctrine_Sequence_Db2</a></td><td class="description">Doctrine_Sequence_Db2.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_sequence_exception.html">Doctrine_Sequence_Exception</a></td><td class="description">Doctrine_Sequence_Exception.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_sequence_mssql.html">Doctrine_Sequence_Mssql</a></td><td class="description">Doctrine_Sequence_Mssql.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_sequence_mysql.html">Doctrine_Sequence_Mysql</a></td><td class="description">Doctrine_Sequence_Mysql.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_sequence_oracle.html">Doctrine_Sequence_Oracle</a></td><td class="description">Doctrine_Sequence_Oracle.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_sequence_pgsql.html">Doctrine_Sequence_Pgsql</a></td><td class="description">Doctrine_Sequence_Pgsql.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_sequence_sqlite.html">Doctrine_Sequence_Sqlite</a></td><td class="description">Doctrine_Sequence_Sqlite.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_table.html">Doctrine_Table</a></td><td class="description">Doctrine_Table   represents a database table
+each Doctrine_Table holds the information of foreignKeys and associations.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_table_exception.html">Doctrine_Table_Exception</a></td><td class="description">thrown when user tries to initialize a new instance of Doctrine_Table,
+while there already exists an instance of that table.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_table_repository.html">Doctrine_Table_Repository</a></td><td class="description">Doctrine_Repository
+each record is added into Doctrine_Repository at the same time they are created,
+loaded from the database or retrieved from the cache.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_table_repository_exception.html">Doctrine_Table_Repository_Exception</a></td><td class="description">Doctrine_Table_Repository_Exception.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_task.html">Doctrine_Task</a></td><td class="description">Doctrine_Task.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_task_buildall.html">Doctrine_Task_BuildAll</a></td><td class="description">Doctrine_Task_BuildAll.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_task_buildallload.html">Doctrine_Task_BuildAllLoad</a></td><td class="description">Doctrine_Task_BuildAllLoad.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_task_buildallreload.html">Doctrine_Task_BuildAllReload</a></td><td class="description">Doctrine_Task_BuildAllReload.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_task_compile.html">Doctrine_Task_Compile</a></td><td class="description">Doctrine_Task_Compile.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_task_createdb.html">Doctrine_Task_CreateDb</a></td><td class="description">Doctrine_Task_CreateDb.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_task_createtables.html">Doctrine_Task_CreateTables</a></td><td class="description">Doctrine_Task_CreateTables.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_task_dql.html">Doctrine_Task_Dql</a></td><td class="description">Doctrine_Task_Dql.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_task_dropdb.html">Doctrine_Task_DropDb</a></td><td class="description">Doctrine_Task_DropDb.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_task_dumpdata.html">Doctrine_Task_DumpData</a></td><td class="description">Doctrine_Task_DumpData.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_task_exception.html">Doctrine_Task_Exception</a></td><td class="description">Doctrine_Task_Exception.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_task_generatemigration.html">Doctrine_Task_GenerateMigration</a></td><td class="description">Doctrine_Task_GenerateMigration.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_task_generatemigrationsdb.html">Doctrine_Task_GenerateMigrationsDb</a></td><td class="description">Doctrine_Task_GenerateMigrationsDb.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_task_generatemigrationsdiff.html">Doctrine_Task_GenerateMigrationsDiff</a></td><td class="description">Doctrine_Task_GenerateMigrationsDiff.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_task_generatemigrationsmodels.html">Doctrine_Task_GenerateMigrationsModels</a></td><td class="description">Doctrine_Task_GenerateMigrationsModels.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_task_generatemodelsdb.html">Doctrine_Task_GenerateModelsDb</a></td><td class="description">Doctrine_Task_GenerateModelsDb.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_task_generatemodelsyaml.html">Doctrine_Task_GenerateModelsYaml</a></td><td class="description">Doctrine_Task_GenerateModelsYaml.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_task_generatesql.html">Doctrine_Task_GenerateSql</a></td><td class="description">Doctrine_Task_GenerateSql.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_task_generateyamldb.html">Doctrine_Task_GenerateYamlDb</a></td><td class="description">Doctrine_Task_GenerateYamlDb.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_task_generateyamlmodels.html">Doctrine_Task_GenerateYamlModels</a></td><td class="description">Doctrine_Task_GenerateFromModels.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_task_loaddata.html">Doctrine_Task_LoadData</a></td><td class="description">Doctrine_Task_LoadData.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_task_migrate.html">Doctrine_Task_Migrate</a></td><td class="description">Doctrine_Task_Migrate.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_task_rebuilddb.html">Doctrine_Task_RebuildDb</a></td><td class="description">Doctrine_Task_RebuildDb.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_template.html">Doctrine_Template</a></td><td class="description">Base abstract class for defining templates which are the base of all behaviors that can be attached
+to your Doctrine models.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_template_geographical.html">Doctrine_Template_Geographical</a></td><td class="description">Easily add longitude and latitude columns to your records and use inherited functionality for 
+calculating distances.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_template_i18n.html">Doctrine_Template_I18n</a></td><td class="description">Add multilingual capabilities to your Doctrine models.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_template_listener_sluggable.html">Doctrine_Template_Listener_Sluggable</a></td><td class="description">Easily create a slug for each record based on a specified set of fields.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_template_listener_softdelete.html">Doctrine_Template_Listener_SoftDelete</a></td><td class="description">Listener for SoftDelete behavior which will allow you to turn on the behavior which
+sets a delete flag instead of actually deleting the record and all queries automatically
+include a check for the deleted flag to exclude deleted records..</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_template_listener_timestampable.html">Doctrine_Template_Listener_Timestampable</a></td><td class="description">Listener for the Timestampable behavior which automatically sets the created
+and updated columns when a record is inserted and updated..</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_template_nestedset.html">Doctrine_Template_NestedSet</a></td><td class="description">Doctrine template which implements the custom NestedSet implementation.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_template_searchable.html">Doctrine_Template_Searchable</a></td><td class="description">Doctrine_Template_Searchable.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_template_sluggable.html">Doctrine_Template_Sluggable</a></td><td class="description">Doctrine_Template_Sluggable.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_template_softdelete.html">Doctrine_Template_SoftDelete</a></td><td class="description">Doctrine_Template_SoftDelete.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_template_timestampable.html">Doctrine_Template_Timestampable</a></td><td class="description">Doctrine_Template_Timestampable.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_template_versionable.html">Doctrine_Template_Versionable</a></td><td class="description">Doctrine_Template_Versionable.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_transaction.html">Doctrine_Transaction</a></td><td class="description">Doctrine_Transaction
+Handles transaction savepoint and isolation abstraction.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_transaction_exception.html">Doctrine_Transaction_Exception</a></td><td class="description">Doctrine_Transaction_Exception.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_transaction_mock.html">Doctrine_Transaction_Mock</a></td><td class="description">Doctrine_Transaction_Mock
+This class is used for testing purposes.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_transaction_mssql.html">Doctrine_Transaction_Mssql</a></td><td class="description">.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_transaction_mysql.html">Doctrine_Transaction_Mysql</a></td><td class="description">.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_transaction_oracle.html">Doctrine_Transaction_Oracle</a></td><td class="description">.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_transaction_pgsql.html">Doctrine_Transaction_Pgsql</a></td><td class="description">.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_transaction_sqlite.html">Doctrine_Transaction_Sqlite</a></td><td class="description">.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_tree.html">Doctrine_Tree</a></td><td class="description">Doctrine_Tree.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_tree_adjacencylist.html">Doctrine_Tree_AdjacencyList</a></td><td class="description">Doctrine_Tree_AdjacencyList.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_tree_exception.html">Doctrine_Tree_Exception</a></td><td class="description">Doctrine_Tree_Exception.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_tree_materializedpath.html">Doctrine_Tree_MaterializedPath</a></td><td class="description">Doctrine_Tree_MaterializedPath.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_tree_nestedset.html">Doctrine_Tree_NestedSet</a></td><td class="description">Doctrine_Tree_NestedSet.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_util.html">Doctrine_Util</a></td><td class="description">Doctrine_Util.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_validator.html">Doctrine_Validator</a></td><td class="description">This class is responsible for performing all validations on record properties.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_validator_country.html">Doctrine_Validator_Country</a></td><td class="description">Doctrine_Validator_Country.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_validator_creditcard.html">Doctrine_Validator_Creditcard</a></td><td class="description">Doctrine_Validator_Creditcard.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_validator_date.html">Doctrine_Validator_Date</a></td><td class="description">Doctrine_Validator_Date.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_validator_driver.html">Doctrine_Validator_Driver</a></td><td class="description">Doctrine_Validator_Driver.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_validator_email.html">Doctrine_Validator_Email</a></td><td class="description">Doctrine_Validator_Email.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_validator_errorstack.html">Doctrine_Validator_ErrorStack</a></td><td class="description">Doctrine_Validator_ErrorStack.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_validator_exception.html">Doctrine_Validator_Exception</a></td><td class="description">Doctrine_Validator_Exception.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_validator_future.html">Doctrine_Validator_Future</a></td><td class="description">Doctrine_Validator_Future.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_validator_htmlcolor.html">Doctrine_Validator_HtmlColor</a></td><td class="description">Doctrine_Validator_HtmlColor.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_validator_ip.html">Doctrine_Validator_Ip</a></td><td class="description">Doctrine_Validator_Ip.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_validator_minlength.html">Doctrine_Validator_Minlength</a></td><td class="description">Doctrine_Validator_Regexp.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_validator_nospace.html">Doctrine_Validator_Nospace</a></td><td class="description">Doctrine_Validator_Nospace.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_validator_notblank.html">Doctrine_Validator_Notblank</a></td><td class="description">Doctrine_Validator_Notblank.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_validator_notnull.html">Doctrine_Validator_Notnull</a></td><td class="description">Doctrine_Validator_Notnull.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_validator_past.html">Doctrine_Validator_Past</a></td><td class="description">Doctrine_Validator_Past.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_validator_range.html">Doctrine_Validator_Range</a></td><td class="description">Doctrine_Validator_Range.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_validator_readonly.html">Doctrine_Validator_Readonly</a></td><td class="description">Doctrine_Validator_Readonly.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_validator_regexp.html">Doctrine_Validator_Regexp</a></td><td class="description">Doctrine_Validator_Regexp.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_validator_time.html">Doctrine_Validator_Time</a></td><td class="description">Doctrine_Validator_Time.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_validator_timestamp.html">Doctrine_Validator_Timestamp</a></td><td class="description">Doctrine_Validator_Timestamp.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_validator_unique.html">Doctrine_Validator_Unique</a></td><td class="description">Doctrine_Validator_Unique.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_validator_unsigned.html">Doctrine_Validator_Unsigned</a></td><td class="description">Doctrine_Validator_Unsigned.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_validator_usstate.html">Doctrine_Validator_Usstate</a></td><td class="description">Doctrine_Validator_Usstate.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_view.html">Doctrine_View</a></td><td class="description">Doctrine_View.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_view_exception.html">Doctrine_View_Exception</a></td><td class="description">Doctrine_View_Exception.</td></tr>
+<tr><td class="name"><a href="../doctrine/sfyaml.html">sfYaml</a></td><td class="description">sfYaml offers convenience methods to load and dump YAML..</td></tr>
+<tr><td class="name"><a href="../doctrine/sfyamldumper.html">sfYamlDumper</a></td><td class="description">sfYamlDumper dumps PHP variables to YAML strings..</td></tr>
+<tr><td class="name"><a href="../doctrine/sfyamlinline.html">sfYamlInline</a></td><td class="description">sfYamlInline implements a YAML parser/dumper for the YAML inline syntax..</td></tr>
+<tr><td class="name"><a href="../doctrine/sfyamlparser.html">sfYamlParser</a></td><td class="description">sfYamlParser parses YAML strings to convert them to PHP arrays..</td></tr>
+</table>
+
+<table class="title">
+<tr><th colspan="2" class="title">Interface Summary</th></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_adapter_interface.html">Doctrine_Adapter_Interface</a></td><td class="description">This adapter interface should be implemented by all custom adapters.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_adapter_statement_interface.html">Doctrine_Adapter_Statement_Interface</a></td><td class="description">Interface for Doctrine adapter statements.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_cache_interface.html">Doctrine_Cache_Interface</a></td><td class="description">Doctrine cache driver interface.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_eventlistener_interface.html">Doctrine_EventListener_Interface</a></td><td class="description">Doctrine_EventListener     all event listeners extend this base class
+the empty methods allow child classes to only implement the methods they need to implement.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_node_interface.html">Doctrine_Node_Interface</a></td><td class="description">Doctrine_Node_Interface.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_overloadable.html">Doctrine_Overloadable</a></td><td class="description">Doctrine_Overloadable
+a very generic overloading interface.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_query_filter_interface.html">Doctrine_Query_Filter_Interface</a></td><td class="description">Doctrine_Query_Filter_Interface.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_record_listener_interface.html">Doctrine_Record_Listener_Interface</a></td><td class="description">Doctrine_Record_Listener.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_search_analyzer_interface.html">Doctrine_Search_Analyzer_Interface</a></td><td class="description">Doctrine_Search_Analyzer_Interface.</td></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_tree_interface.html">Doctrine_Tree_Interface</a></td><td class="description">Doctrine_Tree_Interface.</td></tr>
+</table>
+
+<table class="title">
+<tr><th colspan="2" class="title">Exception Summary</th></tr>
+<tr><td class="name"><a href="../doctrine/doctrine_exception.html">Doctrine_Exception</a></td><td class="description">Doctrine_Exception.</td></tr>
+</table>
+
+<table class="title">
+<tr><th colspan="2" class="title">Function Summary</th></tr>
+<tr><td class="name"><a href="package-functions.html#validate">validate</a></td><td class="description">checks if given value is a valid US state code.</td></tr>
+</table>
+
+<hr>
+
+<div class="header">
+<h1>Doctrine</h1>
+<ul>
+<li><a href="../overview-summary.html">Overview</a></li>
+<li class="active">Namespace</li>
+<li>Class</li><li><a href="../doctrine/package-tree.html">Tree</a></li>
+<li><a href="../deprecated-list.html">Deprecated</a></li>
+<li><a href="../index-all.html">Index</a></li>
+</ul>
+</div>
+
+<div class="small_links">
+<a href="../index.html" target="_top">Frames</a>
+<a href="../doctrine/package-summary.html" target="_top">No frames</a>
+</div>
+<hr>
+
+<p id="footer">This document was generated by <a href="http://peej.github.com/phpdoctor/">PHPDoctor: The PHP Documentation Creator</a></p>
+
+</body>
+
+</html>
