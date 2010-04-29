@@ -2,12 +2,13 @@ prod:
   .settings:
     no_script_name:         true
     logging_enabled:        false
+    cache:                  true
 
 dev:
   .settings:
     error_reporting:        <?php echo (E_ALL)."\n" ?>
     web_debug:              true
-    cache:                  false
+    cache:                  true
     no_script_name:         false
     etag:                   false
 

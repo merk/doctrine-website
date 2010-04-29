@@ -4,3 +4,4 @@ all:
 
 _trainings:
   enabled:     true
+  lifetime: 3600
