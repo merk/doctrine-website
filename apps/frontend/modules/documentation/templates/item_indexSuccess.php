@@ -16,13 +16,18 @@
 </ul>
 
 <div id="documentation">
-  <h2><?php echo $documentationItem->getTitle() ?> Table of Contents</h2>
+  <?php if ($toc = $renderer->renderMainToc()): ?>
+    <h2><?php echo $documentationItem->getTitle() ?> Table of Contents</h2>
 
-  <p><?php echo $documentationItem->getDescription() ?></p>
+    <p><?php echo $documentationItem->getDescription() ?></p>
 
-  <ul>
-    <?php echo $renderer->renderMainToc() ?>
-  </ul>
+    <ul>
+      <?php echo $renderer->renderMainToc() ?>
+    </ul>
+  <?php else: ?>
+    <h1><?php echo $documentationItem->getTitle() ?> coming soon...</h1>
+  <?php endif; ?>
+
 
   <?php echo image_tag($documentationItem->getCoverImage(), 'id="cover_image"') ?>
 
