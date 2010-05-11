@@ -57,8 +57,7 @@
               'Site Data' => array(
                 'comments' => 'Comments',
                 'blog_posts' => 'Blog',
-                'contributors' => 'Contributors',
-                'faqs' => 'Faqs',
+                'contributors' => 'Contributors'
               ),
               'Security' => array(
                 'users' => 'Users',

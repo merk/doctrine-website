@@ -6,6 +6,26 @@
  */
 class BlogPost extends BaseBlogPost
 {
+  public function setIsPublished($bool)
+  {
+    if ($bool !== $this->_get('is_published')) {
+      if ($bool && ! $this->_get('created_at')) {
+        $this->setCreatedAt(new Doctrine_Expression('NOW()'));
+      } else if ( ! $bool) {
+        $this->setCreatedAt(null);
+      }
+      $this->_set('is_published', $bool);
+    }
+  }
+
+  public function setCreatedAt($createdAt)
+  {
+    if ($this->_get('created_at') instanceof Doctrine_Expression) {
+      return;
+    }
+    $this->_set('created_at', $createdAt);
+  }
+
   public function filterSetName($name)
   {
     $this->setSlug(Common::createSlug($name));

@@ -16,15 +16,15 @@ class TagTable extends Doctrine_Table
       $tagName = trim($tagName);
       if ($tagName)
       {
-        $newTagNames[$key] = $tagName;
+        $newTagNames[$key] = strtolower($tagName);
       }
     }
 
     // Save all tags that don't already exist in the database
-    $tagNames = $newTagNames;
     $tagsList = array();
     if ( ! empty($tagNames))
     {
+      $tagNames = array_unique($tagNames);
       $existingTags = Doctrine_Query::create()
         ->from('Tag t INDEXBY t.name')
         ->whereIn('t.name', $tagNames)

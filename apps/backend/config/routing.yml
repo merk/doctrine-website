@@ -27,14 +27,6 @@ contributors:
     prefix_path: contributors
     with_wildcard_routes: true
 
-faqs:
-  class:         sfDoctrineRouteCollection
-  options:
-    model:       Faq
-    module:      faqs
-    prefix_path: faqs
-    with_wildcard_routes: true
-
 users:
   class:         sfDoctrineRouteCollection
   options:

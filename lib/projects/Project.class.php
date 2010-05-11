@@ -68,6 +68,7 @@ class Project
   {
     return isset($this->data['is_primary']) && $this->data['is_primary'] ? true : false;
   }
+
   public function getRoute()
   {
     return '@project?slug='.$this->getSlug();
@@ -91,6 +92,11 @@ class Project
   public function getDescription()
   {
     return $this->data['description'];
+  }
+
+  public function getNamespace()
+  {
+    return $this->data['namespace'];
   }
 
   public function getIssuesLink()

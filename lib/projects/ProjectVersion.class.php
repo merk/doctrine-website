@@ -54,6 +54,11 @@ class ProjectVersion
     return isset($this->data['stability']) ? $this->data['stability'] : 'alpha';
   }
 
+  public function getApiSourcePath()
+  {
+      return isset($this->data['api_source_path']) ? $this->data['api_source_path'] : null;
+  }
+
   public function getDocumentationItems()
   {
     $items = array();

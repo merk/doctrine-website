@@ -74,7 +74,7 @@ orm:
           update_command: "rm -rf source/orm2.0 && git clone git://github.com/doctrine/doctrine2.git source/orm2.0 && rm -rf ../web/api/orm/2.0 && cd .. && php apidocs.php api-orm-2.0.ini"
         reference:
           slug: reference
-          title: Doctrine 2 Reference Documentation
+          title: Reference Documentation
           subtitle: Complete reference guide to Doctrine 2
           description: The Doctrine 2 Reference Documentation is the main source of documentation for the project. It is a reference book that can be read from start to finish and provides examples and information about the provided features.
           toc_path: documentation/orm2.0/manual
@@ -83,7 +83,7 @@ orm:
           icon: reference_icon.png
         cookbook:
           slug: cookbook
-          title: Doctrine Cookbook
+          title: Cookbook
           subtitle: Everyday recipes for everyday Doctrine users
           description: The cookbook is a collection of simple and advanced recipes for using Doctrine. They are both written by core Doctrine developers as well as by Doctrine users in the community.
           toc_path: documentation/orm2.0/cookbook
@@ -198,6 +198,7 @@ mongodb_odm:
   description: The Doctrine MongoDB Object Document Mapper is a fully featured library for persisting PHP 5 objects to MongoDB much in the same way the Doctrine 2 ORM works.
   latest_version: "1.0"
   is_primary: false
+  namespace: Doctrine\ODM\MongoDB
   versions:
     "1.0":
       stability: alpha
@@ -220,7 +221,7 @@ mongodb_odm:
           title: "Doctrine MongoDB Object Document Mapper Reference Documentation"
           subtitle: Reference for using the Doctrine MongoDB Object Document Mapper
           description: Learn how to use the Doctrine MongoDB Object Document Mapper quickly and easily.
-          toc_path: documentation/mongodb_odm1.0/reference
+          toc_path: documentation/odm1.0/MongoDB
           markup_parser: markdown
-          update_command: "rm -rf documentation/mongodb_odm1.0 && git clone git://github.com/doctrine/mongodb_odm_documentation.git documentation/mongodb_odm1.0"
+          update_command: "rm -rf documentation/odm1.0 && git clone git://github.com/jwage/odm-documentation.git documentation/odm1.0"
           icon: reference_icon.png

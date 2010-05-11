@@ -32,6 +32,7 @@ class BlogPostForm extends BaseBlogPostForm
       ->where('p.name = ? OR u.is_super_admin = 1', 'blog_posts');
 
     $this->widgetSchema['sf_guard_user_id']->setOption('query', $q);
+    $this->validatorSchema['created_at']->setOption('required', false);
 
     $this->addRequiredFields(
       array(
@@ -39,5 +40,6 @@ class BlogPostForm extends BaseBlogPostForm
         'body',
         'sf_guard_user_id' => 'You must select a user.')
       );
+    $this->widgetSchema->moveField('is_published', 'after', 'created_at');
   }
 }

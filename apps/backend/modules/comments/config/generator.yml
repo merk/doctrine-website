@@ -14,9 +14,10 @@ generator:
       actions: ~
       fields:
         record_type:
-          label: Type
+          label:  Type
       list:
-        layout: stacked
+        sort:     [created_at, desc]
+        layout:   stacked
         display:  [=subject, body]
       filter:
         class:    RecordCommentFormFilter

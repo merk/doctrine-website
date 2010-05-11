@@ -16,8 +16,9 @@ class sfWidgetFormTagString extends sfWidgetFormTextarea
     $tagsArray = array();
     foreach ($tags as $tag)
     {
-      $tagsArray[] = $tag['name'];
+      $tagsArray[] = strtolower(trim($tag['name']));
     }
+    $tagsArray = array_unique($tagsArray);
     $value = implode(', ', $tagsArray);
     $attributes['cols'] = 80;
     $attributes['rows'] = 2;

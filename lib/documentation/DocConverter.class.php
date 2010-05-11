@@ -154,7 +154,7 @@ class DocConverter
     return $html;
   }
 
-  static protected function fixImage($matches)
+  static public function fixImage($matches)
   {
     $imageHtml = $matches[0];
     $check = substr($imageHtml, strlen($imageHtml) - 2, strlen($imageHtml));
@@ -166,7 +166,7 @@ class DocConverter
     }
   }
 
-  static protected function highlightYaml($matches)
+  static public function highlightYaml($matches)
   {
     $yaml = is_string($matches) ? $matches:$matches[1];
 
@@ -178,7 +178,7 @@ class DocConverter
     }
   }
 
-  static protected function highlightSql($matches)
+  static public function highlightSql($matches)
   {
     $sql = $matches[0];
     $color = "#ffcc66";
@@ -232,7 +232,7 @@ class DocConverter
     return $newSql;
   }
 
-  static protected function geshiCall($matches, $default = '')
+  static public function geshiCall($matches, $default = '')
   {
     if (preg_match('/^\[(.+?)\]\s*(.+)$/s', $matches[1], $match))
     {
@@ -263,7 +263,7 @@ class DocConverter
     }
   }
 
-  static protected function getGeshi($text, $language)
+  static public function getGeshi($text, $language)
   {
     if ('html' == $language)
     {
