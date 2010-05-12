@@ -141,55 +141,55 @@ dbal:
           update_command: "rm -rf documentation/dbal2.0 && git clone git://github.com/doctrine/dbal-documentation.git documentation/dbal2.0"
           icon: reference_icon.png
 
-migrations:
-  slug: migrations
-  title: Database Migrations
-  short_title: Migrations
-  description: Easily migrate changes to your databases and version your schema with the Doctrine migrations library.
-  latest_version: "2.0"
-  is_primary: false
-  versions:
-    "2.0":
-      issues_link: http://www.doctrine-project.org/jira/secure/project/ViewProject.jspa?pid=10041
-      browse_source_link: http://github.com/doctrine/migrations/tree/master/lib/Doctrine/DBAL/Migrations/
-      stability: alpha
-      git_checkout_command: git clone git://github.com/doctrine/migrations.git migrations
-      svn_checkout_command: svn co http://svn.github.com/doctrine/migrations.git migrations
-      api_source_path: source/migrations1.0/lib
-
-rest:
-  slug: rest
-  title: "REST Server & Client"
-  short_title: REST
-  description: Doctrine REST Server for exposing Doctrine 2 entities as RESTful resources or even raw tables from any existing database using the DBAL.
-  latest_version: "1.0"
-  is_primary: false
-  versions:
-    "1.0":
-      stability: alpha
-      git_checkout_command: git clone git://github.com/doctrine/rest.git rest
-      svn_checkout_command: svn co http://svn.github.com/doctrine/rest.git rest
-      api_source_path: source/rest1.0/lib
-      issues_link: http://www.doctrine-project.org/jira/secure/project/ViewProject.jspa?pid=10042
-      browse_source_link: http://github.com/doctrine/rest/tree/master/lib/Doctrine/REST/
-      documentation_items:
-        api:
-          slug: api
-          title: API Documentation
-          subtitle: "Doctrine REST Server & Client API Documentation"
-          description: "Detailed API documentation for the Doctrine REST Server & Client 1.0".
-          route: "@project_api_documentation?slug=rest&version=1.0"
-          icon: api_icon.png
-          update_command: "rm -rf source/rest1.0 && git clone git://github.com/doctrine/rest.git source/rest1.0 && rm -rf ../web/api/rest/1.0 && cd .. && php apidocs.php api-rest-1.0.ini"
-        reference:
-          slug: reference
-          title: "REST Server & Client Documentation"
-          subtitle: Reference for using the Doctrine REST Server and Client
-          description: Learn how to use the Doctrine REST Server and Client to easily build web services.
-          toc_path: documentation/rest1.0/reference
-          markup_parser: markdown
-          update_command: "rm -rf documentation/rest1.0 && git clone git://github.com/doctrine/rest-documentation.git documentation/rest1.0"
-          icon: reference_icon.png
+#migrations:
+#  slug: migrations
+#  title: Database Migrations
+#  short_title: Migrations
+#  description: Easily migrate changes to your databases and version your schema with the Doctrine migrations library.
+#  latest_version: "2.0"
+#  is_primary: false
+#  versions:
+#    "2.0":
+#      issues_link: http://www.doctrine-project.org/jira/secure/project/ViewProject.jspa?pid=10041
+#      browse_source_link: http://github.com/doctrine/migrations/tree/master/lib/Doctrine/DBAL/Migrations/
+#      stability: alpha
+#      git_checkout_command: git clone git://github.com/doctrine/migrations.git migrations
+#      svn_checkout_command: svn co http://svn.github.com/doctrine/migrations.git migrations
+#      api_source_path: source/migrations1.0/lib
+#
+#rest:
+#  slug: rest
+#  title: "REST Server & Client"
+#  short_title: REST
+#  description: Doctrine REST Server for exposing Doctrine 2 entities as RESTful resources or even raw tables from any existing database using the DBAL.
+#  latest_version: "1.0"
+#  is_primary: false
+#  versions:
+#    "1.0":
+#      stability: alpha
+#      git_checkout_command: git clone git://github.com/doctrine/rest.git rest
+#      svn_checkout_command: svn co http://svn.github.com/doctrine/rest.git rest
+#      api_source_path: source/rest1.0/lib
+#      issues_link: http://www.doctrine-project.org/jira/secure/project/ViewProject.jspa?pid=10042
+#      browse_source_link: http://github.com/doctrine/rest/tree/master/lib/Doctrine/REST/
+#      documentation_items:
+#        api:
+#          slug: api
+#          title: API Documentation
+#          subtitle: "Doctrine REST Server & Client API Documentation"
+#          description: "Detailed API documentation for the Doctrine REST Server & Client 1.0".
+#          route: "@project_api_documentation?slug=rest&version=1.0"
+#          icon: api_icon.png
+#          update_command: "rm -rf source/rest1.0 && git clone git://github.com/doctrine/rest.git source/rest1.0 && rm -rf ../web/api/rest/1.0 && cd .. && php apidocs.php api-rest-1.0.ini"
+#        reference:
+#          slug: reference
+#          title: "REST Server & Client Documentation"
+#          subtitle: Reference for using the Doctrine REST Server and Client
+#          description: Learn how to use the Doctrine REST Server and Client to easily build web services.
+#          toc_path: documentation/rest1.0/reference
+#          markup_parser: markdown
+#          update_command: "rm -rf documentation/rest1.0 && git clone git://github.com/doctrine/rest-documentation.git documentation/rest1.0"
+#          icon: reference_icon.png
 
 mongodb_odm:
   slug: mongodb_odm
