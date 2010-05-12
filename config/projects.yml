@@ -11,7 +11,7 @@ orm:
       svn_checkout_command: svn co http://svn.github.com/doctrine/doctrine1.git doctrine1
       api_source_path: source/orm1.2/lib
       stability: stable
-      issues_link: http://www.doctrine-project.org/jira/secure/project/ViewProject.jspa?pid=10031
+      issues_link: http://www.doctrine-project.org/jira/browse/DC
       browse_source_link: http://github.com/doctrine/doctrine1
       documentation_items:
         api:
@@ -61,7 +61,7 @@ orm:
       git_checkout_command: git clone git://github.com/doctrine/doctrine2.git doctrine2
       svn_checkout_command: svn co http://svn.github.com/doctrine/doctrine2.git doctrine2
       stability: alpha
-      issues_link: http://www.doctrine-project.org/jira/secure/project/ViewProject.jspa?pid=10032
+      issues_link: http://www.doctrine-project.org/jira/browse/DDC
       browse_source_link: http://github.com/doctrine/doctrine2/tree/master/lib/Doctrine/ORM
       documentation_items:
         api:
@@ -120,7 +120,7 @@ dbal:
       git_checkout_command: git clone git://github.com/doctrine/doctrine2.git doctrine2
       svn_checkout_command: svn co http://svn.github.com/doctrine/doctrine2.git doctrine2
       api_source_path: source/orm2.0/lib/Doctrine/DBAL
-      issues_link: http://www.doctrine-project.org/jira/secure/project/ViewProject.jspa?pid=10040
+      issues_link: http://www.doctrine-project.org/jira/browse/DBAL
       browse_source_link: http://github.com/doctrine/doctrine2/tree/master/lib/Doctrine/DBAL
       documentation_items:
         api:
@@ -150,7 +150,7 @@ dbal:
 #  is_primary: false
 #  versions:
 #    "2.0":
-#      issues_link: http://www.doctrine-project.org/jira/secure/project/ViewProject.jspa?pid=10041
+#      issues_link: http://www.doctrine-project.org/jira/browse/DMIG
 #      browse_source_link: http://github.com/doctrine/migrations/tree/master/lib/Doctrine/DBAL/Migrations/
 #      stability: alpha
 #      git_checkout_command: git clone git://github.com/doctrine/migrations.git migrations
@@ -170,7 +170,7 @@ dbal:
 #      git_checkout_command: git clone git://github.com/doctrine/rest.git rest
 #      svn_checkout_command: svn co http://svn.github.com/doctrine/rest.git rest
 #      api_source_path: source/rest1.0/lib
-#      issues_link: http://www.doctrine-project.org/jira/secure/project/ViewProject.jspa?pid=10042
+#      issues_link: http://www.doctrine-project.org/jira/browse/DREST
 #      browse_source_link: http://github.com/doctrine/rest/tree/master/lib/Doctrine/REST/
 #      documentation_items:
 #        api:
@@ -205,7 +205,7 @@ mongodb_odm:
       git_checkout_command: git clone git://github.com/jwage/odm.git mongodb_odm
       svn_checkout_command: svn co http://svn.github.com/jwage/odm.git mongodb_odm
       api_source_path: source/mongodb_odm1.0/lib
-      issues_link: http://www.doctrine-project.org/jira/secure/project/ViewProject.jspa?pid=10044
+      issues_link: http://www.doctrine-project.org/jira/browse/MODM
       browse_source_link: http://github.com/jwage/odm
       documentation_items:
         api:
