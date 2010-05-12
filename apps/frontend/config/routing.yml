@@ -44,6 +44,38 @@ old_documentation8:
   url:   /documentation/cookbook/1_2/:sf_culture/:chapter
   param: { module: documentation, action: item_chapter, slug: orm, version: "1.2", item: cookbook }
 
+old_documentation9:
+  url:   /documentation/manual/1_1/:sf_culture
+  param: { module: documentation, action: item_index, slug: orm, version: "1.2", item: manual }
+
+old_documentation10:
+  url:   /documentation/manual/1_1/:sf_culture/:chapter
+  param: { module: documentation, action: item_chapter, slug: orm, version: "1.2", item: manual }
+
+old_documentation11:
+  url:   /documentation/cookbook/1_1/:sf_culture
+  param: { module: documentation, action: item_index, slug: orm, version: "1.2", item: cookbook }
+
+old_documentation12:
+  url:   /documentation/cookbook/1_1/:sf_culture/:chapter
+  param: { module: documentation, action: item_chapter, slug: orm, version: "1.2", item: cookbook }
+
+old_documentation13:
+  url:   /documentation/manual/1_0/:sf_culture
+  param: { module: documentation, action: item_index, slug: orm, version: "1.2", item: manual }
+
+old_documentation14:
+  url:   /documentation/manual/1_0/:sf_culture/:chapter
+  param: { module: documentation, action: item_chapter, slug: orm, version: "1.2", item: manual }
+
+old_documentation15:
+  url:   /documentation/cookbook/1_0/:sf_culture
+  param: { module: documentation, action: item_index, slug: orm, version: "1.2", item: cookbook }
+
+old_documentation16:
+  url:   /documentation/cookbook/1_0/:sf_culture/:chapter
+  param: { module: documentation, action: item_chapter, slug: orm, version: "1.2", item: cookbook }
+
 project_api_documentation:
   url:   /projects/:slug/:version/api
   param: { module: documentation, action: api }
