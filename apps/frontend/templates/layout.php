@@ -25,7 +25,7 @@
           <?php else: ?>
             <?php $e = explode(' - ', $sf_response->getTitle()) ?>
             <?php if (isset($e[1])): ?>
-              <?php echo $e[1]; ?>
+              <?php echo end($e); ?>
             <?php elseif (isset($e[0])): ?>
               <?php echo $e[0]; ?>
             <?php endif; ?>
