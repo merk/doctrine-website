@@ -2,10 +2,6 @@ homepage:
   url:   /
   param: { module: main, action: index, current_menu_item: home }
 
-search:
-  url:   /search
-  param: { module: search, action: index }
-
 projects:
   url:   /projects
   param: { module: projects, action: index, current_menu_item: projects }
@@ -14,9 +10,39 @@ project:
   url:   /projects/:slug
   param: { module: projects, action: view }
 
-documentation:
-  url:   /documentation/*
-  param: { module: documentation, action: global_index, current_menu_item: documentation }
+# 2.0 old documentation routes
+old_documentation1:
+  url:   /documentation/manual/2_0/:sf_culture
+  param: { module: documentation, action: item_index, slug: orm, version: "2.0", item: reference }
+
+old_documentation2:
+  url:   /documentation/manual/2_0/:sf_culture/:chapter
+  param: { module: documentation, action: item_chapter, slug: orm, version: "2.0", item: reference }
+
+old_documentation3:
+  url:   /documentation/cookbook/2_0/:sf_culture
+  param: { module: documentation, action: item_index, slug: orm, version: "2.0", item: cookbook }
+
+old_documentation4:
+  url:   /documentation/cookbook/2_0/:sf_culture/:chapter
+  param: { module: documentation, action: item_chapter, slug: orm, version: "2.0", item: cookbook }
+
+# 1.2 old documentation routes
+old_documentation5:
+  url:   /documentation/manual/1_2/:sf_culture
+  param: { module: documentation, action: item_index, slug: orm, version: "1.2", item: manual }
+
+old_documentation6:
+  url:   /documentation/manual/1_2/:sf_culture/:chapter
+  param: { module: documentation, action: item_chapter, slug: orm, version: "1.2", item: manual }
+
+old_documentation7:
+  url:   /documentation/cookbook/1_2/:sf_culture
+  param: { module: documentation, action: item_index, slug: orm, version: "1.2", item: cookbook }
+
+old_documentation8:
+  url:   /documentation/cookbook/1_2/:sf_culture/:chapter
+  param: { module: documentation, action: item_chapter, slug: orm, version: "1.2", item: cookbook }
 
 project_api_documentation:
   url:   /projects/:slug/:version/api
