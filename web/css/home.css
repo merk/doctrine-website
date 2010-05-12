@@ -3,9 +3,8 @@
 }
 
 #projects ul li {
-  border-bottom: 1px solid #ccc;
   margin-right: 30px;
-  padding: 10px;
+  padding: 20px;
   margin-bottom: 20px;
   position: relative;
 }
@@ -14,8 +13,8 @@
   margin: 0;
   padding: 0;
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 5px;
+  right: 5px;
 }
 
 #projects ul li ul li {

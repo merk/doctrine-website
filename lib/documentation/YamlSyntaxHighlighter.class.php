@@ -1,8 +1,6 @@
 <?php
 
-
-
-class sfYamlSyntaxHighlighter
+class YamlSyntaxHighlighter
 {
   protected $_yaml;
   protected $_html;
@@ -35,7 +33,7 @@ class sfYamlSyntaxHighlighter
 
   public static function highlight($yaml)
   {
-    $highlighter = new sfYamlSyntaxHighlighter($yaml);
+    $highlighter = new self($yaml);
     return $highlighter->getHtml();
   }
 

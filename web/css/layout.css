@@ -272,11 +272,6 @@ a:hover  { color: #00508c; text-decoration:underline; border:0; }
 
 /* Comments */
 
-div.comment_row {
-  -moz-border-radius: 20px;
-  -webkit-border-radius: 20px;
-  border-radius: 20px;
-}
 div.comment_row .body { margin:12px 10px 10px; }
 div.comment_row h3 { margin:10px 10px 15px; }
 div.comment_row { overflow/**/: auto; margin-right: 30px; padding: 8px; margin: 0 30px 15px 30px; background: #f8ffbc; }

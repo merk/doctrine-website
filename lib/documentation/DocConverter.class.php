@@ -170,7 +170,7 @@ class DocConverter
   {
     $yaml = is_string($matches) ? $matches:$matches[1];
 
-    if ($formatted = sfYamlSyntaxHighlighter::highlight($yaml))
+    if ($formatted = YamlSyntaxHighlighter::highlight($yaml))
     {
       return $formatted;
     } else {

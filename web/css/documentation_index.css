@@ -1,17 +1,17 @@
 #documentation ul li {
   background: #f5f5f5;
-  border-bottom: 1px solid #ccc;
   padding: 20px;
   padding-right: 200px;
   margin-left: 0;
+  margin-right: 30px;
   list-style-type: none;
   position: relative;
 }
 
 #documentation ul li a.cover_image {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 5px;
+  right: 5px;
 }
 
 #documentation ul li a.cover_image img {

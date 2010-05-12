@@ -17,6 +17,5 @@ class ProjectConfiguration extends sfProjectConfiguration
     require_once('Text/Wiki.php');
 
     spl_autoload_register(array('Sensei', 'autoload'));
-
   }
 }
