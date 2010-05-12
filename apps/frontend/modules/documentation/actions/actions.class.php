@@ -39,7 +39,7 @@ class documentationActions extends sfActions
     $this->version = $this->project->getVersion($this->getRequestParameter('version'));
     $this->documentationItems = $this->version->getDocumentationItems($this->getRequestParameter('version'));
 
-    $this->getResponse()->setTitle('Doctrine - '.$this->project->getTitle());
+    $this->getResponse()->setTitle('Doctrine - '.$this->project->getTitle().' Documentation ('.$this->version->getSlug().')');
   }
 
   public function executeItem_index()

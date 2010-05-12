@@ -70,7 +70,7 @@
 </head>
 <body>
   <a href="<?php echo url_for('@homepage') ?>" target="_top"><img src="http://www.doctrine-project.org/logo/mediconlogo.png" id="logo" border="0" /></a>
-  <h3>Doctrine <?php echo $project->getTitle() ?> <?php echo $version->getSlug() ?> API Documentation</h3>
+  <h3>Doctrine <?php echo $project->getTitle() ?> API Documentation (<?php echo $version->getSlug() ?>)</h3>
   <div id="menu">  
     <?php echo get_partial('global/menu') ?>
   </div>

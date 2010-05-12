@@ -28,5 +28,7 @@ class downloadActions extends sfActions
     $this->project = Project::getProject($request->getParameter('slug'));
     $this->version = $this->project->getVersion($request->getParameter('version'));
     $this->release = $this->version->getRelease($request->getParameter('release'));
+
+    $this->getResponse()->setTitle('Doctrine - Download '.$this->project->getTitle().' ' . $this->release->getSlug());
   }
 }

@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-  <title>Doctrine <?php echo $project->getTitle() ?> <?php echo $version->getSlug() ?> API Documentation</title>
+  <title>Doctrine <?php echo $project->getTitle() ?> API Documentation (<?php echo $version->getSlug() ?>)</title>
   <frameset cols="100%">
 
   <frameset rows="65, 100%">
