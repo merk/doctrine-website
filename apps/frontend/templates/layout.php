@@ -33,7 +33,7 @@
         </h1>
 
       	<div id="logo">
-      		<?php echo link_to(__('Doctrine - PHP Database Libraries'), '@homepage'); ?>
+      		<?php echo link_to('Doctrine - PHP Database Libraries', '@homepage'); ?>
       	</div>
       </div>
 

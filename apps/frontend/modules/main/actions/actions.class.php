@@ -22,7 +22,16 @@ class mainActions extends sfActions
 
     $this->contributors = Doctrine_Core::getTable('Contributor')
       ->createQuery('c')
-      ->orderBy('c.core DESC, c.active DESC')
+      ->where('c.core = ?', 1)
+      ->andWhere('c.active = ?', 1)
+      ->orderBy('c.active DESC')
+      ->execute();
+
+    $this->otherContributors = Doctrine_Core::getTable('Contributor')
+      ->createQuery('c')
+      ->where('c.core = ?', 0)
+      ->orWhere('c.core = ? AND c.active = ?', array(1, 0))
+      ->orderBy('c.active DESC')
       ->execute();
   }
 

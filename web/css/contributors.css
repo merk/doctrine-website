@@ -1,0 +1,89 @@
+#other_contributors {
+  clear: left;
+}
+
+#other_contributors ul li {
+  margin-left: 60px;
+  list-style-type: square;
+  font-weight: bold;
+}
+
+#other_contributors ul li p {
+  margin: 0;
+  font-weight: normal;
+}
+
+.contributor_box {
+  border: 1px solid #ccc;
+  padding: 15px;
+  background: #f5f5f5;
+  margin-left: 30px;
+  margin-bottom: 15px;
+  position: relative;
+  width: 45%;
+  height: 190px;
+  float: left;
+}
+
+.contributor_box .info .name {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  font-weight: bold;
+}
+
+.contributor_box .info .role {
+  position: absolute;
+  top: 20px;
+  right: 10px;
+  font-size: 10px;
+  width: 125px;
+  text-align: right;
+}
+
+.contributor_box .info .email {
+  position: absolute;
+  bottom: 10px;
+  left: 15px;
+  font-weight: bold;
+}
+
+.contributor_box .info .about {
+  font-size: 10px;
+}
+
+.contributor_box .info .inactive {
+  position: absolute;
+  bottom: 5px;
+  right: 10px;
+  font-weight: bold;
+  color: red;
+  font-size: 11px;
+}
+
+.contributor_box img {
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+
+#contributor_table {
+  margin: 0 30px 15px 30px;
+}
+
+#contributor_table tr td {
+  padding: 2px;
+  vertical-align: top;
+}
+
+#contributor_page {
+  margin: 0 50px 15px 30px;
+}
+
+#contributor_page .contributor_box {
+  width: 100%;
+}
+
+#contributor_page .contributor_box .about {
+  width: 100%;
+  font-size: 14px;
+}

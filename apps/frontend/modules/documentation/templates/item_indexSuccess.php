@@ -28,8 +28,9 @@
     <h1><?php echo $documentationItem->getTitle() ?> coming soon...</h1>
   <?php endif; ?>
 
-
-  <?php echo image_tag($documentationItem->getCoverImage(), 'id="cover_image"') ?>
+  <?php if ($coverImage = $documentationItem->getCoverImage()): ?>
+    <?php echo link_to(image_tag($coverImage, 'id="cover_image"'), $documentationItem->getPurchaseLink()) ?>
+  <?php endif; ?>
 
   <?php echo get_partial('main/help') ?>
 </div>

@@ -16,7 +16,7 @@ orm:
       documentation_items:
         api:
           slug: api
-          title: API Documentation
+          title: API
           subtitle: Doctrine 1.2 ORM API Documentation
           description: Detailed API documentation for the Doctrine 1.2 codebase.
           route: "@project_api_documentation?slug=orm&version=1.2"
@@ -30,8 +30,8 @@ orm:
           toc_path: documentation/orm1.2/manual
           markup_parser: text_wiki
           update_command: "rm -rf documentation/orm1.2 && git clone git://github.com/doctrine/doctrine1-documentation.git documentation/orm1.2"
-          purchase_link: "http://www.amazon.com/Doctrine-ORM-PHP-Jonathan-Wage/dp/2918390038/ref=sr_1_1?ie=UTF8&s=books&qid=1246303098&sr=8-1"
-          cover_image: "http://www.doctrine-project.org/uploads/assets/cover_images/16f6fbd99672319b4d4135d73f712f47ea586759.png"
+          purchase_link: "http://www.amazon.com/Doctrine-ORM-PHP-Jonathan-Wage/dp/2918390267"
+          cover_image: "http://www.doctrine-project.org/uploads/assets/cover_images/fe8651f27331d62bc3d071cb1e29c779d1b599b2.jpg"
           icon: reference_icon.png
         cookbook:
           slug: cookbook
@@ -66,7 +66,7 @@ orm:
       documentation_items:
         api:
           slug: api
-          title: API Documentation
+          title: API
           subtitle: Doctrine 2.0 ORM API Documentation
           description: Detailed API documentation for the Doctrine 2.0 codebase.
           route: "@project_api_documentation?slug=orm&version=2.0"
@@ -74,7 +74,7 @@ orm:
           update_command: "rm -rf source/orm2.0 && git clone git://github.com/doctrine/doctrine2.git source/orm2.0 && rm -rf ../web/api/orm/2.0 && cd .. && php apidocs.php api-orm-2.0.ini"
         reference:
           slug: reference
-          title: Reference Documentation
+          title: Reference
           subtitle: Complete reference guide to Doctrine 2
           description: The Doctrine 2 Reference Documentation is the main source of documentation for the project. It is a reference book that can be read from start to finish and provides examples and information about the provided features.
           toc_path: documentation/orm2.0/manual
@@ -125,7 +125,7 @@ dbal:
       documentation_items:
         api:
           slug: api
-          title: API Documentation
+          title: API
           subtitle: Doctrine 2.0 DBAL API Documentation
           description: Detailed API documentation for the Doctrine 2.0 DBAL.
           route: "@project_api_documentation?slug=dbal&version=2.0"
@@ -133,7 +133,7 @@ dbal:
           update_command: "rm -rf source/orm2.0 && git clone git://github.com/doctrine/doctrine2.git source/orm2.0 && rm -rf ../web/api/dbal/2.0 && cd .. && php apidocs.php api-dbal-2.0.ini"
         reference:
           slug: reference
-          title: DBAL Reference Documentation
+          title: Reference
           subtitle: Reference for using the Doctrine Database Abstraction Layer
           description: Learn how to use the Doctrine Database Abstraction Layer and take advantage of all simple and advanced features.
           toc_path: documentation/dbal2.0/reference
@@ -195,7 +195,7 @@ mongodb_odm:
   slug: mongodb_odm
   title: "MongoDB Object Document Mapper"
   short_title: MongoDBODM
-  description: The Doctrine MongoDB Object Document Mapper is a fully featured library for persisting PHP 5 objects to MongoDB much in the same way the Doctrine 2 ORM works.
+  description: Doctrine MongoDB Object Document Mapper is built for PHP 5.3.0+ and provides transparent persistence for PHP objects.
   latest_version: "1.0"
   is_primary: false
   namespace: Doctrine\ODM\MongoDB
@@ -210,7 +210,7 @@ mongodb_odm:
       documentation_items:
         api:
           slug: api
-          title: API Documentation
+          title: API
           subtitle: "Doctrine MongoDB Object Document Mapper API Documentation"
           description: "Detailed API documentation for the Doctrine MongoDB Object Document Mapper".
           route: "@project_api_documentation?slug=mongodb_odm&version=1.0"
@@ -218,9 +218,9 @@ mongodb_odm:
           update_command: "rm -rf source/mongodb_odm1.0 && git clone git://github.com/jwage/odm.git source/mongodb_odm1.0 && rm -rf ../web/api/mongodb_odm/1.0 && cd .. && php apidocs.php api-mongodb_odm-1.0.ini"
         reference:
           slug: reference
-          title: "Doctrine MongoDB Object Document Mapper Reference Documentation"
+          title: Reference
           subtitle: Reference for using the Doctrine MongoDB Object Document Mapper
-          description: Learn how to use the Doctrine MongoDB Object Document Mapper quickly and easily.
+          description: Detailed reference documentation for all the Doctrine MongoDB Object Document Mapper features.
           toc_path: documentation/odm1.0/MongoDB
           markup_parser: markdown
           update_command: "rm -rf documentation/odm1.0 && git clone git://github.com/jwage/odm-documentation.git documentation/odm1.0"

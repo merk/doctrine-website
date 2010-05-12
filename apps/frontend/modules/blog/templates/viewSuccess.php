@@ -22,10 +22,8 @@
 <?php echo get_partial('post_row', array('blogPost' => $blogPost, 'full' => true)); ?>
 
 <br/>
-<?php use_helper('Comment'); ?>
-
 <a name="comments"></a>
-<?php echo get_comments($blogPost['id'], 'BlogPost'); ?>
+<?php echo get_component('comment', 'comments', array('record_id' => $blogPost['id'], 'record_type' => 'BlogPost')) ?>
 
 <?php slot('right'); ?>
   <?php echo get_partial('blog/sidebar') ?>

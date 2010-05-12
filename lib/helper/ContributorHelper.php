@@ -1,4 +1,5 @@
 <?php
+
 function contributor_photo($contributor, $options = array())
 {
   $path = sfConfig::get('sf_upload_dir') . '/assets/' . strtolower($contributor->getNick()) . '.gif';

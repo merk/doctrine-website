@@ -15,7 +15,7 @@
 </ul>
 
 <div id="documentation">
-  <h1><?php echo $project->getTitle() ?> Documentation</h2>
+  <h1><?php echo $project->getTitle() ?> Documentation (<?php echo $version->getSlug() ?>)</h1>
 
   <p><?php echo $project->getDescription() ?></p>
 
@@ -39,6 +39,12 @@
             <li><?php echo link_to('Buy printed version', $purchaseLink) ?></li>
           <?php endif; ?>
         </ul>
+        <?php if ($coverImage = $documentationItem->getCoverImage()): ?>
+          <?php echo link_to(image_tag($coverImage), $purchaseLink, 'class=cover_image target=_BLANK') ?>
+        <?php endif; ?>
+        <?php if (isset($toc) && $toc): ?>
+          <?php echo image_tag('pdf.gif') ?> PDF Coming Soon</li>
+        <?php endif; ?>
       </li>
     <?php endforeach; ?>
   </ul>
