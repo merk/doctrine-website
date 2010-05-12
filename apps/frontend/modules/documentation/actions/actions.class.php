@@ -67,6 +67,6 @@ class documentationActions extends sfActions
       $this->getRequestParameter('chapter')
     );
 
-    $this->getResponse()->setTitle('Doctrine - '.$this->documentationItem->getTitle().' / '.$this->renderer->getChapter()->getName());
+    $this->getResponse()->setTitle('Doctrine - '.$this->documentationItem->getTitle().' - '.$this->renderer->getChapter()->getName());
   }
 }
