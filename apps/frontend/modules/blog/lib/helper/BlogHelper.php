@@ -2,7 +2,7 @@
 
 function get_gravatar($email, $options = array(), $size = 40)
 {
-  $default = "http://www.somewhere.com/homestar.jpg";
+  $default = "http://www.doctrine-project.org/uploads/assets/no_image.png";
   $url = 'http://www.gravatar.com/avatar.php?gravatar_id='.md5(strtolower($email)).'&default='.urlencode($default).'&size='.$size;
   return image_tag($url, $options);
 }
