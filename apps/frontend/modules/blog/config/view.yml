@@ -1,2 +1,2 @@
 default:
-  stylesheets:   [main, layout, blog]
+  stylesheets:   [main, layout, blog, documentation]
