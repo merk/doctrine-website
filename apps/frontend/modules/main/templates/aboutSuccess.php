@@ -27,7 +27,7 @@ focused on providing persistence services and related functionality.</p>
         </span>
 
         <?php if ($email = $contributor->getEmail()): ?>
-          <span class="email">You can reach <?php echo $contributor->getNick(); ?> at <?php echo mail_to($email, $email); ?></span>
+          <span class="email"><?php echo mail_to($email, $email); ?></span>
         <?php endif; ?>
 
         <?php if ( ! $contributor->getActive()): ?>
