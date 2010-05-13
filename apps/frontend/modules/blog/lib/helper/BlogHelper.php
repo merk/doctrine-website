@@ -2,6 +2,7 @@
 
 function get_gravatar($email, $options = array(), $size = 40)
 {
+  $options['size'] = '40x40';
   $default = "http://www.doctrine-project.org/uploads/assets/no_image.png";
   $url = 'http://www.gravatar.com/avatar.php?gravatar_id='.md5(strtolower($email)).'&default='.urlencode($default).'&size='.$size;
   return image_tag($url, $options);

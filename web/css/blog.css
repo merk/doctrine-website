@@ -21,6 +21,7 @@
   font-weight: bold;
 }
 .blog_post ul {
+  margin-left: 40px;
 }
 .blog_post ul li {
   list-style-type: square;
