@@ -221,7 +221,16 @@ mongodb_odm:
           title: Reference
           subtitle: Reference for using the Doctrine MongoDB Object Document Mapper
           description: Detailed reference documentation for all the Doctrine MongoDB Object Document Mapper features.
-          toc_path: documentation/odm1.0/MongoDB
+          toc_path: documentation/odm1.0/MongoDB/reference
           markup_parser: markdown
           update_command: "rm -rf documentation/odm1.0 && git clone git://github.com/jwage/odm-documentation.git documentation/odm1.0"
           icon: reference_icon.png
+        cookbook:
+          slug: cookbook
+          title: Cookbook
+          subtitle: Everyday recipes for everyday Doctrine MongoDB ODM users
+          description: The cookbook is a collection of simple and advanced recipes for using Doctrine MongoDB ODM. They are both written by core Doctrine developers as well as by Doctrine users in the community.
+          toc_path: documentation/odm1.0/MongoDB/cookbook
+          markup_parser: markdown
+          update_command: "rm -rf documentation/odm1.0 && git clone git://github.com/jwage/odm-documentation.git documentation/odm1.0"
+          icon: cookbook_icon.png
