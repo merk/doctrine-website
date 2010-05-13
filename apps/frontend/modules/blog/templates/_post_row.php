@@ -11,7 +11,7 @@
 
   <?php $tags = array() ?> 
   <?php foreach ($blogPost->getTags() as $tag): ?>
-    <?php $tags[] = link_to($tag['name'], '@blog_tag?tag='.$tag->slug) ?></li>
+    <?php $tags[strtolower($tag['name'])] = link_to($tag['name'], '@blog_tag?tag='.$tag->slug) ?></li>
   <?php endforeach; ?>
   <?php if ($tags): ?>
     <div class="tags">
