@@ -5,4 +5,9 @@
  */
 class sfGuardUser extends PluginsfGuardUser
 {
+  public function setTableDefinition()
+  {
+    parent::setTableDefinition();
+    $this->hasColumn('email_address', 'string', 255);
+  }
 }

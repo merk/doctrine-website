@@ -1,7 +1,7 @@
 <?php use_helper('Blog', 'Date', 'Text'); ?>
 
 <div class="blog_post">
-  <?php echo get_gravatar($blogPost['User']['username'], array('class' => 'gravatar', 'align' => 'right')) ?>
+  <?php echo get_gravatar($blogPost['User']['email_address'], array('class' => 'gravatar', 'align' => 'right')) ?>
 
   <?php if (!isset($full)): ?>
     <h2><?php echo link_to($blogPost['name'], '@blog_post?slug='.$blogPost['slug']); ?></h2>
