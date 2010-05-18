@@ -20,6 +20,10 @@ class Project
 
   public function getVersion($slug)
   {
+    if ( ! isset($this->data['versions'][$slug]))
+    {
+      return false;
+    }
     $version = $this->data['versions'][$slug];
     $version['slug'] = $slug;
     return new ProjectVersion($this, $version);
@@ -61,7 +65,11 @@ class Project
 
   public static function getProject($slug)
   {
-    return new self($slug);
+    try {
+      return new self($slug);
+    } catch (InvalidArgumentException $e) {
+      return false;
+    }
   }
 
   public function isPrimary()

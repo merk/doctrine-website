@@ -20,6 +20,7 @@ class projectsActions extends sfActions
   public function executeView(sfWebRequest $request)
   {
     $this->project = Project::getProject($request->getParameter('slug'));
+    $this->forward404Unless($this->project);
 
     $this->getResponse()->setTitle('Doctrine - '.$this->project->getTitle());
   }
