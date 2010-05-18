@@ -91,7 +91,7 @@ class DocumentationItem
     $languages = array(
       $language,
       $user->getCulture(),
-      sfConfig::get('default_culture')
+      sfConfig::get('sf_default_culture')
     );
     foreach ($languages as $language)
     {
