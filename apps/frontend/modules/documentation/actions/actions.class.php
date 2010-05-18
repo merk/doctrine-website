@@ -12,8 +12,10 @@ class documentationActions extends sfActions
   public function executeApi()
   {
     $this->project = Project::getProject($this->getRequestParameter('slug'));
+    $this->forward404Unless($this->project);
+
     $this->version = $this->project->getVersion($this->getRequestParameter('version'));
-    $this->forward404Unless($this->project && $this->version);
+    $this->forward404Unless($this->version);
 
     $this->setLayout(false);
     sfConfig::set('sf_web_debug', false);
@@ -22,8 +24,10 @@ class documentationActions extends sfActions
   public function executeApi_navigation()
   {
     $this->project = Project::getProject($this->getRequestParameter('slug'));
+    $this->forward404Unless($this->project);
+
     $this->version = $this->project->getVersion($this->getRequestParameter('version'));
-    $this->forward404Unless($this->project && $this->version);
+    $this->forward404Unless($this->version);
 
     $this->setLayout(false);
     sfConfig::set('sf_web_debug', false);
@@ -38,8 +42,10 @@ class documentationActions extends sfActions
   public function executeIndex()
   {
     $this->project = Project::getProject($this->getRequestParameter('slug'));
+    $this->forward404Unless($this->project);
+
     $this->version = $this->project->getVersion($this->getRequestParameter('version'));
-    $this->forward404Unless($this->project && $this->version);
+    $this->forward404Unless($this->version);
 
     $this->documentationItems = $this->version->getDocumentationItems($this->getRequestParameter('version'));
 
@@ -49,8 +55,10 @@ class documentationActions extends sfActions
   public function executeItem_index()
   {
     $this->project = Project::getProject($this->getRequestParameter('slug'));
+    $this->forward404Unless($this->project);
+
     $this->version = $this->project->getVersion($this->getRequestParameter('version'));
-    $this->forward404Unless($this->project && $this->version);
+    $this->forward404Unless($this->version);
 
     $this->documentationItem = $this->version->getDocumentationItem($this->getRequestParameter('item'));
     $this->renderer = $this->documentationItem->getRenderer(
@@ -65,8 +73,10 @@ class documentationActions extends sfActions
   public function executeItem_chapter()
   {
     $this->project = Project::getProject($this->getRequestParameter('slug'));
+    $this->forward404Unless($this->project);
+
     $this->version = $this->project->getVersion($this->getRequestParameter('version'));
-    $this->forward404Unless($this->project && $this->version);
+    $this->forward404Unless($this->version);
 
     $this->documentationItem = $this->version->getDocumentationItem($this->getRequestParameter('item'));
     $this->renderer = $this->documentationItem->getRenderer(
